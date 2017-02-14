@@ -1,0 +1,112 @@
+\documentclass[a4paper,notitlepage,12pt]{article}
+
+\usepackage[ansinew]{inputenc}
+%\usepackage[frenchb]{babel}
+\usepackage{graphicx} 
+\usepackage[lmargin=2.2cm, rmargin=2.2cm,bottom=2.85cm,top=2.7cm]{geometry} 
+\usepackage{amsmath}
+\usepackage{amsthm} 
+\usepackage{amssymb}  
+\usepackage{eurosym} 
+\usepackage{enumitem} 
+\usepackage{url}
+%\usepackage{bbold}
+\usepackage{psfrag}
+\usepackage{tikz}
+
+\newcommand{\X}{X}
+\newcommand{\Y}{Y}
+
+\begin{document}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\large
+
+\textbf{Session 4: Decision Theory}
+
+%\section*{Exercices}
+
+\paragraph{1. } It is common knowledge that Rapha\"el is gifted to get a good idea of the structure of complex games. Once again, he chose a subjective probability distribution over all possible states $\Omega$ of the game, which we write $p = (p(s))_{s \in \Omega}$, that will probably allow him to win the game once more. Romain, who is generally less gifted than Rapha\"el for this kind of games, would like to use the same distribution as the latter. However, when asked to reveal it, Raphael can cheat and give any distribution $q$ in $\Delta(\Omega)$ of his choice to Romain. Not content with the situation, Romain would like to force Rapha\"el to reveal his true subjective probability distribution. For this, he promises Rapha\"el to give him some monetary reward $Y(q, s)$ when they discover the true state of the world $s$. (We here assume that Rapha\"el's utility function for money is linear and that he does not care about winning the game afterwards.)
+\begin{itemize}
+	\item Suppose that $q(s) = .2$ and $q(s') = .8$. Then, which among $Y(q,s)$ and $Y(q,s')$ should be the largest? Building on this observation, can you state a condition on the function $Y(q,s)$?
+	\item Suppose now that $Y(q,s) = q(s)$. Will Rapha\"el reveal his true subjective probability distribution to Romain? If not, what will he actually reveal?
+	\item Same question if $Y(q, s) = \mathrm{ln}\,q(s)$.
+	\item What should $Y(q, s)$ become if Rapha\"el's utility function was now given by $\mathop{\mathrm{sign}}(x)\cdot \sqrt{|x|}$ for any monetary amount $x$?
+	\item Can you think of a real-life application where a similar situation as the one described above may arise?
+\end{itemize}
+
+\paragraph{2. } Romain expresses the following preference relations for monetary lotteries:
+%Arnaud exprime les relations de préférences suivantes pour des loteries monétaires :
+\begin{align*}
+	[600\text{\euro}] & \succ [400\text{\euro}] \\
+							 			& \succ 0.90 \, [600\text{\euro}] + 0.10 \, [0\text{\euro}] \\
+							 			& \succ 0.20 \, [600\text{\euro}] + 0.80 \, [0\text{\euro}] \\
+							 			& \succ 0.25 \, [400\text{\euro}] + 0.75 \, [0\text{\euro}] \\
+							 			& \succ [0\text{\euro}].
+\end{align*}
+Do these preferences make sense? Can you explain why on a theoretical basis?
+%sont-elles consistantes avec une fonction d'utilité état-indé\-pen\-dante pour l'argent? Si oui, donner une telle fonction d'utilité. Si non, montrez que ces préférences violent un axiome.
+
+\paragraph{3. } Suppose that the utility of our gains depends on decisions and states as summarized in Table~\ref{ex7}. Let $(p(\theta_1), p(\theta_2))$ our subjective probability distribution on $\Omega = \{ \theta_1, \theta_2 \}$.
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ccccc}
+			\hline
+			Decision & & $\theta_1$ & & $\theta_2$ \\
+			\hline
+			$\alpha$ & & 15 & & 90 \\
+			$\beta$ & & B & & 75 \\
+			$\gamma$ & & 55 & & 40 \\
+			\hline
+		\end{tabular}
+		\caption{Utility of the gains for $\theta_1$ and $\theta_2$} \label{ex7}
+	\end{center}
+\end{table}
+\begin{itemize}
+	%\item Let us assume first that $B = 35$. For which intervals of $p \triangleq p(\theta_1)$ are the decisions $\alpha, \beta$ and $\gamma$ optimal? Are some of these decisions strongly dominated? If so, by which randomized strategy?
+	\item Let us assume first that $B = 35$. For which intervals of $p \triangleq p(\theta_1)$ are the decisions $\alpha, \beta$ and $\gamma$ optimal? %Is there a decision is \emph{never} optimal?
+	\item For $B = 20$, show that $\beta$ is never an optimal decision.
+	\item For $B = 20$, show that there is a value for $(p(\theta_1), p(\theta_2))$ such that  both the decisions $\alpha$ and $\gamma$ have a better expected utility payoff than  $\beta$.
+	%\item For which values of the parameter $B$ is the decision $\beta$ strongly dominated?
+\end{itemize}
+
+\section*{Reminders}
+
+\begin{itemize}[leftmargin=*]
+\renewcommand{\labelitemi}{$\bullet$}
+
+	\item \textbf{The KKT conditions}
+	\vspace{.3cm}
+	
+	Consider the optimization problem with $n$ variables, $p$ equality constraints and $q$ inequality constraints:
+	\begin{equation*}
+		\begin{array}{lll}
+			\max && f(x), \\ 
+			\mbox{s.t.} && g_i \hspace{.1cm} (x) = 0 \quad \forall \; i = 1, ..., p, \\
+			&& h_j(x) \geq 0 \quad \forall \; j = 1, ..., q.
+		\end{array}
+	\end{equation*}
+	The KKT conditions guarantee (under some regularity conditions) that, if $x^*$ is the optimum, there exist coefficients $\lambda_i$ $(i = 1, ..., p)$ and $\gamma_j$ $(j = 1, ..., q)$ such that:
+	\begin{align*}
+		\nabla f(x^*) & = \sum_{i = 1}^p \lambda_i \nabla g_i(x^*) - \sum_{j = 1}^q \gamma_j \nabla h_j(x^*), \\
+		g_i(x^*) & = 0 \hspace{3.58cm} \forall \hspace{.07cm} \; i = 1, ..., p, \\
+		h_j(x^*) & \geq 0 \hspace{3.58cm} \forall \; j = 1, ..., q, \\
+		\gamma_j & \geq 0 \hspace{3.58cm} \forall \; j = 1, ..., q, \\
+		\gamma_j h_j(x^*) & = 0 \hspace{3.58cm} \forall \; j = 1, ..., q.
+	\end{align*}
+		
+\end{itemize}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

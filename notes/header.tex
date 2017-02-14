@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{report}
+
+%% The two first options are wrong in english: they do not agree with some standard english convenions
+%\usepackage[utf8] {inputenc}	% LaTeX, comprends les accents !
+\usepackage[french, english] {babel}	% langue principale
+\usepackage[ansinew]{inputenc}
+
+\usepackage[T1]{fontenc}		% Police contenant les caractères françai
+\usepackage{lmodern}			% plus beau
+
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.75,vscale=0.8,centering}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsfonts} % Equations etc
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[pdftex]{graphicx} %Images dans le PDF
+\usepackage{epstopdf}
+\usepackage{color}
+\usepackage{chessboard}
+\usepackage{booktabs,tabularx,multirow}
+\usepackage[babel=true,kerning=true]{microtype}
+\usepackage{tikz,pgfplots}
+\usepackage{wrapfig}
+
+\usetikzlibrary{shapes,arrows,positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations}
+\usetikzlibrary{decorations.text}
+
+\tikzstyle{noeud-std}=[draw,fill=black,circle,inner sep=0pt,minimum size=7pt]% 7pt est la taille des cercles noirs
+
+
+
+\usepackage{color}
+
+
+\newcommand{\reels}{\mathbb{R}}
+
+%\usepackage{amsthm}
+\usepackage{framed}
+\usepackage[amsmath,thref, framed]{ntheorem}
+
+\theoremstyle{break}                  % passage à la ligne 
+\newframedtheorem{theorem}{{ Theorem}}
+\newframedtheorem{procedure}{{Procedure}}
+\newframedtheorem{proposition}{{Proposition}}
+\newtheorem{lemme}[theorem]{{Lemma}}
+\newtheorem{hypothese}{{Hypothesis}}
+
+
+\newframedtheorem{definition}{Definition}
+\newtheorem{remark}{{Remark}}
+\newtheorem{exercise}{Exercise}
+\newtheorem{notation}{Notation}[definition]
+\newtheorem{axiom}{Axiom}
+
+
+\theorembodyfont{\upshape}
+\newtheorem{example}{Example}
+\theoremstyle{nonumberbreak}  
+\newtheorem{proof}{Proof}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% Layout style change by Romain, 2015/05/19
+%\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+

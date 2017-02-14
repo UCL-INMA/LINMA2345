@@ -1,0 +1,218 @@
+\ifx \globalmark \undefined %% This is default.
+	\input{../header}
+	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
+\else 	
+\fi
+
+
+
+
+\chapter{Bargaining and Coalitions}
+{\large{\itshape
+"The whole is greater than the sum of its parts"} - Aristotle.\\
+}
+\label{chap:Bar}
+{\small{\itshape
+Chapter based on pages 370-390 and 417-444 of the book  ``Game theory - Analysis of conflict'' by R. Myerson.}\\
+}
+
+
+What if players were asked to agree on one single strategy in a game? This can be achieved by negotiation and bargaining, which is the topic of this chapter. In this framework, once a strategy is agreed on by all, the players are bound to this strategy and cannot deviate. Therefore, the whole game is only about how players can achieve such an agreement, possibly invoking fairness arguments or threatening each other.
+
+The chapter is divided into two parts. We first explore what happens in a negotiation with two players, and then with three or more players. Indeed, it will appear that the players' behavior become significantly more complex when there are three or more of them bargaining, compared to the two-player case.
+
+
+
+\section{The two-players bargaining problem}
+
+
+
+A bargaining problem with two players is defined by a pair $(F, v)$ where $F$ is a closed convex set of $\mathbb{R}^2$ which represents the set of possible payoffs and $v = (v_1, v_2) \in \mathbb{R}^2$ is the \emph{disagreement point} and represents the payoffs that both players would receive in the event of failure of the negotiation.
+
+Such a problem can be obtained for example from a game in strategic form $\Gamma = (\{ 1,2 \}, C_1, C_2, u_1, u_2)$, if the players can negotiate the establishment of a mechanism $\mu$, and sign a contract binding them to the realization of the injunction imposed by this mechanism. In this case, the set $F$ can be defined by:
+\begin{align*}
+	F = \Big\{ \big( \, u_1(\mu), \, u_2(\mu) \, \big) \; | \; \mu \in \Delta(C) \, \Big\}, \quad \text{where } \, u_i(\mu) \, = \, \sum_{c \in C} \mu(c) u_i(c).
+\end{align*}
+If not specified or obvious from the context, the disagreement point can be defined in several ways depending on the problem studied. We discuss three typical definitions in Section~\ref{sec:disagreement}.
+
+We write $\phi(F, v) \in \mathbb{R}^2$ the solution of a two-player negotiation and we say that $(F, v)$ is \emph{essential} iff there exists at least one allocation $y$ in $F$ such that $y > v$. (Here, we say that $x \geq y$ iff $x_1 \geq y_1$ and $x_2 \geq y_2$ and $x > y$ iff $x_1 > y_1$ and $x_2 > y_2$.) 
+
+What solution should the players agree on? Maybe the best \emph{egalitarian} solution would be good, that is, the best strategy in which both players win the same. But then what if one player is dishonest and claims for an exaggeratedly low utility function? Giving him more does not seem right. Indeed, we do not want the solution to depend on the way payoffs are scaled. One could go for the best \emph{utilitarian} solution then, that is, the strategy in which the sum of payoffs is as high as possible. But again, we have a problem with the scaling.
+
+In the next section, we will see how Nash was able to propose a meaningful solution to this question. We will also see in Section~\ref{sec:egalitarian-utilitarian} how Nash's solution relates to the egalitarian and utilitarian solutions.
+
+
+
+\subsection{Nash's Bargaining solution}
+
+
+
+Like Von Neumann and Morgenstern before him, John Nash uses an axiomatic approach to derive his solution to the two-player bargaining problem. Thereby, he tries to objectify how rational players should negotiate while hopefully ensuring the existence and unicity of a solution. The axioms in question are the following.
+
+\begin{enumerate}
+
+	\item[(1)\phantom{'}] \textbf{Strong efficiency.} $\phi(F, v)$ is an allocation in $F$ and, for all $x$ in $F$, if $x \geq \phi(F, v)$, then $x = \phi(F, v)$.
+	\item[(1')] \textbf{Weak efficiency.} $\phi(F, v) \, \in \, F$ and there does not exist any $y$ in $F$ such that $y > \phi(F, v)$.
+	\item[(2)\phantom{'}] \textbf{Individual rationality.} $\phi(F, v) \geq v$.
+	\item[(3)\phantom{'}] \textbf{Scale covariance.} For all $\lambda_1 > 0, \lambda_2 > 0, \gamma_1, \gamma_2$, let
+	\begin{itemize}
+		\item $G = \{ \, ( \, \lambda_1 x_1 + \gamma_1, \, \lambda_2 x_2 + \gamma_2 \, ) \; | \; (x_1, x_2) \, \in \, F \, \}$,
+		\item $w = ( \, \lambda_1 v_1 + \gamma_1, \, \lambda_2 v_2 + \gamma_2 \, )$.
+	\end{itemize}
+	Then $\phi(G, w) = ( \, \lambda_1 \,  \phi_1(F, v) + \gamma_1, \,  \lambda_2 \,  \phi_2(F, v) + \gamma_2 \, )$.
+	\item[(4)\phantom{'}] \textbf{Independence of irrational alternatives.} For any closed convex set $G$, if $G \subseteq F$ and $\phi(F, v) \, \in \, G$, then $\phi(G, v) = \phi(F, v)$.
+	\item[(5)\phantom{'}] \textbf{Symmetry.} If $v_1 = v_2$ and $\{ \, (x_2, x_1) \; | \; (x_1, x_2) \, \in \, F \, \} = F$, then $\phi_1(F, v) = \phi_2(F, v)$.
+	
+\end{enumerate}
+
+From these axioms results a single solution, as stated by Nash's theorem for bargaining.
+
+\begin{theorem}[Nash's bargaining solution]
+There is a unique solution function $\phi(\cdot, \cdot)$ that satisfies Axioms $(1)$ to $(5)$ above. This solution function satisfies, for every two-person bargaining problem $(F, v)$:
+\begin{align} \label{thm1}
+	\phi(F, v) \, \in \, \underset{x \, \in \, F, \, x \geq v}{\mathrm{argmax}} \ (x_1 - v_1)(x_2 - v_2).
+\end{align}
+\end{theorem}
+
+
+
+\subsection{Interpersonal comparison of weighted utility} \label{sec:egalitarian-utilitarian}
+
+
+
+As mentioned above, in real bargaining situations, the players often reason by comparing their respective utilities. They usually do so in two different ways:
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+	\item The ``equal gains'' principle: \emph{``You should do that for me because I do more for you.''} 
+	
+	In agreement with this principle, we define the \emph{$\lambda-$egalitarian solution} of a bargaining problem $(F, v)$ as the unique point $x$ of $F$ that is weakly efficient in $F$ and that satisfies the following condition:
+	\begin{align*}
+		\lambda_1 (x_1 - v_1) = \lambda_2 (x_2 - v_2).
+	\end{align*}
+	
+	\item The ``greater good'' principle: \emph{``You should do this for me because it helps me more than it harms you.''}
+	
+	The \emph{$\lambda-$utilitarian solution} of a bargaining problem $(F, v)$ that derives from this principle is any solution function that yields $x \, \in \, F$ such that:
+	\begin{align*}
+		\lambda_1 \, x_1 + \lambda_2 \, x_2 = \max_{y \in F} \ (\lambda_1 \, y_1 + \lambda_2 \, y_2).
+	\end{align*}
+\end{itemize}
+The following theorem expresses the fact that the Nash bargaining solution is a natural synthesis of the equal gains and greater good principles.
+
+\begin{theorem}
+Let $(F, v)$ be an essential bargaining problem with two players and let $x$ be an allocation vector such that $x \, \in \, F$ and $x \geq v$. Then $x$ is the Nash bargaining solution for $(F, v)$ iff there exist $\lambda_1 > 0$ and $\lambda_2 > 0$ such that:
+\begin{align*}
+	& \lambda_1 \, x_1 - \lambda_1 \, v_1 \hspace{.03cm} \ = \ \lambda_2 \, x_2 - \lambda_2 \, v_2  \\
+	\text{and} \qquad \; & \lambda_1 \, x_1 + \lambda_2 \, x_2 \ = \ \max_{y \in F} \ (\lambda_1 \, y_1 + \lambda_2 \, y_2).
+\end{align*}
+\end{theorem}
+
+
+
+\subsection{About the disagreement point} \label{sec:disagreement}
+
+
+
+Depending on the problem studied, the disagreement point $v$ can be defined in at least three ways: we may choose the minimax solution, use a Nash equilibrium or make rational threats.
+
+\begin{description}
+	\item[Minimax.] In this case, players assume that in case of a disagreement, they will get the value that they can always ensure, that is, their minimax value which is given by:
+	\begin{align*}
+		v_i = \min_{\sigma_{-i} \in \Delta(C_{-i})} \max_{\sigma_i \in \Delta(C_i)} u_i(\sigma_i, \sigma_{-i}), \quad \text{with} \ i \in \{1,2\}.
+	\end{align*}
+	This choice of $v$ can be useful to model unpredictable, irrational or risk averse behaviors for instance. Playing the minimax strategy can also make sense in a situation where the failure of a negotiation would be the fault of some particular player who could then choose to play safely because he feels threatened.
+	\item[Nash equilibrium.] If $\sigma$ is a Nash equilibrium of the game, then we may define $v$ such that $v_i = u_i(\sigma)$.
+	\item[Rational threats.] The idea of rational threats is for each player to choose (and announce) his disagreement strategy in order to maximize his value with the Nash bargaining solution. Doing so, the players of course assume for an eventual agreement. More precisely, suppose that in case of a disagreement, the players announce that they will play $\tau_1$ and $\tau_2$ respectively. We call $\tau_1$ and $\tau_2$ \emph{threats}. If those actions were to happen, the payoffs of the players would be $u(\tau_1, \tau_2)$ and the Nash bargaining solution would be $\phi(F, u(\tau_1, \tau_2))$. We say that the threats $\tau_1$ and $\tau_2$ are \emph{rational} iff
+	\begin{align*}
+		\phi_1(F, u(\tau_1, \tau_2)) &\geq \phi_1(F, u(\sigma_1, \tau_2)) \quad \text{for all} \ \sigma_1 \in \Delta(C_1)\\
+		\text{and} \quad \phi_2(F, u(\tau_1, \tau_2)) &\geq \phi_2(F, u(\tau_1, \sigma_2)) \quad \text{for all} \ \sigma_2 \in \Delta(C_2)
+	\end{align*}
+	and in that case, we define $v$ as $u(\tau_1, \tau_2)$. In other words, changing $\tau_i$ to any other threat would deteriorate the Nash bargaining solution for player $i$. This definition of $v$ is perhaps the most meaningful of the three but it may also be too hard to compute... except in the case of transferable utility.
+\end{description}
+
+
+
+\subsection{The case of transferable utility}
+
+
+
+Often in bargaining, it makes sense for a player to be willing to share some of his payoff with the other player in order to achieve a better solution for both. We then say that the utility is \emph{transferable}\footnote{\footnotesize To be precise, we should add that the utility beeing transferable also assumes that the players can throw away their payoffs.}. Another way of interpreting transferable utility is to imagine that the players are playing as a team aiming for the highest total reward and then that they share this reward among them, according to each player's contribution.
+
+In the case where we have transferable utility, the set of feasible payoffs is simply given by 
+\begin{align*}
+	F = \{ \ y \in \mathbb{R}^2 \ | \ y_1 + y_2 \leq v_{12} \ \}, \quad \text{where} \quad v_{12} = \max_{\mu \in \Delta(C)} u_1(\mu) + u_2(\mu).
+\end{align*}
+Here $v_{12}$ corresponds to the largest total payoff that the players can achieve together. In that case, the Nash bargaining solution can be explicitly computed by
+\begin{align*}
+	\phi_1 = \frac{v_{12} + v_1 - v_2}{2} \quad \text{and} \quad \phi_2 = \frac{v_{12} - v_1 + v_2}{2}.
+\end{align*}
+
+To end this section, let us observe that the rational threats can be easily computed in the case of transferable utility. Indeed, the payoff of the players when using the threats $\tau_1$ and $\tau_2$ respectively is then given by
+\begin{align*}
+	&\phi_1(F, u(\tau_1, \tau_2)) = \frac{v_{12} + u_1(\tau_1, \tau_2) - u_2(\tau_1, \tau_2)}{2}\\ \text{and} \quad &\phi_2(F, u(\tau_1, \tau_2)) = \frac{v_{12} - u_1(\tau_1, \tau_2) + u_2(\tau_1, \tau_2)}{2}.
+\end{align*}
+The players aim to maximize this expression which boils down to maximizing $u_1(\tau_1, \tau_2) - u_2(\tau_1, \tau_2)$ for player 1 and $u_2(\tau_1, \tau_2) - u_1(\tau_1, \tau_2)$ for player 2. Therefore, the threats $\tau_1$ and $\tau_2$ are rational iff they are an equilibrium of the two-player zero-sum game given by $\Gamma^*=(\{1,2\}, \Delta(C_1), \Delta(C_2), u_1-u_2, u_2-u_1)$. It is well known that equilibria can be easily computed for such games.
+
+
+
+\section{The bargaining problem with more than two players}
+
+
+
+When three or more players take part in a negotiation, it is no longer possible to use Nash's bargaining solution. The main reason for that is that players can now make \emph{coalitions} (= teams). To study these bargaining games, we must therefore take any possible coalition into account (there are $2^n-1$ of them if we exclude the empty coalition) but such games rapidly become intractable. This is why, in this section, we make the assumption of transferable utility, that is, we only need to look at what each coalition can get by joining their forces.
+
+Formally, we define the \emph{characteristic function} $v$ that assigns a value $v(S)$ to each possible coalition $S \subseteq N$, representing how much payoff the players of $S$ can achieve together without the help of the other players. We assume that this function is super-additive, that is, that for any coalition $S \subseteq N$, we have
+\begin{align*}
+	v(N) \geq v(S) + v(N-S).
+\end{align*}
+In other words, the payoff that all players get together is greater than what they would get if the group was divided into smaller teams. 
+
+It seems obvious that the players should play together as a group if they want to win the most. But then we may ask the question: how should each individual be rewarded? Clearly, the players will not agree on a payoff allocation if they can get more by teaming up into a smaller coalition. This is the idea of the core that is discussed in the next section. But does such a division always exist? And is it unique? If not, we may still want to come up with a good payoff allocation. These issues will also be discussed in the next sections.
+
+
+
+\subsection{The core}
+
+
+
+Let us describe the \emph{core} of the characteristic function $v$ as the set of all the payoff allocations that the players should accept because they cannot obtain a higher payoff by making a coalition. We say that an allocation of payoffs $x$ is in the \emph{core} of $v$ iff
+\begin{align*}
+	\sum_{i \in N}{x_i} = v(N) \text{ et } \sum_{i\in S}{x_i} \geq v(S), \quad \forall S \subseteq N
+\end{align*} 
+where the second condition requires that no coalition can improve the payoffs of its participants.
+
+Note that the core of a game can be empty. In that case it may not be possible for the players to agree on a solution. And even if it was non-empty, the number of possible allocations may be large and we may want to be able to choose one. Finally, the core can be very sensitive to numerical values of the characteristic function, which is not desirable. 
+
+
+\subsection{The Shapley value}
+
+
+
+The Shapley values aim to define a fair payoff allocation to the players according to their individual contributions to the game. Here, a payoff allocation is defined for each characteristic function $v$ as a function $$\phi(v) : N \rightarrow \reels.$$ 
+Shapley's solution is built from the following reasonable axioms. 
+
+\begin{enumerate}
+	\item \textbf{Symmetry}: If one permutes the order of the players and that Player $i$ becomes Player $j$, then the Shapley value for Player $i$ in the original game has to be equal to that of Player $j$ in the new game.
+	\item \textbf{Support}: If a player has nothing to bring to the coalition, he earns nothing.
+	\item \textbf{Linearity}: For all characteristic functions $v$ and $w$, for all $0 \leq p \leq 1$ and for all player $i$: $\phi_i(pv + (1-p)w) = p\phi_i(v) + (1-p)\phi_i(w)$.
+\end{enumerate}
+
+\begin{theorem}[Shapley Value]
+Given any characteristic function $v$, there exists a \emph{unique} function $\phi(v)$ satisfying the Symmetry, Support and Linearity axioms which is given by
+\begin{align*}
+	\phi_i(v) = \sum_{S \subseteq N -i}{\dfrac{|S|!(|N| - |S| - 1)!}{|N|!} (v(S \cup {i}) - v(S))}.
+\end{align*}
+\end{theorem}
+
+
+The above formula finds an intuitive explanation in the following idea. Suppose that all the players were entering the game one by one. Each time a new player, $i$, enters the game, he brings some additional value $v(S \cup {i}) - v(S)$ to the coalition $S$ already there, which he takes for himself. Then we consider every possible order in which the players can enter the game (there are $|N|!$ such orders) and it is easy to see that the Shapley Value is exactly this 'expected eazrnings', when the ordering in which agents enter the coalition is choosed randomly.
+
+
+
+\ifx \globalmark \undefined %% This is default.
+\bibliographystyle{plain}
+\bibliography{../gametheorybibliography}
+	\end{document}
+\else 
+	
+\fi

@@ -1,0 +1,94 @@
+\documentclass{ape}
+
+
+\begin{document}
+
+\hspace{-.5cm}\Large{\textbf{Session 2 : Basic models of game theory}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+%\section*{Exercices}
+
+\section{}
+The new doughnut production process that Firm~1 is developing has equal chances to generate high or low costs. Depending on this result, Firm~1 can decide to build, or not, a new shop.
+
+Firm~2 would also like to enter the doughnuts market. It decides to enter, or not, based on the observation of what Firm~1 does (building a new shop or not). However, Firm~2 does not know whether Firm~1 incurred high or low costs.
+
+Depending on both firms' choices, profits will obey the following rules:
+
+\begin{itemize}
+	\item If it enters the doughnuts market, Firm~2 will make a long term profit of $2M$\euro \ if Firm~1 incurred high costs but it will lose $4M$\euro \ if the costs were low instead. 
+	\item Low costs would generate a profit of $4M$\euro \ for Firm 1 and the construction of a new shop would add $2M$\euro \ to this amount. On the other hand, the construction of a new shop by Firm~1 would generate a deficit of $4M$\euro \ if the costs were high.
+	\item In any case, Firm~2 entering the doughnuts market would imply a deficit of $6M$\euro \ for Firm~1.
+\end{itemize}
+
+The two firms are well aware of the situation and want to maximize their own profits in euros.
+
+\begin{enumerate}
+	\item[a.] Describe this game in \textit{extensive form}.
+	\item[b.] Build the \textit{normal} representation of this game in strategic form.
+	\item[c.] Analyze this normal representation and eliminate as many weakly dominated strategies as possible iteratively.
+	\item[d.] Now assume that the game starts just after Firm~1 learns whether costs are high or not (but before Firm~1 decides whether it will build a new shop). Write a \textit{Bayesian} game with incomplete information to describe the situation.
+	\item[e.] Write the \textit{type-agent} representation of the Bayesian game obtained in~d.
+\end{enumerate}
+
+%\paragraph{1. } Le nouveau processus de production de widgets que la firme 1 développe a autant de chance de générer des coûts faibles qu'élevés. En fonction de ce dernier résultat, la firme 1 peut alors décider de construire, ou pas, un nouvel entrepôt.
+%
+%La firme 2 aimerait elle aussi entrer sur le marché des widgets. Elle décide d'y entrer, ou pas, sur base de l'observation de ce que fait la firme 1 (construire ou non un nouvel entrepôt). Cependant, elle ne connait pas les coûts que cette dernière a encourus.
+%
+%Selon les choix respectifs des deux firmes, des profits sont engendrés selon les règles suivantes :
+%\begin{itemize}
+%	\item La firme 2 fera un profit à long terme de $2M$\euro \ si elle entre sur le marché des widgets et que la firme 1 a encouru des coûts élevés tandis qu'elle perdra $4M$\euro \ si ces coûts étaient faibles.
+%	\item Des coûts faibles engendreraient un profit de $4M$\euro \ en faveur de la firme 1 et la construction d'un nouvel entrepôt y ajouterait encore $2M$\euro. Par contre, la construction d'un nouvel entrepôt par la firme 1 engendrerait un déficit de $4M$\euro \ si les coûts étaient élevés.
+%	\item Dans tous les cas, l'entrée de la firme 2 sur le marché de widgets engendrerait un déficit de $6M$\euro \ pour la firme 1.
+%\end{itemize}
+%Les deux firmes sont parfaitement au courant de la situation et souhaitent maximiser leur profit en euros.
+%\begin{enumerate}
+%	\item[a.] Décrivez ce jeu en \textit{forme extensive}.
+%	\item[b.] Construisez la représentation \textit{normale} de ce jeu en forme stratégique.
+%	\item[c.] Analysez cette représentation normale et éliminez itérativement un maximum de stratégies faiblement dominées.
+%	\item[e.] Supposons maintenant que le jeu commence juste après que la firme 1 apprenne si ses coûts sont élevés ou pas (mais avant que la firme 1 ne décide si elle construira un nouvel entrepôt). Écrivez un jeu \textit{Bayésien} avec information incomplète pour décrire ce jeu.
+%	\item[f.] Écrivez la représentation \textit{type-agent} du jeu Bayésien obtenu en e.
+%\end{enumerate}
+
+\nosolution
+
+\section{}
+Matthew and Beno\^it are playing the following game. First, they both bet 4\euro. Then, Matthew draws a card without showing it to Beno\^it and hopes for a red card. He can either decide to \emph{Fold}, to \emph{Raise} 3\euro \ or to \emph{Raise} 4\euro. If he decides to fold, he shows his card. If the card was red, he wins all the euros from the table, otherwise Beno\^it does. If he decides to raise on the other hand, then Beno\^it can choose to \emph{Meet} the bet (add 3 euros if Matthew raised 3\euro, 4 if he raised 4\euro) or to \emph{Pass}. In this latter case, he loses his initial bet of 4\euro \ (but nothing more). Instead, if he meets, all the money goes to Matthew if the card was red and to Beno\^it if it was black. 
+
+\begin{enumerate}
+	\item[a.] Model this game in extensive form and build its normal representation.
+	\item[b.] If you had to play this game, which role would you prefer? 
+\end{enumerate}
+
+\nosolution
+
+%Raphaël et Beno\^it jouent au jeu suivant. Tout d'abord, ils misent chacun 1\euro. Ensuite Raphaël tire une carte dans un jeu complet de 52 cartes sans la montrer à Beno\^it et espère que celle-ci sera supérieure ou égale à 10 (donc que ce sera un 10, un valet, une dame, un roi ou un as). Raphaël peut alors décider soit de s'arrêter là (\textit{Fold}) soit de surenchérir de 1\euro \ (\textit{Raise}). S'il a décidé de s'arrêter, il montre sa carte et gagne l'ensemble des mises (donc les 1\euro \ de Beno\^it) si sa carte était supérieure ou égale à 10. Dans le cas contaire, c'est Beno\^it qui empoche tout. S'il surenchérit par contre, Beno\^it a alors le choix entre suivre la surenchère (\textit{Meet}) et se coucher (\textit{Pass}). S'il se couche, Raphaël empoche la mise totale (et donc les 1\euro \ de Beno\^it). S'il suit la surenchère par contre, de nouveau Raphaël montre sa carte et empoche l'entièreté de la mise (donc 2\euro \ cette fois) uniquement si sa carte était au moins un 10. Sinon, c'est Beno\^it qui récupère le tout.
+%\begin{enumerate}
+%	\item[a.] Modélisez ce jeu sous forme extensive et construisez sa représentation normale.
+%	\item[b.] Si vous deviez jouer au jeu, préféreriez-vous intuitivement le rôle de Raphaël ou celui de Beno\^it? 
+%\end{enumerate}
+%
+%\paragraph{3. } Supposons qu'on joue au même jeu qu'à la question 2., mais avec les modifications suivantes :
+%\begin{itemize}
+%	\item Raphaël gagne si sa carte est rouge (et plus si elle est supérieure à 10) et perd si elle est noire;
+%	\item Raphaël a maintenant le choix entre s'arrêter (\textit{Fold}), surenchérir de 1\euro \ (\textit{Raise1}) ou surenchérir de 0,75\euro \ (\textit{Raise.75}).
+%\end{itemize}
+%\begin{enumerate}
+%	\item[a.] Modélisez ce jeu sous forme extensive et construisez sa représentation normale.
+%	\item[b.] Identifiez toutes les stratégies qui peuvent être itérativement éliminées par faible domination.
+%\end{enumerate}
+
+\section{}
+The next object to be sold in the auction is a statue representing \emph{Archangel Rapha\"el}. Starting price: 100\euro. For obvious reasons, Beno\^it and Matthew are both very interested by this relic (strangely enough, they seem to be the only ones though). They both know how much the object is worth for themselves and estimate that it must have an (integer) value between 1 and 100 to the other player, each with equal probability. Now, they must make an offer (an integer between 0 and 100) for the statue simultaneously: the player who bids the highest pays \emph{the price announced by its opponent} and returns home with the relic whereas the opponent in question goes home with nothing but its money. (In case of a tie, we flip a coin to decide who gets the statue.)
+
+\begin{enumerate}
+	\item[a.] Model this situation as a Bayesian game.
+	\item[b.] Consider the type-agent formulation of this game. How many players would it count? And how many actions would each player have? (\textbf{Advanced.} Give a full description of the type-agent representation of this game.)
+	\item[c.] The above game is known as a second price sealed bid auction. Can you guess the optimal strategy of the players? And what if the player who bids the highest had to pay its own bid instead of its opponent's (the so-called first price sealed bid auction)? 
+\end{enumerate}
+
+\nosolution{}
+
+\end{document}

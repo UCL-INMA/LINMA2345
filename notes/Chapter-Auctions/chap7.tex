@@ -1,0 +1,331 @@
+\ifx \globalmark \undefined %% This is default.
+	\input{../header}
+	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
+\else 	
+\fi
+
+
+
+
+\chapter{Auctions}
+{\large{\itshape
+3$\dotsc$ 2$\dotsc$ 1$\dotsc$ Meins!} --- eBay.\\
+}
+  {\small{\itshape
+Chapter based based
+on the book \emph{Game theory for applied economists} (1992) by R.\ Gibbons (Sec.~\ref{sec:auc:3} and~\ref{sec:auc:6}) and the script \emph{Multiagent systems: Algorithmic, Game-Theoretic, and Logical Foundations} (2009) by Y.\ Shoham and K.\ Leyton-Brown (Sec.~\ref{sec:auc:1}, \ref{sec:auc:2}, \ref{sec:auc:4} and~\ref{sec:auc:5}).}\\
+}
+\label{chap:Auct}
+
+%\textbf{Todo:}
+%\begin{tabular}{l<{$\Box$}l}
+% & box after proofs? \\
+% & sec 4: change theorem, add proof 
+%\end{tabular}
+
+In this chapter we consider the problem of allocating resources among selfish agents by means of \emph{auctions}. Auctions are widely used in real live. For instance by many people to trade goods on the internet, by governments to sell public resources (e.g., 4G frequencies bands), and very often also in computational settings, for instance to allocate bandwidth to users.
+
+In this chapter, we focus on different types of simple auctions and how they provoke different kinds of behaviour among bidders. We consider the case of a \emph{seller} auctioning one item to a set of \emph{buyers}.
+The underlying assumption we make when modelling auctions is that each bidder has an intrinsic value (type) for the item being auctioned; she is willing to purchase the item for a price up to this value, but not for any higher price. We will also refer to this intrinsic value as the bidder's \emph{true value} for the item.
+
+
+
+\section{Canonical Auction Families}
+\label{sec:auc:1}
+Before digging into the theory, we start by presenting the most famous families: English, Japanese, Dutch, sealed-bid and double auctions.
+
+\begin{description}
+\item[English auction.] 
+The \emph{English auction} is perhaps the best-known family of auctions, since it is used on most online consumer sites. The auctioneer sets a starting price for a good, and the agents then have the option to announce higher bids. The final bidder (the agent with the highest bid by the end of the auction) has to buy the good for the amount of his final bid.
+      
+\item[Japanese auction.]
+The \emph{Japanese auction} is a variant of the English auction, where instead of the bidders the auctioneer increases the prices and each agent must declare if she is still ``in'' at that price or not. The Japanese auction is often easier to analyze than the English auction because the increments are well specified. In the English auction agents can place so-called \emph{jump bids} which are much higher than the previous bid and complicate the analysis.
+
+\item[Dutch auction.]
+In a \emph{Dutch auction} the auctioneer begins by announcing a high price then proceeds to announce successively lower prices. The first agent who bids wins the auction and must buy the good at the announced price. This auction is for instance used in the Amsterdam flower market.
+
+\item[Sealed-bid auction.]
+So far we disused only open auctions where the agents call out their bid in public. In the family of \emph{sealed-bid auctions}, each agent submits a secret, ``sealed'' bid to the auctioneer. The agent with the highest price must buy the good but the price depends on the type of the auction. In a $k^{th}$-price auction, the agent must  pay the amount of the  $k^{th}$ highest bid.
+
+Observe that the first-price auction and the Dutch auction are actually the \emph{same} auction. In the first-price auction each bidder has to send a message to the auctioneer, in the Dutch auction only one bidder has to send one bit of information to the auctioneer, but the auctioneer has to broadcast several prices. 
+
+\item[Double auction.]
+In a \emph{two-sided} or \emph{double auction} there are many buyers and many sellers. A typical example is the stock marked where people trade any given stock. Below we are going to study an example where two traders want to exchange one single good, for instance one single of a company.
+
+\end{description}
+
+\section{Definitions and Assumption}
+\label{sec:auc:2}
+We will now formalize auctions as Bayesian games. 
+
+A \emph{Bayesian game setting} is a tuple $(N,X,T,p,u)$, where $N$ is a finite set of $n$ agents; $X$ is a finite set of outcomes, $T=T_1 \times \cdots \times T_N$ a set of possible joint type vectors; $p$ is a (common-prior) probability distribution on $T$; and $u=(u_1,\dots,u_N)$, where $u_i \colon X \times \mathbb{R}^n \times T \to \mathbb{R}$ is the utility function for each player $i$ (that also depends on the prices $p\in \mathbb{R}^n$ that the players have to pay). Here, $X$ represents a set nonmonetary outcomes, such as the allocation of the object to one of the bidders. 
+
+\begin{itemize}
+\item In the following we will always consider auctions where a single good is allocated to one of the bidders, hence $X=N$. An element of $X$ corresponds to the winner of the auction. Moreover, we assume the following (quasilinear) structure of the utility function of each player $i$: $u_i(x,p,v) = v_i \cdot \delta_{x = i} - p_i$, where $v_i$ is the value $i$ associates to winning the auction, $\delta_{x = i} = 1$ if $x = i$. Thus, the utility of player $i$ is $v_i - p_i$ if the item is allocated to her and she has to pay $p_i$, and just $-p_i$ if she has to make the payment $p_i$ without obtaining the item.
+
+The utility functions imply that each agent has the same value-for-money. Consequently, we have \emph{transferable utility}. Each agent can transfer any given amount of utility to another agent by giving her an appropriate sum of money (and the sum of the total utilities of all the players remains the same).
+Note further that agents with such utility functions are \emph{risk neutral}. Suppose that an agent must decide whether she wants to participate in a fair lottery, that awards the amount $x$ half of the time and the amount $-x$ the other half of the time. The expected utility is zero--- thus the agent is indifferent between participating in the lottery or not participating. In real live the situation is often more complicated, as for instance \emph{risk seeking} agents might prefer to participate in a lottery that cost \$\,$1$ and has a 0.001 \% chance of paying off \$\,$1000$, whereas a risk neutral player is indifferent.
+\item The agents know the common distribution $p$ from with the private values are drawn, but besides of their own valuation they do not know the valuations of the other agents. One of the best-know and most extensively studied settings is the \emph{independent private value} (IPV) setting. In this setting, all agents' valuations are drawn independently from the same (commonly known) distribution, i.e. $T = V \times \cdots \times V$ and $p = F \times \cdots \times F$ for a probability distribution $F$ over $V$. An example where the IPV setting is appropriate is in auctions where the bidders buy a good simply for their own entertainment and the valuations depend only on their personal taste. In contrast, the IPV setting is not appropriate if the good provides some extra ``utility'' to the buyer (for instance by reselling on the market).  Throughout this section, we will always assume the IPV setting.
+\end{itemize}
+
+An auction can be described as a mechanism. A \emph{mechanism} (for a Bayesian game setting) is a triple $(A,\chi,\wp)$ where $A=A_1\times \cdots,A_n$, where each $A_i$ is the set of actions available to agent $i\in N$; $\chi \colon A \to \Delta(X)$ maps each action profile to a distribution over choices; and $\wp \colon A \to \mathbb{R}^n$ maps each action profile to a payment for each agent. The mechanism is \emph{deterministic} if for every $a \in A$, there exists $x \in X$ such that $\chi(a)(x)=1$; in this case we simply write $\chi(a)=x$.
+%
+Together, a Bayesian game setting and auction define a Bayesian game.
+
+An \emph{auction} is a structured framework for negotiation. Each such negotiation has certain rules which must be specified: $(i)$ bidding rules (how are offers made?); $(ii)$ clearing rules (when does the trade occur or what are these trades, i.e. which player gets the good, and what are the prices for the players?); and $(iii)$ information rules (who knows what about the state of negotiation?). Auctions can be formulated as Bayesian games by specifying the set of agents $N$, the set of outcomes $X$, the set of actions $A_i$ available to each agent $i \in N$, the choice function $\chi$, the payment function $\wp$, the utility functions $u_i$ for each agent $i\in N$ and the common prior distribution $F$.
+
+%\begin{itemize}
+% \item In a sealed-bid auction for one single good, the actions of each agent $i$ are limited to placing a (positive) bid $b_i$ for the item, hence $A_i = [0,\infty)$, and a strategy for player $i$ is a function of the player's type (the valuation $v_i$) to it's actions $b_i \colon V \to [0,\infty)$.
+%\end{itemize}
+
+
+\section{First-price and Dutch auction}
+\label{sec:auc:3}
+%Auctions are special instances of Bayesian games and hence a Bayes-Nash equilibrium does always exist. 
+In this section, we elementary derive a Bayes-Nash equilibrium of a two agent sealed-bid first-price auction. The case of more than two agents is addressed at the end of Section~\ref{sec:auc:5}.
+
+\begin{quote}
+There are two agents (labeled $i=1,2$) who simultaneously submit a real valued positive bid. The higher bidder wins the good and pays the price she bid, the other bidder gets and pays nothing (in case of a tie, the winner is determined by a flip of a coin).
+%
+The valuations of the agents are uniformly distributed on [0,1]. Let $b_i$ denote the bid of player $i$ and $v_i$ its true valuation. If she wins, her payoff is $u_i = v_i - b_i$, if she loses, its $u_i = 0$.
+% (Hence, both agents are \emph{risk-neutral}).
+\end{quote}
+
+Recall that a strategy is a function from player types (the valuations $v_i$) to actions (the bids $b_i \in [0, \infty)$). In a Bayes-Nash equilibrium, player 1's strategy $b_1(v_1)$ is a best response to player 2's strategy $b_2(v_2)$, and vice versa. Formally, for each $v_i \in [0,1]$, $b_i(v_i)$ solves
+\begin{align}
+ \max_{b_i} \left[ \left(v_i - b_i\right) P \left\{ b_i > b_j \right\} + \frac{1}{2} \left(v_i - b_i\right)P \left\{ b_i = b_j \right\} \right] \label{eq:auc:1}
+\end{align}
+
+The agents face the following dilemma when placing their bids: the higher the, the more likely they are to win, the lower the bid, the higher the payoff if the agent does win. We will derive the following result:
+\begin{theorem}
+In a sealed-bid first-price auction with two players where the valuations are drawn independently and uniformly from [0,1], $\left(\frac{1}{2}v_1,\frac{1}{2}v_2\right)$ is a Bayes-Nash equilibrium strategy profile.
+\end{theorem}
+
+%We will find that there is an equilibrium where each player bids half of its valuation, that is $b_i(v_i) = \frac{1}{2} v_i$. 
+It is not hard to check that $b_1(v_1)=\frac{1}{2}v_1$ is indeed a best response to $b_2(v_2)=\frac{1}{2}v_2$ and vice versa. However, in this exposition we are also going to \emph{derive} the equilibrium strategies.
+
+In the following, we are looking for a linear equilibrium, i.e. strategies of the form $b_1(v_1) = a_1 + c_1 v_1$, $b_2(v_2) = a_2 + c_2 v_2$ (note that the players are not restricted to only linear strategies, but we are just looking for an equilibrium that is linear\footnote{Luckily there is a linear equilibrium of this game as our approach cannot be used in general: it would be fruitless to guess and check all potential functional forms the equilibrium strategies might have.}).
+Suppose that player $j$ adopts the strategy $b_j(v_j) = a_j + c_jv_j$. Since it makes no sense for player $i$ to bid below player $j$'s minimum bid or above player $j$'s maximum bid, we can assume $a_j \leq b_i \leq a_j + c_j$, so 
+\begin{align}
+ P \left\{b_i > a_j + c_j v_j\right\} = P \left\{v_j < \frac{b_i - a_j}{c_j} \right\} = \frac{b_i - a_j}{c_j}\,.
+\end{align}
+Therefore player $i$'s best response as given in Equation~\eqref{eq:auc:1} simplifies to (the event $\{b_i = b_j\}$ happens with probability zero):
+\begin{align}
+b_i(v_i) &=  \argmax_{b_i}  \left[\left(v_i - b_i\right) \cdot \frac{b_i-a_j}{c_j}\right] = \begin{cases}
+ (v_i + a_j)/2 &\text{if } v_i \geq a_j\,,\\
+ a_j & \text{if } v_i < a_j\,.
+\end{cases}
+\end{align}
+If $0 < a_j < 1$ then $b_i(v_i)$ is not linear (rather flat at the beginning and linearly increasing later). As we are looking for a linear equilibrium, we therefore rule out $0 < a_j < 1$ and focus on $a_j \geq 1$ and $a_j \leq 0$ instead. We can also rule out $c_j < 0$ because for a higher type $v_j' \geq v_j$ always better to bid as least as much for type $v_j$. But therefore also $a_j \geq 1$ cannot occur: it would imply $b_j(v_j) \geq 1 + c_j v_j \geq v_j (1+c_j) \geq v_j$ which can clearly not be optimal (the best payoff would be zero). Thus, we must have $a_j \leq 0$, in which case $b_i(v_i) = (v_i + a_j)/2$.
+
+By repeating the analysis for player $j$ one equivalently deduces $b_j(v_j)=(v_j+a_i)/2$ and $a_i \leq 0$. Hence $a_i=a_j=0$, and $b_1(v_1)=\frac{1}{2}v_1$ and $b_2(v_2)=\frac{1}{2}v_2$ as claimed earlier.
+
+One might wonder whether there are other Bayes-Nash equilibria of this game and how equilibrium bidding changes as the distribution of the agents' valuation change. Neither of these question can be answered with the technique we just applied. 
+
+%[remove] Exercise 1. Assume that the agents' strategies are strictly increasing and differentiable and the agents' valuations are independently and uniformly distributed in [0,1]. Show that the unique symmetric Bayes-Nash equilibrium, that is a single strategy $b(\cdot)$ which played is played by both players and which is a best response to itself, is $b(v_i)=\frac{1}{2}v_i$.
+
+
+\section{Second-price and Japanese auction}
+\label{sec:auc:4}
+In this section, we are going describe a Bayes-Nash equilibrium for the second-price sealed-bid auction.
+
+\begin{quote}
+There are $n$ agents who simultaneously submit a real valued positive bid. The highest bidder wins the good and pays the amount $b_{(2)}$ of the second highest bid, the other bidders get and pay nothing (in case of a tie, the winner is determined by a flip of a coin).
+%
+The valuations of the agents are uniformly distributed on [0,1]. If agent $i$ wins, her utility is $u_i = v_i - b_{(2)}$, the utilities of all other agents are zero.
+\end{quote}
+
+ It turns out that the situation is much simpler than for the first-price auctions as there exists a dominant strategy for each player. Interestingly, the dominant strategy for each agent is to tell the truth, i.e. to reveal her private valuation. That is, the second-price auction is a \emph{truthfull} mechanism.
+
+\begin{theorem}
+In a second-price auction where bidders have independent private values, truth telling is a dominant strategy.
+\end{theorem}
+
+Assume that all bidders other than $i$ bid in some arbitrary way, and consider $i$'s best response. First, consider the case where $i$'s valuation is larger
+than the highest of the other bidders' bids. In this case $i$ would win and would pay the next-highest bid amount. Could $i$ be better off by bidding dishonestly in this case? If she bid higher, she would still win
+and would still pay the same amount. 
+If she bid lower, she would either still win and still pay the same amount or lose and pay zero.
+Since $i$ gets nonnegative utility for receiving the good at a price less than or equal to her valuation, $i$ cannot gain, and would sometimes lose by bidding dishonestly in this case. 
+
+Now consider the
+other case, where $i$'s valuation is less than at least one other bidder's bid. In
+this case $i$ would lose and pay zero. If she bid less, she would still lose and pay zero. If she bid more, either she would still lose and pay zero or she would win and pay more than her valuation, achieving negative utility. Thus again, $i$ cannot gain, and would sometimes lose by bidding dishonestly in this case. 
+
+We can now also identify a strong relationship between the second-price auction and the Japanese 
+%and English 
+auction. 
+%Consider first the comparison between second-price and Japanese auctions. 
+In both cases the bidder must select a number
+(in the sealed-bid case the number is the one written down, and in the Japanese case it is the price at which the agent will drop out); the bidder with highest amount wins, and pays the amount selected by the second-highest bidder. The difference between
+the auctions is that information about other agents' bid amounts is disclosed in the Japanese auction. In the sealed-bid auction an agent's bid amount must be selected without knowing anything about the amounts selected by others, whereas in the Japanese auction the amount can be updated based on the prices at which lower bidders are observed to drop out. In general, this difference can be important; however, it makes no difference in the IPV case. Thus, Japanese
+auctions are also dominant-strategy truthful when agents have independent private
+values.
+
+%Obviously, the Japanese and English auctions are closely related. Thus, it is
+%not surprising to find that second-price and English auctions are also similar. One
+%connection can be seen through proxy bidding, a service offered on some online proxy bidding
+%auction sites such as eBay. Under proxy bidding, a bidder tells the system the
+%maximum amount he is willing to pay. The user can then leave the site, and the
+%system bids as the bidder's proxy: every time the bidder is outbid, the system will
+%respond with a bid one increment higher, until the bidder's maximum is reached.
+%It is easy to see that if all bidders use the proxy service and update it only once,
+%what occurs will be identical to a second-price auction (excepting that the winner's
+%payment may be one bid increment higher).
+%The main complication with English auctions is that bidders can place so-called
+%jump bids: bids that are greater than the previous high bid by more than the minimum increment. Although it seems relatively innocuous, this feature complicates
+%analysis of such auctions. Indeed, when an ascending auction is analyzed it is
+%almost always the Japanese variant, not the English.
+% [Comment can be shortened]
+
+
+\section{Revenue equivalence}
+\label{sec:auc:5}
+The choice function implemented in the first-price auction and in the second-price auction is exactly the same: the item is awarded to the agent with the highest bid. But what about the payments? In this section we study the revenues, i.e. the payments that the auctioneer gets.
+
+For two agents with valuations $v_1$ and $v_2$, we can readily express the revenue of the first-price auction as $\max\{v_1/2,v_2/2\}$, and the revenue of the second-price auction as $\min\{v_1,v_2\}$. Of course, each of these expressions can be higher than the other for different values of $v_1$ and $v_2$. However, if the valuations are drawn independently and uniformly from $[0,1]$, the \emph{expected} revenue is exactly $\frac{1}{3}$ in both cases. Thus, for the auctioneer it makes no difference if he chooses a first or second-price auction, his expected revenue remains the same. This does also hold in a more general setting.
+
+% Of the large (in fact, infinite) space of auctions--we have just seen a few examples--which one should an auctioneer choose? To a certain degree, the choice does not matter, a result formalized by the following Theorem~\ref{thm:auc:revenue} below. In order to state the theorem properly and to define what we mean by ``does not matter'', we are required to introduce some notation.
+
+%\begin{definition}[Efficient auctions in the quasilinear setting]
+%\begin{enumerate}
+%\item (Quasilinear utility function). Agents have quasilinear utility function in an $n$-player Bayesian game when the sets of outcomes is $O = X \times \mathbb{R}^n$ for a finite set $X$ and the utility of an agent $i$ is given joint type $\theta$ is given by $u_i(o,\theta) = u_i(x,\theta)- f_i(p_i)$, where $o=(x,\theta) \in O$, $u_i \colon X \times \Theta \to \mathbb{R}$ is an arbitrary function and $f_i \colon \mathbb{R} \to \mathbb{R}$ is a strictly monotonically increasing function. [later also assumed that $f$ are linear and have the same slope]
+%\item (Mechanism) A mechanism in the quasilinear setting is a triple $(\mathcal{A},\chi,\psi)$ where $A=A_1\times \cdots \times A_n$, where each $A_i$ is the set of actions available to agent $i$, $\chi \colon A \to \Pi(X)$ maps each action profile to a distribution over choices, and $\psi \colon A \to \mathbb{R}^n$ maps each action profile to a payment for each agent. where $\chi$ is
+%the choice rule and $\psi$ is the payment rule
+%\item (Conditional utility independence) $u_i(o,\theta)=u_i(o,\theta_i)$, we also write $v_i(x)=u_i(x,\theta_i)$ [hence we could define quasilinear and conditional independence in the same step, saving some notation...]
+%\item (Efficiency) A mechanism is efficient, if in equilibrium it selects a choice $x$ such that $\forall v \forall x'$, $\sum_{i} v_i(x) \geq \sum_{i} v_i(x')$.
+%\end{enumerate}
+%\end{definition}
+%
+%Let us briefly give some remarks on these definitions. Intuitively, the quasilinear utility functions split the outcome into two pieces that are linearly related. The set $X$ represents a finite set of nonmonetary outcomes, such as the allocation of the object to one of the bidders in an auction and $p_i$ is the (possibly negative) payment made by agent $i$. Moreover, the mechanism can choose to charge or
+%reward the agents by an arbitrary monetary amount.
+%An agent's degree of preference for the selection of any choice $x\in X$
+%is independent from his degree of preference for having to pay the mechanism
+%some amount $p_i \in \mathbb{R}$. Thus an agent's utility for a choice cannot depend on the
+%total amount of money that he has (e.g., an agent cannot value having a yacht more
+%if he is rich than if he is poor). Finally, it means that agents care only about the
+%choice selected and about their own payments: in particular, they do not care about
+%the monetary payments made or received by other agents
+%The quasilinearity assumption was for instance satisfied for our two agent first-price example. 
+%
+%The definition of the mechanism in the quasilinear setting just reflects the fact that by the quasilinearity of the utilities the outcome space can  naturally be splittet into two parts, the choices/allocation of the good(s) and the prices the agents have to pay. An efficient mechanism selects the choice that maximizes the sum of
+%agents' utilities, disregarding the monetary payments that agents are required to make. Hence, the mechanism maximizes the \emph{social wellfare}.
+%
+%Exercise xx: Assume all of the definition, and moreover $v_i(x) \neq v_j(x) \forall i\neq j$. 
+%
+%
+%$\Rightarrow$ from this it follows, that $P_i(v_i)$ is the same for every efficient mechanism. Wlog. all $v_i$ different $\Rightarrow$ unique choice.
+
+\begin{theorem}[Revenue equivalence theorem]
+\label{thm:auc:revenue}
+Assume that $n$ agents have values $v_1,\dots,v_n$ drawn independently from the probability distribution $F$ that is strictly increasing and atomless on its support $[\underline{v},\bar{v}]$. Then all auction mechanism that $(i)$ always award the item to the agent with the highest value in equilibrium, and where $(ii)$ the expected payment of bidders with valuation $\underline{v}$ is zero, generate the same expected revenue, and hence result in any bidder with valuation $v \in [\underline{v},\bar{v}]$ making the same expected payment.
+\end{theorem}
+
+Consider any mechanism for allocating the good. Let $u_i(v_i)$ be $i$'s expected utility given true valuation $v_i$, assuming that all agents including $i$ follow their equilibrium strategies. Let $P_i(v_i)$ be $i$'s probability of beeing awarded the good given $(i)$ that his true type is $v_i$; $(ii)$ that he follows the equilibrium strategy for an agent with type $v_i$ and $(iii)$ that all other agents follow their equilibrium strategies. 
+\begin{align}
+ u_i(v_i) = E \left[v_i \cdot \chi_{x=i} - p_i \right] = v_i P_i(v_i) - E\left[\text{payment by type $v_i$ of player $i$} \right]  \label{eq:auc:utility2}
+\end{align}
+
+\noindent Below will derive that $u_i(v_i)$ can be expressed as follows:
+\begin{align}
+u_i(v_i) = u_i(\underline{v}) + \int_{x=\underline{v}}^{v_i} P_i(x) {\rm d}x\,. \label{eq:auc:utility}
+\end{align}
+Now consider any two mechanisms that satisfy the assumption of the theorem. A bidder with valuation $\underline{v}$ will never win (since the distribution $F$ is atomless), so his expected utility $u_i(\underline{v})=0$. Because both mechanisms award the good to the agent with the highest valuation, every agent has the same $P_i(v_i)$ (his probability of winning given his type $v_i$). By Equation~\eqref{eq:auc:utility} each agent must therefore have the same expected utility $u_i$ in both mechanism. From Equation~\eqref{eq:auc:utility2} this means that a player of any given type $v_i$ must make the same expected payment in both mechanisms. Since this is true for all $i$, the auctioneer's expected revenue is also the same in both mechanism.
+
+Let us now derive~\eqref{eq:auc:utility}. Consider an agent $i$ with valuation $v_i$. Suppose that $i$ follows the equilibrium strategy for a player with valuation $\hat{v}_i$ rather than for his true valuation~$v_i$. Then $i$ would make all the same payments and would win the good with the same probability as a player with valuation $\hat{v}_i$. However, whenever he wins the good, he values it $(v_i - \hat{v}_i)$ more than a player of type $\hat{v}_i$, hence his expected utility is $u_i(\hat{v}_i) + (v_i - \hat{v}_i)P_i(\hat{v}_i)$. In equilibrium, such a deviation must be unprofitable, hence
+\begin{align*}
+u_i(v_i) \geq u_i(\hat{v}_i) + (v_i - \hat{v}_i)P_i(\hat{v}_i)\,.
+\end{align*}
+This inequality must especially hold for $\hat{v}_i$ of the form $\hat{v}_i = v_i + \epsilon v_i$ or $\hat{v}_i = v_i - \epsilon v_i$ for $\epsilon > 0$. By combining the resulting two inequalities we obtain
+\begin{align*}
+P_i(v_i + \epsilon v_i) \geq \frac{u_i(v_i + \epsilon v_i) - u_i(v_i - \epsilon v_i)}{\epsilon v_i} \geq P_i (v_i)\,,
+\end{align*}
+and for $(\epsilon \to 0)$ the derivative $\frac{d u_i}{d v_i} = P_i(v_i)$. Integrating, we get~\eqref{eq:auc:utility} as claimed.
+
+Theorem~\ref{thm:auc:revenue} tells us that an auctioneer cannot increase the revenue of an auction without changing the allocation rule itself. If he is willing to modify the choice function he can certainly increase the revenue. For instance, consider two bidders with valuations distributed independently and uniformly     in [0,1], and an auctioneer who puts a \emph{reservation price} $x \in [0,1]$ and sells the item for a price that is the maximum of the second highest bid and $x$. If both agents bid below $x$, then none of them wins. A short calculation reveals that the expected revenue $r(x)$ of this auction is $r(x)=\frac{1}{3} + x^2 - \frac{4}{3} x^3$. This expression is maximized for $x=\frac{1}{2}$ and $r(\frac{1}{2}) = \frac{5}{12} > r(0)=\frac{1}{3}$, the expected revenue of the auction with no reservation price.
+
+The revenue equivalence theorem can also be used to predict the bidding strategies of the players. Consider again two agents whose valuations are drawn independently and uniformly at random from [0,1]. Let $r_{\rm 1st}(v)$ and $r_{\rm 2dn}(v)$ denote the expected payment of an agent with type $v$ in a first-price auction or second-price auction, respectively, where all players follow their equilibrium strategies. By the revenue equivalence theorem (both auctions award the item to the agent with highest valuation in equilibrium and an agent with valuation zero has to pay nothing), both payments must be equal: $r_{\rm 1st}(v) = r_{\rm 2nd}(v)$. In a second-price auction, the expected payment of an agent with valuation $v$ can easily be computed: his probability of winning is exactly $v$, and the expected payment conditioned that he wins the auction is just $\frac{v}{2}$, hence $r_{\rm 2nd}(v) = \frac{v^2}{2}$. In a first-price auction the probability of winning remains exactly the same, however, in case of winning the player has to pay the value $b(v)$ of the bid he made. Hence it must hold $b(v)\cdot v \stackrel{!}{=} \frac{v^2}{2}$, and we recover the bidding strategy $b(v)=\frac{v}{2}$ for an agent in the first-price auction. This gives also an interpretation of the bidding strategy in the first-price auction: each player bids the expectation of the second-highest valuation, conditioned on the assumption that his own valuation is the highest. The same technique also allows to derive the bidding strategies in the first-price auctions when more than two agents are participating.
+
+
+\section{Double auctions}
+\label{sec:auc:6}
+In the last section of this chapter we analyze a trading game called a double auction. 
+
+\begin{quote}
+Two players, a buyer and a seller, both have a private valuation of a good. The seller names an asking price $p_s$, and the buyer simultaneously names an offer price $p_b$. If $p_b \geq p_s$, the trade will be executed at price $p = (p_b + p_s)/2$, otherwise no trade occurs. 
+The private valuations $v_b$ and $v_s$ are drawn independently and uniformly at random from [0,1]. If the trade occurs at price $p$, the utility of the buyer is $v_b - p$, the utility of the seller $p-v_s$. If no trade occurs, the utility of both players is equal to zero.
+\end{quote}
+
+In this game, a strategy for the buyer is a function $p_b(v_b)$ specifying the price the buyer will offer depending on his valuation. Likewise, a strategy for the seller is a function $p_s(v_s)$. A pair of strategies $\left\{p_b,p_s\right\}$ is a Bayes-Nash equilibrium if the following two conditions hold. For each $v_b \in [0,1]$, 
+\begin{align}
+ p_b(v_b) = \argmax_{p_b} \left[v_b - \frac{p_b + E\left[p_s(v_s) \mid p_b \geq p_s(v_s)\right]}{2}\right] P \left\{p_b \geq p_s(v_s) \right\}\label{eq:auc:buyer}\,,
+\end{align}
+where $E\left[p_s(v_s) \mid p_b \geq p_s(v_s)\right]$ is the expected price the seller will demand, conditional on its demand being less than the buyer's offer $p_b$. For each $v_s \in [0,1]$,
+\begin{align}
+p_s(v_s) = \argmax_{p_s} \left[ \frac{p_s + E\left[p_b(v_b) \mid p_b(v_b) \geq p_s\right]}{2} - v_s \right] P \left\{ p_b(v_b) \geq p_s \right\}\,, \label{eq:auc:seller}
+\end{align}
+where $E\left[p_b(v_b) \mid p_b(v_b) \geq p_s\right]$ is the expected price the buyer will offer, conditioned on its offer being greater than the seller's demand $p_s$.
+
+There are many Bayes-Nash equilibria of this game. Two families of equilibria are described in the following theorem.
+
+\begin{theorem}
+%Consider the double auction described above.
+\label{thm:auc:double}
+\begin{enumerate}
+ \item For every $x \in [0,1]$, the strategies
+ \begin{align*}
+   p_b(v_b) &= \begin{cases} x, &\text{if } v_b \geq x \\ 0, &\text{otherwise}
+   \end{cases}
+   & 
+   p_s(v_s) &= \begin{cases} x, &\text{if } v_s \geq x \\ 0, &\text{otherwise} \end{cases}
+ \end{align*}
+ are a Bayes-Nash equilibrium of the double auction.
+ \item The strategies
+  \begin{align*}
+   p_b(v_b) &= \frac{2}{3} v_b + \frac{1}{12} & 
+   p_s(v_s) &= \frac{2}{3} v_s + \frac{1}{4}\,,
+  \end{align*}
+  describe a linear Bayes-Nash equilibrium of the double auction.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+It is not hard to see that the first two strategies are best responses to each other. Given the buyer's strategy, the buyer's choices amount to trading at $x$ or not trading at all. To the seller's strategy is a best response to the buyer's, and vice versa.
+
+Let us now consider the second pair of strategies. Suppose the seller's strategy is $p_s(v_s) = \frac{2}{3} v_s + \frac{1}{4}$. Then $p_s$ is uniformly distributed on $[\frac{1}{4}, \frac{11}{12}]$. Clearly, it makes no sense for the bidder to bid more than $\frac{11}{12}$, hence it must hold $p_b(v_b) \leq \frac{11}{12}$ for all $v_b \in [0,1]$. In the case $p_b < \frac{1}{4}$, the bidder always looses, hence it makes only sense to bid strictly less than $\frac{1}{4}$ if also his valuation $v_b < \frac{1}{4}$. We will come back to this observation shortly.
+
+Assume now that $p_b \in [\frac{1}{4}, \frac{11}{12}]$, then the probability to win for the bidder becomes $P \left\{p_b \geq p_s(v_s) \right\} = \frac{3}{2} \left(p_b - \frac{1}{4}\right) = \frac{3}{2} p_b - \frac{3}{8}$; the expected price the seller will demand if there is a trade equals $E\left[p_s(v_s) \mid p_b \geq p_s(v_s)\right] = \frac{1}{2} \left( \frac{1}{4} + p_b\right)$; hence~\eqref{eq:auc:buyer} becomes
+\begin{align*}
+ \max_{p_b} \left[ v_b - \frac{3}{4} p_b - \frac{1}{16} \right] \left( \frac{3}{2} p_b - \frac{3}{8} \right) = \max_{p_b} \left[- \frac{9}{8} p_b^2 + \frac{3}{2} p_b v_b + \frac{6}{32} p_b - \frac{3}{8} v_b + \frac{3}{128} \right] \,.
+\end{align*}
+The first-order condition $- \frac{9}{4} p_b + \frac{3}{2}v_b + \frac{6}{32}  \stackrel{!}{=} 0 $ yields $p_b(v_b)=\frac{2}{3} v_b + \frac{1}{12}$ as best response. Note that we assumed $p_b \in [\frac{1}{4}, \frac{11}{12}]$, which implies that $p_b(v_b)=\frac{2}{3} v_b + \frac{1}{12}$ is a best response for all $v_b \in [\frac{1}{4},1]$. We already noted that in case $v_b < \frac{1}{4}$, the actual bid of the bidder does not matter as long as it stays below $\frac{1}{4}$. Hence, there are \emph{arbitrary} many strategies for the bidder how to play if $v_b \in [0,\frac{1}{4})$. The \emph{linear} strategy given in the theorem is just \emph{one} of the many many possible choices for the bidder.
+
+Analogously, suppose that the bidder's strategy is $p_b(v_b)=\frac{2}{3} v_b + \frac{1}{12}$. Then $p_b$ is uniformly distributed on $[\frac{1}{12},\frac{3}{4}]$. Clearly, the seller should always ask for at least $p_s \geq \frac{1}{12}$, and in case he asks for more than $\frac{3}{4}$ the bidder will never agree. Hence, if $v_s > \frac{3}{4}$ any bid strictly above $\frac{3}{4}$ does not alter the outcome of the auction. The linear strategy suggested by the theorem is just one of the many possible solutions.
+
+Assume now that $p_s \in [\frac{1}{12},\frac{3}{4}]$.
+Then the probability to win for the bidder becomes $P \left\{p_b(v_b) \geq p_s \right\} = 1 - \frac{3}{2}\left(p_s - \frac{1}{12} \right)=\frac{9}{8}- \frac{3}{2} p_s$ and the expected price the buyer will offer if there is a trade equals $E\left[p_b(v_b) \mid p_b(v_b) \geq v_s\right] = \frac{1}{2}\left(p_s + \frac{3}{4} \right)$, hence~\eqref{eq:auc:seller} becomes
+\begin{align*}
+ \max_{p_s} \left[\frac{3}{4}p_s + \frac{3}{16}  - v_s \right] \left(\frac{9}{8} - \frac{3}{2} p_s \right) =  \max_{p_s} \left[-\frac{9}{8} p_s^2 + \frac{3}{2} p_s v_s + \frac{9}{16} p_s - \frac{9}{8} v_s +  \frac{27}{128} \right]\,,
+\end{align*} 
+the first order condition $-\frac{9}{4} p_s + \frac{3}{2} v_s + \frac{9}{16} \stackrel{!}{=} 0$ for which yields $p_s(v_s) = \frac{2}{3} v_s + \frac{1}{4}$. This finishes the proof.
+\end{proof}
+
+In the first family of Bayes-Nash equilibria, the trade occurs only for the pairs $(v_b,v_s) \in [x,1] \times [0,x]$, see Figure~\ref{fig:auc:trade}. However, the trade would be efficient (beneficial for both players) for all pairs such that $v_b \geq v_s$. For the two linear strategies, the trade occurs only if $v_b \geq v_s + \frac{1}{4}$, see Figure~\ref{fig:auc:trade}.
+In both cases, the most valuable possible trade (namely $v_s = 0$, $v_b = 1$) does occur. But the one-price equilibria miss some valuable trades (such as $v_s = 0$ and $v_b = x-\epsilon$, where $\epsilon > 0$ is small) and achieves some trades that are worth to nothing (such as $v_s = x- \epsilon$, and $v_b = x + \epsilon$). The linear equilibrium, in contrast, misses all trades that are worth to nothing but achieves all trades worth at least $\frac{1}{4}$. This suggests that the linear equilibrium may dominate the one-price equilibria, in terms of the expected gains the player receive, but also raises the possibility that the players might do even better in an alternative equilibrium.
+
+\begin{figure}[h!t]
+\hfill \input{trade_v2.pdf_tex} \hfill\null
+\caption{Comparison of the executed trades for the two equilibrium strategies of Theorem~\ref{thm:auc:double}.}
+\label{fig:auc:trade}
+\end{figure}
+
+Myerson and Satterthwaite (1983) show that, for the uniform value distributions considered here, the linear equilibrium yields highest expected gains for the players than any other Bayes-Nash equilibrium of the double auction. This implies that there is no Bayes-Nash equilibrium of the double auction in which trade occurs if and only if it is efficient (the expected gains for the players this situation would be higher than the expected gains for the linear equilibrium, which is not possible).
+%They also show that this latter result is very general: if $v_b$ is continuously distributed on $[x_b, y_b]$ and $v_b$ is continuously distributed on $[x_s, y_s]$, where $y_s > x_b$ and $y_b > x_s$, then there is no bargaining game 111
+
+
+
+\ifx \globalmark \undefined %% This is default.
+\bibliographystyle{plain}
+\bibliography{../gametheorybibliography}
+	\end{document}
+\else 
+	
+\fi

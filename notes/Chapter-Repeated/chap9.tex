@@ -1,0 +1,98 @@
+\ifx \globalmark \undefined %% This is default.
+	\input{../header}
+	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
+\else 	
+\fi
+
+
+
+
+\chapter{Repeated Games}
+{\large{\itshape
+When playing a game reapeatedly, the fear of retaliation may lead to outcomes that otherwise would not occur"} - Drew Fudenberg and Eric Maskin.\\
+}
+\label{chap:Rep}
+{\small{\itshape
+Chapter based on pages 308 to 331 of the book  ``Game theory - Analysis of conflict'' by R. Myerson.}\\
+}
+
+
+Nash equilibria are weird. Recall for instance the prisoner's dilemma where defection was the only rational choice. Yet, in our daily life, we often encounter situations where people play the collaborative option. Does this mean that we are all stupid or irrational? Not necessarily, because when we encounter prisoner's dilemma--like situations, it is usually not a one-time event. Indeed, in our everyday life, we do not want to be surrounded by enemies because we are likely to find ourselves in a situation where we need to play with them again. This is the reason why playing a game repeatedly may lead to completely new phenomena, which we are going to look at in this chapter.
+
+
+%
+%\section{Finitely repeated games}
+%
+%
+%
+%To appear later. (In the meantime, see Fran\c cois Sponart's presentation.)
+
+
+
+\section{A general model for infinitely repeated games}
+
+
+
+To represent a repeated game, we need a number of elements. First, of course, we need a set of players $N$ and a set of actions $(D_i)_{i \in N}$ that the players can play at each round with an associated reward $u_i: D_i \rightarrow \mathbb{R}$, like in previous chapters. 
+
+But that is not enough. Indeed, we also want to represent the fact that players should be able to react to the other players' last moves. This is something we represent through a set of \emph{signals} $S_i$. For instance in the repeated prisoner's dilemma, we could have a signal for ``\emph{My opponent was gentle in the last round}'' and for ``\emph{Omg, you crazy bast***!}''. In that sense, the signal received at round $k$ depends on the actions of the other players in the past rounds and will influence the player's action right now. 
+
+But this is still not enough: we also want to represent the fact that what players play may impact the game itself. For instance, we may want to play a game repeatedly with a certain probability to stop playing at each round. (This is quite different from a finitely repeated game setting!) We represent this by a set of \emph{states} of the world $\Theta$; in this case, there would be a state to say ``\emph{Let us play again!}'' and a state for ``\emph{Stop! The game is over!}''.
+
+One last element is required to make the link between the different rounds. This is achieved by a \emph{transition function} $p$: given the state of the world $\theta^k$ and the action $d^k$ that the players played at round $k$, it assigns a probability $p(\theta^{k+1}, s^{k+1} \, | \, \theta^k, d^k)$ for the next state $\theta^{k+1}$ with the signal $s^{k+1}$ to come. And to be complete, we should also specify the initial situation through a probability function $q$.
+
+With all the above elements in place, we may define a \emph{strategy} for each of the players: each of them should specify a probability distribution over their set of actions in every possible event. Of course, describing such a strategy can become a bit tricky because there are so many events to take into account: it should depend on the state of the world, on the received signal but also on the whole game history. (See Myerson for a complete description.) Let us assume that we have a description of such strategies. We may ask the following questions: are there equilibria for such games? How can we identify them? And how do we even define them?
+
+In order to get to a definition of equilibria in repeated games, we first need to define what the utility of the players is when they play according to some strategy. Indeed, when playing the game, the players receive a payoff after each round, so their goal is to optimize a sequence of payoffs $(w_i(k))_{k \geq 0}$. But how valuable is such a sequence? It cannot simply be the sum of payoffs because this may not be a finite value (unless there is a payoff-free absorbing state of the world in the game, such as for instance a ``\emph{Stop! The game is over!}''--state). In fact, there exists a number of different options to evaluate payoff sequences, such as computing the average payoff of the sequence for instance. Which option to choose really depends on the application. However in what follows, we describe a typical and meaningful way of doing: the \emph{discounted average}. 
+
+With the discounted average criterion, the value of a payoff sequence $(w_i(k))_{k \geq 0}$ is given by 
+\begin{align} \label{eq:discount}
+	(1-\delta) \sum_{k \geq 0} \delta^k w_i(k),
+\end{align}
+where $0 \leq \delta < 1$ is called the \emph{discount factor}. The idea behind this criterion is that future payoffs are less valuable than the immediate ones. Yet another interpretation is that, at each round, there is a probability of $1-\delta$ to stop playing and $\delta$ to go on. The discount factor characterizes the patience of the players: a low value of $\delta$ means that immediate rewards are much more important than the future ones (or that the game will finish quickly). In~\eqref{eq:discount}, the factor $(1-\delta)$ is used as a normalization such that the resulting discounted value lies somewhere between $\min_k w_i(k)$ and $\max_k w_i(k)$.
+
+We are now ready to describe the equilibria of these quite general repeated games. In fact, the definition is the same as always: a strategy for all players is an equilibrium iff, at any round or at any state, no player has an interest to deviate alone from his strategy. 
+
+Under these circumstances, it is not hard to see that repeatedly playing an equilibrium of the original game leads to an equilibrium of the repeated game. But in fact, there exist a shipload of equilibria. For instance in the prisoner's dilemma, the well known Tit-for-Tat strategy is an equilibrium and can be used to achieve collaboration. In this strategy, starting with a collaboration, the players always rewards collaboration (resp. defection) from the other player last round with a collaboration (resp. defection) in this round. But this is just one of the many examples. In fact, it can even be shown that for any repeated game with the discounted average criterion, almost any feasible payoff allocation that is higher than the minimax of the players can be achieved with an equilibrium (with an assumption specifying that the discount factor should be high enough). Nevertheless, a universal description of these equilibria is still unknown... unless we assume that the players have a complete knowledge of the information state. This is the topic of the next section.
+
+
+
+\section{Repeated games with complete state information and discounting}
+
+
+
+We say that a repeated game has \emph{complete state information} iff, at every round, every player knows the current state of nature. In other words, we may now assume that the signals that every player receives at each round is known to everyone. In that case, we can represent the combination of a set of signals and a state of the world as some meta-state that contains all the conjoint information.
+
+In such a situation, it is possible to represent the game with a number of states of a \emph{Markov chain} (that correspond to the meta-states of the world). Together, the states represent all the possible set ups for the game and the transition function $p$ defined above represents the transition probabilities between the state, depending on the players' actions. Every time a state $\theta$ of this Markov chain is visited, we may consider that the set up is exactly the same, therefore we may assume that the strategy of the players should remain the same every time $\theta$ is visited. This is what we call a \emph{stationary} strategy and it is all we need here. Then, the goal of the players is to find a stationary strategy that is an equilibrium for this game, which we call a \emph{stochastic game}.
+
+More precisely, let $N$ be the set of players and $\Theta$ be the set of states of the game. Let $D_i$ be the set of actions of player $i$, $S_i$ be the set of signals that he can receive on the state of the game, $u_i : D_i \times \Theta \rightarrow \mathbb{R}$ be his payoffs and $\tau_i : \Theta \rightarrow \Delta(D_i)$ be his stationary strategy. Finally, let $p : D \times \Theta \rightarrow \Delta(S \times \Theta)$ be the transition function between the states.
+
+The expected $\delta$-discounted average payoff of player $i$ when the initial state is $\theta \in \Theta$ can be written as:
+\begin{align}
+	\nu_i(\theta) = \sum_{d_i \in D_i} \tau_i(d_i|\theta) \, Y_i(\tau , d_i , \nu_i , \theta , \delta) \hspace{1cm}
+	\label{7.2}
+\end{align}
+where $0 \leq \delta < 1$ is the discount factor and $Y_i(\tau , d_i , \nu_i , \theta , \delta)$ corresponds to what player $i$ would gain by playing the action $d_i$ in state $\theta$ and then the stationary strategy $\tau_i$, and is defined by:
+%\begin{align*}
+%	Y_i(\tau , d_i , \nu_i , \theta , \delta) = \sum_{d_{-i} \in D_{-i}} \Bigg( \prod_{j \in N_{-i}} \tau_j(d_j|\theta) \Bigg)\Bigg( (1-\delta)u_i(d,\theta)+\delta \sum_{\zeta \in \Theta} \sum_{s \in S}p(s, \zeta|d,\theta)\nu_i(\zeta)\Bigg).
+%\end{align*}
+\begin{align*}
+	Y_i(&\tau , d_i , \nu_i , \theta , \delta) = \\ &\sum_{d_{-i} \in D_{-i}} \Bigg( \underbrace{\prod_{j \in N_{-i}} \tau_j(d_j|\theta)}_{\text{what the others do}} \Bigg)\Bigg( \underbrace{(1-\delta)}_{\text{normalization}} \cdot \underbrace{u_i(d,\theta)}_{\begin{minipage}{1.8cm}\scriptsize\text{\begin{tabular}{c} immediate \\ payoff \end{tabular}}\end{minipage}}+ \underbrace{\delta \sum_{\zeta \in \Theta} \sum_{s \in S}p(s, \zeta|d,\theta)\nu_i(\zeta)}_{\text{discounted later payoffs}} \Bigg).
+\end{align*}
+
+For a stationary strategy profile $\tau$ to be an equilibrium of a repeated game with complete information, no player should be able to expect to improve its payoff by changing its strategy at any stage or in any state $\theta$. This condition implies:
+\begin{align}
+	\nu_i(\theta)= \max_{d_i \in D_i} Y_i(\tau , d_i , \nu_i , \theta , \delta) \hspace{1cm} \forall \theta \in \Theta.
+	\label{7.3}
+\end{align}
+The strategy $\tau$ is an equilibrium of a repeated game with complete information iff there exists a bounded payoff function $\nu$ satisfying Conditions~\eqref{7.2} and~\eqref{7.3}.
+
+
+
+\ifx \globalmark \undefined %% This is default.
+\bibliographystyle{plain}
+\bibliography{../gametheorybibliography}
+	\end{document}
+\else 
+	
+\fi

@@ -1,0 +1,81 @@
+\documentclass[a4paper,notitlepage,12pt]{article}
+
+\usepackage[ansinew]{inputenc}
+%\usepackage[frenchb]{babel}
+\usepackage{graphicx} 
+\usepackage[lmargin=2.5cm, rmargin=2.5cm,bottom=3.15cm,top=3cm]{geometry} 
+\usepackage{amsmath}
+\usepackage{amsthm} 
+\usepackage{amssymb}  
+\usepackage{eurosym} 
+\usepackage{url}
+%\usepackage{bbold}
+
+\newcommand{\X}{X}
+\newcommand{\Y}{Y}
+
+\begin{document}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\Large
+
+\textbf{Session 3: Common knowledge and domination}
+
+%\section*{Exercices}
+
+\paragraph{1. } Analyze the strategic form game represented by the following table. Eliminate iteratively as many strategies as possible by weak domination.
+\begin{center}
+	\begin{tabular}[h!]{l|ccccccc}
+%		&&&&& \Large{$C_2$} &&& \\
+		&& \Large{$x_2$} && \Large{$y_2$} && \Large{$z_2$} \\
+		\hline
+		\Large{$x_1$} && \Large{2,3} && \Large{9,4} && \Large{1,3} & \\
+		\Large{$y_1$} && \Large{2,9} && \Large{8,1} && \Large{2,9} & \\
+		\Large{$z_1$} && \Large{5,5} && \Large{6,6} && \Large{7,6} &
+	\end{tabular} 
+\end{center}
+
+\paragraph{2. } The caliph of Baghdad one day summoned all married men of his city. At the time of the story, monogamy was the rule. The caliph spoke the following words: ``\textit{In order to fight against adultery, I ask each of you, if he realizes that he was deceived by his wife, to kill her that same evening at midnight. Moreover, I can tell you that at least one woman is unfaithful to her husband.} ''
+
+Of course, the people of Baghdad are very obedient towards their caliph, and apply to the letter all orders. However, as it is still often the case these days, cuckolds are the only ones to ignore the infidelity of their wives. Every husband knows which wives of other husbands are unfaithful, but does not know if his own wife also is or not. Nevertheless, it is assumed that the people of Baghdad have great logical intelligence, and are therefore quite able to draw conclusions about their own situation from the behavior of others.
+
+Nothing happens for 12 days. But the thirteenth day, at midnight, all the cuckolded husbands execute their women. How many unfaithful women were there in Baghdad?
+
+\paragraph{3. } Matthew and Romain play the following game: a positive integer $\X$ is chosen randomly according to a geometric distribution with parameter $0.9$ (that is, for every integer $k \geq 0$, $P(\X = k) = 0.9 ^ k \times 0.1$). Once this integer is selected, Matthew receives the reward $\Y_1$ and Romain receives the reward $\Y_2$ such that:
+\begin{equation*}
+	(\Y_1, \Y_2) = 
+	\begin{cases}
+		(\X, \X+1) \ \text{with probability} \ 1/2, \\
+		(\X+1, \X) \ \text{with probability} \ 1/2.
+	\end{cases}
+\end{equation*}
+Both players only observe their own reward. Therefore, one of the players observed $\X$ and the other player observes $\X + 1$, both players having the same probability of observing $\X$. The player who observed the highest value wins $1$\euro \ from the other player.
+\begin{itemize}
+	\item[a.] Show that if player $i$ observes $\Y_i \neq 0$, then that player will think that he has more than one in two chance of winning (that is, for all $k > 0$, we have $P(\Y_i = \X+1 | \Y_i = k) > 1/2$).
+	\item[b.] Consider the following assertion: \\
+	\\
+	\textit{Both players know that both players know that ... both players know that both players think they have more than one in two chance to win $1$\euro.} \\
+	\\
+	If $\X$ is worth $k$ and it is common knowledge that each player has only observed its own reward, then how many times at most can the words ``\textit{both players know that}'' be repeated so that the assertion remains true?
+	\item[c.] If $\Y_1$ is worth $k$ and it is common knowledge that each player has only observed its own reward, then what is the least likely event that is common knowledge of both players? (An event is an information of the kind ``$\X \geq k$ for a certain $k$''.)
+\end{itemize}
+
+\paragraph{4. } In exercise 1., suppose you had not eliminated the weakly dominated strategies. Would there exist other Nash equilibria?
+
+(\textbf{Teaser:} A \emph{Nash equilibrium} is a strategy profile for all players such that neither of them would gain from deviating alone from their strategy. Equivalently, at a Nash equilibrium, each player's strategy is a best response to that of the other players.)
+
+%\newpage
+
+\paragraph{5. } \textbf{(Theoretical exercise\footnote{\footnotesize Exercises with the label ``\textbf{Theoretical exercise}'' will be solved later in a dedicated exercise session.}.)} We consider a two-player game in which Player~1 has the choice between the actions $a, b$ and $c$. The payoffs for Player~1 are given by:
+\begin{align*}
+	u_1 = \begin{bmatrix} u_a \\ u_b \\ u_c \end{bmatrix},
+\end{align*} 
+where the $u_x$ are row vectors with appropriate dimensions. The strategy $[a]$ is strongly dominated iff there is no probability distribution $p \in \Delta(\Omega)$ such that $u_a \, p \geq u_x \, p$ for all $x \in \{ b, c \}$.
+
+Show that this definition implies that $[a]$ is strongly dominated iff there exists a probability distribution $q \in \Delta(\Omega)$ such that $u_a < q^T \bar{u}_1$, where $\bar{u}_1$ is the matrix of payoffs of Player~1 without its first row.
+
+(\textbf{Hint:} Restate the definition as an appropriate optimization problem and obtain its dual.)
+
+\end{document}

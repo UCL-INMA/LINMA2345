@@ -1,0 +1,97 @@
+\ifx \globalmark \undefined %% This is default.
+\input{../header}
+\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
+\else 	
+\fi
+
+
+
+\begin{titlepage}
+\begin{center}
+
+%-------------HAUT DE PAGE
+
+
+\vfill
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width = 8cm]{Logo_UCL-EPL.eps}
+\end{figure}
+
+
+
+
+
+%-------------TITRE
+
+
+{ \bfseries Course notes }
+\hrulefill\\[0.5cm]
+\large{\textbf{LINMA2345 --- Game Theory}\\
+Rational decisions amongst individuals} \\
+\hrulefill\\[0.5cm]
+
+%-------------AUTEURS
+
+\vfill
+\vfill
+\parbox[H][][c]{\textwidth}
+	{
+	\begin{tabular}{rl}
+	\textbf{Professor ---} &  Rapha\"el Jungers \\	 		
+	\textbf{Teaching Assistants 2017 ---} 	 &	Beno\^it Legat \\	
+		     &	Matthew Philippe 	
+	\end{tabular}
+	}\par
+	
+
+
+
+%
+%\begin{figure}[!ht]
+%\centering
+%\includegraphics[width = 10cm]{cakes.pdf}
+%\end{figure}
+$\,$\\[1cm]
+
+
+Universit\'e catholique de Louvain (U.C.L.)\\
+Louvain school of Engineering (L.S.E. - E.P.L.)\\
+$\,$\\
+February 2017\\
+$\,$\\
+\tiny{LINMA2345 Notes V.2017 --- \url{https://github.com/blegat/LINMA2345}}
+\end{center}
+
+\end{titlepage}
+
+
+
+
+
+
+
+%\begin{titlepage}
+%\title{\textbf{MPTCP Congestion Control : \\ Models and Designs }\\[2cm]}
+% \author{\textbf{Matthew Philippe}\\[6cm]
+% \textbf{A thesis submitted for the degree of}\\
+% \textbf{Bachelor of Science with Honours in Physics of} \\
+% \textbf{The Australian National University}\\[1cm]}
+% \date{\textbf{October, 2004}}
+%\maketitle
+% \end{titlepage}
+% 
+
+
+
+
+
+
+\ifx \globalmark \undefined %% This is default.
+\bibliographystyle{plain}
+\bibliography{../gametheorybibliography}
+	\end{document}
+\else 
+	
+\fi

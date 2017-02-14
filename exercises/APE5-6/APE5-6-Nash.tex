@@ -1,0 +1,189 @@
+\documentclass[a4paper,notitlepage,12pt]{article}
+
+\usepackage[ansinew]{inputenc}
+%\usepackage[frenchb]{babel}
+\usepackage{graphicx} 
+\usepackage[lmargin=2.2cm, rmargin=2.2cm,bottom=2.85cm,top=2.7cm]{geometry} 
+\usepackage{amsmath}
+\usepackage{amsthm} 
+\usepackage{amssymb}  
+\usepackage{eurosym} 
+\usepackage{url}
+%\usepackage{bbold}
+
+\newcommand{\X}{X}
+\newcommand{\Y}{Y}
+
+\begin{document}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\large
+
+\textbf{Session 4 \& 5: Nash equilibria}
+
+%\section*{Exercices}
+
+\paragraph{1. } Find all Nash equilibria in the following games expressed in normal form. For each equilibrium, compute the expected payoff of the players. 
+
+	\paragraph{a. }	
+	\vspace{-.5cm}
+	\begin{center}
+		\begin{tabular}[h!]{l|ccccc}
+			&& \Large{$x_2$} && \Large{$y_2$} & \\
+			\hline
+			\Large{$x_1$} && \Large{2,1} && \Large{1,2} & \\
+			\Large{$y_1$} && \Large{1,5} && \Large{2,1} & 
+		\end{tabular} 
+	\end{center}
+	\paragraph{b. }
+	\vspace{-.5cm}
+	\begin{center}
+		\begin{tabular}[h!]{l|ccccc}
+			&& \Large{$x_2$} && \Large{$y_2$} & \\
+			\hline
+			\Large{$x_1$} && \Large{3,7} && \Large{6,6} & \\
+			\Large{$y_1$} && \Large{2,2} && \Large{7,3} & 
+		\end{tabular} 
+	\end{center}
+	\paragraph{c. }
+	\vspace{-.5cm}
+	\begin{center}
+		\begin{tabular}[h!]{l|ccccc}
+			&& \Large{$x_2$} && \Large{$y_2$} & \\
+			\hline
+			\Large{$x_1$} && \Large{7,3} && \Large{6,6} & \\
+			\Large{$y_1$} && \Large{2,2} && \Large{3,7} & 
+		\end{tabular} 
+	\end{center}
+	\paragraph{d. }
+	\vspace{-.5cm}
+	\begin{center}
+		\begin{tabular}[h!]{l|ccccccc}
+			&& \Large{$x_2$} && \Large{$y_2$} && \Large{$z_2$} & \\
+			\hline
+			\Large{$x_1$} && \Large{0,4} && \Large{5,6} && \Large{8,7} & \\
+			\Large{$y_1$} && \Large{2,9} && \Large{6,5} && \Large{5,1} & 
+		\end{tabular} 
+	\end{center}
+	\paragraph{e. }
+	\vspace{-.5cm}
+	\begin{center}
+		\begin{tabular}[h!]{l|ccccccc}
+			&& \Large{$x_2$} && \Large{$y_2$} && \Large{$z_2$} & \\
+			\hline
+			\Large{$x_1$} && \Large{0,0} && \Large{5,4} && \Large{4,5} & \\
+			\Large{$y_1$} && \Large{4,5} && \Large{0,0} && \Large{5,4} & \\
+			\Large{$z_1$} && \Large{5,4} && \Large{4,5} && \Large{0,0} & 
+		\end{tabular} 
+	\end{center}
+	
+\paragraph{2. } Compute all Nash equilibria of the following 3-player game:
+
+	\begin{center}
+		\begin{tabular}[h!]{l|ccc}
+			& \Large{$x_3$} && \Large{$y_3$} \\
+			&
+			\begin{tabular}[h!]{cccccc}
+				\hline
+				& \Large{$x_2$} &&& \Large{$y_2$} & 
+			\end{tabular}
+			&&
+			\begin{tabular}[h!]{cccccc}
+				\hline
+				& \Large{$x_2$} &&& \Large{$y_2$} & 
+			\end{tabular} 
+			\\[.2cm]
+			\hline
+			\\[-.4cm]
+			\begin{tabular}[h!]{l}
+				\Large{$x_1$} \\ \Large{$y_1$}
+			\end{tabular}
+			&
+			\begin{tabular}[h!]{ccccc}
+				& \Large{0,0,0} && \Large{6,5,4} & \\ 
+				& \Large{5,4,6} && \Large{0,0,0} & 
+			\end{tabular}
+			&&
+			\begin{tabular}[h!]{ccccc}
+				& \Large{4,6,5} && \Large{0,0,0} & \\ 
+				& \Large{0,0,0} && \Large{0,0,0} & 
+			\end{tabular}
+		\end{tabular} 
+	\end{center}
+	
+In this game, the players receive money only if exactly one of them plays the action $y$.
+
+\paragraph{3. } A Nash equilibrium is called \emph{strong} if there exists no subset of players that could all benefit from deviating together from the equilibrium, assuming that players that are not part of this subset play their equilibrium strategy. More formally, a randomized strategy $\sigma$ is a strong Nash equilibrium iff for any randomized strategy $\tau$ different from $\sigma$, there exists a player $i$ such that $\tau_i \neq \sigma_i$ and $u_i(\tau) \leq u_i(\sigma)$.
+\begin{enumerate}
+	\item[a.] Find a game with at least three players for which such a strong Nash equilibrium exists.
+	\item[b.] Show that the game defined in exercise 2. does not allow any strong Nash equilibrium.
+\end{enumerate}
+
+\paragraph{4. } A new oil deposit has been discovered in the North Sea. Two large buyers will play the auction. 
+The area of the deposit is divided into three parts of respective area $A_0, A_1, A_2$. Each part contains a certain fraction of oil $\tilde{x}_0, \tilde{x}_1$ and $\tilde{x}_2$ under the ground. It is assumed that these fractions are i.i.d. and follow a homogeneous distribution so the $\tilde{x}_i$'s are uniformly distributed in~$[0, 1]$. In the end, the total value of the deposit is given by $A_0 \tilde{x}_0 + A_1 \tilde{x}_1 + A_2 \tilde{x}_2$. The areas of the three parts as well as the amount of oil contained in the part with index~0 are common knowledge to the buyers. Moreover, Buyer~1 (resp. Buyer~2) was able to measure the fraction of oil present in the part with index~1 (resp. index~2).
+
+Based on their knowledge, the two buyers should simultaneously make an offer for the deposit, $c_1$ and $c_2$ respectively. The buyer who bets the highest amount wins the deposit at the price he offered (in case of a tie, a coin is flipped to choose the winner).
+\begin{enumerate}
+	\item[a.] Model this game as a Bayesian game.
+\end{enumerate}
+It is known that there exists a unique Bayesian equilibrium to this game of the form $\{ \ c_1 = \alpha_1 \tilde{x}_0 + \beta_1 \tilde{x}_1, \ c_2 = \alpha_2 \tilde{x}_0 + \beta_2 \tilde{x}_2 \ \}$.
+\begin{enumerate}
+	\item[b.] Find this equilibrium.
+	\item[c.] Let us assume that $A_0 = A_1 = A_2 = 100$ and that Buyer~1 observed $\tilde{x}_0 = 0$ and $\tilde{x}_1 = 0.01$. What should be his bet? Does this result sound reasonable? Would it not be safer to increase the offer a bit? Why?
+\end{enumerate}
+
+%%The intrinsic value of the deposit is common knowledge to both players (it is the number of barrels that is possible to extract). However, 
+%None of the buyers know the exact amount of oil contained in the deposit and they can only estimate it based on public information and private measures. In the end, it is known that the value of the deposit in the eyes of both buyers is given by $A_0 \tilde{x}_0 + A_1 \tilde{x}_1 + A_2 \tilde{x}_2$, where $A_0, A_1$ and $A_2$ are positive constants known by all and $\tilde{x}_0, \tilde{x}_1$ and $\tilde{x}_2$ are random variables with uniform distribution on the interval $[0, 1]$. In addition, at the time of the auction, Buyer~1 will have seen $\tilde{x}_0$ and $\tilde{x}_1$ while Buyer~2 will have seen $\tilde{x}_0$ and $\tilde{x}_2$. Based on their knowledge, they then simultaneously offer $c_1$ and $c_2$ respectively. The buyer who bets the highest amount wins the deposit at the price he offered (in case of a tie, a coin is flipped to choose the winner). Therefore, the utility function of the players is given by:
+%\begin{align*}
+%	u_i(c_1, c_2, (\tilde{x}_0, \tilde{x}_1), (\tilde{x}_0, \tilde{x}_2)) = 
+%	\begin{cases}
+%		\hspace{.2cm} A_0 \tilde{x}_0 + A_1 \tilde{x}_1 + A_2 \tilde{x}_2 - c_i & \text{if } c_i > c_j, \\
+%		(A_0 \tilde{x}_0 + A_1 \tilde{x}_1 + A_2 \tilde{x}_2 - c_i) / 2 & \text{if } c_i = c_j, \\
+%		0 & \text{if } c_i < c_j.
+%	\end{cases}
+%\end{align*}
+%%\begin{equation*}
+%%	u_i(c_1, c_2, (\tilde{x}_0, \tilde{x}_1), (\tilde{x}_0, \tilde{x}_2)) = 
+%%	\begin{cases}
+%%		\hspace{.2cm} A_0 \tilde{x}_0 + A_1 \tilde{x}_1 + A_2 \tilde{x}_2 - c_i 		\hspace{1.2cm} \text{if } c_i > c_j \\
+%%		(A_0 \tilde{x}_0 + A_1 \tilde{x}_1 + A_2 \tilde{x}_2 - c_i) / 2 						\hspace{ .5cm} \text{if } c_i = c_j \\
+%%		0 																																					\hspace{6.45cm} \text{if } c_i < c_j.
+%%	\end{cases}
+%%\end{equation*}
+%It is known that there exists a unique Bayesian equilibrium to this game of the form $\{ \ c_1 = \alpha_1 \tilde{x}_0 + \beta_1 \tilde{x}_1, \ c_2 = \alpha_2 \tilde{x}_0 + \beta_2 \tilde{x}_2 \ \}$.
+%\begin{enumerate}
+%	\item[a.] Find this equilibrium.
+%	\item[b.] Let us assume that $A_0 = A_1 = A_2 = 100$ and that Buyer~1 observed $\tilde{x}_0 = 0$ and $\tilde{x}_1 = 0.01$. What should be his bet? Does this result sound reasonable? Would it not be safer to increase the offer a bit? Why?
+%\end{enumerate}
+
+%\newpage
+
+\paragraph{5. } \textbf{(Theoretical exercise.)} Let $\Gamma^1$ be the game obtained from $\Gamma$ by removing all its strongly dominated strategies. Show that $\sigma$ is a Nash equilibrium of $\Gamma^1$ iff $\sigma$ is a Nash equilibrium of $\Gamma$.
+
+\paragraph{6. } \textbf{(Theoretical exercise.)} Let $\Gamma^2$ be the game obtained from $\Gamma$ by removing all its weakly dominated strategies. Show that if $\sigma$ is a Nash equilibrium of $\Gamma^2$, then $\sigma$ is also a Nash equilibrium of $\Gamma$. Show that the converse statement is not true.
+
+\paragraph{7. } \textbf{(Theoretical exercise.)} Let $\Gamma$ be a 2-player zero-sum game in strategic form. Show that the set $$\{ \sigma_1 \, | \, \sigma \text{ is an equilibrium of } \Gamma \}$$ is a convex subset of $\Delta(C_1)$.
+
+\paragraph{8. } \textbf{(Theoretical exercise.)} Consider a game $\Gamma(N,C,u)$. Given a player $i \in N$, and a randomized strategy profile of $i$ opponents, $\sigma_{-i} \in \Delta C_{-i}$, Nash' Lemma states that there is always a best response from $i$ to $\sigma_{-i}$ which is a pure strategy in $C_i$. 
+\begin{itemize}
+\item Explain all of the notations above.
+\item Formalize Nash lemma mathematically.
+\item Provide a proof of the Lemma. Hint: Remember that the strategy $\sigma_{-i}$ is fixed when considering the concept of best responses. 
+\end{itemize} 
+
+%\paragraph{7. } \textbf{(Theoretical exercise.)} Let $Y$ and $Z$ be compact (closed and bounded), convex and non-empty sets of finite dimension. 
+%
+%Let $g : Y \times Z \rightarrow \mathbb{R}$ be a continuous function that is linear in $y$.
+%
+%Let $F : Z \rightarrow \rightarrow Y$ be such that $F(z) = \arg \max\limits_{y \in Y} g(y, z)$. \\ (Note that $F$ is a point-set matching, hence the $\rightarrow \rightarrow$ notation.)
+%
+%Soit $F : Z \rightarrow \rightarrow Y$ tel que $F(z) = \arg \max\limits_{y \in Y} g(y, z)$. \\ (Notez que $F$ est une correspondance point-ensemble, d'où la notation $\rightarrow \rightarrow$.)
+%\begin{enumerate}
+%	\item[a.] Montrez que $F$ est hémicontinue supérieurement.
+%	\item[b.] Montrez que $F$ est convexe.
+%\end{enumerate}
+%Ceci conclut la démonstration du théorème de Nash telle qu'exposée dans le livre ``Game Theory : Analysis of Conflict'' de R. Myerson.
+
+\end{document}

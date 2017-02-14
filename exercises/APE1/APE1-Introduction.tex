@@ -1,0 +1,166 @@
+\documentclass{ape}
+
+\begin{document}
+
+\hspace{-.5cm}\Large{\textbf{Session 1 -- Introduction to Game Theory}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+%\section*{Exercises}
+
+
+\section{}
+It is W. White's turn and he can win for sure. Can you see how?
+
+\begin{center}
+\scalebox{.7}{
+\begin{tikzpicture}
+
+% draw black squares
+\foreach \x in {0,...,3} 
+{
+	\foreach \y in {0,...,3} 
+	{
+		\fill[black!40] (2*\x,2*\y) rectangle (2*\x+1,2*\y+1);
+		\fill[black!40] (2*\x+1,2*\y+1) rectangle (2*\x+2,2*\y+2);
+	}
+}
+\draw[line width=1mm,black!80,rounded corners] (0,0) rectangle (8,8);
+
+% add the pawns
+\path (1.5,2.5) node {\includegraphics[scale=.7]{images/W-bishop.png}};
+\path (1.5,3.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
+\path (2.5,2.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
+\path (2.5,4.5) node {\includegraphics[scale=.7]{images/W-bishop.png}};
+\path (3.5,0.5) node {\includegraphics[scale=.7]{images/W-tower.png}};
+\path (4.5,4.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
+\path (5.5,1.5) node {\includegraphics[scale=.7]{images/W-king.png}};
+\path (6.5,2.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
+\path (7.5,3.5) node {\includegraphics[scale=.7]{images/W-tower.png}};
+
+\path (0.5,6.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
+\path (0.5,7.5) node {\includegraphics[scale=.7]{images/B-tower.png}};
+\path (1.5,4.5) node {\includegraphics[scale=.7]{images/B-king.jpg}};
+\path (2.5,7.5) node {\includegraphics[scale=.7]{images/B-bishop.jpg}};
+\path (5.5,4.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
+\path (5.5,7.5) node {\includegraphics[scale=.7]{images/B-tower.png}};
+\path (6.5,6.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
+\path (7.5,5.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
+\end{tikzpicture}
+}
+\end{center}
+
+\nosolution
+
+\section{}
+It is again W. White's turn, and he is again sure to win but he is in a hurry and wants to finish the game as quickly as possible. How should he proceed, depending on whether he is facing his son (who did not really understand how to play with the knight yet) or a grand chess master?
+
+\begin{center}
+\scalebox{.7}{
+\begin{tikzpicture}
+
+% draw black squares
+\foreach \x in {0,...,3} 
+{
+	\foreach \y in {0,...,3} 
+	{
+		\fill[black!40] (2*\x,2*\y) rectangle (2*\x+1,2*\y+1);
+		\fill[black!40] (2*\x+1,2*\y+1) rectangle (2*\x+2,2*\y+2);
+	}
+}
+\draw[line width=1mm,black!80,rounded corners] (0,0) rectangle (8,8);
+
+% add the pawns
+\path (1.5,2.5) node {\includegraphics[scale=.7]{images/W-bishop.png}};
+\path (1.5,3.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
+\path (2.5,2.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
+\path (2.5,4.5) node {\includegraphics[scale=.7]{images/W-bishop.png}};
+\path (3.5,0.5) node {\includegraphics[scale=.7]{images/W-tower.png}};
+\path (4.5,2.5) node {\includegraphics[scale=.7]{images/W-king.png}};
+\path (6.5,3.5) node {\includegraphics[scale=.7]{images/W-tower.png}};
+
+\path (0.5,6.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
+\path (0.5,7.5) node {\includegraphics[scale=.7]{images/B-tower.png}};
+\path (1.5,4.5) node {\includegraphics[scale=.7]{images/B-king.jpg}};
+\path (2.5,7.5) node {\includegraphics[scale=.7]{images/B-bishop.jpg}};
+\path (6.5,2.5) node {\includegraphics[scale=.7]{images/B-knight.png}};
+\end{tikzpicture}
+}
+\end{center}
+
+\nosolution
+
+\section{}
+Your pirate crew just stole a purse containing 10 gold pieces. It must now be decided how the gold will be divided between you. Your crew consists of five pirates, in hierarchical order: the Captain, the Ship Master, the Navigator, the Mate and the Cabin Boy. Luckily, to avoid arguments, there exists a longstanding traditional pirate code on how treasure should be divided.
+
+First, the most highly ranked pirate proposes a particular division of the treasure. Then, all pirates (including the one who proposed the split) vote on whether to accept or reject this division. If a strict majority votes in favor, then the treasure is divided as suggested. Otherwise, the pirate who proposed the division is thrown overboard and the next most senior pirate gets a chance to propose an alternative. This process continues, until either a split is accepted or only the cabin boy remains.
+
+Now, you know the crew. They are a highly intelligent and ferociously logical bunch. If their life is not threatened, they always act to maximize their gains. And of course, since they are pirates, if they get the chance to throw one of their superior overboard, they will favor this option provided it does not affect their gold revenue.
+Moreover, if they have the choice between two divisions of gold with the same amount for them, they will choose the one that gives the highest amount to the highest ranked pirates.
+
+According to pirate's traditions, how will the gold be divided?
+
+\textbf{Challenge:} What would happen if there were $50$ pirates, again with a strict hierarchy? And with $n$ pirates?
+
+\nosolution
+
+\section{}
+You are playing \emph{Rock, Paper, Scissors}. What is your strategy to win the game? 
+
+\nosolution
+
+\section{}
+You are playing the following Prisoner's Dilemma. 
+\begin{center}
+	\begin{tabular}[h!]{l|ccccc}
+		&& \Large{Cooperate} && \Large{Defect} & \\
+		\hline
+		\Large{Cooperate} && \Large{6,6} && \Large{1,7} & \\
+		\Large{Defect} && \Large{7,1} && \Large{2,2} & 
+	\end{tabular} 
+\end{center}
+Would you take the ``Cooperate'' option? Would it help to communicate to improve your payoff?
+
+\nosolution
+
+\section{}
+How many equilibria\footnote{An equilibrium is a strategy profile for all players such that neither of them would gain from deviating alone from their strategy.} can you find in the following game? 
+\begin{center}
+\begin{tabular}[h!]{l|ccccc}
+	&& \Large{$x_2$} && \Large{$y_2$} & \\
+	\hline
+	\Large{$x_1$} && \Large{2,2} && \Large{4,1} & \\
+	\Large{$y_1$} && \Large{1,4} && \Large{5,5} & 
+\end{tabular} 
+\end{center}
+
+\nosolution
+
+\section{}
+In the Prisoner's Dilemma from exercise 5., suppose you had to repeat the game 10 times. Your strategy is the following: You always play ``Cooperate'', except if your opponent played ``Defect'' on the previous round. Discuss how this procedure helps to improve your payoff in the long run. Can you imagine other procedures? 
+
+\nosolution
+
+\section{}
+You are playing the following game.
+
+\begin{center}
+\begin{tabular}[h!]{l|ccccc}
+	&& \Large{$x_2$} && \Large{$y_2$} & \\
+	\hline
+	\Large{$x_1$} && \Large{2,2} && \Large{6,3} & \\
+	\Large{$y_1$} && \Large{3,6} && \Large{5,5} & 
+\end{tabular} 
+\end{center}
+
+\begin{itemize}
+\item Can you find an equilibrium in this game?
+\item Imagine that some neutral player told you and your opponent the following: \emph{``Let me choose what to play for you. I will secretly choose one of the strategies $(x_1, y_2)$, $(y_1, x_2)$ and $(y_1, y_2)$ with equal probability, but I promise,  never $(x_1, x_2)$. Then I will privately communicate to both of you the action that you should play.''} Would this guy's advice result in a better payoff for you? And would you follow his advice?
+\end{itemize}
+
+%Assume a mediator comes in and tells you the following: \emph{``I will secretly choose an action for you, either $x$ or $y$, each with probability $1/2$ and tell you each, privately, what to play.''} If you followed his instruction, would it result in a better payoff? But should you follow the mediator's instructions in the first place? 
+
+\nosolution
+
+\end{document}

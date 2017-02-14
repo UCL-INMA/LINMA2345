@@ -1,0 +1,153 @@
+\documentclass[a4paper,notitlepage,12pt]{article}
+
+\usepackage[ansinew]{inputenc}
+%\usepackage[frenchb]{babel}
+\usepackage{graphicx} 
+\usepackage[lmargin=2.2cm, rmargin=2.2cm,bottom=2.85cm,top=2.7cm]{geometry} 
+\usepackage{amsmath}
+\usepackage{amsthm} 
+\usepackage{amssymb}  
+\usepackage{eurosym} 
+\usepackage{enumitem} 
+\usepackage{url}
+%\usepackage{bbold}
+\usepackage{psfrag}
+\usepackage{tikz}
+
+\newcommand{\X}{X}
+\newcommand{\Y}{Y}
+
+\begin{document}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\large
+
+\textbf{Session 8: Auctions}
+
+%\section*{Exercices}
+
+
+\paragraph{0. } Warm up. 
+
+In the lecture today you have seen that a second price-sealed bid auction is \emph{truthfull}, i.e. the dominant strategy for each player is to tell the truth. Write down a short proof of this theorem.
+
+\paragraph{1. } More auctions.
+\begin{enumerate}
+ \item[a.]
+  Consider a single-item auction with $n$ agents, each having a valuation $v_i$ for the auctioned item, and where money is not allowed (i.e. no one is asked to pay anything, and thus also no money is part of the utility function of each player). Consider the situation where the item is given to the player with the highest bid. Argue that such a mechanism is not truthful. 
+ \item[b.]
+ Consider the third-price mechanism in a single-item auction with at least three bidders, where the item is awarded to the bidder with the highest bid at the cost corresponding to the third highest bid. Is this mechanism truthful? 
+ \item[c.]
+ Consider a multi-item auction with $k$ identical goods and $m > k$ bidders, where every bidder is interested in buying one item, and thus having a valuation $v_i$ which is zero if the bidder does not get an item, and it is positive, if the bidder gets an item in the auction. Consider the mechanism which allocates the first $k$ items to the bidders with $k$ highest values, where the bidder with the $i$-th highest bid, $i \leq k$, pays the price of the $(i +1)$-th highest bid. Is this mechanism truthful?
+\end{enumerate}
+
+\paragraph{2. } First-price auction with more than 2 players.
+
+ A seller offers an object for sale. Valuations of two potential buyers, $v_1$, $v_2$ are identically and independently distributed on $[0,1]$.
+\begin{enumerate}
+\item[a)]
+ The seller employs a first-price sealed-bid auction mechanism. Assume that both bidders use linear strategies, i.e. $b_i(v_i) = a_iv_i$, $i = 1, 2$, where $a_i$ is a positive constant. Find the equilibrium bidding strategies (i.e. the values of $a_1$, $a_2$). NOTE: you may remember the outcome from the class but now prove that it is correct.
+\item[b)] Now assume that Buyer 2 is entitled to buy at the price offered by Buyer 1, i.e., Buyer 1 submits her bid of choice, say: $b$, and Buyer 2 either buys at this price or steps out (in which case Buyer 1 purchases the object at $b$). Find optimal strategies for both players.
+\item[c)]  Compare the expected revenues obtained by the seller under points a) and b). Does the Revenue Equivalence Theorem hold? If not, why not?
+
+\item[d)*] Can you give other examples of Nash Equilibria of the Bayesian game from point b)? HINT: they may involve ``threats''.
+\end{enumerate}
+
+\paragraph{3. } First-price auction with more than 2 players.
+
+Consider the the first-price sealed bid auction with $n$ risk-neutral agents whose valuations $v_i$ are independently drawn from the uniform distribution on $[0,1]$. For the case $n=2$, we have seen that $(v_1/2,v_2/2)$ is a Bayes-Nash equilibrium strategy profile. The goal of this exercise is to extend this result to $n \geq 3$ players.
+\begin{enumerate}
+  \item[a.] Let $n=3$ and consider a single-item second-price auction. Calculate the expected payment of a player with valuation $v$, conditioned on the event that this player wins the auction.
+  \item[b.] Use the Revenue Equivalence theorem to deduce the bidding strategy for a player with valuation $v$ in a first-price auction.
+  \item[c.] Can you generalize the result to $n > 3$ players?
+\end{enumerate}
+
+
+
+
+\paragraph{4. } 
+
+Three buyers compete in a sealed-bid auction. Their valuations of the object are known to be distributed independently and uniformly on $[0,1]$. It so happened that their actual values are $v_1 = .7$, $v_2 = .9$, $v_3 = .2$, but everybody only knows her own value. Using the appropriate formulas from the lecture notes determine what bids will be submitted, who will win the auction at which price and what will be the seller's revenue if the auction mechanism is:
+\begin{enumerate}
+\item[a)] first-price
+\item[b)] second-price
+%\item[c)] all-pay
+\end{enumerate}
+Assume there is no reserve price and bidders are risk-neutral. Comment on your results in view of the Revenue Equivalence Theorem.
+
+
+\clearpage
+Solutions.
+\paragraph{1.}
+\begin{enumerate}
+\item[a)]
+Assume that player $i$ bids $b_i = v_i$, but he does not win the auction. Therefore there is a player $j \neq i$ whose bid $b_j$ is the highest bid. Bidding $b'_i > b_j$ is therefore a better strategy for player $i$, as in this case he wins the auction.
+\item[b)]
+No. Assume that the vector $b$ represents the bids in descending order and player 1 won the auction. Consider player 2 who bid his own valuation $v_2$, then it holds $b_1 > b_2 = v_2 > b_3$. As he did not win, his utility is zero. But if player 2 bids $b'_2 > a_1$, then he wins the auction and his new utility will be positive.
+\item[c)]
+No. Assume that the vector $b$ represents the bids in descending order and the first $k$ players won the auction. Consider the first player who bid his valuation $a_1 = v_1$. The utility for this player is $v_1-b_2$. If this player bids $b'_1 = b_{k+1} + \epsilon$, with $\epsilon > 0$, then he will still be among the winners of the auction. His new utility is $v_1-b_{k+1} > v_1-b_2$. 
+\end{enumerate}
+
+
+\paragraph{2. }
+\begin{enumerate}
+\item[a)]
+Bidder 1, observing value $v_1$ and submitting bid $b_1$ will have a profit of $v_1 - b_1$ provided she wins the auction (its easy to see that ties happen with probability 0 under independent continuous valuations and linear strategies). Expected payoff $\Pi_1$ is thus:
+\[
+E(\Pi_1 \mid v_1, b_1) = (v_1-b_1)P(\text{win}\mid b_1) = (v_1-b_1)P(b_1 > b_2) = (v_1-b_1)P(v_2 < b_1 / a_2)
+\]
+Clearly, there is no reason for Buyer 1 to ever bid higher than the highest possible bid of Buyer 2, which is $a_2$. Then, given the distribution of $v_2$ we have
+\[
+E(\Pi_1|v_1, b_1) = (v_1 - b_1) b_1 / a_2
+\]
+Which for any $v_1$ is maximized at $b_1 = v_1/2$. Therefore Buyers 1 optimal strategy is $b_1 = v_1/2$ so $a_1 = 1/2$ and, by symmetry, $a_2 = 1/2$.
+
+\item[b)]
+It was even easier than point a). It is a dynamic game. For Buyer 2 it is easy - he should buy if his value is higher than the bid of Buyer 1, $v_2 > b$, he is indifferent in the improbable case of $v_2 = b$ and he should not buy if $v_2 < b$. So Buyer 1 submitting a bid $0 < b < 1$ knows she will get the
+object with probability $b$. In order to maximize the expected profit $(v_1 - b)b$ she must choose $b = v_1 /2$ as in point a).
+
+\item[c)]
+Under point a), the seller in equilibrium obtains $1/2$ of the higher value, which is $1/3$ in expectation (see 3.a). Under point b), the seller obtains $1/2$ of
+the value of Buyer 1, which is $1/4$ in expectation. This obviously does not contradict the RET; the rev. equiv. does not hold because the efficiency assumption is not satisfied under mechanism considered in point b). Indeed, it may easily happen that the object goes to Buyer 2, although he has lower valuation, e.g. when $v_1 = .6$, $v_2 = .4$, Buyer 1 will submit $b = .3$ and will not get the object, despite having higher value.
+
+
+\item[d)]
+
+Only the second mover (here: Buyer 2) can make any threats. A ``threat'' must, by definition, involve potential negative consequence for Buyer 1. Here that means not being able to purchase the object. So a threat
+must be of the form ``if you do this or that, I will buy the object anyway''. Now, ``this or that'' must be something that Buyer 2 does not want Buyer 1 to do. Which is, submitting a high $b$, indeed, this is bad for Buyer 2. Now it is easy to give many examples. E.g. Buyer 1 submits ``the right bid'' $b = v_1/2$
+if $v_1 \leq 0.4$ and submits $b = 0.2$ otherwise. Buyer 2 reacts optimally (buy if and only if $v_2 > b$) if the bid is up to 0.2 and buys regardless of his value if the bid is higher than 0.2. Clearly, Buyer 2 ends up doing the best thing, because in practice there are no bids above 0.2. Buyer 1 cannot do any better either, because submitting anything higher than .2 gives zero profit for sure. So it is an equilibrium, even though the strategy of Buyer 2 involves some suboptimal reactions (which however, are never implemented). Obviously, the value of .2 was chosen arbitrarily, there is a continuum of such equilibria.
+
+
+\end{enumerate}
+
+\paragraph{3.}
+\begin{enumerate}
+\item[a)] The expected payment $\Pi_v$ for a player with valuation $v$ who wins is
+\[
+ E[\text{second hightest bid} \mid v \text{ is the hightest bid}]
+\]
+Use $P[\max\{a,b\} \leq x] = P[a \leq x]\cdot P[b \leq x] = x^2/v^2$, so the PDF of $X := \max\{a,b\}$ is $2x/v^2$. $ E[\max\{a,b\}] = \int_0^v x (2x/v^2) { \rm d}x = 2/3v $.
+\item[b)] (i) Show that the conditions of the revenue equivalence theorem hold. (ii) We know from the proof that a bidder of the same type will make the same expected payment in both auctions. In both of the auctions we are considering, a bidder's payment is zero unless he wins. Thus a bidder's expected payment conditional on being the winner of a first-price auction must be the same as his expected payment conditional on being the winner of a second-price auction. Hence by a) we conclude that a bidder with valuation $v$ should bid $b(v) = \frac{2}{3}v$.
+\item[c)]  The PDF of $X_k := \max\{a_1,\dots,a_k\}$ is $k x^{k-1}/v^k$. Hence \\$E[X_k] = \int_0^v x (k x^{k-1}/v^k) { \rm d}x = \int_0^v  k x^{k}/v^k { \rm d}x = \frac{k}{k+1} v $. With $k=n-1$ we conclude $\frac{n-1}{n} v$.
+\end{enumerate}
+
+\paragraph{4.}
+In the FPA with independent, uniformly distributed, private values the equilibrium bids are $b(v) = \left(\frac{n-1}{n}\right) v$. Thus with these values, the bids will be $2/3$ times values, the revenue is $.6$. In the SPA everyone submits her value, so bids are $b_1 = .7$, $b_2 = .9$, $b_3 = .2$ and the revenue is $.7$. 
+%Under all pay the formula is $b(v) = \left( \frac{n-1}{n} \right) v^n$  and the revenue is $2/3(.7^3+.9^3+.2^3) = 0.74$. 
+%So all-pay yields highest revenue here and FPA - lowest. 
+So SPA yields highest revenue here and FPA---lowest. 
+Of course, this is not inconsistent with the RET, because RET only tells us something about EXPECTED revenue---it does not say that revenue will be identical for each particular combination of values.
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

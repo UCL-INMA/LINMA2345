@@ -1,0 +1,53 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{eplqa}[2015/03/06 EPL QA package]
+
+\DeclareOption*{\ClassError{eplbase}{``\CurrentOption''}}
+
+\ProcessOptions\relax
+
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc, arrows}
+
+\RequirePackage{ifthen}
+
+\newcommand{\QAlabel}{Exercise}
+\newcommand{\theQA}{1}
+
+\newcommand{\SolutionLabel}{Solution to APE~\theQA}
+
+\usepackage[framemethod=tikz]{mdframed}
+\input{../greyarrow.tex}
+
+\RequirePackage{verbatim}
+\ifthenelse{\isundefined{\Sol}}{\def\Sol{true}}{}
+\ifthenelse{\equal{\Sol}{false}}
+{
+  \newenvironment{solution}{\expandafter\comment}{\expandafter\endcomment}
+}
+{
+  \newmdenv[style=mysquare]{solution}
+}
+
+\NewDocumentEnvironment{solfig}{mm}
+{\begin{center}\begin{minipage}{\textwidth}\centering\hspace{1em}}
+{\hspace{1em}\captionof{figure}{#2}\label{fig:#1}\end{minipage}\end{center}}
+
+% \comment and \endcomment of the environment solution
+% does not work with newcomment
+\ifthenelse{\equal{\Sol}{false}}
+{\newcommand{\nosolution}{}}
+{
+\newcommand{\nosolution}{
+\begin{solution}
+Sadly,
+\QAlabel~\theQA{}
+does not yet have a solution.
+You are encouraged to submit one to the following address
+\begin{center}
+  \url{https://github.com/blegat/LINMA2345}
+\end{center}
+\end{solution}
+}
+}
+
+\endinput
