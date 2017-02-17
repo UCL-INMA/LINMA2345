@@ -9,7 +9,7 @@
 
 \chapter{Basics models of game theory, domination and private information} \label{chap:Models}
 {\large{\itshape
-"Let's play a game!"} - The puppet guy from the Saw movies.\\
+``Let's play a game!''} --- The puppet guy from the Saw movies.\\
 }
 {\small{\itshape
 Chapter based on pages 37 to 74 of the book  ``Game theory - Analysis of conflict'' by R. Myerson.}\\
@@ -188,7 +188,7 @@ is given on Figure \ref{chap2:example:figtree} as an illustration.
 \begin{enumerate}
 \item \textbf{Random events:}
 To represent a random event, we use a \emph{chance node}. 
-These nodes are always labeled with the number "0".
+These nodes are always labeled with the number ``0''.
 
 All the edges outgoing from such node corresponds to the realization of a particular random event (roll of a dice, picking a card).
  They \emph{need} to be labeled with the probability of occurrence of the associated event. They \emph{may also} carry a description of this event.
@@ -225,7 +225,7 @@ This rule really clarifies the description of the game, as it removes ambiguous 
 
 \end{enumerate}
 \item \textbf{Payoffs:} The game ends when we reach the leaf of the tree, and the payoffs are given to the player. 
-The leafs are labeled with a vector\footnote{Note that we will sometimes write such vectors by separating their entries with slashes "/". This is done to ease the reading.} $(w_1, w_2, \ldots, w_N)$, where $N$ is the amount of players, and $w_i$ is the payoff of player $i$ when he reaches the leaf.
+The leafs are labeled with a vector\footnote{Note that we will sometimes write such vectors by separating their entries with slashes ``/''. This is done to ease the reading.} $(w_1, w_2, \ldots, w_N)$, where $N$ is the amount of players, and $w_i$ is the payoff of player $i$ when he reaches the leaf.
 \end{enumerate}
 
 \begin{exercise}
@@ -339,7 +339,7 @@ Fold/fold & 2, 2 & 2, 2
 \subsection{Comments}
 
 The extensive and strategic forms present the game under two conceptually different angles.\\* 
-The extensive form  allows to think like "if player 1 does this then player 2 should do that" etc... in a dynamical way. \\*
+The extensive form  allows to think like ``if player 1 does this then player 2 should do that'' etc... in a dynamical way. \\*
 The strategic representation on the other hand, is a poorer representation of the game. It presents a static game. Players study the game, and plan their strategy before it begins. Then, they stick to their plan during the game.\\*
 One of the main limitations of the strategic form is that while we can transform any extensive form in a unique strategic form, the reverse is not true. In particular, we cannot retrieve the ordering of the events in the game. 
 This sequentiality is sometimes necessary to define the behavior of intelligent and rational agents (or, oppositely, to rule out some behaviours as being irrational).  We will see that in Chapter 4. \\
@@ -364,7 +364,7 @@ $$ \forall c_i \in C_i: \sigma_i(c_i) \geq 0; \qquad \sum_{c_i \in C_i} \sigma_i
 A randomized strategy profile $\sigma \in \Delta(C)$ is the choice of one randomized strategy per player.
 The \emph{expected payoff} of player $i \in N$ for the profile $\sigma \in \Delta(C)$ is given by 
 $$E_\sigma(u_i(c)) = \sum_{c_i \in C_i} \sigma_i(c_i) \sum_{c_{-i} \in C_{-i}} \sigma_{-i}(c_{-i}) u_i(c_i, c_{-i}), $$
-where "$-i$" denotes the set of all players except $i$, and 
+where ``$-i$'' denotes the set of all players except $i$, and 
 $\sigma_{-i}(c_{-i}) = \prod_{j \neq i}\sigma_{j}(c_j)$, with $c_{-i} = (c_j)_{j \neq i}$. 
 \end{definition}
 
@@ -394,10 +394,10 @@ Sadly, things are not that easy. It is straightforward to build examples where t
 Take again the game of example \ref{chap2:example:game}. \TAtwo{} wants to find the best strategy. We advise you to follow the reasoning by referring to the normal representation of the game at Figure \ref{chap2:table}.
 
 \begin{itemize}
-\item Assume first \TAone{} is going to "pass" everytime. Then \TAtwo{} should play "Raise/raise" or "Fold/raise", which guarantees a payoff of $3\$$.
-\item If \TAtwo{}s plays as defined above, \TAone{} should play "meet", which gives him an expected payoff of $2.25\$$.
-\item In that case \TAtwo{} should play "Raise/fold!"...
-\item ...to which the best response from \TAone{} is "pass", which brings us back at the beginning of the analysis.
+\item Assume first \TAone{} is going to ``pass'' everytime. Then \TAtwo{} should play ``Raise/raise'' or ``Fold/raise'', which guarantees a payoff of $3\$$.
+\item If \TAtwo{}s plays as defined above, \TAone{} should play ``meet'', which gives him an expected payoff of $2.25\$$.
+\item In that case \TAtwo{} should play ``Raise/fold!''...
+\item ...to which the best response from \TAone{} is ``pass'', which brings us back at the beginning of the analysis.
 \end{itemize}
 
 \label{chap2:example:bestresponseequilibria}
@@ -654,8 +654,8 @@ In any case, once we have removed one, we cannot remove the other.
  
  
 In many games, players have access to some form of private information.
-Examples include the color of the card \TAtwo{} sees in example \ref{chap2:example:game}, a poker hand, the maximum amount of money one is willing to put on an auction... When we think of it, in many games involving some kind of "bluff", we often try to convince other players that our private information is the most advantageous to us.
-In example \ref{chap2:example:game}, \TAone{} would rather play "meet" if he thinks \TAtwo{} has a black card, and "pass" if he has a red card. Therefore, \TAtwo{} would prefer \TAone{} to believe he has a red card when he in fact has a black card, and vice-versa...
+Examples include the color of the card \TAtwo{} sees in example \ref{chap2:example:game}, a poker hand, the maximum amount of money one is willing to put on an auction... When we think of it, in many games involving some kind of ``bluff'', we often try to convince other players that our private information is the most advantageous to us.
+In example \ref{chap2:example:game}, \TAone{} would rather play ``meet'' if he thinks \TAtwo{} has a black card, and ``pass'' if he has a red card. Therefore, \TAtwo{} would prefer \TAone{} to believe he has a red card when he in fact has a black card, and vice-versa...
 
 This being said, we understand how this concept of private information comes to play a very important role in the analysis of games. Let us first define formally 
 what private information, and its opposite \emph{common knowledge} means.
@@ -670,7 +670,7 @@ holds for all $K = 1, 2, \ldots$.
 \end{definition}
  
  The somewhat recursive definition of common knowledge seems to be complicated. 
- It may appear that "I know X" and "You know X" should be enough so that $X$ is common knowledge. The following well known example shows otherwise.
+ It may appear that ``I know X'' and ``You know X'' should be enough so that $X$ is common knowledge. The following well known example shows otherwise.
  
  \begin{example}
  We present here the famous \emph{paradox of the generals}.
@@ -693,7 +693,7 @@ This is because they want the hour of the attack to be a \emph{common knowledge.
  
 \subsection{Modelling games with incomplete information}
 
-A game with incomplete information is a game in which some player possesses private information on the game before it even begins. To represent these  informations, we assign to the players a \emph{type} that identifies the information. For example, players in an auction know before the auction the amount of money they are willing to spend. Then, we could say that a player is of type "I'll spend at most 1000 \$", etc...
+A game with incomplete information is a game in which some player possesses private information on the game before it even begins. To represent these  informations, we assign to the players a \emph{type} that identifies the information. For example, players in an auction know before the auction the amount of money they are willing to spend. Then, we could say that a player is of type ``I'll spend at most 1000 \$'', etc...
 
  In what follows, we assume that there is a finite number of possible types for each player. The set of types for player $i$ is written $T_i$.
 
