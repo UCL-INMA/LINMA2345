@@ -22,6 +22,10 @@
 \RequirePackage{eurosym} 
 \RequirePackage{url}
 \RequirePackage{ifthen}
+\RequirePackage{enumitem}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
 
 % Color
 % cfr http://en.wikibooks.org/wiki/LaTeX/Colors

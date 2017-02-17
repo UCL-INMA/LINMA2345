@@ -1,18 +1,6 @@
-\documentclass[a4paper,notitlepage,11pt]{article}
+\documentclass{../ape}
 
-\usepackage[ansinew]{inputenc}
-%\usepackage[frenchb]{babel}
-\usepackage{graphicx} 
-\usepackage[lmargin=2.0cm, rmargin=2.0cm,bottom=2.55cm,top=2.4cm]{geometry} 
-\usepackage{amsmath}
-\usepackage{amsthm} 
-\usepackage{amssymb}  
-\usepackage{eurosym} 
-\usepackage{enumitem} 
-\usepackage{url}
-%\usepackage{bbold}
-\usepackage{psfrag}
-\usepackage{tikz}
+\usepackage{../../linma2345}
 
 \newcommand{\reels}{\mathbb{R}}
 \newcommand{\X}{X}
@@ -20,16 +8,13 @@
 
 \begin{document}
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+{
+  \Large
+  \textbf{Session 9: Repeated games}
+}
 
-\Large
-
-\textbf{Session 9: Repeated games}
-
-%\section*{Exercices}
-
-\paragraph{1. } \textbf{The example that says it all}
+\section{}
+\textbf{The example that says it all}
 The prisoner dilemma. A wonderful game where you learn that you can't be both a good player and a nice person.  \\
 Prisoner Dilemmas are typical game where two players can decide either to cooperate with each other, which implies providing a service to the other, or to defect, which implies not doing anything for the other. In that situation, it is always preferable to receive than to give. The following game is an instance of PD:
 \begin{center}
@@ -50,11 +35,12 @@ We now put ourselves in the situation where players will have to play this game 
 		\emph{every time I can play, I just play 0.5[C]+0.5[D]}. 
 \end{enumerate}
 
-\paragraph{2. } \textbf{(War of attrition.)} Two small grocery stores close to one another are starting to feel the effects of the supermarket that has just moved to a kilometer away. While they remain on the market, they each lose 4000\euro\ per month. The first day of the month, just before paying rent, each grocer still on the market must decide whether or not to close his shop. If one of the two stores closes, the one who remains on the market will make a profit of 2000\euro\ a month. In addition, it is assumed that the closure of a grocery store is final. Every grocer wants to maximize the \emph{discounted expected value} of its monthly benefit, assuming a discount factor of $\delta = .99$.
+\section{}
+\textbf{(War of attrition.)} Two small grocery stores close to one another are starting to feel the effects of the supermarket that has just moved to a kilometer away. While they remain on the market, they each lose \SI{4000}{\EUR} per month. The first day of the month, just before paying rent, each grocer still on the market must decide whether or not to close his shop. If one of the two stores closes, the one who remains on the market will make a profit of \SI{2000}{\EUR} a month. In addition, it is assumed that the closure of a grocery store is final. Every grocer wants to maximize the \emph{discounted expected value} of its monthly benefit, assuming a discount factor of $\delta = .99$.
 \begin{enumerate}
 	\item[a.] Find an equilibrium for this situation in which the two grocers randomize between leaving or staying on the market, and this until at least one of them actually closes his store.
 	\item[b.] How else could the grocers have equilibrated this situation?
-	\item[c.] Now suppose that Grocer~1 was slightly larger than Grocer~2. As long as the two grocers remain on the market, Grocer~1 loses 4800\euro\ a month while Grocer~2 loses only 3600\euro\ a month. Conversely, if Grocer~1 was the only one on the market, he would win 2800\euro\ a month, against 1600\euro\ only for Grocer~2 in the same situation. Find an equilibrium for the situation in which the two grocers randomize each month between leaving the market or stay there until at least one of them actually closes its store. In this case, which of the two grocers has the highest chance to leave first?
+	\item[c.] Now suppose that Grocer~1 was slightly larger than Grocer~2. As long as the two grocers remain on the market, Grocer~1 loses \SI{4800}{\EUR} a month while Grocer~2 loses only \SI{3600}{\EUR} a month. Conversely, if Grocer~1 was the only one on the market, he would win \SI{2800}{\EUR} a month, against \SI{1600}{\EUR} only for Grocer~2 in the same situation. Find an equilibrium for the situation in which the two grocers randomize each month between leaving the market or stay there until at least one of them actually closes its store. In this case, which of the two grocers has the highest chance to leave first?
 \end{enumerate}
 
 %\newpage
