@@ -42,27 +42,27 @@ Finally,
 We are now going to present tools to model games, from an high level description, to a mathematical description. Before going further, let us linger a bit on what would be such a \emph{high - level} description?
 \begin{example}
 \label{chap2:example:game}
-Romain asks Matthew to play a game. He explains the rules as follows:
+\TAtwo{} asks \TAone{} to play a game. He explains the rules as follows:
 \begin{itemize}
-\item Romain has a deck of cards. The game starts by him picking a card randomly.
-\item Both player bet $1\$$: if a red card is picked, Romain should win. If a black card is picked, Matthew should win.
+\item \TAtwo{} has a deck of cards. The game starts by him picking a card randomly.
+\item Both player bet $1\$$: if a red card is picked, \TAtwo{} should win. If a black card is picked, \TAone{} should win.
 \end{itemize} 
-So far, so good: it is a classical betting game. But Romain adds a rule:
+So far, so good: it is a classical betting game. But \TAtwo{} adds a rule:
 \begin{itemize}
-\item Romain looks at the card before Matthew, and can decide to \emph{raise the bet}, adding one more dollar on the table, or to \emph{fold}, and end the game there.
- \item Matthew can then decide either to 
+\item \TAtwo{} looks at the card before \TAone{}, and can decide to \emph{raise the bet}, adding one more dollar on the table, or to \emph{fold}, and end the game there.
+ \item \TAone{} can then decide either to 
  meet the raise, 
  putting a second dollar on the table as well, 
-or to pass on the bet, surrendering his dollar to Romain. 
+or to pass on the bet, surrendering his dollar to \TAtwo{}. 
 In the first case, both players have bet $2\$$, 
-the card is shown, Romain wins on red, and Matthew on black.
+the card is shown, \TAtwo{} wins on red, and \TAone{} on black.
 \end{itemize}
 
 Let us highlight some aspects of the game of Example \ref{chap2:example:game} that are crucial in the decision making:
 \begin{itemize}
-\item Romain \emph{sees} the card, and can decide to act differently if he sees a red card or a black card. If he sees a red card, he has nothing to lose by raising the bet. If he sees a black card, then he could try to bluff, but this is risky...
-\item Matthew \emph{does not see} the card, and could try to guess from Romain's choice to raise or fold, because Matthew plays \emph{after} Romain. 
-\item In order to make a decision, Matthew should guess the probability of picking a red or black card. 
+\item \TAtwo{} \emph{sees} the card, and can decide to act differently if he sees a red card or a black card. If he sees a red card, he has nothing to lose by raising the bet. If he sees a black card, then he could try to bluff, but this is risky...
+\item \TAone{} \emph{does not see} the card, and could try to guess from \TAtwo{}'s choice to raise or fold, because \TAone{} plays \emph{after} \TAtwo{}. 
+\item In order to make a decision, \TAone{} should guess the probability of picking a red or black card. 
 \end{itemize}
 \end{example}
 
@@ -233,7 +233,7 @@ Propose an extensive form model for the following games.
 \begin{itemize}
 \item Heads-or-tails, with 2 players each betting a dollar. 
 \item Rock-Paper-Scissors., with 2 players each betting a dollar. 
-\item The game of Example \ref{chap2:example:game} where now, Romain picks a card from a deck of 53 cards, with 26 red cards, 26 black cards, and one joker. If he gets a joker Matthew immediately wins the bet, and the game ends.
+\item The game of Example \ref{chap2:example:game} where now, \TAtwo{} picks a card from a deck of 53 cards, with 26 red cards, 26 black cards, and one joker. If he gets a joker \TAone{} immediately wins the bet, and the game ends.
 \item The game of Example \ref{chap2:example:game}, when played twice in a row.
 \end{itemize}
 \end{exercise}
@@ -256,10 +256,10 @@ A \emph{pure strategy} for a player is a function
 
 \begin{example}
 In Example \ref{chap2:example:game}, 
-Romain has 4 pure strategies. Indeed, he has 2 information states, 
+\TAtwo{} has 4 pure strategies. Indeed, he has 2 information states, 
 with two moves at each. A possible strategy is 
 \emph{play Raise on a red card, play fold on a Black card}.\\*
-Matthew has 2 pure strategies, since he has only 1 information state and 2 available moves at this state.
+\TAone{} has 2 pure strategies, since he has only 1 information state and 2 available moves at this state.
 These strategies are \emph{always raise} and \emph{always pass}.
 \end{example}
 
@@ -321,7 +321,7 @@ which means that the first entry in the payoff vector is always his payoff.
 \begin{figure}[!ht]
 \centering
 \begin{tabular}{l|cc}
-Romain vs Matthew & meet & pass \\
+\TAtwo{} vs \TAone{} & meet & pass \\
 \hline
 Raise/raise & 2, 2 & 3, 1 \\
 Raise/fold & 2.5, 1.5 & 2, 2 \\
@@ -391,13 +391,13 @@ This observation leads to a recursive way to  find the \emph{best} strategy to p
 Sadly, things are not that easy. It is straightforward to build examples where this approach does not converge...
 
 \begin{example}
-Take again the game of example \ref{chap2:example:game}. Romain wants to find the best strategy. We advise you to follow the reasoning by referring to the normal representation of the game at Figure \ref{chap2:table}.
+Take again the game of example \ref{chap2:example:game}. \TAtwo{} wants to find the best strategy. We advise you to follow the reasoning by referring to the normal representation of the game at Figure \ref{chap2:table}.
 
 \begin{itemize}
-\item Assume first Matthew is going to "pass" everytime. Then Romain should play "Raise/raise" or "Fold/raise", which guarantees a payoff of $3\$$.
-\item If Romains plays as defined above, Matthew should play "meet", which gives him an expected payoff of $2.25\$$.
-\item In that case Romain should play "Raise/fold!"...
-\item ...to which the best response from Matthew is "pass", which brings us back at the beginning of the analysis.
+\item Assume first \TAone{} is going to "pass" everytime. Then \TAtwo{} should play "Raise/raise" or "Fold/raise", which guarantees a payoff of $3\$$.
+\item If \TAtwo{}s plays as defined above, \TAone{} should play "meet", which gives him an expected payoff of $2.25\$$.
+\item In that case \TAtwo{} should play "Raise/fold!"...
+\item ...to which the best response from \TAone{} is "pass", which brings us back at the beginning of the analysis.
 \end{itemize}
 
 \label{chap2:example:bestresponseequilibria}
@@ -654,8 +654,8 @@ In any case, once we have removed one, we cannot remove the other.
  
  
 In many games, players have access to some form of private information.
-Examples include the color of the card Romain sees in example \ref{chap2:example:game}, a poker hand, the maximum amount of money one is willing to put on an auction... When we think of it, in many games involving some kind of "bluff", we often try to convince other players that our private information is the most advantageous to us.
-In example \ref{chap2:example:game}, Matthew would rather play "meet" if he thinks Romain has a black card, and "pass" if he has a red card. Therefore, Romain would prefer Matthew to believe he has a red card when he in fact has a black card, and vice-versa...
+Examples include the color of the card \TAtwo{} sees in example \ref{chap2:example:game}, a poker hand, the maximum amount of money one is willing to put on an auction... When we think of it, in many games involving some kind of "bluff", we often try to convince other players that our private information is the most advantageous to us.
+In example \ref{chap2:example:game}, \TAone{} would rather play "meet" if he thinks \TAtwo{} has a black card, and "pass" if he has a red card. Therefore, \TAtwo{} would prefer \TAone{} to believe he has a red card when he in fact has a black card, and vice-versa...
 
 This being said, we understand how this concept of private information comes to play a very important role in the analysis of games. Let us first define formally 
 what private information, and its opposite \emph{common knowledge} means.
@@ -699,8 +699,8 @@ A game with incomplete information is a game in which some player possesses priv
 
 A natural way to model a game is to assume that the types will be assigned before the beginning of a game with all the appropriate randomness. This leads us to an extensive form representation of the game, using a chance node at the root of the tree.
 \begin{example}
-Consider example \ref{chap2:example:game} with a twist. Matthew has a dangerous gambling addiction, and sees Romain with a card in his pocket.  Without hesitation, he proposes to Romain a bet on the color of the card, where Romain, as in example \ref{chap2:example:game}, can raise the bet if he wishes so.\\
-A way to model this game is to use the same extensive form to that of Figure \ref{chap2:example:figtree}. The difference is that the first chance node, instead of representing the drawing of the card, represents the realization of the \emph{type} of Romain, that is the color of the card in his pocket.
+Consider example \ref{chap2:example:game} with a twist. \TAone{} has a dangerous gambling addiction, and sees \TAtwo{} with a card in his pocket.  Without hesitation, he proposes to \TAtwo{} a bet on the color of the card, where \TAtwo{}, as in example \ref{chap2:example:game}, can raise the bet if he wishes so.\\
+A way to model this game is to use the same extensive form to that of Figure \ref{chap2:example:figtree}. The difference is that the first chance node, instead of representing the drawing of the card, represents the realization of the \emph{type} of \TAtwo{}, that is the color of the card in his pocket.
 \label{ch2:exbayintro}
 \end{example}
 
@@ -728,7 +728,7 @@ The game is finite if $N$, $C$ and $T$ are finite.
  \begin{example}
  Back to example \ref{ch2:exbayintro}.
  
- Romain has two types: $T_1 = \{\text{red}, \text{black}\}$. Matthew has one type $T_2  =\{\text{gambler}\}$. Therefore, the set $T$ contains only two entries. 
+ \TAtwo{} has two types: $T_1 = \{\text{red}, \text{black}\}$. \TAone{} has one type $T_2  =\{\text{gambler}\}$. Therefore, the set $T$ contains only two entries. 
  The payoff function can be represented by these two tables:
 \begin{center}
 \begin{tabular}{l|cc}
@@ -746,8 +746,8 @@ Fold  & 1/3 & 1/3 \\
 \end{center}
  
  
- The belief function of Romain is $p_1(\text{gambler}|\text{red}) = p_1(\text{gambler}|\text{black}) = 1.$
-The belief function of Matthew is $p_2(\text{red} | \text{gambler}) = \alpha$,  $p_2(\text{black}|\text{gambler}) = 1-\alpha$.
+ The belief function of \TAtwo{} is $p_1(\text{gambler}|\text{red}) = p_1(\text{gambler}|\text{black}) = 1.$
+The belief function of \TAone{} is $p_2(\text{red} | \text{gambler}) = \alpha$,  $p_2(\text{black}|\text{gambler}) = 1-\alpha$.
  \end{example}
  
  Representing the belief functions of each player can be cumbersome. This can be made easier is the beliefs are \emph{consistent}:
@@ -772,9 +772,9 @@ In fact, bayesian games are not essentially different from general standard game
  \end{itemize}
  \end{definition}
   \begin{example}
-  The following table shows the payoffs for the type-agent representation of the game of example \ref{ch2:exbayintro}. We assume that the probabilities that Romain has a red or black card are the same.
+  The following table shows the payoffs for the type-agent representation of the game of example \ref{ch2:exbayintro}. We assume that the probabilities that \TAtwo{} has a red or black card are the same.
   These payoffs are to be read
-  $$ (\text{Matthew's payoff}/\text{red Romain's payoff}/\text{black Romain's payoff}).$$
+  $$ (\text{\TAone{}'s payoff}/\text{red \TAtwo{}'s payoff}/\text{black \TAtwo{}'s payoff}).$$
   \begin{center}
  \begin{tabular}{l|cc}
  & red:Raise & red:Fold \\

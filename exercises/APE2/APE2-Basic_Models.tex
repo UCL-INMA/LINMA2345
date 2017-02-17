@@ -1,5 +1,6 @@
 \documentclass{ape}
 
+\usepackage{../../linma2345}
 
 \begin{document}
 
@@ -55,7 +56,7 @@ The two firms are well aware of the situation and want to maximize their own pro
 \nosolution
 
 \section{}
-Matthew and Beno\^it are playing the following game. First, they both bet 4\euro. Then, Matthew draws a card without showing it to Beno\^it and hopes for a red card. He can either decide to \emph{Fold}, to \emph{Raise} 3\euro \ or to \emph{Raise} 4\euro. If he decides to fold, he shows his card. If the card was red, he wins all the euros from the table, otherwise Beno\^it does. If he decides to raise on the other hand, then Beno\^it can choose to \emph{Meet} the bet (add 3 euros if Matthew raised 3\euro, 4 if he raised 4\euro) or to \emph{Pass}. In this latter case, he loses his initial bet of 4\euro \ (but nothing more). Instead, if he meets, all the money goes to Matthew if the card was red and to Beno\^it if it was black. 
+\TAone{} and \TAtwo{} are playing the following game. First, they both bet 4\euro. Then, \TAone{} draws a card without showing it to \TAtwo{} and hopes for a red card. He can either decide to \emph{Fold}, to \emph{Raise} 3\euro \ or to \emph{Raise} 4\euro. If he decides to fold, he shows his card. If the card was red, he wins all the euros from the table, otherwise \TAtwo{} does. If he decides to raise on the other hand, then \TAtwo{} can choose to \emph{Meet} the bet (add 3 euros if \TAone{} raised 3\euro, 4 if he raised 4\euro) or to \emph{Pass}. In this latter case, he loses his initial bet of 4\euro \ (but nothing more). Instead, if he meets, all the money goes to \TAone{} if the card was red and to \TAtwo{} if it was black. 
 
 \begin{enumerate}
 	\item[a.] Model this game in extensive form and build its normal representation.
@@ -64,10 +65,10 @@ Matthew and Beno\^it are playing the following game. First, they both bet 4\euro
 
 \nosolution
 
-%Raphaël et Beno\^it jouent au jeu suivant. Tout d'abord, ils misent chacun 1\euro. Ensuite Raphaël tire une carte dans un jeu complet de 52 cartes sans la montrer à Beno\^it et espère que celle-ci sera supérieure ou égale à 10 (donc que ce sera un 10, un valet, une dame, un roi ou un as). Raphaël peut alors décider soit de s'arrêter là (\textit{Fold}) soit de surenchérir de 1\euro \ (\textit{Raise}). S'il a décidé de s'arrêter, il montre sa carte et gagne l'ensemble des mises (donc les 1\euro \ de Beno\^it) si sa carte était supérieure ou égale à 10. Dans le cas contaire, c'est Beno\^it qui empoche tout. S'il surenchérit par contre, Beno\^it a alors le choix entre suivre la surenchère (\textit{Meet}) et se coucher (\textit{Pass}). S'il se couche, Raphaël empoche la mise totale (et donc les 1\euro \ de Beno\^it). S'il suit la surenchère par contre, de nouveau Raphaël montre sa carte et empoche l'entièreté de la mise (donc 2\euro \ cette fois) uniquement si sa carte était au moins un 10. Sinon, c'est Beno\^it qui récupère le tout.
+%Raphaël et \TAtwo{} jouent au jeu suivant. Tout d'abord, ils misent chacun 1\euro. Ensuite Raphaël tire une carte dans un jeu complet de 52 cartes sans la montrer à \TAtwo{} et espère que celle-ci sera supérieure ou égale à 10 (donc que ce sera un 10, un valet, une dame, un roi ou un as). Raphaël peut alors décider soit de s'arrêter là (\textit{Fold}) soit de surenchérir de 1\euro \ (\textit{Raise}). S'il a décidé de s'arrêter, il montre sa carte et gagne l'ensemble des mises (donc les 1\euro \ de \TAtwo{}) si sa carte était supérieure ou égale à 10. Dans le cas contaire, c'est \TAtwo{} qui empoche tout. S'il surenchérit par contre, \TAtwo{} a alors le choix entre suivre la surenchère (\textit{Meet}) et se coucher (\textit{Pass}). S'il se couche, Raphaël empoche la mise totale (et donc les 1\euro \ de \TAtwo{}). S'il suit la surenchère par contre, de nouveau Raphaël montre sa carte et empoche l'entièreté de la mise (donc 2\euro \ cette fois) uniquement si sa carte était au moins un 10. Sinon, c'est \TAtwo{} qui récupère le tout.
 %\begin{enumerate}
 %	\item[a.] Modélisez ce jeu sous forme extensive et construisez sa représentation normale.
-%	\item[b.] Si vous deviez jouer au jeu, préféreriez-vous intuitivement le rôle de Raphaël ou celui de Beno\^it? 
+%	\item[b.] Si vous deviez jouer au jeu, préféreriez-vous intuitivement le rôle de Raphaël ou celui de \TAtwo{}? 
 %\end{enumerate}
 %
 %\paragraph{3. } Supposons qu'on joue au même jeu qu'à la question 2., mais avec les modifications suivantes :
@@ -81,7 +82,7 @@ Matthew and Beno\^it are playing the following game. First, they both bet 4\euro
 %\end{enumerate}
 
 \section{}
-The next object to be sold in the auction is a statue representing \emph{Archangel Rapha\"el}. Starting price: 100\euro. For obvious reasons, Beno\^it and Matthew are both very interested by this relic (strangely enough, they seem to be the only ones though). They both know how much the object is worth for themselves and estimate that it must have an (integer) value between 1 and 100 to the other player, each with equal probability. Now, they must make an offer (an integer between 0 and 100) for the statue simultaneously: the player who bids the highest pays \emph{the price announced by its opponent} and returns home with the relic whereas the opponent in question goes home with nothing but its money. (In case of a tie, we flip a coin to decide who gets the statue.)
+The next object to be sold in the auction is a statue representing \emph{Archangel Rapha\"el}. Starting price: 100\euro. For obvious reasons, \TAtwo{} and \TAone{} are both very interested by this relic (strangely enough, they seem to be the only ones though). They both know how much the object is worth for themselves and estimate that it must have an (integer) value between 1 and 100 to the other player, each with equal probability. Now, they must make an offer (an integer between 0 and 100) for the statue simultaneously: the player who bids the highest pays \emph{the price announced by its opponent} and returns home with the relic whereas the opponent in question goes home with nothing but its money. (In case of a tie, we flip a coin to decide who gets the statue.)
 
 \begin{enumerate}
 	\item[a.] Model this situation as a Bayesian game.
