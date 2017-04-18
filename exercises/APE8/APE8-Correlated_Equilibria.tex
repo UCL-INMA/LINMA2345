@@ -1,41 +1,20 @@
-\documentclass[a4paper,notitlepage,12pt]{article}
+\documentclass{../ape}
 
-\usepackage[ansinew]{inputenc}
-%\usepackage[frenchb]{babel}
-\usepackage{graphicx} 
-\usepackage[lmargin=2.2cm, rmargin=2.2cm,bottom=2.85cm,top=2.7cm]{geometry} 
-\usepackage{amsmath}
-\usepackage{amsthm} 
-\usepackage{amssymb}  
-\usepackage{eurosym} 
-\usepackage{enumitem} 
-\usepackage{url}
-%\usepackage{bbold}
-\usepackage{psfrag}
-\usepackage{tikz}
-
-\newcommand{\X}{X}
-\newcommand{\Y}{Y}
+\usepackage{../../linma2345}
 
 \begin{document}
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\session{8}{Correlated Equilibria}
 
-\large
-
-\textbf{Session 8: correlated equilibria}
-
-%\section*{Exercices}
-
-\paragraph{1. } Consider the following game in strategic form:
+\section{}
+Consider the following game in strategic form:
 
 	\begin{center}
 		\begin{tabular}[h!]{l|ccccc}
 			&& $a_2$ && $b_2$ & \\
 			\hline
-			$a_1$ && 4,4 && 1,6 & \\
-			$b_1$ && 6,1 && -3,-3 & 
+			$a_1$ && $4,4$ && $1,6$ & \\
+			$b_1$ && $6,1$ && $-3,-3$ & 
 		\end{tabular} 
 	\end{center}
 
@@ -44,7 +23,8 @@
 	\item[b.] Also find the one that minimizes the expectation of that sum.
 \end{enumerate}
 
-\paragraph{2. } Sender-receiver games are a special case of Bayesian games with communication in which Player~1 (the sender) has a hidden type, but has no action to take, while player~2 (the receiver) has no type, but chooses an action from a set $C_2$.
+\section{}
+Sender-receiver games are a special case of Bayesian games with communication in which Player~1 (the sender) has a hidden type, but has no action to take, while player~2 (the receiver) has no type, but chooses an action from a set $C_2$.
 
 \begin{enumerate}
 	\item[a.] Write the expression that allows to compute the expected payoff of each player.
@@ -57,8 +37,8 @@ Now, consider that the payoff matrix for this sender-receiver game is given by t
 	\begin{tabular}[h!]{l|ccccccc}
 		&& $x_2$ && $y_2$ && $z_2$ & \\
 		\hline
-		$1.a$ && 2,3 && 0,2 && -1,0 & \\
-		$1.b$ && 1,0 && 2,2 && 0,3 & 
+		$1.a$ && $2,3$ && $0,2$ && $-1,0$ & \\
+		$1.b$ && $1,0$ && $2,2$ && $0,3$ & 
 	\end{tabular} 
 \end{center}
 	
@@ -74,15 +54,16 @@ We will assume that $p(t_1 = a) = p(t_1 = b) = 1/2$.
 		\end{alignat*}
 \end{enumerate}
 
-\paragraph{3. } In the exercise session on Nash equilibria, we found that the following two-player game allows a unique Nash equilibrium in which each player has an expected payoff of~3:
+\section{}
+In the exercise session on Nash equilibria, we found that the following two-player game allows a unique Nash equilibrium in which each player has an expected payoff of~3:
 
 	\begin{center}
 		\begin{tabular}[h!]{l|ccccccc}
 			&& $x_2$ && $y_2$ && $z_2$ & \\
 			\hline
-			$x_1$ && 0,0 && 5,4 && 4,5 & \\
-			$y_1$ && 4,5 && 0,0 && 5,4 & \\
-			$z_1$ && 5,4 && 4,5 && 0,0 & 
+			$x_1$ && $0,0$ && $5,4$ && $4,5$ & \\
+			$y_1$ && $4,5$ && $0,0$ && $5,4$ & \\
+			$z_1$ && $5,4$ && $4,5$ && $0,0$ & 
 		\end{tabular} 
 	\end{center}
 	
@@ -91,7 +72,8 @@ We will assume that $p(t_1 = a) = p(t_1 = b) = 1/2$.
 	\item[b.] Find the correlated equilibrium that maximizes the expected payoff of Player~2.
 \end{enumerate}
 
-\paragraph{4. } \textbf{(Theoretical exercise.)} Let $u = \big( u_1, u_2 \big)^T$ and $v = \big( v_1, v_2 \big)^T$ be payoff vectors that correspond to two different correlated equilibria of a given game $\Gamma^c$. Show that for this game, there also exists a correlated equilibrium that yields the payoff vector $w = \big( \frac{1}{3} u_1 + \frac{2}{3} v_1, \, \frac{1}{3} u_2 + \frac{2}{3} v_2 \big)^T$. 
+\thex{}
+Let $u = \big( u_1, u_2 \big)^T$ and $v = \big( v_1, v_2 \big)^T$ be payoff vectors that correspond to two different correlated equilibria of a given game $\Gamma^c$. Show that for this game, there also exists a correlated equilibrium that yields the payoff vector $w = \big( \frac{1}{3} u_1 + \frac{2}{3} v_1, \, \frac{1}{3} u_2 + \frac{2}{3} v_2 \big)^T$. 
 
 \newpage
 

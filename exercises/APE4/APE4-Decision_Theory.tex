@@ -1,36 +1,13 @@
-\documentclass[a4paper,notitlepage,12pt]{article}
-
-\usepackage[ansinew]{inputenc}
-%\usepackage[frenchb]{babel}
-\usepackage{graphicx} 
-\usepackage[lmargin=2.2cm, rmargin=2.2cm,bottom=2.85cm,top=2.7cm]{geometry} 
-\usepackage{amsmath}
-\usepackage{amsthm} 
-\usepackage{amssymb}  
-\usepackage{eurosym} 
-\usepackage{enumitem} 
-\usepackage{url}
-%\usepackage{bbold}
-\usepackage{psfrag}
-\usepackage{tikz}
-
-\newcommand{\X}{X}
-\newcommand{\Y}{Y}
+\documentclass{../ape}
 
 \usepackage{../../linma2345}
 
 \begin{document}
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\session{4}{Decision Theory}
 
-\large
-
-\textbf{Session 4: Decision Theory}
-
-%\section*{Exercices}
-
-\paragraph{1. } It is common knowledge that Rapha\"el is gifted to get a good idea of the structure of complex games. Once again, he chose a subjective probability distribution over all possible states $\Omega$ of the game, which we write $p = (p(s))_{s \in \Omega}$, that will probably allow him to win the game once more. \TAtwo{}, who is generally less gifted than Rapha\"el for this kind of games, would like to use the same distribution as the latter. However, when asked to reveal it, Raphael can cheat and give any distribution $q$ in $\Delta(\Omega)$ of his choice to \TAtwo{}. Not content with the situation, \TAtwo{} would like to force Rapha\"el to reveal his true subjective probability distribution. For this, he promises Rapha\"el to give him some monetary reward $Y(q, s)$ when they discover the true state of the world $s$. (We here assume that Rapha\"el's utility function for money is linear and that he does not care about winning the game afterwards.)
+\section{}
+It is common knowledge that Rapha\"el is gifted to get a good idea of the structure of complex games. Once again, he chose a subjective probability distribution over all possible states $\Omega$ of the game, which we write $p = (p(s))_{s \in \Omega}$, that will probably allow him to win the game once more. \TAtwo{}, who is generally less gifted than Rapha\"el for this kind of games, would like to use the same distribution as the latter. However, when asked to reveal it, Raphael can cheat and give any distribution $q$ in $\Delta(\Omega)$ of his choice to \TAtwo{}. Not content with the situation, \TAtwo{} would like to force Rapha\"el to reveal his true subjective probability distribution. For this, he promises Rapha\"el to give him some monetary reward $Y(q, s)$ when they discover the true state of the world $s$. (We here assume that Rapha\"el's utility function for money is linear and that he does not care about winning the game afterwards.)
 \begin{itemize}
 	\item Suppose that $q(s) = .2$ and $q(s') = .8$. Then, which among $Y(q,s)$ and $Y(q,s')$ should be the largest? Building on this observation, can you state a condition on the function $Y(q,s)$?
 	\item Suppose now that $Y(q,s) = q(s)$. Will Rapha\"el reveal his true subjective probability distribution to \TAtwo{}? If not, what will he actually reveal?
@@ -39,7 +16,8 @@
 	\item Can you think of a real-life application where a similar situation as the one described above may arise?
 \end{itemize}
 
-\paragraph{2. } \TAtwo{} expresses the following preference relations for monetary lotteries:
+\section{}
+\TAtwo{} expresses the following preference relations for monetary lotteries:
 %Arnaud exprime les relations de préférences suivantes pour des loteries monétaires :
 \begin{align*}
 	[600\text{\euro}] & \succ [400\text{\euro}] \\
@@ -51,7 +29,8 @@
 Do these preferences make sense? Can you explain why on a theoretical basis?
 %sont-elles consistantes avec une fonction d'utilité état-indé\-pen\-dante pour l'argent? Si oui, donner une telle fonction d'utilité. Si non, montrez que ces préférences violent un axiome.
 
-\paragraph{3. } Suppose that the utility of our gains depends on decisions and states as summarized in Table~\ref{ex7}. Let $(p(\theta_1), p(\theta_2))$ our subjective probability distribution on $\Omega = \{ \theta_1, \theta_2 \}$.
+\section{}
+Suppose that the utility of our gains depends on decisions and states as summarized in Table~\ref{ex7}. Let $(p(\theta_1), p(\theta_2))$ our subjective probability distribution on $\Omega = \{ \theta_1, \theta_2 \}$.
 \begin{table}[h!]
 	\begin{center}
 		\begin{tabular}{ccccc}

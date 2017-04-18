@@ -55,6 +55,9 @@
 {0.5ex} % sep
 {} % before-code
 
+\newcommand{\session}[2]{\hspace{-.5cm}\Large{\textbf{Session #1 -- #2}}}
+\newcommand{\thex}{\section{(Theoretical exercise.)}}
+
 \newcommand{\QAlabel}{Exercise}
 \newcommand{\theQA}{\thesection}
 
