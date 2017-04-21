@@ -1,0 +1,36 @@
+\begin{center}
+        \begin{tikzpicture}[scale=7]
+        % Axis
+        \draw[axis] (0,0) -- (1.2,0) node[right=\nudge cm] {\(\alpha\)};
+        \draw[axis] (0,0) -- (0,0.7) node[above=\nudge cm] {\(\beta\)};
+        \begin{scope}
+          % Avoid going too far
+          \clip (-\nudge,-\nudge) rectangle (2+\nudge,2+\nudge);
+          \draw[ineq1] (0,0) -- (1,0.5) coordinate (ineq1);
+          \draw[ineq2] (0,2/5) -- (1,0) coordinate (ineq2);
+          \draw[eq] (0,0.5) -- (1,0) coordinate (eq1);
+         \begin{scope}
+         \end{scope}
+        \end{scope}
+        \foreach \coord/\adj in {
+          %\node[left] {A} at (0,1) "ultra thick point"
+          %{(0,0)}/left,
+          {(1,0.5)}/above,
+          {(0,2/5)}/left,
+          {(0,0.5)}/left,
+          {(1,0)}/below,%
+          %{(8/9,0)}/below,
+          %{(2,0)}/below%
+        } {
+          \fill \coord circle (0.3pt) node[\adj] {$\coord$};
+        }
+        \foreach \coord/\adj/\name in {
+          {(2/4,1/4)}/above/A,
+          {(4/9,2/9)}/below/B,
+          {(0,2/5)}/below right/C,
+          {(0,0.5)}/above right/D%
+        } {
+          \fill \coord circle (0.3pt) node[\adj] {$\name$};
+        }
+        \end{tikzpicture}
+      \end{center}
