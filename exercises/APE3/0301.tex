@@ -70,11 +70,11 @@ We can solve this graphically, see Figure \ref{fig:feasProb} on page \pageref{fi
   
 
 
-\begin{figure}[h]
+\begin{center}
     \input{0301feasProb.tex}
-    \caption{The feasible set is not empty}
+    \captionof{figure}{The feasible set is not empty}
     \label{fig:feasProb}
-\end{figure}
+\end{center}
 
 
 We identify two important points:
@@ -102,13 +102,12 @@ We identify two important points:
 Of course, we could take one of these two combinations of $\lambda_{1},\lambda_{2}$ as the coefficients. We can also take any point between $A$ and $B$, on the blue line. The whole point of the above figure, Figure \ref{fig:feasProb}, was to show that the feasible set is not empty. If the graph was like on Figure \ref{fig:unFeasProb}, then the feasible set would be empty and in that case, it is not possible to find coefficients $\lambda_{1},\lambda_{2}$ such that $y_1$ is weakly dominated by $\lambda_{1} x_{1} + \lambda_{2} z_{1}$.
 
 
-\begin{figure}[h!]
+\begin{center}
     \centering
-   
     \input{0301unFeasProb.tex}
-    \caption{The feasible set is empty}
+    \captionof{figure}{The feasible set is empty}
     \label{fig:unFeasProb}
-\end{figure}
+\end{center}
 
 
 Finally, let us analyze the inequalities depending on which point we choose. 
@@ -141,7 +140,7 @@ Finally, let us analyze the inequalities depending on which point we choose.
     2 \leq \lambda_{1} + 7 \lambda_{2}
     \end{cases}
     \end{equation*}
-    Since we are not on the green line, nor on the red line, it was predictable that both inequalities are strict. We have a \textit{margin} for both inequalities.
+    Since we are not on the green line, nor on the red line, it was predictable that both inequalities are strict. We have a \textit{margin} for both inequalities. In this case we have a strong domination, whereas in the two cases above, we had a weak domination!
     
     
 \end{enumerate}
