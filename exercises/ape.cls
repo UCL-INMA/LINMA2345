@@ -23,6 +23,7 @@
 \RequirePackage{url}
 \RequirePackage{ifthen}
 \RequirePackage{enumitem}
+\RequirePackage{caption}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
