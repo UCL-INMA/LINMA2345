@@ -23,6 +23,7 @@
 \RequirePackage{url}
 \RequirePackage{ifthen}
 \RequirePackage{enumitem}
+\RequirePackage{caption}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
@@ -39,6 +40,15 @@
 \RequirePackage{tikz}
 \RequirePackage{tikzpagenodes}
 \usetikzlibrary{positioning, calc, arrows}
+\usepackage{mathtools}
+\def\nudge{.3}
+%\tikzset{axis/.style={ultra thick, Red!75!black, -latex, shorten <=-\nudge cm, shorten >=-2*\nudge cm}}
+\tikzset{axis/.style={thick, Black!75!black, -latex, shorten <=-0.5*\nudge cm, shorten >=-\nudge cm}}
+\tikzset{ineq1/.style={thick,Green}}
+\tikzset{ineq2/.style={thick,Red}}
+\tikzset{eq/.style={thick,Blue}}
+\tikzset{obj/.style={thick,Red}}
+\tikzset{hash/.style={pattern=north west lines, pattern color=blue}}
 
 % For multirow in tabular
 \RequirePackage{multirow}
