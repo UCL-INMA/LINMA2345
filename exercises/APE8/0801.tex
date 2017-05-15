@@ -45,7 +45,7 @@ where $c = (c_{-i}, c_i)$, $c_{-i}$.
 Let us start with player 1, i.e., $i=1$. Of course, we don't have to consider the cases where $c_1 = e_1$, because in that case the left-hand side of constraint (\ref{eq:constr}) is zero, and the constraint becomes $0 \geq 0$, which is not very interesting. Hence, we only have two cases
 \begin{enumerate}
     \item Case 1. We have $c_1 = a_1$ and $e_1 = b_1$. The constraint becomes
-    
+
     \begin{align*}
     & \sum_{c_{2} \in C_{2}} \mu(c_2,a_1) \parent{ u_1(c_{2}, a_1) - u_1(c_{2}, b_1) } \geq 0 \\
     & \Longleftrightarrow
@@ -59,14 +59,14 @@ Let us start with player 1, i.e., $i=1$. Of course, we don't have to consider th
     \beta \parent{ 1 - (-3) }
     \geq 0 \\
     & \Longleftrightarrow
-    4 \beta - 2 \alpha 
+    4 \beta - 2 \alpha
     \geq 0 \\
     & \Longleftrightarrow
     2 \beta \geq \alpha  \\
     \end{align*}
-    
+
     \item Case 2. We have $c_1 = b_1$ and $e_1 = a_1$. The constraint becomes
-    
+
     \begin{align*}
     & \sum_{c_{2} \in C_{2}} \mu(c_2,b_1) \parent{ u_1(c_{2}, b_1) - u_1(c_{2}, a_1) } \geq 0 \\
     & \Longleftrightarrow
@@ -80,7 +80,7 @@ Let us start with player 1, i.e., $i=1$. Of course, we don't have to consider th
     \delta \parent{ - 3 - 1 }
     \geq 0 \\
     & \Longleftrightarrow
-    2 \beta 
+    2 \beta
     -
     4 \parent{ 1 - \alpha - 2 \beta}
     \geq 0 \\
@@ -90,7 +90,7 @@ Let us start with player 1, i.e., $i=1$. Of course, we don't have to consider th
     & \Longleftrightarrow
     2 \alpha + 5 \beta \geq 2 \\
     \end{align*}
-    
+
 \end{enumerate}
 
 By symmetry, if we follow the same reasoning for player 2, we will find the same constraints. However, before defining the final optimization problem, we cannot forget the extra constraint: $\delta \geq 0$. Indeed, since we work with variables $\alpha$ and $\beta$, this constraint becomes $1 - \alpha - 2 \beta \geq 0 $.
@@ -118,7 +118,7 @@ We solve this problem graphically. On Figure \ref{fig:niceGraph}, we can see tha
 
 \begin{center}
     \input{0801niceGraph.tex}
-    \captionof{figure}{A very nice graph}
+    \captionof{figure}{Solving the problem graphically}
     \label{fig:niceGraph}
 \end{center}
 
@@ -133,27 +133,27 @@ To find the correlated equilibrium that maximizes (resp. minimizes) the expected
        \begin{cases}
         2 \beta = \alpha  \\
         1 = \alpha + 2 \beta
-        \end{cases} 
+        \end{cases}
     \end{equation*}
-    
+
     We find $\parent{\alpha, \beta} = \parent{\dfrac{1}{2}, \dfrac{1}{4}}$. The objective value is $7.5$.
-    
+
     \item point $B$, the intersection of the green and the red lines. Hence the coordinates of point $A$ satisfy
     \begin{equation*}
        \begin{cases}
         2 \beta = \alpha  \\
         2 \alpha + 5 \beta = 2
-        \end{cases} 
+        \end{cases}
     \end{equation*}
-    
+
     We find $\parent{\alpha, \beta} = \parent{\dfrac{4}{9}, \dfrac{2}{9}}$. The objective value is $6$.
-    
+
     \item point $C$, we have $\parent{\alpha, \beta} = \parent{0, \dfrac{2}{5}}$. The objective value is $4.4$.
-    
+
     \item point $D$, we have $\parent{\alpha, \beta} = \parent{0, \dfrac{1}{2}}$. The objective value is $7$.
 \end{enumerate}
 
-On the one hand, the point that maximizes the expected sum of payoffs of the two players is point $A$. The associated correlated equilibrium is defined by the variables $\alpha = \dfrac{1}{2}$, $\beta = \dfrac{1}{4}$, $\gamma = \dfrac{1}{4}$ and $\delta = 0$. The fact that $\delta = 0$ coincides with our intuition. 
+On the one hand, the point that maximizes the expected sum of payoffs of the two players is point $A$. The associated correlated equilibrium is defined by the variables $\alpha = \dfrac{1}{2}$, $\beta = \dfrac{1}{4}$, $\gamma = \dfrac{1}{4}$ and $\delta = 0$. The fact that $\delta = 0$ coincides with our intuition.
 
 
 
