@@ -68,7 +68,7 @@ Hence, pirate $p_{5}$ will propose 0 to $p_{1}$, 2 to $p_{2}$, 1 for $p_{3}$, 0 
 $p_{5}$ & $p_{4}$ & $p_{3}$   & $p_{2}$            & $p_{1}$             & 5   \\
 7       &  0      & 1         & 2                  &  0                  &     \\ \hline
 \end{tabular}
-\captionof{Gold divisions for $n$ pirates, with $1 \leq n \leq 5$}
+\captionof{table}{Gold divisions for $n$ pirates, with $1 \leq n \leq 5$}
 \label{tab:pirates5}
 
 
@@ -90,7 +90,7 @@ $p_{7}$ & $p_{6}$ & $p_{5}$ & $p_{4}$ & $p_{3}$ & $p_{2}$ & $p_{1}$ & 7   \\
 6       &  0      & 1       & 2       & 0       & 1       & 0       &     \\
 \hline
 \end{tabular}
-\captionof{Gold divisions for $n$ pirates, with $5 \leq n \leq 7$}
+\captionof{table}{Gold divisions for $n$ pirates, with $5 \leq n \leq 7$}
 \label{tab:pirates7}
 
 
