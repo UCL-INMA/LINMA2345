@@ -1,5 +1,7 @@
 \documentclass{ape}
 
+\usepackage{../../linma2345}
+
 \begin{document}
 
 \session{1}{Introduction to Game Theory}
@@ -12,9 +14,9 @@ It is W. White's turn and he can win for sure. Can you see how?
 \begin{tikzpicture}
 
 % draw black squares
-\foreach \x in {0,...,3} 
+\foreach \x in {0,...,3}
 {
-	\foreach \y in {0,...,3} 
+	\foreach \y in {0,...,3}
 	{
 		\fill[black!40] (2*\x,2*\y) rectangle (2*\x+1,2*\y+1);
 		\fill[black!40] (2*\x+1,2*\y+1) rectangle (2*\x+2,2*\y+2);
@@ -55,9 +57,9 @@ It is again W. White's turn, and he is again sure to win but he is in a hurry an
 \begin{tikzpicture}
 
 % draw black squares
-\foreach \x in {0,...,3} 
+\foreach \x in {0,...,3}
 {
-	\foreach \y in {0,...,3} 
+	\foreach \y in {0,...,3}
 	{
 		\fill[black!40] (2*\x,2*\y) rectangle (2*\x+1,2*\y+1);
 		\fill[black!40] (2*\x+1,2*\y+1) rectangle (2*\x+2,2*\y+2);
@@ -97,42 +99,44 @@ According to pirate's traditions, how will the gold be divided?
 
 \textbf{Challenge:} What would happen if there were $50$ pirates, again with a strict hierarchy? And with $n$ pirates?
 
+\begin{solution}
+\input{0103}
+\end{solution}
+
+\section{}
+You are playing \emph{Rock, Paper, Scissors}. What is your strategy to win the game?
+
 \nosolution
 
 \section{}
-You are playing \emph{Rock, Paper, Scissors}. What is your strategy to win the game? 
-
-\nosolution
-
-\section{}
-You are playing the following Prisoner's Dilemma. 
+You are playing the following Prisoner's Dilemma.
 \begin{center}
 	\begin{tabular}[h!]{l|ccccc}
 		&& \Large{Cooperate} && \Large{Defect} & \\
 		\hline
 		\Large{Cooperate} && \Large{6,6} && \Large{1,7} & \\
-		\Large{Defect} && \Large{7,1} && \Large{2,2} & 
-	\end{tabular} 
+		\Large{Defect} && \Large{7,1} && \Large{2,2} &
+	\end{tabular}
 \end{center}
 Would you take the ``Cooperate'' option? Would it help to communicate to improve your payoff?
 
 \nosolution
 
 \section{}
-How many equilibria\footnote{An equilibrium is a strategy profile for all players such that neither of them would gain from deviating alone from their strategy.} can you find in the following game? 
+How many equilibria\footnote{An equilibrium is a strategy profile for all players such that neither of them would gain from deviating alone from their strategy.} can you find in the following game?
 \begin{center}
 \begin{tabular}[h!]{l|ccccc}
 	&& \Large{$x_2$} && \Large{$y_2$} & \\
 	\hline
 	\Large{$x_1$} && \Large{2,2} && \Large{4,1} & \\
-	\Large{$y_1$} && \Large{1,4} && \Large{5,5} & 
-\end{tabular} 
+	\Large{$y_1$} && \Large{1,4} && \Large{5,5} &
+\end{tabular}
 \end{center}
 
 \nosolution
 
 \section{}
-In the Prisoner's Dilemma from exercise 5., suppose you had to repeat the game 10 times. Your strategy is the following: You always play ``Cooperate'', except if your opponent played ``Defect'' on the previous round. Discuss how this procedure helps to improve your payoff in the long run. Can you imagine other procedures? 
+In the Prisoner's Dilemma from exercise 5., suppose you had to repeat the game 10 times. Your strategy is the following: You always play ``Cooperate'', except if your opponent played ``Defect'' on the previous round. Discuss how this procedure helps to improve your payoff in the long run. Can you imagine other procedures?
 
 \nosolution
 
@@ -144,8 +148,8 @@ You are playing the following game.
 	&& \Large{$x_2$} && \Large{$y_2$} & \\
 	\hline
 	\Large{$x_1$} && \Large{2,2} && \Large{6,3} & \\
-	\Large{$y_1$} && \Large{3,6} && \Large{5,5} & 
-\end{tabular} 
+	\Large{$y_1$} && \Large{3,6} && \Large{5,5} &
+\end{tabular}
 \end{center}
 
 \begin{itemize}
@@ -153,7 +157,7 @@ You are playing the following game.
 \item Imagine that some neutral player told you and your opponent the following: \emph{``Let me choose what to play for you. I will secretly choose one of the strategies $(x_1, y_2)$, $(y_1, x_2)$ and $(y_1, y_2)$ with equal probability, but I promise,  never $(x_1, x_2)$. Then I will privately communicate to both of you the action that you should play.''} Would this guy's advice result in a better payoff for you? And would you follow his advice?
 \end{itemize}
 
-%Assume a mediator comes in and tells you the following: \emph{``I will secretly choose an action for you, either $x$ or $y$, each with probability $1/2$ and tell you each, privately, what to play.''} If you followed his instruction, would it result in a better payoff? But should you follow the mediator's instructions in the first place? 
+%Assume a mediator comes in and tells you the following: \emph{``I will secretly choose an action for you, either $x$ or $y$, each with probability $1/2$ and tell you each, privately, what to play.''} If you followed his instruction, would it result in a better payoff? But should you follow the mediator's instructions in the first place?
 
 \nosolution
 

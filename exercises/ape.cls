@@ -14,12 +14,12 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
 
-\RequirePackage[lmargin=2.3cm, rmargin=2.3cm,bottom=3.15cm,top=3cm]{geometry} 
+\RequirePackage[lmargin=2.3cm, rmargin=2.3cm,bottom=3.15cm,top=3cm]{geometry}
 
 \RequirePackage{amsmath}
-\RequirePackage{amsthm} 
-\RequirePackage{amssymb}  
-\RequirePackage{eurosym} 
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{eurosym}
 \RequirePackage{url}
 \RequirePackage{ifthen}
 \RequirePackage{enumitem}
@@ -49,6 +49,7 @@
 \tikzset{eq/.style={thick,Blue}}
 \tikzset{obj/.style={thick,Red}}
 \tikzset{hash/.style={pattern=north west lines, pattern color=blue}}
+\tikzstyle{noeud-std}=[draw,fill=black,circle,inner sep=0pt,minimum size=7pt]
 
 % For multirow in tabular
 \RequirePackage{multirow}

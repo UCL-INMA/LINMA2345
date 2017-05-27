@@ -1,0 +1,199 @@
+\begin{enumerate}[label=\alph*.]
+
+	%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%% a %%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%
+	\item On Figure \ref{fig:stratForm} we can find the strategic form.
+
+	      \input{0201extForm.tex}
+
+
+	      Let us explain some notations. First, the information states
+	      \begin{itemize}
+	      	\item Information state $1.a$: firm 1 knows that the costs are low
+	      	\item Information state $1.b$: firm 1 knows that the costs are high
+	      	\item Information state $2.c$: firm 2 knows that firm 1 has opened a shop but firm 2 does not know if firm 1 has low costs or high costs. Notice that we use this information state two times!
+	      	\item Information state $2.d$: firm 2 knows that firm 1 has not opened a shop but firm 2 does not know if firm 1 has low costs or high costs. Again, notice that we use this information state two times!
+	      \end{itemize}
+
+	      Secondly, let us explain the abbreviations
+	      \begin{itemize}
+	      	\item O: firm 1 opens a shop
+	      	\item \=O: firm 1 does not open a shop
+	      	\item E: firm 2 enters the market
+	      	\item \=E: firm 2 does not the market
+	      \end{itemize}
+
+	      Finally, let us explain why we use capital letters next to small letters. It is important to be able to differentiate the action of a player depending on which information state he is in. Indeed, two actions may look identical, while they actually take place in two different regions of the strategic form! For example, if firm 1 decides to open a shop with low costs, we denote that choice with O; if firm 1 decides to open a shop with high costs, we denote that choice with o. The other conventions are
+	      \begin{itemize}
+	      	\item For firm 1: capital letters when we are in low costs, small letters when we are in high costs
+	      	\item For firm 2: capital letters when firm 1 has opened a shop, small letters when firm 1 has not opened a shop
+	      \end{itemize}
+
+
+
+
+	      %%%%%%%%%%%%%%%%%%%%%%
+	      %%%%%%%%% b %%%%%%%%%%
+	      %%%%%%%%%%%%%%%%%%%%%%
+	\item The normal representation can be found on Table \ref{tab:normRep}.
+
+
+	      	\begin{tabular}[h!]{c|cccc}
+	      		       & Ee             & E\=e           & \=Ee           & \=E\=e       \\ \hline
+	      		Oo     & $-5\, / \, -1$ & $-5\, / \, -1$ & $1\, / \, 0$   & $1\, / \, 0$ \\
+	      		O\=o   & $-3\, / \, -1$ & $0\, / \, -2$  & $0\, / \, 1$   & $3\, / \, 0$ \\
+	      		\=Oo   & $-6\, / \, -1$ & $-3\, / \, 1$  & $-3\, / \, -2$ & $0\, / \, 0$ \\
+	      		\=O\=o & $-4\, / \, -1$ & $2\, / \, 0$   & $-4\, / \, -1$ & $2\, / \, 0$
+	      	\end{tabular}
+	      	\captionof{A nice normal representation}
+	      	\label{tab:normRep}
+
+
+	      A note on how to find the payoffs: we simply have to compute the expected value of the payoffs. For example, let us consider the payoffs in "position" \=Oo, E\=e. We see that we have $-3\, / \, 1$. We have
+	      \begin{enumerate}
+	      	\item For firm 1, the payoff of $-3$ is obtained by $0.5 \cdot 4 + 0.5 \cdot (- 10) = -3$.
+	      	\item For firm 2, the payoff of $1$ is obtained by $0.5 \cdot 0 + 0.5 \cdot 2 = 1$.
+	      \end{enumerate}
+
+	      The other payoffs are computed similarly.
+
+	      %%%%%%%%%%%%%%%%%%%%%%
+	      %%%%%%%%% c %%%%%%%%%%
+	      %%%%%%%%%%%%%%%%%%%%%%
+	\item Now let us eliminate the weakly dominated strategies. Of course, all the weakly dominated strategies are also strongly dominated.
+
+	      \paragraph{Step 1.} Strategy \=Oo is strongly dominated by the pure strategy O\=o. Here we look at the rows, hence we are looking at player 1, hence we have to consider the payoffs of player 1. The strong domination is clear, since $-6 < -3$, $-3 < 0$, $-3 < 0$ and $0 < 3$.
+	      The table becomes
+
+	      \begin{table}[h]
+	      	\centering
+	      	\begin{tabular}{c|cccc}
+	      		       & Ee             & E\=e           & \=Ee           & \=E\=e       \\ \hline
+	      		Oo     & $-5\, / \, -1$ & $-5\, / \, -1$ & $1\, / \, 0$   & $1\, / \, 0$ \\
+	      		O\=o   & $-3\, / \, -1$ & $0\, / \, -2$  & $0\, / \, 1$   & $3\, / \, 0$ \\
+	      		\=O\=o & $-4\, / \, -1$ & $2\, / \, 0$   & $-4\, / \, -1$ & $2\, / \, 0$
+	      	\end{tabular}
+	      \end{table}
+
+	      \paragraph{Step 2.} Strategy Ee is strongly dominated by the pure strategy \=E\=e. Here we look at the columns, hence we are looking at player 2, hence we have to consider the payoffs of player 2. The strong domination is clear, since $-1 < 0$, $-1 < 0$ and $-1 < 0$.
+	      The table becomes
+
+	      \begin{table}[h]
+	      	\centering
+	      	\begin{tabular}{c|ccc}
+	      		       & E\=e           & \=Ee           & \=E\=e       \\ \hline
+	      		Oo     & $-5\, / \, -1$ & $1\, / \, 0$   & $1\, / \, 0$ \\
+	      		O\=o   & $0\, / \, -2$  & $0\, / \, 1$   & $3\, / \, 0$ \\
+	      		\=O\=o & $2\, / \, 0$   & $-4\, / \, -1$ & $2\, / \, 0$
+	      	\end{tabular}
+	      \end{table}
+
+	      \paragraph{Step 3.} Strategy E\=e is weakly dominated by the pure strategy \=E\=e. Here we look at the columns, hence we are looking at player 2, hence we have to consider the payoffs of player 2. The weak domination is clear, since $-1 \leq 0$, $-2 \leq 0$ and $0 \leq 0$.
+	      The table becomes
+
+	      \begin{table}[h]
+	      	\centering
+	      	\begin{tabular}{c|ccc}
+	      		       & \=Ee           & \=E\=e       \\ \hline
+	      		Oo     & $1\, / \, 0$   & $1\, / \, 0$ \\
+	      		O\=o   & $0\, / \, 1$   & $3\, / \, 0$ \\
+	      		\=O\=o & $-4\, / \, -1$ & $2\, / \, 0$
+	      	\end{tabular}
+	      \end{table}
+
+	      \paragraph{Step 4.} Strategy \=O\=o is strongly dominated by the pure strategy O\=o. Here we look at the rows, hence we are looking at player 1, hence we have to consider the payoffs of player 1. The strong domination is clear, since $-4 < 0$ and $2 < 3$.
+	      The table becomes
+
+	      \begin{table}[h]
+	      	\centering
+	      	\begin{tabular}{c|ccc}
+	      		     & \=Ee         & \=E\=e       \\ \hline
+	      		Oo   & $1\, / \, 0$ & $1\, / \, 0$ \\
+	      		O\=o & $0\, / \, 1$ & $3\, / \, 0$
+	      	\end{tabular}
+	      \end{table}
+
+	      \paragraph{Step 5.} Strategy \=E\=e is weakly dominated by the pure strategy \=Ee. Here we look at the columns, hence we are looking at player 2, hence we have to consider the payoffs of player 2. The weak domination is clear, since $0 \leq 0$ and $0 \leq 1$.
+	      The table becomes
+
+	      \begin{table}[h]
+	      	\centering
+	      	\begin{tabular}{c|cc}
+	      		     & \=Ee         \\ \hline
+	      		Oo   & $1\, / \, 0$ \\
+	      		O\=o & $0\, / \, 1$
+	      	\end{tabular}
+	      \end{table}
+
+	      \paragraph{Step 6.} Strategy O\=o is strongly dominated by the pure strategy Oo. Here we look at the rows, hence we are looking at player 1, hence we have to consider the payoffs of player 1. The strong domination is clear, since $0 < 1$.
+	      The table becomes
+
+	      \begin{table}[h!]
+	      	\centering
+	      	\begin{tabular}{c|cc}
+	      		   & \=Ee         \\ \hline
+	      		Oo & $1\, / \, 0$
+	      	\end{tabular}
+	      \end{table}
+
+	      Hence we see that the only possible outcome of this game is the following
+	      \begin{itemize}
+	      	\item firm 1 should always open a shop, if the costs are high or low;
+	      	\item firm 2 should not enter the market if firm 1 opens a shop and, and enter the market if firm 1 does not open a shop.
+	      \end{itemize}
+
+	      %%%%%%%%%%%%%%%%%%%%%%
+	      %%%%%%%%% d %%%%%%%%%%
+	      %%%%%%%%%%%%%%%%%%%%%%
+	\item In order to model games with incomplete information, a generalisation of the strategic form, called a Bayesian game is often preferred to the extensive form. Hence we are looking for a tuple $\Gamma^b = (N,C,T,p,u)$, with
+	      \begin{itemize}
+	      	\item $N = \bracket{\text{firm 1}, \text{firm 2}}$,
+	      	\item $C = C_1 \times C_2$, with $C_1 = \bracket{\text{O, \=o}}$ and $C_2 = \bracket{\text{Ee, E\=e, \=Ee, \=e\=e}}$
+	      	\item $T = T_1 \times T_2$, with $T_1 = \bracket{\text{high, low}}$ and $T_2 = \bracket{\text{f}}$ where f stands for follower
+	      	\item $p = p_1 \times p_2$ are belief functions, with
+	      	      \begin{itemize}
+	      	      	\item $p_1 \parent{t_1 = \text{low} | t_2 = \text{f}} = p_1 \parent{t_1 = \text{high} | t_2 = \text{f}} = 0.5 $
+	      	      	\item $p_2 \parent{ t_2 = \text{f} | t_1 = \text{low}} = p_2 \parent{ t_2 = \text{f} | t_1 = \text{low}} = 1 $
+	      	      \end{itemize}
+	      	\item $u = u_1 \times u_2$ are the payoff functions given in the first table, Table \ref{tab:normRep}.
+
+	      \end{itemize}
+
+	      %%%%%%%%%%%%%%%%%%%%%%
+	      %%%%%%%%% e %%%%%%%%%%
+	      %%%%%%%%%%%%%%%%%%%%%%
+	\item Finally, let us write the type-agent representation of the Bayesian game obtained above. The answer is given on Table \ref{tab:typeAgent}.
+
+	      \begin{table}
+	      	\begin{tabular}{l|cc}
+	      		  & high:Raise & high:Fold \\
+	      		\begin{tabular}{l}
+	      		\\
+	      		\hline enter \\
+	      		not enter
+	      	\end{tabular} &
+	      	\begin{tabular}{cc}
+	      		\hline black:raise & black:fold \\
+	      		\hline 2, 4, 0     & 1.5, 4, 1  \\
+	      		1, 3, 3            & 2, 3, 1
+	      	\end{tabular}&
+	      	\begin{tabular}{cc}
+	      		\hline black:raise & black:fold \\
+	      		\hline 2.5, 3, 0   & 2, 3, 1    \\
+	      		1, 3, 3            & 2, 3, 1
+	      	\end{tabular}
+	      	\end{tabular}
+	      	\caption{A nice normal representation}
+	      	\label{tab:typeAgent}
+	      \end{table}
+
+	 Let us analyse the payoffs in this table, for example the first entries: $42, 42, 42$:
+	 \begin{itemize}
+	     \item 42.
+	     \item 42.
+	     \item 42.
+	 \end{itemize}
+
+
+\end{enumerate}
