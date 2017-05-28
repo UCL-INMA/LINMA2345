@@ -1,0 +1,118 @@
+To Find all Nash equilibria in the following games, we have to check all the support. Here we have 9 support where 4 are pure strategies. For all choices of support D $= (D_i)_{i\in N}$ we have to verify the 3 conditions (see syllabus p40).
+
+\begin{itemize}
+  \item[$\bullet$] Pure strategy supports. 
+\end{itemize}
+
+- $\mathbf{\{x_1\}}\times\mathbf{\{x_2\}}$.
+
+The payoff of the players are $w_1=2$ and $w_2=1$. It's easy to see that if the player 2 play $y_2$ instead of $x_2$ we have :
+\begin{equation*}
+    1=w_2<u_2(x_1,y_2)=2
+\end{equation*}
+This means that the third equation does not hold, so this pure strategy is not a equilibrium 
+
+- $\mathbf{\{x_1\}}\times\mathbf{\{y_2\}}$.
+
+The payoff of the players are $w_1=1$ and $w_2=2$. It's easy to see that if the player 1 play $y_1$ instead of $x_1$ we have :
+\begin{equation*}
+    1=w_1<u_1(y_1,y_2)=2
+\end{equation*}
+This means that the third equation does not hold, so this pure strategy is not a equilibrium 
+
+- $\mathbf{\{y_1\}}\times\mathbf{\{x_2\}}$.
+
+The payoff of the players are $w_1=1$ and $w_2=5$. It's easy to see that if the player 1 play $x_1$ instead of $y_1$ we have :
+\begin{equation*}
+    1=w_1<u_1(x_1,x_2)=2
+\end{equation*}
+This means that the third equation does not hold, so this pure strategy is not a equilibrium 
+
+- $\mathbf{\{y_1\}}\times\mathbf{\{y_2\}}$.
+
+The payoff of the players are $w_1=2$ and $w_2=1$. It's easy to see that if the player 2 play $x_2$ instead of $y_2$ we have :
+\begin{equation*}
+    1=w_1<u_1(y_1,x_2)=5
+\end{equation*}
+This means that the third equation does not hold, so this pure strategy is not a equilibrium 
+
+
+\begin{itemize}
+  \item[$\bullet$] Randomized vs pure strategy supports : This corresponds to the case when for example the first player randomizes between $x_1$ and $y_1$, while the second sticks either to $x_2$ or to $y_2$.
+\end{itemize}
+
+- $\mathbf{\{x_1,y_1\}}\times\mathbf{\{x_2\}}$.
+
+The second equation tell us that 
+\begin{equation*}
+    u_1(x_1,x_2)=u_1(y_1,x_2)=w_1
+\end{equation*}
+which cannot hold since $2>1$. Thus, the support does not lead to a Nash equilibrium.
+
+
+-$\mathbf{\{x_1,y_1\}}\times\mathbf{\{y_2\}}$.
+
+Again the second equation tell us that 
+ \begin{equation*}
+    u_1(x_1,y_2)=u_1(y_1,y_2)=w_1
+\end{equation*}
+which cannot hold since $1<2$. Thus, the support does not lead to a Nash equilibrium.
+
+
+- $\mathbf{\{x_1\}}\times\mathbf{\{x_2,y_2\}}$.
+
+The second equation tell us that 
+ \begin{equation*}
+    u_2(x_1,x_2)=u_2(x_1,y_2)=w_2
+\end{equation*}
+which cannot hold since $1<2$. Thus, the support does not lead to a Nash equilibrium.
+
+- $\mathbf{\{y_1\}}\times\mathbf{\{x_2,y_2\}}$.
+
+The second equation tell us that 
+ \begin{equation*}
+    u_2(y_1,x_2)=u_2(y_1,y_2)=w_2
+\end{equation*}
+which cannot hold since $5>1$. Thus, the support does not lead to a Nash equilibrium.
+
+
+\begin{itemize}
+  \item[$\bullet$] Fully randomized strategy : $\mathbf{\{x_1,y_1\}}\times\mathbf{\{x_2,y_2\}}$.
+\end{itemize}
+Again we first check the second equation, for the player 1 we have : 
+\begin{align*}
+ \sigma_2(x_2)u_1(x_1,x_2) + \sigma_2(y_2)u_1(x_1,y_2) &= \sigma_2(x_2)u_1(y_1,x_2) + \sigma_2(y_2)u_1(y_1,y_2) \\
+ 2\sigma_2(x_2)+1\sigma_2(y_2)&= 1\sigma_2(x_2) + 2\sigma_2(y_2) \\
+ \sigma_2(x_2)&=\sigma_2(y_2)
+\end{align*}
+
+Moreover we know that $\sigma_2(x_2) + \sigma_2(x_2) = 1$ and so we find $\sigma_2(x_2)=\frac{1}{2}$ and $\sigma_2(x_2)=\frac{1}{2}$
+
+Now for the player 2 we have : 
+\begin{align*}
+ \sigma_1(x_1)u_2(x_1,x_2) + \sigma_1(y_1)u_2(y_1,x_2) &= \sigma_1(x_1)u_2(x_1,y_2) + \sigma_1(y_1)u_2(y_1,y_2) \\
+ 1\sigma_1(x_1)+5\sigma_1(y_1)&= 2\sigma_1(x_1) + 1\sigma_1(y_1) \\
+ 4\sigma_1(y_1)&=\sigma_1(x_1)
+\end{align*}
+
+We also know that $\sigma_1(x_1) + \sigma_1(y_1) = 1$ ans so we find $\sigma_1(x_1)=\frac{4}{5}$ and $\sigma_1(y_1)=\frac{1}{5}$
+
+To conclude we have one Nash equilibrium :
+$\sigma_1 = \left( \frac{4}{5}x_1 + \frac{1}{5}y_1, \frac{1}{2}x_2 + \frac{1}{2}y_2\right)$ and the payoff associated is $w_1= \left(\frac{3}{2},\frac{9}{5}\right)$
+        
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
