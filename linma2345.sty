@@ -19,4 +19,32 @@
 \usepackage{siunitx}
 \DeclareSIUnit{\EUR}{\text{\euro}}
 
+%\usepackage{amsthm}
+\usepackage{framed}
+\usepackage[amsmath,thref, framed]{ntheorem}
+
+\theoremstyle{break}                  % passage à la ligne
+\newframedtheorem{theorem}{{ Theorem}}
+\newframedtheorem{procedure}{{Procedure}}
+\newframedtheorem{proposition}{{Proposition}}
+\newtheorem{lemme}[theorem]{{Lemma}}
+\newtheorem{hypothese}{{Hypothesis}}
+
+
+\newframedtheorem{definition}{Definition}
+\newtheorem{remark}{{Remark}}
+\newtheorem{exercise}{Exercise}
+\newtheorem{notation}{Notation}[definition]
+\newtheorem{axiom}{Axiom}
+
+
+\theorembodyfont{\upshape}
+\newtheorem{example}{Example}
+\theoremstyle{nonumberbreak}
+\newtheorem{proof}{Proof}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+
 \endinput
