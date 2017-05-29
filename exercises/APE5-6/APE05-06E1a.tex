@@ -1,0 +1,126 @@
+To Find all Nash equilibria in the following games, we have to check all the support. Here we have 9 support where 4 are pure strategies. A strategy profile $\sigma$ is a Nash-Equilibrium on a support $D$ if and only if it satisfies the steps 1, 2 and 3 below :
+
+\begin{procedure}
+\begin{itemize}
+\item For all player $i \in N$, for all pure strategy $c_k \in C_i$, define the variable 
+$$ 0 \leq \sigma_i(c_k) \leq 1 \text{ (the probability that $i$ plays $c_k$)}.$$ 
+\item For all choices of \emph{support} $D = (D_i)_{i \in N}$, $D_i \subseteq C_i$, 
+\begin{enumerate}
+\item \underline{Support}:
+ For each player $i \in N$ and strategy $c \in C_i$, set
+$$ \sigma_i(c) = 0 \text{ if $c \in C_i \backslash D_i$}, \text{and } \sigma_i(c) \geq 0 \text{ if $c \in D_i$},$$
+with $ \sum_{c \in D_i} \sigma_i(c) = 1$. 
+\label{chap3:prc2:support}
+\item \underline{Payoffs}: For all player $i \in N$
+$$ \forall d_i \in D_i:  \qquad  \sum_{c_{-i} \in D_{-i}} \left  ( \prod_{j \in N-i} \sigma_j(c_j) \right ) u_i(c_{-i}, d_i) = w_i.  $$
+\label{chap3:prc2:equ}
+\item \underline{Best Response}:  For all player $i \in N$
+$$ \forall e_i \in C_i \backslash D_i:  \qquad \sum_{c_{-i} \in D_{-i}} \left  ( \prod_{j \in N-i} \sigma_j(c_j) \right ) u_i(c_{-i}, e_i) \leq w_i. $$
+ \label{chap3:prc2:domi}
+\end{enumerate}
+\end{itemize}
+\label{chap3:proc:computeNash}
+\end{procedure}
+
+
+
+\begin{itemize}
+  \item[$\bullet$] Let's begin with pure strategy supports. 
+\end{itemize}
+
+- $\mathbf{\{x_1\}}\times\mathbf{\{x_2\}}$.
+
+The payoff of the players are $w_1=2$ and $w_2=1$. It's easy to see that if the player 2 play $y_2$ instead of $x_2$ we have :
+\begin{equation*}
+    1=w_2<u_2(x_1,y_2)=2
+\end{equation*}
+This means that step 3 does not hold, so this pure strategy is not a equilibrium 
+
+- $\mathbf{\{x_1\}}\times\mathbf{\{y_2\}}$.
+
+The payoff of the players are $w_1=1$ and $w_2=2$. It's easy to see that if the player 1 play $y_1$ instead of $x_1$ we have :
+\begin{equation*}
+    1=w_1<u_1(y_1,y_2)=2
+\end{equation*}
+This means that step 3  equation does not hold, so this pure strategy is not a equilibrium 
+
+- $\mathbf{\{y_1\}}\times\mathbf{\{x_2\}}$.
+
+The payoff of the players are $w_1=1$ and $w_2=5$. It's easy to see that if the player 1 play $x_1$ instead of $y_1$ we have :
+\begin{equation*}
+    1=w_1<u_1(x_1,x_2)=2
+\end{equation*}
+This means that step 3  equation does not hold, so this pure strategy is not a equilibrium 
+
+- $\mathbf{\{y_1\}}\times\mathbf{\{y_2\}}$.
+
+The payoff of the players are $w_1=2$ and $w_2=1$. It's easy to see that if the player 2 play $x_2$ instead of $y_2$ we have :
+\begin{equation*}
+    1=w_2<u_2(y_1,x_2)=5
+\end{equation*}
+This means that step 3  equation does not hold, so this pure strategy is not a equilibrium 
+
+
+\begin{itemize}
+  \item[$\bullet$] Randomized vs pure strategy supports : This corresponds to the case when for example the first player randomizes between $x_1$ and $y_1$, while the second sticks either to $x_2$ or to $y_2$.
+\end{itemize}
+
+- $\mathbf{\{x_1,y_1\}}\times\mathbf{\{x_2\}}$.
+
+By the Payoffs equation (step 2), we must have :
+\begin{equation*}
+    u_1(x_1,x_2)=u_1(y_1,x_2)=w_1
+\end{equation*}
+which cannot hold since $2>1$. Thus, the support does not lead to a Nash equilibrium.
+
+
+-$\mathbf{\{x_1,y_1\}}\times\mathbf{\{y_2\}}$.
+
+By the Payoffs equation (step 2), we must have :
+ \begin{equation*}
+    u_1(x_1,y_2)=u_1(y_1,y_2)=w_1
+\end{equation*}
+which cannot hold since $1<2$. Thus, the support does not lead to a Nash equilibrium.
+
+
+- $\mathbf{\{x_1\}}\times\mathbf{\{x_2,y_2\}}$.
+
+By the Payoffs equation (step 2), we must have :
+ \begin{equation*}
+    u_2(x_1,x_2)=u_2(x_1,y_2)=w_2
+\end{equation*}
+which cannot hold since $1<2$. Thus, the support does not lead to a Nash equilibrium.
+
+- $\mathbf{\{y_1\}}\times\mathbf{\{x_2,y_2\}}$.
+
+By the Payoffs equation (step 2), we must have :
+ \begin{equation*}
+    u_2(y_1,x_2)=u_2(y_1,y_2)=w_2
+\end{equation*}
+which cannot hold since $5>1$. Thus, the support does not lead to a Nash equilibrium.
+
+
+\begin{itemize}
+  \item[$\bullet$] Fully randomized strategy : $\mathbf{\{x_1,y_1\}}\times\mathbf{\{x_2,y_2\}}$.
+\end{itemize}
+Again we first check the second equation, for the player 1 we have : 
+\begin{align*}
+ \sigma_2(x_2)u_1(x_1,x_2) + \sigma_2(y_2)u_1(x_1,y_2) &= \sigma_2(x_2)u_1(y_1,x_2) + \sigma_2(y_2)u_1(y_1,y_2) \\
+ 2\sigma_2(x_2)+1\sigma_2(y_2)&= 1\sigma_2(x_2) + 2\sigma_2(y_2) \\
+ \sigma_2(x_2)&=\sigma_2(y_2)
+\end{align*}
+
+Moreover we know that $\sigma_2(x_2) + \sigma_2(x_2) = 1$ and so we find $\sigma_2(x_2)=\frac{1}{2}$ and $\sigma_2(x_2)=\frac{1}{2}$
+
+Now for the player 2 we have : 
+\begin{align*}
+ \sigma_1(x_1)u_2(x_1,x_2) + \sigma_1(y_1)u_2(y_1,x_2) &= \sigma_1(x_1)u_2(x_1,y_2) + \sigma_1(y_1)u_2(y_1,y_2) \\
+ 1\sigma_1(x_1)+5\sigma_1(y_1)&= 2\sigma_1(x_1) + 1\sigma_1(y_1) \\
+ 4\sigma_1(y_1)&=\sigma_1(x_1)
+\end{align*}
+
+We also know that $\sigma_1(x_1) + \sigma_1(y_1) = 1$ and so we find $\sigma_1(x_1)=\frac{4}{5}$ and $\sigma_1(y_1)=\frac{1}{5}$
+
+To conclude we have one Nash equilibrium :
+$\sigma = \left( \frac{4}{5}x_1 + \frac{1}{5}y_1, \frac{1}{2}x_2 + \frac{1}{2}y_2\right)$ and the payoff associated is $w= \left(\frac{3}{2},\frac{9}{5}\right)$
+        
