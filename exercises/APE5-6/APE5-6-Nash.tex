@@ -1,34 +1,17 @@
-\documentclass[a4paper,notitlepage,12pt]{article}
+\documentclass{../ape}
 
-\usepackage[ansinew]{inputenc}
-%\usepackage[frenchb]{babel}
-\usepackage{graphicx} 
-\usepackage[lmargin=2.2cm, rmargin=2.2cm,bottom=2.85cm,top=2.7cm]{geometry} 
-\usepackage{amsmath}
-\usepackage{amsthm} 
-\usepackage{amssymb}  
-\usepackage{eurosym} 
-\usepackage{url}
-%\usepackage{bbold}
-
-\newcommand{\X}{X}
-\newcommand{\Y}{Y}
+\usepackage{../../linma2345}
 
 \begin{document}
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\session{5 \& 6}{Nash equilibria}
 
-\large
+\section{}
+Find all Nash equilibria in the following games expressed in normal form. For each equilibrium, compute the expected payoff of the players. 
 
-\textbf{Session 4 \& 5: Nash equilibria}
-
-%\section*{Exercices}
-
-\paragraph{1. } Find all Nash equilibria in the following games expressed in normal form. For each equilibrium, compute the expected payoff of the players. 
-
-	\paragraph{a. }	
-	\vspace{-.5cm}
+\begin{enumerate}
+  \item
+    \label{item:first}
 	\begin{center}
 		\begin{tabular}[h!]{l|ccccc}
 			&& \Large{$x_2$} && \Large{$y_2$} & \\
@@ -37,7 +20,7 @@
 			\Large{$y_1$} && \Large{1,5} && \Large{2,1} & 
 		\end{tabular} 
 	\end{center}
-	\paragraph{b. }
+  \item
 	\vspace{-.5cm}
 	\begin{center}
 		\begin{tabular}[h!]{l|ccccc}
@@ -47,8 +30,7 @@
 			\Large{$y_1$} && \Large{2,2} && \Large{7,3} & 
 		\end{tabular} 
 	\end{center}
-	\paragraph{c. }
-	\vspace{-.5cm}
+  \item
 	\begin{center}
 		\begin{tabular}[h!]{l|ccccc}
 			&& \Large{$x_2$} && \Large{$y_2$} & \\
@@ -57,8 +39,7 @@
 			\Large{$y_1$} && \Large{2,2} && \Large{3,7} & 
 		\end{tabular} 
 	\end{center}
-	\paragraph{d. }
-	\vspace{-.5cm}
+  \item
 	\begin{center}
 		\begin{tabular}[h!]{l|ccccccc}
 			&& \Large{$x_2$} && \Large{$y_2$} && \Large{$z_2$} & \\
@@ -67,8 +48,7 @@
 			\Large{$y_1$} && \Large{2,9} && \Large{6,5} && \Large{5,1} & 
 		\end{tabular} 
 	\end{center}
-	\paragraph{e. }
-	\vspace{-.5cm}
+  \item
 	\begin{center}
 		\begin{tabular}[h!]{l|ccccccc}
 			&& \Large{$x_2$} && \Large{$y_2$} && \Large{$z_2$} & \\
@@ -78,8 +58,26 @@
 			\Large{$z_1$} && \Large{5,4} && \Large{4,5} && \Large{0,0} & 
 		\end{tabular} 
 	\end{center}
-	
-\paragraph{2. } Compute all Nash equilibria of the following 3-player game:
+\end{enumerate}
+
+\begin{solution}
+    \begin{enumerate}
+        \item
+            \input{APE05-06E1a}
+        \item
+            \input{APE05-06E1b}
+        \item
+            \textbf{TODO}
+        \item
+            \input{APE05-06E1d}
+        \item
+            \textbf{TODO}
+    \end{enumerate}
+\end{solution}
+
+
+\section{}
+Compute all Nash equilibria of the following 3-player game:
 
 	\begin{center}
 		\begin{tabular}[h!]{l|ccc}
@@ -115,13 +113,15 @@
 	
 In this game, the players receive money only if exactly one of them plays the action $y$.
 
-\paragraph{3. } A Nash equilibrium is called \emph{strong} if there exists no subset of players that could all benefit from deviating together from the equilibrium, assuming that players that are not part of this subset play their equilibrium strategy. More formally, a randomized strategy $\sigma$ is a strong Nash equilibrium iff for any randomized strategy $\tau$ different from $\sigma$, there exists a player $i$ such that $\tau_i \neq \sigma_i$ and $u_i(\tau) \leq u_i(\sigma)$.
+\section{}
+A Nash equilibrium is called \emph{strong} if there exists no subset of players that could all benefit from deviating together from the equilibrium, assuming that players that are not part of this subset play their equilibrium strategy. More formally, a randomized strategy $\sigma$ is a strong Nash equilibrium iff for any randomized strategy $\tau$ different from $\sigma$, there exists a player $i$ such that $\tau_i \neq \sigma_i$ and $u_i(\tau) \leq u_i(\sigma)$.
 \begin{enumerate}
 	\item[a.] Find a game with at least three players for which such a strong Nash equilibrium exists.
 	\item[b.] Show that the game defined in exercise 2. does not allow any strong Nash equilibrium.
 \end{enumerate}
 
-\paragraph{4. } A new oil deposit has been discovered in the North Sea. Two large buyers will play the auction. 
+\section{}
+A new oil deposit has been discovered in the North Sea. Two large buyers will play the auction. 
 The area of the deposit is divided into three parts of respective area $A_0, A_1, A_2$. Each part contains a certain fraction of oil $\tilde{x}_0, \tilde{x}_1$ and $\tilde{x}_2$ under the ground. It is assumed that these fractions are i.i.d. and follow a homogeneous distribution so the $\tilde{x}_i$'s are uniformly distributed in~$[0, 1]$. In the end, the total value of the deposit is given by $A_0 \tilde{x}_0 + A_1 \tilde{x}_1 + A_2 \tilde{x}_2$. The areas of the three parts as well as the amount of oil contained in the part with index~0 are common knowledge to the buyers. Moreover, Buyer~1 (resp. Buyer~2) was able to measure the fraction of oil present in the part with index~1 (resp. index~2).
 
 Based on their knowledge, the two buyers should simultaneously make an offer for the deposit, $c_1$ and $c_2$ respectively. The buyer who bets the highest amount wins the deposit at the price he offered (in case of a tie, a coin is flipped to choose the winner).
@@ -160,20 +160,24 @@ It is known that there exists a unique Bayesian equilibrium to this game of the 
 
 %\newpage
 
-\paragraph{5. } \textbf{(Theoretical exercise.)} Let $\Gamma^1$ be the game obtained from $\Gamma$ by removing all its strongly dominated strategies. Show that $\sigma$ is a Nash equilibrium of $\Gamma^1$ iff $\sigma$ is a Nash equilibrium of $\Gamma$.
+\thex{}
+Let $\Gamma^1$ be the game obtained from $\Gamma$ by removing all its strongly dominated strategies. Show that $\sigma$ is a Nash equilibrium of $\Gamma^1$ iff $\sigma$ is a Nash equilibrium of $\Gamma$.
 
-\paragraph{6. } \textbf{(Theoretical exercise.)} Let $\Gamma^2$ be the game obtained from $\Gamma$ by removing all its weakly dominated strategies. Show that if $\sigma$ is a Nash equilibrium of $\Gamma^2$, then $\sigma$ is also a Nash equilibrium of $\Gamma$. Show that the converse statement is not true.
+\thex{}
+Let $\Gamma^2$ be the game obtained from $\Gamma$ by removing all its weakly dominated strategies. Show that if $\sigma$ is a Nash equilibrium of $\Gamma^2$, then $\sigma$ is also a Nash equilibrium of $\Gamma$. Show that the converse statement is not true.
 
-\paragraph{7. } \textbf{(Theoretical exercise.)} Let $\Gamma$ be a 2-player zero-sum game in strategic form. Show that the set $$\{ \sigma_1 \, | \, \sigma \text{ is an equilibrium of } \Gamma \}$$ is a convex subset of $\Delta(C_1)$.
+\thex{}
+Let $\Gamma$ be a 2-player zero-sum game in strategic form. Show that the set $$\{ \sigma_1 \, | \, \sigma \text{ is an equilibrium of } \Gamma \}$$ is a convex subset of $\Delta(C_1)$.
 
-\paragraph{8. } \textbf{(Theoretical exercise.)} Consider a game $\Gamma(N,C,u)$. Given a player $i \in N$, and a randomized strategy profile of $i$ opponents, $\sigma_{-i} \in \Delta C_{-i}$, Nash' Lemma states that there is always a best response from $i$ to $\sigma_{-i}$ which is a pure strategy in $C_i$. 
+\thex{}
+Consider a game $\Gamma(N,C,u)$. Given a player $i \in N$, and a randomized strategy profile of $i$ opponents, $\sigma_{-i} \in \Delta C_{-i}$, Nash' Lemma states that there is always a best response from $i$ to $\sigma_{-i}$ which is a pure strategy in $C_i$. 
 \begin{itemize}
 \item Explain all of the notations above.
 \item Formalize Nash lemma mathematically.
 \item Provide a proof of the Lemma. Hint: Remember that the strategy $\sigma_{-i}$ is fixed when considering the concept of best responses. 
 \end{itemize} 
 
-%\paragraph{7. } \textbf{(Theoretical exercise.)} Let $Y$ and $Z$ be compact (closed and bounded), convex and non-empty sets of finite dimension. 
+\thex{} Let $Y$ and $Z$ be compact (closed and bounded), convex and non-empty sets of finite dimension. 
 %
 %Let $g : Y \times Z \rightarrow \mathbb{R}$ be a continuous function that is linear in $y$.
 %

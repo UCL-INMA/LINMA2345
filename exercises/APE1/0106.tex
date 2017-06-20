@@ -1,0 +1,40 @@
+In order to answer this question, we are going to decompose our reasoning into three steps.
+First of all, we will consider that both players have a pure strategy. Then, that one player has a pure strategy and the other one has a randomized strategy. Finally, we will assume that both players have a randomized strategy.
+
+\subsection*{Pure strategy vs. pure strategy}
+
+We can directly see that $(x_1, y_2)$ is not an equilibrium. Indeed, both players can increase their payoff from deviating alone from their strategy. Player 2 will gain 2 instead of 1 if he deviates alone to $x_2$ and player 1 will gain 5 instead of 4 if he deviates alone to $y_1$.
+
+Since the game is symmetric, $(y_1, x_2)$ is not an equilibrium either.
+
+After that we can see that both $(x_1, x_2)$ and $(y_1, y_2)$ are pure equilibria.
+
+Indeed, in both cases, none of the player can gain more from deviating alone from their strategy :
+\begin{itemize}
+	\item If we consider equilibrium $(x_1, x_2)$ and that one player deviate to $y$, he will win 1 instead of 2
+	\item If we consider equilibrium $(y_1, y_2)$ and that one player deviate to $x$, he will win 4 instead of 5
+\end{itemize}
+
+\subsection*{Pure strategy vs. randomized strategy}
+
+Now, we can assume, without loss of generality (since the game is symmetric), that player 1 has a pure strategy (either $x_1$ or $y_1$) and that player 2 has a randomized strategy (between $x_2$ and $y_2$). In these conditions, it is impossible to find an equilibrium. Indeed, if the pure strategy of player 1 is to play $x_1$, the optimal strategy for player 2 will be to play $x_2$ (so it won't be a randomized strategy). If the pure strategy of player 1 is to play $y_1$, the optimal strategy for player 2 will be to play $y_2$ which is neither a randomized strategy.
+
+\subsection*{Randomized strategy vs. randomized strategy}
+
+For this last case, we consider that player 1 plays $x_1$ with probability $\alpha$ and $y_1$ with probability $(1-\alpha)$. Player 2 plays $x_2$ with probability $\beta$ and $y_2$ with probability $(1-\beta)$. Since the game is symmetric we can expect that if an equilibrium exists, we will have $\alpha = \beta$.
+
+Since we want that none of the two players would gain from deviating alone from their strategy, we expect that :
+\begin{align*}
+w_1 = 2\beta + 4(1-\beta) = 1\beta + 5(1-\beta) \\
+w_2 = 2\alpha + 4(1-\alpha) = 1\alpha + 5(1-\alpha)
+\end{align*}
+we find therefore, $\alpha = \beta = \dfrac{1}{2}$ and we have therefore the following Nash equilibrium : $(\dfrac{1}{2}x_1+\dfrac{1}{2}y_1, \dfrac{1}{2}x_2+\dfrac{1}{2}y_2)$.
+
+\subsection*{Conclusion}
+
+Finally, we can conclude that there exist three equilibria in this game (two of which are pure equilibria).
+\begin{enumerate}
+	\item $(x_1, x_2)$
+	\item $(y_1, y_2)$
+	\item $(\dfrac{1}{2}x_1+\dfrac{1}{2}y_1, \dfrac{1}{2}x_2+\dfrac{1}{2}y_2)$
+\end{enumerate}

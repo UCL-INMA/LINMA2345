@@ -17,7 +17,6 @@
 \RequirePackage[lmargin=2.3cm, rmargin=2.3cm,bottom=3.15cm,top=3cm]{geometry}
 
 \RequirePackage{amsmath}
-\RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{eurosym}
 \RequirePackage{url}
@@ -65,6 +64,9 @@
 {\shadowbox{~\thesection~}} % label
 {0.5ex} % sep
 {} % before-code
+
+\newcommand{\session}[2]{\hspace{-.5cm}\Large{\textbf{Session #1 -- #2}}}
+\newcommand{\thex}{\section{(Theoretical exercise.)}}
 
 \newcommand{\QAlabel}{Exercise}
 \newcommand{\theQA}{\thesection}

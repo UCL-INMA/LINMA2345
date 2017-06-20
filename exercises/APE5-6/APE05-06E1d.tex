@@ -1,0 +1,125 @@
+Unfortunately we don't have strongly dominated strategies in this game so we have a lot of support to check. Let's begin with pure strategies. We can find 2 Nash equilibria :
+
+- $\mathbf{\{x_1\}}\times\mathbf{\{z_2\}}$. Indeed step 3 is verified :
+\begin{align*}
+    8=w_1&\ge u_1(y_1,z_2)=5   \\
+    7=w_2&\ge u_2(x_1,y_2)=5 \quad \mbox{and} \quad 7=w_2\ge u_2(x_1,x_2)=4 
+\end{align*}
+
+
+- $\mathbf{\{y_1\}}\times\mathbf{\{x_2\}}$. Indeed step 3 is verified :
+\begin{align*}
+    2=w_1&\ge u_1(x_1,x_2)=0 \\
+    9=w_2&\ge u_2(y_1,y_2)=5  \quad \mbox{and} \quad  9=w_2\ge u_2(y_1,z_2)=1
+\end{align*}
+
+\begin{itemize}
+  \item[$\bullet$] Randomized vs pure strategy supports
+\end{itemize}
+
+Fortunately we can quickly check these support with the payoff equations (step 2). We can also notice that for example if the support $\mathbf{\{x_1\}}\times\mathbf{\{x_2,y_2\}}$  does not lead to a Nash equilibrium, the support $\mathbf{\{x_1\}}\times\mathbf{\{x_2,y_2,z_2\}}$ does not lead to a Nash equilibrium either. 
+
+- $\mathbf{\{x_1,y1\}}\times\mathbf{\{x_2\}}$, $\mathbf{\{x_1,y1\}}\times\mathbf{\{y_2\}}$ and $\mathbf{\{x_1,y1\}}\times\mathbf{\{z_2\}}$ does not lead to a Nash equilibrium , indeed :
+\begin{equation*}
+    0\ne2 \quad 5\ne6 \quad 8\ne5
+\end{equation*}
+
+- $\mathbf{\{x_1\}}\times\mathbf{\{x_2,y_2\}}$, $\mathbf{\{x_1\}}\times\mathbf{\{x_2,z_2\}}$ and $\mathbf{\{x_1\}}\times\mathbf{\{y_2,z_2\}}$ does not lead to a Nash equilibrium , indeed :
+\begin{equation*}
+    4\ne6 \quad 4\ne7 \quad 6\ne7
+\end{equation*}
+
+- $\mathbf{\{y_1\}}\times\mathbf{\{x_2,y_2\}}$, $\mathbf{\{y_1\}}\times\mathbf{\{x_2,z_2\}}$ and $\mathbf{\{y_1\}}\times\mathbf{\{y_2,z_2\}}$ does not lead to a Nash equilibrium , indeed :
+\begin{equation*}
+    9\ne5 \quad 9\ne1 \quad 5\ne1
+\end{equation*}
+
+
+And so as explained $\mathbf{\{x_1\}}\times\mathbf{\{x_2,y_2,z_2\}}$ and $\mathbf{\{y_1\}}\times\mathbf{\{x_2,y_2,z_2\}}$ do not lead to Nash equilibria.
+
+
+\begin{itemize}
+  \item[$\bullet$] Fully randomized strategy : two vs two
+\end{itemize}
+
+Here we have 3 support to check, first we have :
+
+-$\mathbf{\{x_1,y_1\}}\times\mathbf{\{x_2,y_2\}}$
+
+ We can begin to compute payoff equation (step 2) for player 1 ($i=1$) :
+ \begin{align*}
+ \sigma_2(x_2)u_1(x_1,x_2) + \sigma_2(y_2)u_1(x_1,y_2) &= \sigma_2(x_2)u_1(y_1,x_2) + \sigma_2(y_2)u_1(y_1,y_2) \\
+ 0\sigma_2(x_2)+5\sigma_2(y_2)&= 2\sigma_2(x_2) + 6\sigma_2(y_2) \\
+ 2\sigma_2(x_2)&=-\sigma_2(y_2)
+\end{align*}
+
+We know that probabilities are always positive so the equation does not hold here. we can stop
+
+
+-$\mathbf{\{x_1,y_1\}}\times\mathbf{\{x_2,z_2\}}$
+
+Again we first check the payoff equations (step 2), for the player 1 ($i=1$) we have : 
+\begin{align*}
+ \sigma_2(x_2)u_1(x_1,x_2) + \sigma_2(z_2)u_1(x_1,z_2) &= \sigma_2(x_2)u_1(y_1,x_2) + \sigma_2(z_2)u_1(y_1,z_2) \\
+ 0\sigma_2(x_2)+8\sigma_2(z_2)&= 2\sigma_2(x_2) + 5\sigma_2(z_2) \\
+ \sigma_2(x_2)&=3\sigma_2(z_2)
+\end{align*}
+
+Moreover we know that $\sigma_2(x_2) + \sigma_2(z_2) = 1$ and so we find $\sigma_2(x_2)=\frac{3}{4}$ and $\sigma_2(z_2)=\frac{1}{4}$
+
+Now for the player 2 ($i=2$) we have : 
+\begin{align*}
+ \sigma_1(x_1)u_2(x_1,x_2) + \sigma_1(y_1)u_2(y_1,x_2) &= \sigma_1(x_1)u_2(x_1,z_2) + \sigma_1(y_1)u_2(y_1,z_2) \\
+ 4\sigma_1(x_1)+9\sigma_1(y_1)&= 7\sigma_1(x_1) + 1\sigma_1(y_1) \\
+ 3\sigma_1(x_1)&=8\sigma_1(y_1)
+\end{align*}
+
+We also know that $\sigma_1(x_1) + \sigma_1(y_1) = 1$ and so we find $\sigma_1(x_1)=\frac{8}{11}$ and $\sigma_1(y_1)=\frac{3}{11}$
+
+WARNING : Here we have to check the step 3 ! (Is this the best response ?) For the player 2 ($i=2$), $e_2=y_2$ with $w_2=\frac{59}{11}$ we obtain :
+\begin{equation*}
+    \frac{8}{11}6 + \frac{3}{11}5 \le w_2
+\end{equation*}
+And so this support does not lead to a Nash equilibrium because $\frac{63}{11}>\frac{59}{11}$
+
+-$\mathbf{\{x_1,y_1\}}\times\mathbf{\{y_2,z_2\}}$
+
+Using payoff equations (step 2), for the player 1 ($i=1$) we have : 
+\begin{align*}
+ \sigma_2(y_2)u_1(x_1,y_2) + \sigma_2(z_2)u_1(x_1,z_2) &= \sigma_2(y_2)u_1(y_1,y_2) + \sigma_2(z_2)u_1(y_1,z_2) \\
+ 5\sigma_2(x_2)+8\sigma_2(z_2)&= 6\sigma_2(x_2) + 5\sigma_2(z_2) \\
+ \sigma_2(x_2)&=3\sigma_2(z_2)
+\end{align*}
+
+Moreover we know that $\sigma_2(y_2) + \sigma_2(z_2) = 1$ and so we find $\sigma_2(y_2)=\frac{3}{4}$ and $\sigma_2(z_2)=\frac{1}{4}$
+
+Now for the player 2 ($i=2$) we have : 
+\begin{align*}
+ \sigma_1(x_1)u_2(x_1,y_2) + \sigma_1(y_1)u_2(y_1,y_2) &= \sigma_1(x_1)u_2(x_1,z_2) + \sigma_1(y_1)u_2(y_1,z_2) \\
+ 6\sigma_1(x_1)+5\sigma_1(y_1)&= 7\sigma_1(x_1) + 1\sigma_1(y_1) \\
+ \sigma_1(x_1)&=4\sigma_1(y_1)
+\end{align*}
+
+We also know that $\sigma_1(x_1) + \sigma_1(y_1) = 1$ and so we find $\sigma_1(x_1)=\frac{4}{5}$ and $\sigma_1(y_1)=\frac{1}{5}$
+
+Again we have to check the best response equation (step 3). for the player 2 ($i=2$) $e_2=x_2$ with $w_2=\frac{29}{5}$ we obtain :
+\begin{equation*}
+    \frac{4}{5}4 + \frac{1}{5}9 \le w_2
+\end{equation*}
+And this support lead to a Nash equilibrium because $\frac{29}{5}>\frac{25}{5}$
+
+
+
+\begin{itemize}
+  \item[$\bullet$] Fully randomized strategy 
+\end{itemize}
+
+Finally we have the support $\mathbf{\{x_1,y_1\}}\times\mathbf{\{x_2,y_2,z_2\}}$. It's not useful to recompute everything, we can directly see that this support does not lead to a Nash equilibrium. Indeed the payoff equations (step 2) for the player 2 does not hold because the payoff equations for the support $\mathbf{\{x_1,y_1\}}\times\mathbf{\{x_2,y_2\}}$  does not hold.
+
+
+To conclude we have 3 Nash equilibria :
+\begin{itemize}
+  \item[$\bullet$]  $\sigma^1 = \left(x_1,z_2\right)$ with $w^1= \left(8,7\right)$
+  \item[$\bullet$]  $\sigma^2 = \left(y_1,x_2\right)$ with $w^2= \left(2,9\right)$
+  \item[$\bullet$]  $\sigma^3 = \left( \frac{4}{5}x_1 + \frac{1}{5}y_1, \frac{3}{4}y_2 + \frac{1}{4}z_2\right)$ with $w^3= \left(\frac{23}{4},\frac{29}{5}\right)$
+\end{itemize}

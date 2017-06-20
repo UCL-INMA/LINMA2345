@@ -1,0 +1,42 @@
+With some intuition, we can guess that the optimal strategy when playing \textit{Rock, Paper, Scissors} is to play \textit{rock}, \textit{paper} or \textit{scissors} with probability 1/3 each. But, since we are in a Game Theory course, we are going to formalize this intuition in terms of Nash equilibrium.
+
+At first, we are going to model the \textit{Rock, Paper, Scissors} game in strategic form. We consider a payoff of $1$ when winning the game, a payoff of $0$ in case of a tie and a payoff of $-1$ when we lose the game.
+\begin{center}
+\begin{tabular}[h!]{l|ccccccc}
+	&& \Large{Rock} && \Large{Paper} && \Large{Scissors} & \\
+	\hline
+	\Large{rock} && \Large{0,0} && \Large{$-1$,1} && \Large{1,$-1$} & \\
+	\Large{paper} && \Large{1,$-1$} && \Large{0,0} && \Large{$-1$,1} & \\
+	\Large{scissors} && \Large{$-1$,1} && \Large{1,$-1$} && \Large{0,0} & \\
+\end{tabular}
+\end{center}
+
+Then, in order to find the optimal strategy of the game, we are going to find the (Nash) equilibria of the game.
+
+The first questions we can ask us is whether there exist some pure equilibria (using pure strategies) ? This question is relatively easy to answer. Indeed, if the opponent plays \textit{rock} the optimal strategy for me is to play \textit{paper}. But if I play \textit{paper}, the optimal strategy for my opponent is to play \textit{scissors} and if he plays \textit{scissors}, my optimal strategy is to play \textit{rock} and so one... (we can see that \textit{rock} is best response to \textit{scissors} while \textit{scissors} is best response to \textit{paper} and \textit{paper} is best response to \textit{rock}). So we can conclude that there isn't any pure equilibria.
+
+In a similar way, we can prove that there does not exist any randomized equilibria for the following cases : 
+\begin{enumerate}
+\item pure strategy vs. randomized strategy between two moves
+\item pure strategy vs. randomized strategy between three moves
+\item randomized strategy between two moves vs. randomized strategy between two moves
+\item randomized strategy between two moves vs. randomized strategy between three moves
+\end{enumerate}
+
+Finally, the last possibility is that both players play a randomized strategy between the three moves (\textit{rock}, \textit{paper} and \textit{scissors}). Since the game is symmetric, we expect that the strategy will be the same for both player. We suppose that a player play rock with probability $\alpha$, paper with probability $\beta$ and scissors with probability $\gamma$. 
+We need 
+\[
+\alpha + \beta + \gamma = 1.
+\]
+Moreover we expect
+\[
+-\beta + \gamma = \alpha - \gamma = - \alpha + \beta.
+\]
+We therefore find 
+\[
+\beta = \gamma = \alpha = \dfrac{1}{3}
+\]
+and so the only one Nash equilibrium of this game is 
+\[
+\left(\dfrac{1}{3}[\text{rock}] + \dfrac{1}{3}[\text{paper}] + \dfrac{1}{3}[\text{scissors}], \dfrac{1}{3}[\text{Rock}] + \dfrac{1}{3}[\text{Paper}] + \dfrac{1}{3}[\text{Scissors}]\right).
+\]
