@@ -71,7 +71,7 @@
 \newcommand{\QAlabel}{Exercise}
 \newcommand{\theQA}{\thesection}
 
-\newcommand{\SolutionLabel}{Solution to APE~\theQA}
+\newcommand{\SolutionLabel}{Solution to \QAlabel~\theQA}
 
 \usepackage[framemethod=tikz]{mdframed}
 \input{../greyarrow.tex}
