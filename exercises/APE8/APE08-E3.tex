@@ -1,12 +1,11 @@
 \subsection*{a.}
 To show that this game allows a correlated equilibrium for which each player receives a payoff higher than 4. We can see that if we take same correlated strategies for all the payoff non zero, we have a payoff higher than 4. So we have :
-$$ \mu(c_1,c_2) = \left\{ 
-\begin{array}{l l}
-    0 & \mbox{if} \ (c_1,c_2) \in \left\{(x_1,x_2),(y_1,y_2),(z_1,z_2)\right\}\\                      
-     \frac{1}{6} & \mbox{otherwise} 
-\end{array} \right.$$
+\begin{center}
+$\mu(c_1,c_2) =$ \begin{cases} 0  &\mbox{if} \ (c_1,c_2) \in \{(x_1,x_2),(y_1,y_2),(z_1,z_2)\} \\ % Why missing $ inserted ?
+\frac{1}{6} &\mbox{otherwise}\end{cases}
+\end{center}
 
-We take $\frac{1}{6}$ because the sum of the correlated strategies equal to one. After that we have to check if it's a correlated equilibrium. Recall that a correlated equilibrium for a game in strategic form must satisfy the following strategic incentive constraints :
+We take $\frac{1}{6}$ because the sum of the correlated strategies equals to one. After that we have to check if it is a correlated equilibrium. Recall that a correlated equilibrium for a game in strategic form must satisfy the following strategic incentive constraints :
 \begin{align*}
 			\sum_{c_{-i} \in C_{-i}} \mu(c) \, \big( u_i(c_{-i}, \; c_i) - u_i(c_{-i}, \; e_i) \big) \geq 0, \quad \forall i \in N, \ \forall c_i \in C_i, \ \forall e_i \in C_i,
 		\end{align*}
@@ -23,34 +22,39 @@ To do less computation, we can notice that the strategic form is symmetric and s
 \begin{equation*} 
 \frac{1}{6}(5-4) + \frac{1}{6}(4-0) = \frac{5}{6} \ge 0 
 \end{equation*}
-This means that the players 2 has no interest in playing $y_2$ or $z_2$ rather than $x_2$. And so it's a correlated equilibrium and the payoff equal to $\frac{27}{6} = 4.5 \ge 4$
+This means that the players 2 has no interest in playing $y_2$ or $z_2$ rather than $x_2$. And so it is a correlated equilibrium and the payoff equal to $\frac{27}{6} = 4.5 \ge 4$
 
 \subsection*{b.}
 
-We can directly see that to maximize the payoff of the player 2, the correlated strategies $\mu_2(x_1,x_2)$ , $\mu_2(y_1,y_2)$ and $\mu_2(z_1,z_2)$ are zero because the associated payoff is zero. So we have to look the six other correlated strategies. Before checking strategic incentive constraints, we can also notice that the correlated strategy with the same payoff for the players 2 will be equals because we have a symmetric game. We write :
+Before checking strategic incentive constraints, we can notice that this game is symmetric and so we can change the action of the players 1 or 2 such that it don't change the payoff. We can take :
+\begin{equation*}
+    x \rightarrow y,y \rightarrow z, z \rightarrow x \ \mbox{or} \ x \rightarrow z, y \rightarrow x, z \rightarrow y
+\end{equation*} Moreover we can also change the player between them. Since we can do this, if there exist a optimum, then there exist 2 equivalent optimal solutions where we change the action of the two player. And so the mean of this 3 optimal solutions is also optimal. This allow to write the correlated strategies like that :
 \begin{align*}
     \alpha &= \mu_2(x_1,y_2) = \mu_2(y_1,z_2) = \mu_2(z_1,x_2) \\
     \beta &= \mu_2(x_1,z_2) = \mu_2(y_1,x_2) = \mu_2(z_1,y_2)
+    \\
+    \gamma &= \mu_2(x_1,x_2) = \mu_2(y_1,y_2) = \mu_2(z_1,z_2)
 \end{align*}
-
+Note that we can not put $\gamma$ to zero even if its associated payoff is zero. Indeed taking a non zero value for $\gamma$ can increase the value of $\alpha$ or $\beta$ and so we can have a possible better payoff.
 Now we check the constraint for the players 1 and 2, again we can just check one action because the constraints are the same for all action that the mediator could propose. For example, we can take the case where the mediator proposes to the player 1 to play $x_1$ and proposes to the player 2 to play $x_2$ :
 
 - $i=1$ $c_1=x_1$  $e_1=y_1$
 \begin{equation*}
-    \alpha(5-0) + \beta(4-5) = 5\alpha - \beta \ge 0
+    \gamma(0-4) + \alpha(5-0) + \beta(4-5) = -4\gamma + 5\alpha - \beta \ge 0
 \end{equation*}
 - $i=1$ $c_1=x_1$  $e_1=z_1$
 \begin{equation*}
-    \alpha((5-4) + \beta(4-0) = \alpha + 4\beta \ge 0
+    \gamma(0-5) + \alpha((5-4) + \beta(4-0) = -5\gamma + \alpha + 4\beta \ge 0
 \end{equation*}
 
 - $i=2$ $c_2=x_2$  $e_2=y_2$
 \begin{equation*}
-    \alpha(4-5) + \beta(5-0) = - \alpha + 5\beta \ge 0
+    \gamma(0-4) + \alpha(4-5) + \beta(5-0) = -4\gamma - \alpha + 5\beta \ge 0
 \end{equation*}
 - $i=2$ $c_2=x_2$  $e_2=z_2$
 \begin{equation*}
-    \alpha((4-0) + \beta(5-4) = 4\alpha + \beta \ge 0
+    \gamma(0-5) + \alpha((4-0) + \beta(5-4) = -5\gamma + 4\alpha + \beta \ge 0
 \end{equation*}
 
 Then we compute the payoff of the player 2 :
@@ -60,17 +64,17 @@ Then we compute the payoff of the player 2 :
 
 Finally we have a maximization problem under strategic incentive constraints :
 \begin{align*}
-    \max \ & 12\alpha + 15\beta \\
+    \max &\  12\alpha + 15\beta \\
       s.t& \\     
-      & 5\alpha - \beta \ge 0 \\
-      & \alpha + 4\beta \ge 0 \\
-      -& \alpha + 5\beta \ge 0 \\
-      & 4\alpha + \beta \ge 0 \\
-      & 3\alpha + 3\beta = 1 \\
-      & 0 \le \alpha,\beta \le \frac{1}{3}
+      -& 4\gamma + 5\alpha - \beta \ge 0 \\
+      -& 5\gamma + \alpha + 4\beta \ge 0 \\
+      -& 4\gamma -\alpha + 5\beta \ge 0 \\
+      -& 5\gamma + 4\alpha + \beta \ge 0 \\
+      & 3\alpha + 3\beta + 3\gamma = 1 \\
+      & 0 \le \alpha,\beta,\gamma \le \frac{1}{3}
 \end{align*}
 
-We can solve the problem using a graph or we can simply see that it's more interesting to put all in $\beta$ and so the only conditions constraining are $5\alpha - \beta \ge 0$ and $3\alpha + 3\beta = 1$. We find $\alpha=\frac{1}{18}$ and $\beta=\frac{5}{18}$. So the payoff equal to :
+We can solve the problem using a graph taking $\gamma=\frac{1}{3}-\alpha-\beta$ for example or we can simply see that it's more interesting to put all in $\beta$ and so the only conditions constraining are $-4\gamma + 5\alpha - \beta \ge 0$ and $3\alpha + 3\beta + 3\gamma = 1$. We find $\alpha=\frac{1}{18}$, $\beta=\frac{5}{18}$ and $\gamma=0$. So the payoff equal to :
 \begin{equation*}
     U_2 = \frac{12}{18}+\frac{75}{18} = \frac{29}{6} \approx 4.834
 \end{equation*}
