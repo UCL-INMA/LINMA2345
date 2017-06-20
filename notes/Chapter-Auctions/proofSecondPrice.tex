@@ -1,0 +1,149 @@
+As a reminder, we have two players, player 1 and player 2, who each have a valuation for an item that is being sold. We know that $v_1$ and $v_2$ are independent and identically distributed from a uniform distribution with parameters $0$ and $1$. We use $b_1$ and $b_2$ to denote the bid of player 1 and 2, respectively. Also, we use $u_1$ and $u_2$ to denote the utility of player 1 and 2, respectively. We have three cases
+\begin{enumerate}
+    \item If $b_1 < b_2$, then $u_1 = 0$ and $u_2 = v_2 - b_1$;
+    \item If $b_1 > b_2$, then $u_1 = v_1 - b_2$ and $u_2 = 0$;
+    \item If $b_1 = b_2$, then $u_1 = \frac{1}{2} \cdot \parent{v_1 - b_1}$ and $u_2 = \frac{1}{2} \cdot \parent{v_2 - b_2}$.
+\end{enumerate}
+
+However, we know that the last case will happen with a probability zero.
+Notice the difference in the utility functions between the proof of Theorem 17 and this proof. This difference is due to the fact that Theorem 17 is looking at a sealed-bid \textit{first-price} auction, whereas Theorem 18 is looking at a sealed-bid \textit{second-price} auction. 
+
+\vspace{5mm}
+
+
+First, let us show that $b_1 \parent{v_1} = v_1$ is a best response for player 1 to the strategy of player 2. To be more precise, we need to check that for any fixed type $v_1$ for player 1, $b_1 \parent{v_1} = v_1$ is a best response to the strategy of player 2, knowing that the strategy of player 2 will be $b_2 \parent{v_2} = v_2$.
+We need to compute
+\begin{equation*}
+    b_1^{*}
+    = \text{argmax} \ 
+    \parent{v_1 - b_2} \cdot \mathbb{P} \squared{b_1 > B_2}
+    + \dfrac{1}{2} \parent{v_1 - b_2} \cdot \mathbb{P} \squared{b_1 = B_2}
+\end{equation*}
+
+where $B_2$ is written with a capital letter, because it denotes a random variable. Indeed, in this part of the proof, we fix $b_2$ such that $b_2 \parent{v_2} = v_2$. Since we know that $V_2 \sim \text{Unif} \parent{0, 1}$, we know that $B_2 \sim \text{Unif} \parent{0, 1}$. Now let us compute the two probabilities. We have
+\begin{equation*}
+    \mathbb{P} \squared{b_1 = B_2}
+    = 0,
+\end{equation*}
+
+because $B_2$ is a continuous random variable, and
+\begin{equation*}
+    \mathbb{P} \squared{b_1 > B_2}
+    = \mathbb{P} \squared{B_2 \leq b_1}
+    = F_{B_2} \parent{b_1}
+    = \dfrac{b_1 - 0}{1 - 0}
+    = b_1.
+\end{equation*}
+
+
+where $F_{B_2}$ denotes the cumulative distribution function of $B_{2}$. Again, to be more precise, we should write
+
+\begin{equation*}
+    \mathbb{P} \squared{b_1 > B_2} = \max \bracket{0, \min \bracket{1, b_1}}
+\end{equation*}
+
+Let us use $\tilde{b}_1$ to shorten the notations, with $\tilde{b}_1 = \max \bracket{0, \min \bracket{1, b_1}}$. Hence we have
+\begin{equation*}
+    b_1^{*}
+    = \text{argmax} \ \parent{v_1 - b_2} \cdot \tilde{b}_1.
+\end{equation*}
+
+Knowing that $B_2$ is a random variable, it should be apparent that the above expression is incorrect: we should write $\parent{v_1 - B_2}$ instead of $\parent{v_1 - b_2}$. Hence we have
+\begin{equation*}
+    b_1^{*}
+    = \text{argmax} \ \parent{v_1 - B_2} \cdot \tilde{b}_1.
+\end{equation*}
+
+Now, a new problem arises. Since $B_2$ is a random variable, it should not appear "in the wild". It should be contained in a certain aggregation like an expected value $\mathbb{E} \parent{\cdot}$, or a probability $\mathbb{P} \parent{\cdot}$. Hence we have
+\begin{equation*}
+    b_1^{*}
+    = \text{argmax} \ \mathbb{E} \squared{v_1 - B_2} \cdot \tilde{b}_1.
+\end{equation*}
+
+We can compute
+\begin{equation*}
+    \mathbb{E} \squared{v_1 - B_2}
+    = \int_{- \infty}^{\infty} \parent{v_1 - b_2} f_{B_2} \parent{b_2} \mathrm{d} b_2
+\end{equation*}
+
+where $f_{B_2} \parent{b_2}$ is the probability density function of $B_2$. We are in the second case of the enumeration made at the beginning of the proof. Hence $B_2$ will not go from $- \infty$ to $+ \infty$. Instead, $B_2$ will go from $0$ to $\tilde{b}_1$. Therefore, we have $B_2 \sim \text{Unif} \parent{0, \tilde{b}_1}$, we have
+\begin{equation*}
+    f_{B_2} \parent{b_2} = \dfrac{1}{\tilde{b}_1 - 0} = \dfrac{1}{\tilde{b}_1}.
+\end{equation*}
+
+As a reminder, if $X \sim \text{Unif} \parent{a, b}$, then
+\begin{equation*}
+f_{X}\parent{x} = 
+    \begin{cases}
+        \dfrac{1}{b-a}  & {\text{for }} x \in [a,b], \\
+        0               & {\text{otherwise}}.
+    \end{cases}
+\end{equation*}
+
+
+Writing adequate integration bounds, and replacing $f_{B_2} \parent{b_2}$, we find
+\begin{equation*}
+    \mathbb{E} \squared{v_1 - B_2}
+    = \int_{0}^{\tilde{b}_1} \parent{v_1 - b_2} \cdot \dfrac{1}{\tilde{b}_1} \mathrm{d} b_2.
+\end{equation*}
+
+Putting everything together, and keeping in mind that $\tilde{b}_1$ does not depend on $b_2$, we obtain
+
+\begin{equation*}
+    b_1^{*}
+    = \text{argmax} \ \dfrac{\tilde{b}_1}{\tilde{b}_1} \cdot \int_{0}^{\tilde{b}_1} \parent{v_1 - b_2} \mathrm{d} b_2
+    = \text{argmax} \ g \parent{b_1}
+\end{equation*}
+
+where the function $g$ is defined like
+\begin{equation*}
+    g \parent{b_1}
+    =
+    \begin{cases}
+       \int_{0}^{b_1} \parent{v_1 - b_2} \mathrm{d} b_2     & 0 \leq b_1 \leq 1, \\
+       \int_{0}^{0} \parent{v_1 - b_2} \mathrm{d} b_2       & b_1 < 0, \\
+       \int_{0}^{1} \parent{v_1 - b_2} \mathrm{d} b_2       & b_1 > 1. \\ 
+     \end{cases}
+\end{equation*}
+
+Computing the integrals, we find $\int_{0}^{b_1} \parent{v_1 - b_2} \mathrm{d} b_2 = b_1 \cdot \parent{v_1 - \dfrac{b_1}{2}}$, hence we obtain
+\begin{equation*}
+    g \parent{b_1}
+    =
+    \begin{cases}
+       b_{1} \cdot \parent{v_1 - \dfrac{b_1}{2}}    & 0 \leq b_1 \leq 1, \\
+       0                                            & b_1 < 0, \\
+       v_1 - \dfrac{1}{2}                           & b_1 > 1. \\ 
+     \end{cases}
+\end{equation*}
+
+We can compute the differential of $g$ with respect to $b_1$. We find
+\begin{equation*}
+    g' \parent{b_1}
+    =
+    \begin{cases}
+       v_1 - b_1  & 0 \leq b_1 \leq 1, \\
+       0 & b_1 < 0, \\
+       0 & b_1 > 1. \\ 
+     \end{cases}
+\end{equation*}
+
+Hence we find the value of $b_1^{*}$ by cancelling the derivative. We find
+\begin{equation*}
+    g' \parent{b_1^{*}} = 0
+    \Leftrightarrow 
+    \begin{cases}
+       v_1 = b_1^{*}  & 0 \leq b_1 \leq 1, \\
+       0 & b_1 < 0, \\
+       0 & b_1 > 1. \\
+     \end{cases}
+\end{equation*}
+
+We know that $b_1 < 0$ and $b_1 > 1$ are absurd. Hence we only consider the case $0 \leq b_1 \leq 1$, and we conclude that $b_1^{*} = b_1 \parent{v_1} = v_1$. 
+
+Finally, it is important to do a continuity check. 
+
+
+\vspace{5mm}
+
+Now let us show that $b_2 \parent{v_2} = v_2$ is a best response for player 2 to the strategy of player 1. For this, we simply use the symmetry of the problem. This concludes the proof.
