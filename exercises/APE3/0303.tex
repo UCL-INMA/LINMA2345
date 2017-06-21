@@ -1,0 +1,101 @@
+\begin{enumerate}[label=\alph*.]
+  
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%% a %%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%
+  \item We will apply Bayes' formula, i.e.
+  \begin{equation*}
+    \mathbb{P} \squared{A | B} = \dfrac{\mathbb{P} \squared{A \cap B}}{\mathbb{P} \squared{B}}.
+  \end{equation*}
+  
+  We need to prove that, for all $k >0$, we have
+  \begin{equation*}
+    \mathbb{P} \squared{Y_i = X+1 | Y_i = k} > \dfrac{1}{2}.
+  \end{equation*}
+  
+  Applying Bayes's rule, we have 
+  \begin{align*}
+      \mathbb{P} \squared{Y_i = X+1 | Y_i = k}
+      &= \dfrac{\mathbb{P} \squared{Y_i = X+1 = k}}{\mathbb{P} \squared{Y_i = k}}.
+  \end{align*}
+  
+  Let us compute numerator and denominator independently, for clarity. We find
+  \begin{align*}
+      \mathbb{P} \squared{Y_i = X+1 = k}
+      &= \mathbb{P} \squared{X+1 = k}
+      = \mathbb{P} \squared{X = k-1}
+      = 0.9 ^{k-1} \times 0.1,
+  \end{align*}
+  
+  and
+  \begin{align*}
+      \mathbb{P} \squared{Y_i = k}
+      &= \mathbb{P} \squared{X = k} + \mathbb{P} \squared{X+1 = k} \\
+      &= \mathbb{P} \squared{X = k} + \mathbb{P} \squared{X = k-1} \\
+      &= 0.9 ^{k} \times 0.1 + 0.9 ^{k-1} \times 0.1.
+  \end{align*}
+  
+  Putting everything together,  and using the fact that $k >0$, we obtain
+  \begin{align*}
+      \mathbb{P} \squared{Y_i = X+1 | Y_i = k}
+      &= \dfrac{0.9 ^{k-1} \times 0.1}{0.9 ^{k} \times 0.1 + 0.9 ^{k-1} \times 0.1} \\
+      &= \dfrac{0.9 ^{-1}}{1 + 0.9 ^{-1}} \\
+      &= \dfrac{1}{0.9 + 1} \\
+      &= \dfrac{10}{19} > \dfrac{1}{2}.
+      \end{align*}
+  
+  The proof is complete.
+  
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%% b %%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%
+  \item The words ``\textit{both players know that}'' can be repeated $k-1$ so that the assertion remains true.
+  
+  We define two operators
+  \begin{itemize}
+    \item $\text{K} \parent{\cdot}$: both players \textit{know} that $\cdot$ 
+    \item T: both players \textit{think} that they will win 
+  \end{itemize}
+  
+  From exercise (a), we know that if $X \geq 1$, then T is true. We will need the following lemma.
+  
+  \paragraph{Lemma.} If $X \geq k$, then K $\parent{X \geq k+1}$ is true.
+  
+  We need to prove the following theorem.
+  
+  \paragraph{Theorem.} If $X = k > 1$, then $\text{K}^{k-1} \parent{\text{T}}$.
+  
+  Of course, we will prove that by assumption.
+  
+  \paragraph{Base case, $k=2$.} Trivial.
+  \paragraph{Induction case.} Assume that the statement is true for $k$, i.e., assume that if $X = k > 1$, then $\text{K}^{k-1} \parent{\text{T}}$ is true. We have to show that the statement is also true for $k+1$, i.e., we have to show that if $X = k+1 > 1$, then $\text{K}^{k} \parent{\text{T}}$ is true. This is indeed the case, using the above lemma.
+  
+  The proof is complete.
+  
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%% c %%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%
+  \item We know that the event $X \geq 0$ is common knowledge. Can we say the same thing about the event $X \geq 1$, or not ?
+  We define $\text{M} \parent{\cdot}$ to denote the words "there exists a player who think that, maybe, $\cdot$ is true". We have, for every event $A$ , and for every integer $t$, 
+  \begin{equation*}
+      \begin{cases}
+        \neg \text{K} \parent{A} = \text{M} \parent{\neg A}, \\
+        \neg \text{K}^{t} \parent{A} = \text{M}^{t} \parent{\neg A},
+      \end{cases}
+  \end{equation*}
+  
+  where $\neg A$ denotes the negation of event $A$. Suppose that if $X = k$, then $\text{M} \parent{X < k}$.
+  We know that if $X < k$, then $\text{M} \parent{X < k-1}$. Recursively, we find
+  \begin{align*}
+      \text{M}^{k-1} \parent{X < 1}
+      &= \text{M}^{k-1} \parent{ \neg X \geq 1}
+      = \neg \text{K}^{k-1} \parent{X \geq 1}.
+  \end{align*}
+  
+  This shows that the event $X \geq 1$ is not common knowledge.
+  
+  
+\end{enumerate}
