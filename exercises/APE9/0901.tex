@@ -1,0 +1,139 @@
+\begin{enumerate} [label=\alph*.]
+	%%%%%% a
+	\item As often, let us use $u_{A}$ and $u_{B}$ to denote the utility of Alice and Bob respectively. Since Alice and Bob respect the axioms of the von Neumann- Morgenstern utility theory, we know that we can use the von Neumann- Morgenstern utility theorem to find a utility function $u$ to describe the situation. Also, we know that $u$ can be chosen such that it is defined on $\squared{0, 1}$. We can find
+	\begin{align*}
+	    & u_{A} \parent{\squared{\text{ballet}}} = 1 \\
+	    & u_{A} \parent{\squared{\text{boxing}}} = u_{A} \parent{ \dfrac{1}{4} \squared{\text{ballet}} + \dfrac{3}{4} \squared{\text{home}}} \\ \\
+	    & u_{B} \parent{\squared{\text{boxing}}} = 1 \\
+	    & u_{B} \parent{\squared{\text{ballet}}} = u_{B} \parent{\squared{\text{home}}} = 0
+	\end{align*}
+	
+	We decide that $u_{A} \parent{\squared{\text{home}}} = 0$, hence we have $u_{A} \parent{\squared{\text{boxing}}} = u_{A} \parent{ \dfrac{1}{4} \squared{\text{ballet}}} = \dfrac{1}{4}$, by the linearity of the utility function.
+	
+	
+	At this moment, we have to be careful. Let us imagine that for another situation, we have $u_{A} \parent{\squared{\text{ballet}}} = 1$ and $u_{B} \parent{\squared{\text{ballet}}} = 1$. This does not mean that the preferences are the same! Indeed, we are working with "Alice dollars" and "Bob dollars" and we cannot compare these two units. We cannot compare apples and oranges! We cannot add them together but we can multiply them. 
+	
+	We see that the disagreement point, denoted by $v$ happens when the couple stays at home. Hence, at $\squared{\text{home}}$, we have $\parent{v_{A}, v_{B}} = \parent{0, 0}$.
+	
+	Putting everything together, we find the utilies on Table \ref{tab:utilAB}. 
+	
+
+\begin{tabular}[h!]{r|lll}
+            & $\squared{\text{boxing}}$ & $\squared{\text{ballet}}$ & $\squared{\text{home}}$ \\ \hline
+$u_{A}$     & 1/4            & 1                         & 0 \\
+$u_{B}$     & 1                         & 0                         & 0
+\end{tabular}
+\captionof{figure}{Utilities of Alice and Bob}
+\label{tab:utilAB}
+
+
+We can note that putting $u_{B} \parent{\squared{\text{boxing}}} = 1$ or $u_{B} \parent{\squared{\text{boxing}}} = 10$ would not change a thing, because we can rescale the problem, and use the equivalence of games.
+
+Now let us construct the closed convex set $F$, representing the set of possible payoffs. The representation is given on Figure \ref{fig:setF}
+
+\input{parts/0901setF.tex}
+	
+	On this Figure, we can add a few comments. The point $v$ is situated in the origin. Let us explain the three points
+	\begin{enumerate}
+	    \item $\parent{0,0}$ is the utilities when the couple stays at home;
+	    \item $\parent{0.25,1}$ is the utilities when the couple goes to the boxing match;
+	    \item $\parent{1,0}$ is the utilities when the couple goes to the ballet.
+	\end{enumerate}
+	
+	Of course, there are other points in the set $F$. In other words
+	\begin{enumerate}
+	    \item if we consider a point on the line between $\parent{0,0}$ and $\parent{1,0}$, it will correspond to a random choice between staying home and going to the ballet;
+	    \item if we consider a point on the line between $\parent{0,0}$ and $\parent{0.25,1}$, it will correspond to a random choice between staying home and going to the boxing match;
+	    \item if we consider a point on the line between $\parent{0.25,1}$ and $\parent{1,0}$, it will correspond to a random choice between going to the boxing match and going to the ballet.
+	\end{enumerate}
+	
+	The last category of points is the following: all the points in the interior of $F$. These points correspond to a random choice between staying home, going to the boxing match and going to the ballet.
+	
+	\vspace{5mm}
+	
+	Now let us find the Nash Bargaining Solution, also written as NBS. We know that $v = \parent{v_{A}, v_{B}} = \parent{0, 0}$. We also know that there is a unique solution function $\phi(\cdot, \cdot)$ that satisfies the axioms given in the Reminder. This solution function satisfies, for every two-person bargaining problem $(F, v)$
+	\begin{equation*}
+		\phi(F, v) \, \in \, \underset{x \, \in \, F, \, x \geq v}{\mathrm{argmax}} \ (x_1 - v_1)(x_2 - v_2).
+	\end{equation*}
+	
+	Hence, let us write
+	\begin{equation*}
+	    \underset{x \, \in \, F, \, x \geq v}{\mathrm{argmax}} \ x_{A} \cdot x_{B}
+	\end{equation*}
+	
+	If we define $f$ as the objective function, we have $f \parent{x_{A}, x_{B}} = x_{A} \cdot x_{B}$.
+	
+	We guess that the solution will be on the line between $\parent{0.25,1}$ and $\parent{1,0}$, because that is the Pareto front, and it looks like a good guess of where the ideal solution $\parent{x^{*}_{A}, x^{*}_{B}}$ will be. We can find the equation of the line between $\parent{0.25,1}$ and $\parent{1,0}$
+    \begin{equation*}
+        y = - \dfrac{4}{3} x + \dfrac{4}{3}
+        \Rightarrow x_{B} = - \dfrac{4}{3} x_{A} + \dfrac{4}{3}
+    \end{equation*}
+    
+    This means that we can rewrite the objective function in function of $x_{A}$ only
+    \begin{equation*}
+        f = f \parent{x_{A}, x_{B}} = f \parent{x_{A}} = x_{A} \cdot \parent{- \dfrac{4}{3} x_{A} + \dfrac{4}{3}} = - \dfrac{4}{3} x_{A} \parent{x_{A} - 1}.
+    \end{equation*}
+    
+    In order to find the maximum, we will differentiate with respect to $x_{A}$, and find the value of $x_{A}$ to cancels the differential. We find
+    \begin{align*}
+        & \dfrac{\partial}{\partial x_{A}} f \parent{x_{A}} = f' \parent{x_{A}} = - \dfrac{8}{3} x_{A} + \dfrac{4}{3} \\
+        & f' \parent{x^{*}_{A}} = 0 \Leftrightarrow x^{*}_{A} = \dfrac{1}{2}
+    \end{align*}
+    
+    Then we can easily find $x^{*}_{B}$ with the equation of the line between $\parent{0.25,1}$ and $\parent{1,0}$. We find
+    \begin{equation*}
+        x^{*}_{B} = - \dfrac{4}{3} x^{*}_{A} + \dfrac{4}{3} = \dfrac{2}{3}
+    \end{equation*}
+    
+    Hence we find $\parent{x^{*}_{A}, x^{*}_{B}} = \parent{\dfrac{1}{2}, \dfrac{2}{3}}$. The last step is to make sure that this solution is indeed in the set $F$. It is indeed the case. This step is necessary because the solution might be on the line between $\parent{0.25,1}$ and $\parent{1,0}$, but outside of $F$.
+    
+    \vspace{5mm}
+    
+    Now let us find the optimal strategy. We look for parameters $\alpha$, $\beta$ and $\gamma$ with
+    \begin{align*}
+        & p \parent{\squared{\text{boxing}}} = \alpha \\
+        & p \parent{\squared{\text{ballet}}} = \beta \\
+        & p \parent{\squared{\text{home}}} = \gamma
+    \end{align*}
+    
+    We know that $\alpha, \beta, \gamma \geq 0$, and $\alpha + \beta + \gamma = 1$. Also, since the NBS is on the line between $\parent{0.25,1}$ and $\parent{1,0}$, we know that $\gamma = 0$, hence $\alpha + \beta = 1$ and we can write $\beta = 1 - \alpha$. 
+    
+    
+    We know that 
+    \begin{align*}
+        & u_{A} \parent{\alpha \squared{\text{boxing}} + \parent{1 - \alpha} \squared{\text{ballet}}} = \dfrac{1}{2} \\
+        & u_{B} \parent{\alpha \squared{\text{boxing}} + \parent{1 - \alpha} \squared{\text{ballet}}} = \dfrac{2}{3}
+    \end{align*}
+    
+    
+    We know that we only need one of these two equations to find $\alpha$. Let us take the second equation. Using the linearity of the utility function, we have
+    \begin{equation*}
+        \alpha \cdot u_{B} \parent{\squared{\text{boxing}}} + \parent{1 - \alpha} \cdot u_{B} \parent{ \squared{\text{ballet}}}
+        = \alpha \cdot 1 + \parent{1 - \alpha} \cdot 0
+        = \dfrac{2}{3}
+    \end{equation*}
+    
+    Hence we find $\alpha = \dfrac{2}{3}$ and $\beta = \dfrac{1}{3}$.
+	
+	
+		%%%%%% b
+	\item The utility function $u$ that we have used in the previous question, corresponds to the von Neumann- Morgenstern utility theorem but not necessarely to the real payoffs of the players. Using Theorem 1.3 from Meyerson's textbook, we know that there exist numbers $A$ and $C$ such that $A > 0$ and
+	\begin{equation*}
+	    v (x) = A u(x) + C \quad , \quad \forall x \in X
+	\end{equation*}
+	
+	where $X$ denotes the set of possible prizes that the decision-maker could ultimately get.
+ 
+	
+	
+	In other words, to answer the question, the axiomatic property that allowed us to find the solution of the negotiation anyway was Axiom $\parent{3}$, i.e., the Axiom of scale covariance. 
+	
+		%%%%%% c
+	\item 
+	
+		%%%%%% d
+	\item First
+	
+\end{enumerate}
+	
+	
