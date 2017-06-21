@@ -64,7 +64,7 @@ A \emph{Bayesian game setting} is a tuple $(N,X,T,p,u)$, where $N$ is a finite s
 \item In the following we will always consider auctions where a single good is allocated to one of the bidders, hence $X=N$. An element of $X$ corresponds to the winner of the auction. Moreover, we assume the following (quasilinear) structure of the utility function of each player $i$: $u_i(x,p,v) = v_i \cdot \delta_{x = i} - p_i$, where $v_i$ is the value $i$ associates to winning the auction, $\delta_{x = i} = 1$ if $x = i$. Thus, the utility of player $i$ is $v_i - p_i$ if the item is allocated to her and she has to pay $p_i$, and just $-p_i$ if she has to make the payment $p_i$ without obtaining the item.
 
 The utility functions imply that each agent has the same value-for-money. Consequently, we have \emph{transferable utility}. Each agent can transfer any given amount of utility to another agent by giving her an appropriate sum of money (and the sum of the total utilities of all the players remains the same).
-Note further that agents with such utility functions are \emph{risk neutral}. Suppose that an agent must decide whether she wants to participate in a fair lottery, that awards the amount $x$ half of the time and the amount $-x$ the other half of the time. The expected utility is zero--- thus the agent is indifferent between participating in the lottery or not participating. In real live the situation is often more complicated, as for instance \emph{risk seeking} agents might prefer to participate in a lottery that cost \$\,$1$ and has a 0.001 \% chance of paying off \$\,$1000$, whereas a risk neutral player is indifferent.
+Note further that agents with such utility functions are \emph{risk neutral}. Suppose that an agent must decide whether she wants to participate in a fair lottery, that awards the amount $x$ half of the time and the amount $-x$ the other half of the time. The expected utility is zero--- thus the agent is indifferent between participating in the lottery or not participating. In real live the situation is often more complicated, as for instance \emph{risk seeking} agents might prefer to participate in a lottery that cost \$\,$1$ and has a 0.01 \% chance of paying off \$\,$1000$, whereas a risk neutral player is indifferent.
 \item The agents know the common distribution $p$ from with the private values are drawn, but besides of their own valuation they do not know the valuations of the other agents. One of the best-know and most extensively studied settings is the \emph{independent private value} (IPV) setting. In this setting, all agents' valuations are drawn independently from the same (commonly known) distribution, i.e. $T = V \times \cdots \times V$ and $p = F \times \cdots \times F$ for a probability distribution $F$ over $V$. An example where the IPV setting is appropriate is in auctions where the bidders buy a good simply for their own entertainment and the valuations depend only on their personal taste. In contrast, the IPV setting is not appropriate if the good provides some extra ``utility'' to the buyer (for instance by reselling on the market).  Throughout this section, we will always assume the IPV setting.
 \end{itemize}
 
@@ -100,6 +100,11 @@ The agents face the following dilemma when placing their bids: the higher the, t
 \begin{theorem}
 In a sealed-bid first-price auction with two players where the valuations are drawn independently and uniformly from [0,1], $\left(\frac{1}{2}v_1,\frac{1}{2}v_2\right)$ is a Bayes-Nash equilibrium strategy profile.
 \end{theorem}
+
+Let us look at a sketch of the proof.
+\begin{proof}
+	\input{proofFirstPrice}
+\end{proof}
 
 %We will find that there is an equilibrium where each player bids half of its valuation, that is $b_i(v_i) = \frac{1}{2} v_i$. 
 It is not hard to check that $b_1(v_1)=\frac{1}{2}v_1$ is indeed a best response to $b_2(v_2)=\frac{1}{2}v_2$ and vice versa. However, in this exposition we are also going to \emph{derive} the equilibrium strategies.
@@ -140,6 +145,11 @@ The valuations of the agents are uniformly distributed on [0,1]. If agent $i$ wi
 \begin{theorem}
 In a second-price auction where bidders have independent private values, truth telling is a dominant strategy.
 \end{theorem}
+
+Let us look at a sketch of the proof.
+\begin{proof}
+	\input{proofSecondPrice}
+\end{proof}
 
 Assume that all bidders other than $i$ bid in some arbitrary way, and consider $i$'s best response. First, consider the case where $i$'s valuation is larger
 than the highest of the other bidders' bids. In this case $i$ would win and would pay the next-highest bid amount. Could $i$ be better off by bidding dishonestly in this case? If she bid higher, she would still win
@@ -276,7 +286,7 @@ There are many Bayes-Nash equilibria of this game. Two families of equilibria ar
    p_b(v_b) &= \begin{cases} x, &\text{if } v_b \geq x \\ 0, &\text{otherwise}
    \end{cases}
    & 
-   p_s(v_s) &= \begin{cases} x, &\text{if } v_s \leq x \\ 0, &\text{otherwise} \end{cases}
+   p_s(v_s) &= \begin{cases} x, &\text{if } v_s \leq x \\ 1, &\text{otherwise} \end{cases}
  \end{align*}
  is a Bayes-Nash equilibrium of the double auction.
  \item The strategies
@@ -288,7 +298,7 @@ There are many Bayes-Nash equilibria of this game. Two families of equilibria ar
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-It is not hard to see that the first two strategies are best responses to each other. Given the buyer's strategy, the buyer's choices amount to trading at $x$ or not trading at all. To the seller's strategy is a best response to the buyer's, and vice versa.
+It is not hard to see that the first two strategies are best responses to each other. Given the seller's strategy, the buyer's choices amount to trading at $x$ or not trading at all. So the seller's strategy is a best response to the buyer's, and vice versa.
 
 Let us now consider the second pair of strategies. Suppose the seller's strategy is $p_s(v_s) = \frac{2}{3} v_s + \frac{1}{4}$. Then $p_s$ is uniformly distributed on $[\frac{1}{4}, \frac{11}{12}]$. Clearly, it makes no sense for the bidder to bid more than $\frac{11}{12}$, hence it must hold $p_b(v_b) \leq \frac{11}{12}$ for all $v_b \in [0,1]$. In the case $p_b < \frac{1}{4}$, the bidder always looses, hence it makes only sense to bid strictly less than $\frac{1}{4}$ if also his valuation $v_b < \frac{1}{4}$. We will come back to this observation shortly.
 

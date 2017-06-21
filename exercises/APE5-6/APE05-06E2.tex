@@ -1,0 +1,239 @@
+Unfortunately we don't have any strongly dominated strategies in this game so we have a lot of supports to check.
+However, we will heavily rely on the symmetry of the game.
+
+\begin{enumerate} [label=\Alph*. ]
+	\item \textbf{Pure strategy VS. Pure strategy VS. Pure Strategy.} \\
+	      Using the concept of best response, we immediately find three equilibria, namely:
+	      \begin{enumerate}
+	      	\item The equilibrium $\parent{x_1, y_2, x_3}$ gives $w = \parent{6,5,4}$.
+	      	\item The equilibrium $\parent{x_1, x_2, y_3}$ gives $w = \parent{4,6,5}$.
+	      	\item The equilibrium $\parent{y_1, x_2, x_3}$ gives $w = \parent{5,4,6}$.
+	      \end{enumerate}
+	      	        
+	      The fourth equilibrium which is not evident to find is $\parent{y_1, y_2, y_3}$, which gives $w = \parent{0,0,0}$.
+	      	        
+	\item \textbf{Pure strategy VS. Pure strategy VS. Randomized strategy.} \\
+	      We take $\bracket{x_1} \times \bracket{x_2} \times \bracket{x_3, y_3}$. We find no equilibrium.
+	      If we take $\bracket{y_1} \times \bracket{x_2} \times \bracket{x_3, y_3}$, then we find no equilibrium either.
+	      The same conclusion follows for $\bracket{x_1} \times \bracket{y_2} \times \bracket{x_3, y_3}$
+	      and $\bracket{y_1} \times \bracket{y_2} \times \bracket{x_3, y_3}$.
+	      	          
+	\item \textbf{Pure strategy VS. Randomized strategy VS. Pure strategy.} \\
+	      By symmetry, there we are no equilibria with supports of this kind.
+	      	      
+	\item \textbf{Randomized strategy VS. Pure strategy VS. Pure strategy.} \\
+	      Again, by symmetry, there we are no equilibria with supports of this kind.
+	      	        
+	\item \textbf{Pure strategy VS. Randomized strategy VS. Randomized strategy.} \\
+	      We take $\bracket{x_1} \times \bracket{x_2, y_2} \times \bracket{x_3, y_3}$.
+	      Hence, we define $\sigma_{1} \parent{x_1} = 1$.
+	      We also set $\sigma_{2} \parent{x_2} = \beta$ and $\sigma_{2} \parent{y_2} = 1 - \beta$.
+	      Finally, we define $\sigma_{3} \parent{x_3} = \gamma$ and $\sigma_{3} \parent{y_3} = 1 - \gamma$.
+	      	              
+	      	              
+	      In order to find $\beta$, we look at Step 2 for player 3. We find
+	      \begin{equation*}
+	      	w_3 = \sum_{c_{-3} \in D_{-3}} \parent{\prod_{j \in \bracket{1,2}} \sigma_{j} \parent{c_{j}} } \cdot u_{3} \parent{c_{-3}, d_3} \ \forall \ d_{3} \in \bracket{x_3, y_3}
+	      \end{equation*}
+	      	              
+	      where $c_{-3} = \parent{c_1, c_2}$ and $D_{-3} = D_{1} \times D_{2} = \bracket{x_1} \times \bracket{x_2, y_2}$.
+	      Now we will compute the sum.
+	      For $d_3 = x_3$, we find
+	      \begin{align*}
+	      	w_3
+	      	  & = \sigma_{1} \parent{x_{1}} \cdot \sigma_{2} \parent{x_{2}} \cdot u_{3} \parent{x_1, x_2, x_3} 
+	      	+  \sigma_{1} \parent{x_{1}} \cdot \sigma_{2} \parent{y_{2}} \cdot u_{3} \parent{x_1, y_2, x_3} \\
+	      	  & = 1 \cdot \beta \cdot 0                                                                        
+	      	+  1 \cdot \parent{1 - \beta} \cdot 4 \\
+	      	  & = \parent{1 - \beta} \cdot 4.                                                                  
+	      \end{align*}
+	      	              
+	      For $d_3 = y_3$, we find
+	      \begin{align*}
+	      	w_3
+	      	  & = \sigma_{1} \parent{x_{1}} \cdot \sigma_{2} \parent{x_{2}} \cdot u_{3} \parent{x_1, x_2, y_3} 
+	      	+  \sigma_{1} \parent{x_{1}} \cdot \sigma_{2} \parent{y_{2}} \cdot u_{3} \parent{x_1, y_2, y_3} \\
+	      	  & = 1 \cdot \beta \cdot 5                                                                        
+	      	+  1 \cdot \parent{1 - \beta} \cdot 0 \\
+	      	  & = \beta \cdot 5.                                                                               
+	      \end{align*}
+	      The two expressions for $w_3$ must coincide, which is true if and only if $\parent{1 - \beta} \cdot 4 = \beta \cdot 5$, or again, if $\beta = \frac{4}{9}$.
+	      Therefore we obtain $w_3 = \frac{20}{9} = \frac{220}{99}$.
+	      	              
+	      	              
+	      	              
+	      In order to find $\gamma$, we look at Step 2 for player 2. We find
+	      \begin{equation*}
+	      	w_2 = \sum_{c_{-2} \in D_{-2}} \parent{\prod_{j \in \bracket{1,3}} \sigma_{j} \parent{c_{j}} } \cdot u_{2} \parent{c_{-2}, d_2} \ \forall \ d_{2} \in \bracket{x_2, y_2}
+	      \end{equation*}
+	      	              
+	      where $c_{-2} = \parent{c_1, c_3}$ and $D_{-2} = D_{1} \times D_{3} = \bracket{x_1} \times \bracket{x_3, y_3}$.
+	      Now we will compute the sum.
+	      For $d_2 = x_2$, we find
+	      \begin{align*}
+	      	w_2
+	      	  & = \sigma_{1} \parent{x_{1}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{2} \parent{x_1, x_2, x_3} 
+	      	+  \sigma_{1} \parent{x_{1}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{2} \parent{x_1, x_2, y_3} \\
+	      	  & = 1 \cdot \gamma \cdot 0                                                                       
+	      	+  1 \cdot \parent{1 - \gamma} \cdot 6 \\
+	      	  & = \parent{1 - \gamma} \cdot 6.                                                                 
+	      \end{align*}
+	      	              
+	      For $d_2 = y_2$, we find
+	      \begin{align*}
+	      	w_2
+	      	  & = \sigma_{1} \parent{x_{1}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{2} \parent{x_1, y_2, x_3} 
+	      	+  \sigma_{1} \parent{x_{1}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{2} \parent{x_1, y_2, y_3} \\
+	      	  & = 1 \cdot \gamma \cdot 5                                                                       
+	      	+  1 \cdot \parent{1 - \gamma} \cdot 0 \\
+	      	  & = \gamma \cdot 5.                                                                              
+	      \end{align*}
+	      The two expressions for $w_2$ must coincide, which is true if and only if $\parent{1 - \gamma} \cdot 6 = \gamma \cdot 5$, or again, if $\gamma = \frac{6}{11}$.
+	      Therefore we obtain $w_2 = \frac{30}{11} = \frac{270}{99}$.
+	      	              
+	      \vspace{5mm}
+	      	              
+	      	          
+	      	              
+	      Now we will check Step 3 for player 1. First we note that
+	      \begin{equation*}
+	      	w_1 = \sum_{c_{-1} \in D_{-1}} \parent{\prod_{j \in \bracket{2,3}} \sigma_{j} \parent{c_{j}} } \cdot u_{1} \parent{c_{-1}, d_1} \ \forall \ d_{1} \in \bracket{x_1}
+	      \end{equation*}
+	      	              
+	      where $c_{-1} = \parent{c_2, c_3}$ and $D_{-1} = D_{2} \times D_{3} = \bracket{x_2, y_2} \times \bracket{x_3, y_3}$.
+	      	              
+	      Computing the four (!) terms of the sum, we find
+	      \begin{align*}
+	      	w_1
+	      	  & = \sigma_{2} \parent{x_{2}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{1} \parent{x_1, x_2, x_3}  
+	      	+  \sigma_{2} \parent{x_{2}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{1} \parent{x_1, x_2, y_3} \\
+	      	  & +  \sigma_{2} \parent{y_{2}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{1} \parent{x_1, y_2, x_3} 
+	      	+  \sigma_{2} \parent{y_{2}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{1} \parent{x_1, y_2, y_3} \\
+	      	  & = \beta \cdot \gamma \cdot 0                                                                    
+	      	+  \beta \cdot \parent{1 - \gamma} \cdot 4
+	      	+  \parent{1 - \beta} \cdot \gamma \cdot 6
+	      	+  \parent{1 - \beta} \cdot \parent{1 - \gamma} \cdot 0 \\
+	      	  & = \dfrac{4}{9} \cdot \dfrac{5}{11} \cdot 4                                                      
+	      	+ \dfrac{5}{9} \cdot \dfrac{6}{11} \cdot 6 \\
+	      	  & = \dfrac{80 + 180}{99} = \dfrac{260}{99}.                                                       
+	      \end{align*}
+	      	              
+	      	              
+	      	              
+	      For $e_1 = y_1 \in C_1 \backslash D_{1}$, we find
+	      \begin{align*}
+	      	w_1
+	      	  & \geq \sum_{c_{-1} \in D_{-1}} \parent{\prod_{j \in \bracket{2,3}} \sigma_{j} \parent{c_{j}} } \cdot u_{1} \parent{c_{-1}, e_1} \\
+	      	  & = \sigma_{2} \parent{x_{2}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{1} \parent{y_1, x_2, x_3}                                 
+	      	+  \sigma_{2} \parent{x_{2}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{1} \parent{y_1, x_2, y_3} \\
+	      	  & +  \sigma_{2} \parent{y_{2}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{1} \parent{y_1, y_2, x_3}                                
+	      	+  \sigma_{2} \parent{y_{2}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{1} \parent{y_1, y_2, y_3} \\
+	      	  & = \beta \cdot \gamma \cdot 5                                                                                                   
+	      	+  \beta \cdot \parent{1 - \gamma} \cdot 0
+	      	+  \parent{1 - \beta} \cdot \gamma \cdot 0
+	      	+  \parent{1 - \beta} \cdot \parent{1 - \gamma} \cdot 0 \\
+	      	  & = \dfrac{4}{9} \cdot \dfrac{6}{11} \cdot 5                                                                                     
+	      	= \dfrac{120}{99}.
+	      \end{align*}
+	      	              
+	      Indeed, we have $\dfrac{260}{99} \geq \dfrac{120}{99}$.
+	      	              
+	      \vspace{5mm}
+	      	              
+	      Putting everything together, we find that the equilibrium is
+	      \begin{equation*}
+	      	\parent{x_1,
+	      		\dfrac{4}{9} x_2 + \dfrac{5}{9} y_2,
+	      		\dfrac{6}{11} x_3 + \dfrac{5}{11} y_3}
+	      \end{equation*}
+	      	              
+	      and the associated payoffs are $w = \dfrac{1}{99} \cdot \parent{260, 270, 220}$.
+	      	              
+	      	              
+	      	              
+	\item \textbf{Randomized strategy VS. Pure strategy VS. Randomized strategy.} \\
+	      By symmetry, we know that we can relabel the number of the players. We set $1 \rightarrow 2$, $2 \rightarrow 3$ and $3 \rightarrow 1$. We find that the equilibrium is
+	      \begin{equation*}
+	      	\parent{\dfrac{6}{11} x_1 + \dfrac{5}{11} y_1,
+	      		x_2,
+	      		\dfrac{4}{9} x_3 + \dfrac{5}{9} y_3}
+	      \end{equation*}
+	      	              
+	      and the associated payoffs are $w = \dfrac{1}{99} \cdot \parent{220, 260, 270}$.
+	      	                  
+	      	          
+	\item \textbf{Randomized strategy VS. Randomized strategy VS. Pure strategy.} \\
+	      By symmetry, we know that we can again relabel the number of the players. We start from case E. We set $1 \rightarrow 3$, $2 \rightarrow 1$ and $3 \rightarrow 2$. We find that the equilibrium is
+	      \begin{equation*}
+	      	\parent{\dfrac{4}{9} x_1 + \dfrac{5}{9} y_1
+	      		\dfrac{6}{11} x_2 + \dfrac{5}{11} y_2,
+	      	x_3}
+	      \end{equation*}
+	      	              
+	      and the associated payoffs are $w = \dfrac{1}{99} \cdot \parent{270, 220, 260}$.
+	      	                  
+	\item \textbf{Randomized strategy VS. Randomized strategy VS. Randomized strategy.} \\
+	      The only support we can take is $\bracket{x_1, y_1} \times \bracket{x_2, y_2} \times \bracket{x_3, y_3}$.
+	      Hence, we define $\sigma_{1} \parent{x_1} = \alpha$ and $\sigma_{1} \parent{y_1} = 1 - \alpha$.
+	      We also set $\sigma_{2} \parent{x_2} = \beta$ and $\sigma_{2} \parent{y_2} = 1 - \beta$.
+	      Finally, we define $\sigma_{3} \parent{x_3} = \gamma$ and $\sigma_{3} \parent{y_3} = 1 - \gamma$.  
+	      By symmetry, we guess that $\alpha = \beta = \gamma$.
+	      	      
+	      	      
+	      	      
+	      	      
+	      First, we look at Step 2 for player 1. We find
+	      \begin{equation*}
+	      	w_1 = \sum_{c_{-1} \in D_{-1}} \parent{\prod_{j \in \bracket{2,3}} \sigma_{j} \parent{c_{j}} } \cdot u_{1} \parent{c_{-1}, d_1} \ \forall \ d_{1} \in \bracket{x_1, y_1}
+	      \end{equation*}
+	      	              
+	      where $c_{-1} = \parent{c_2, c_3}$ and $D_{-1} = D_{2} \times D_{3} = \bracket{x_2, y_2} \times \bracket{x_3, y_3}$.
+	      Now we will compute the sum.
+	      For $d_1 = x_1$, we find
+	      \begin{align*}
+	      	w_1
+	      	  & = \sigma_{2} \parent{x_{2}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{1} \parent{x_1, x_2, x_3}   
+	      	+   \sigma_{2} \parent{x_{2}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{1} \parent{x_1, x_2, y_3} \\
+	      	  & +   \sigma_{2} \parent{y_{2}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{1} \parent{x_1, y_2, x_3} 
+	      	+   \sigma_{2} \parent{y_{2}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{1} \parent{x_1, y_2, y_3} \\
+	      	  & = \beta \cdot \gamma \cdot 0                                                                     
+	      	+   \beta \cdot \parent{1 - \gamma} \cdot 4
+	      	+   \parent{1 - \beta} \cdot \gamma \cdot 6
+	      	+   \parent{1 - \beta} \cdot \parent{1 - \gamma} \cdot 0 \\
+	      	  & = \alpha \cdot \parent{1 - \alpha} \cdot 4                                                       
+	      	+   \parent{1 - \alpha} \cdot \alpha \cdot 6
+	      	= 10 \alpha \cdot \parent{1 - \alpha}.
+	      \end{align*}
+	      	              
+	      For $d_1 = y_1$, we find
+	      \begin{align*}
+	      	w_1
+	      	  & = \sigma_{2} \parent{x_{2}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{1} \parent{y_1, x_2, x_3}   
+	      	+   \sigma_{2} \parent{x_{2}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{1} \parent{y_1, x_2, y_3} \\
+	      	  & +   \sigma_{2} \parent{y_{2}} \cdot \sigma_{3} \parent{x_{3}} \cdot u_{1} \parent{y_1, y_2, x_3} 
+	      	+   \sigma_{2} \parent{y_{2}} \cdot \sigma_{3} \parent{y_{3}} \cdot u_{1} \parent{y_1, y_2, y_3} \\
+	      	  & = \beta \cdot \gamma \cdot 5                                                                     
+	      	+   \beta \cdot \parent{1 - \gamma} \cdot 0
+	      	+   \parent{1 - \beta} \cdot \gamma \cdot 0
+	      	+   \parent{1 - \beta} \cdot \parent{1 - \gamma} \cdot 0 \\
+	      	  & = \alpha \cdot \alpha \cdot 5.                                                                   
+	      \end{align*}
+	      	      
+	      	      
+	      The two expressions for $w_1$ must coincide, which is true if and only if $10 \alpha \cdot \parent{1 - \alpha} = 5 \cdot \alpha^{2}$, or again, if $\alpha = \frac{2}{3}$.
+	      Therefore we obtain $w_1 = \frac{20}{9}$.
+	      	   
+	      Hence, by the symmetry of the problem, we find that the equilibrium is
+	      \begin{equation*}
+	      	\parent{\dfrac{2}{3} x_1 + \dfrac{1}{3} y_1,
+	      		\dfrac{2}{3} x_2 + \dfrac{1}{3} y_2,
+	      		\dfrac{2}{3} x_3 + \dfrac{1}{3} y_3}
+	      \end{equation*}
+	      	              
+	      and the associated payoffs are $w = \dfrac{1}{9} \cdot \parent{20, 20, 20}$.     
+	      	            	              
+      	              
+\end{enumerate}
+
+
+Hence, putting everything together, we have found eight (!) equilibria for this three-player game.

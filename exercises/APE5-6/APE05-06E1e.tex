@@ -1,0 +1,321 @@
+Again, unfortunately we don't have any strongly dominated strategies in this game so we have a lot of supports to check.
+However, we will heavily rely on the symmetry of the game.
+
+\begin{enumerate} [label=\Alph*. ]
+    \item \textbf{Pure strategy VS. Pure strategy.} \\
+Let us begin with pure strategies only. We see that we cannot find any Nash equilibrium. Let us see that rigorously. We have to check nine supports.
+
+\begin{enumerate} [label*= (\arabic*)]
+	\item $\mathbf{\{x_1\}} \times \mathbf{\{x_2\}}$. \\
+	      In Step 2, the payoffs for each player are $w_1 = 0$ and $w_2 = 0$. It is easy to see that if the first player played $z_1$ instead of $x_1$, we have
+	      \begin{equation*}
+	      	0 = w_1 < u_1 \parent{z_1, x_2} = 5.
+	      \end{equation*}
+	      This means that Step 3 does not hold, so $\mathbf{\{x_1\}} \times \mathbf{\{x_2\}}$ is not a equilibrium.
+	      
+	\item $\mathbf{\{y_1\}} \times \mathbf{\{y_2\}}$. \\
+	      In Step 2, the payoffs for each player are $w_1 = 0$ and $w_2 = 0$. It is easy to see that if the first player played $x_1$ instead of $y_1$, we have
+	      \begin{equation*}
+	      	0 = w_1 < u_1 \parent{x_1, y_2} = 5.
+	      \end{equation*}
+	      This means that Step 3 does not hold, so $\mathbf{\{y_1\}} \times \mathbf{\{y_2\}}$ is not a equilibrium.
+	      
+	\item $\mathbf{\{z_1\}} \times \mathbf{\{z_2\}}$. \\
+	      In Step 2, the payoffs for each player are $w_1 = 0$ and $w_2 = 0$. It is easy to see that if the first player played $y_1$ instead of $z_1$, we have
+	      \begin{equation*}
+	      	0 = w_1 < u_1 \parent{y_1, z_2} = 5.
+	      \end{equation*}
+	      This means that Step 3 does not hold, so $\mathbf{\{z_1\}} \times \mathbf{\{z_2\}}$ is not a equilibrium.
+	          
+	          
+	          
+	\item $\mathbf{\{x_1\}} \times \mathbf{\{y_2\}}$. \\
+	      In Step 2, the payoffs for each player are $w_1 = 5$ and $w_2 = 4$. It is easy to see that if the second player played $z_2$ instead of $y_2$, we have
+	      \begin{equation*}
+	      	4 = w_2 < u_2 \parent{x_1, z_2} = 5.
+	      \end{equation*}
+	      This means that Step 3 does not hold, so $\mathbf{\{x_1\}} \times \mathbf{\{y_2\}}$ is not a equilibrium.
+	          
+	\item $\mathbf{\{x_1\}} \times \mathbf{\{z_2\}}$. \\
+	      In Step 2, the payoffs for each player are $w_1 = 4$ and $w_2 = 5$. It is easy to see that if the first player played $y_1$ instead of $x_1$, we have
+	      \begin{equation*}
+	      	4 = w_1 < u_1 \parent{y_1, z_2} = 5.
+	      \end{equation*}
+	      This means that Step 3 does not hold, so $\mathbf{\{x_1\}} \times \mathbf{\{z_2\}}$ is not a equilibrium.
+	      
+	\item $\mathbf{\{y_1\}} \times \mathbf{\{z_2\}}$. \\
+	      In Step 2, the payoffs for each player are $w_1 = 5$ and $w_2 = 4$. It is easy to see that if the second player played $x_2$ instead of $z_2$, we have
+	      \begin{equation*}
+	      	4 = w_2 < u_2 \parent{y_1, x_2} = 5.
+	      \end{equation*}
+	      This means that Step 3 does not hold, so $\mathbf{\{y_1\}} \times \mathbf{\{z_2\}}$ is not a equilibrium.
+	      
+	\vspace{3mm}
+	
+	\item[] Now we can use the symmetry of the problem.
+	
+	\item The support $\mathbf{\{x_1\}} \times \mathbf{\{y_2\}}$ does not give an equilibrium, therefore the support $\mathbf{\{y_1\}} \times \mathbf{\{x_2\}}$ will not give an equilibrium either.
+	
+	\item The support $\mathbf{\{x_1\}} \times \mathbf{\{z_2\}}$ does not give an equilibrium, therefore the support $\mathbf{\{z_1\}} \times \mathbf{\{x_2\}}$ will not give an equilibrium either.
+	
+	\item The support $\mathbf{\{y_1\}} \times \mathbf{\{z_2\}}$ does not give an equilibrium, therefore the support $\mathbf{\{z_1\}} \times \mathbf{\{y_2\}}$ will not give an equilibrium either.
+\end{enumerate}
+
+\item \textbf{Pure strategy VS. Randomized strategy with two choices.} \\
+Here we look at support where player 1 has a pure strategy and player 2 has a randomized strategy with two choices. Again, we see that we cannot find any Nash equilibrium. Let us see that rigorously. We have nine supports to check.
+
+\begin{enumerate} [label*= (\arabic*)]
+    \item $\mathbf{\{x_1\}} \times \mathbf{\{x_2, y_2\}}$. \\
+        In Step 2, for player 2, we have
+        \begin{equation*}
+            w_2 = u_2 \parent{x_1, d_2} \ \forall \ d_2 \in \bracket{x_2, y_2}.
+        \end{equation*}
+        Hence we must have 0 = 4, therefore, this support does not give an equilibrium.
+        
+    \item $\mathbf{\{x_1\}} \times \mathbf{\{x_2, z_2\}}$. \\
+        In Step 2, for player 2, we have
+        \begin{equation*}
+            w_2 = u_2 \parent{x_1, d_2} \ \forall \ d_2 \in \bracket{x_2, z_2}.
+        \end{equation*}
+        Hence we must have 0 = 5, therefore, this support does not give an equilibrium.
+        
+    \item $\mathbf{\{x_1\}} \times \mathbf{\{y_2, z_2\}}$. \\
+        In Step 2, for player 2, we have
+        \begin{equation*}
+            w_2 = u_2 \parent{x_1, d_2} \ \forall \ d_2 \in \bracket{y_2, z_2}.
+        \end{equation*}
+        Hence we must have 4 = 5, therefore, this support does not give an equilibrium.
+        
+    \item $\mathbf{\{y_1\}} \times \mathbf{\{x_2, y_2\}}$. \\
+        In Step 2, for player 2, we have
+        \begin{equation*}
+            w_2 = u_2 \parent{y_1, d_2} \ \forall \ d_2 \in \bracket{x_2, y_2}.
+        \end{equation*}
+        Hence we must have 5 = 0, therefore, this support does not give an equilibrium.
+        
+    \item $\mathbf{\{y_1\}} \times \mathbf{\{x_2, z_2\}}$. \\
+        In Step 2, for player 2, we have
+        \begin{equation*}
+            w_2 = u_2 \parent{y_1, d_2} \ \forall \ d_2 \in \bracket{x_2, z_2}.
+        \end{equation*}
+        Hence we must have 5 = 4, therefore, this support does not give an equilibrium.
+        
+    \item $\mathbf{\{y_1\}} \times \mathbf{\{y_2, z_2\}}$. \\
+        In Step 2, for player 2, we have
+        \begin{equation*}
+            w_2 = u_2 \parent{y_1, d_2} \ \forall \ d_2 \in \bracket{y_2, z_2}.
+        \end{equation*}
+        Hence we must have 0 = 4, therefore, this support does not give an equilibrium.
+        
+    \item $\mathbf{\{z_1\}} \times \mathbf{\{x_2, y_2\}}$. \\
+        In Step 2, for player 2, we have
+        \begin{equation*}
+            w_2 = u_2 \parent{z_1, d_2} \ \forall \ d_2 \in \bracket{x_2, y_2}.
+        \end{equation*}
+        Hence we must have 4 = 5, therefore, this support does not give an equilibrium.
+        
+    \item $\mathbf{\{z_1\}} \times \mathbf{\{x_2, z_2\}}$. \\
+        In Step 2, for player 2, we have
+        \begin{equation*}
+            w_2 = u_2 \parent{z_1, d_2} \ \forall \ d_2 \in \bracket{x_2, z_2}.
+        \end{equation*}
+        Hence we must have 4 = 0, therefore, this support does not give an equilibrium.
+        
+    \item $\mathbf{\{z_1\}} \times \mathbf{\{y_2, z_2\}}$. \\
+        In Step 2, for player 2, we have
+        \begin{equation*}
+            w_2 = u_2 \parent{z_1, d_2} \ \forall \ d_2 \in \bracket{y_2, z_2}.
+        \end{equation*}
+        Hence we must have 5 = 0, therefore, this support does not give an equilibrium.
+\end{enumerate}
+
+
+
+\item \textbf{Randomized strategy with two choices VS. Pure strategy.} \\
+Here we look at support where player 1 has a randomized strategy with two choices, and player 2 has a pure strategy. We have nine supports to check. Using the symmetry of the game, we can show that the supports
+\begin{enumerate} [label*= (\arabic*)]
+    \item $\mathbf{\{x_1, y_1\}} \times \mathbf{\{x_2\}}$
+    \item $\mathbf{\{x_1, z_1\}} \times \mathbf{\{x_2\}}$
+    \item $\mathbf{\{y_1, z_1\}} \times \mathbf{\{x_2\}}$
+    
+    \item $\mathbf{\{x_1, y_1\}} \times \mathbf{\{y_2\}}$
+    \item $\mathbf{\{x_1, z_1\}} \times \mathbf{\{y_2\}}$
+    \item $\mathbf{\{y_1, z_1\}} \times \mathbf{\{y_2\}}$
+    
+    \item $\mathbf{\{x_1, y_1\}} \times \mathbf{\{z_2\}}$
+    \item $\mathbf{\{x_1, z_1\}} \times \mathbf{\{z_2\}}$
+    \item $\mathbf{\{y_1, z_1\}} \times \mathbf{\{z_2\}}$
+\end{enumerate}
+
+do not give an equilibrium.
+
+
+\item \textbf{Pure strategy VS. Randomized strategy with three choices.} \\
+Here we look at support where player 1 has a pure strategy and player 2 has a randomized strategy with three choices. We see that we cannot find any Nash equilibrium. Let us see that rigorously. We have three supports to check.
+
+\begin{enumerate} [label*= (\arabic*)]
+    \item The support $\mathbf{\{x_1\}} \times \mathbf{\{x_2, y_2, z_2\}}$ does not give an equilibrium because the support $\mathbf{\{x_1\}} \times \mathbf{\{x_2, y_2\}}$ does not give an equilibrium.
+    
+    \item The support $\mathbf{\{y_1\}} \times \mathbf{\{x_2, y_2, z_2\}}$ does not give an equilibrium because the support $\mathbf{\{y_1\}} \times \mathbf{\{x_2, y_2\}}$ does not give an equilibrium.
+    
+    \item The support $\mathbf{\{z_1\}} \times \mathbf{\{x_2, y_2, z_2\}}$ does not give an equilibrium because the support $\mathbf{\{z_1\}} \times \mathbf{\{x_2, y_2\}}$ does not give an equilibrium.
+\end{enumerate}
+
+\item \textbf{Randomized strategy with three choices VS. Pure strategy.} \\
+Here we look at support where player 1 has a randomized strategy with three choices, and player 2 has a pure strategy. We have three supports to check. Using the symmetry of the game, we can show that the supports
+\begin{enumerate} [label*= (\arabic*)]
+    \item $\mathbf{\{x_1, y_1, z_1\}} \times \mathbf{\{x_2\}}$
+    \item $\mathbf{\{x_1, y_1, z_1\}} \times \mathbf{\{y_2\}}$
+    \item $\mathbf{\{x_1, y_1, z_1\}} \times \mathbf{\{z_2\}}$
+\end{enumerate}
+
+do not give an equilibrium.
+
+\item \textbf{Randomized strategy with two choices VS. Randomized strategy with two choices.} \\
+Here we look at support where players 1 and 2 both have a randomized strategy with two choices. We see that we cannot find any Nash equilibrium. Let us see that rigorously. We have nine supports to check.
+
+\begin{enumerate} [label*= (\arabic*)]
+    \item $\mathbf{\{x_1, y_1\}} \times \mathbf{\{x_2, y_2\}}$. \\
+    We define $\sigma_{1} \parent{x_1} = \alpha$ and $\sigma_{1} \parent{y_1} = 1 - \alpha$. In Step 2, for player 2, we have
+    \begin{equation*}
+        w_2 = \sum_{c_1 \in \bracket{x_1, y_1}} \sigma_{1} \parent{c_1} \cdot u_2 \parent{c_1, d_2} \ \forall \ d_2 \in \bracket{x_2, y_2}.
+    \end{equation*}
+    Hence we must have $w_2 = 0 \cdot \alpha + 5 \cdot \parent{1 - \alpha} = 4 \cdot \alpha + 0 \cdot \parent{1 - \alpha}$, or again, $\alpha = \frac{5}{9}$. Then we obtain $w_2 = \frac{20}{9}$. We see that Step 3 is not respected because $e_2 = z_2 \in C_2 \backslash D_2$ is such that 
+    \begin{equation*}
+        \sum_{c_{1} \in D_{1}} \sigma_{1} \parent{c_1} u_2 \parent{c_{1}, e_2}
+        = \alpha \cdot 5 + \parent{1 - \alpha} \cdot 4
+        = \dfrac{45 + 16}{9}
+        = \dfrac{51}{9}
+        > \dfrac{20}{9}
+        = w_2.
+    \end{equation*}
+    Hence this support does not yield an equilibrium.
+
+    
+    \item $\mathbf{\{x_1, z_1\}} \times \mathbf{\{x_2, z_2\}}$. \\
+    We define $\sigma_{1} \parent{x_1} = \alpha$ and $\sigma_{1} \parent{z_1} = 1 - \alpha$. In Step 2, for player 2, we have
+    \begin{equation*}
+        w_2 = \sum_{c_1 \in \bracket{x_1, z_1}} \sigma_{1} \parent{c_1} \cdot u_2 \parent{c_1, d_2} \ \forall \ d_2 \in \bracket{x_2, z_2}.
+    \end{equation*}
+    Hence we must have $w_2 = 0 \cdot \alpha + 4 \cdot \parent{1 - \alpha} = 5 \cdot \alpha + 0 \cdot \parent{1 - \alpha}$, or again, $\alpha = \frac{4}{9}$. Then we obtain $w_2 = \frac{20}{9}$. We see that Step 3 is not respected because $e_2 = y_2 \in C_2 \backslash D_2$ is such that 
+    \begin{equation*}
+        \sum_{c_{1} \in D_{1}} \sigma_{1} \parent{c_1} u_2 \parent{c_{1}, e_2}
+        = \alpha \cdot 4 + \parent{1 - \alpha} \cdot 5
+        = \dfrac{16 + 45}{9}
+        = \dfrac{51}{9}
+        > \dfrac{20}{9}
+        = w_2.
+    \end{equation*}
+    Hence this support does not yield an equilibrium.
+    
+    
+    
+    \item $\mathbf{\{y_1, z_1\}} \times \mathbf{\{y_2, z_2\}}$. \\
+    We define $\sigma_{1} \parent{y_1} = \alpha$ and $\sigma_{1} \parent{z_1} = 1 - \alpha$. In Step 2, for player 2, we have
+    \begin{equation*}
+        w_2 = \sum_{c_1 \in \bracket{y_1, z_1}} \sigma_{1} \parent{c_1} \cdot u_2 \parent{c_1, d_2} \ \forall \ d_2 \in \bracket{y_2, z_2}.
+    \end{equation*}
+    Hence we must have $w_2 = 0 \cdot \alpha + 5 \cdot \parent{1 - \alpha} = 4 \cdot \alpha + 0 \cdot \parent{1 - \alpha}$, or again, $\alpha = \frac{5}{9}$. Then we obtain $w_2 = \frac{20}{9}$. We see that Step 3 is not respected because $e_2 = x_2 \in C_2 \backslash D_2$ is such that 
+    \begin{equation*}
+        \sum_{c_{1} \in D_{1}} \sigma_{1} \parent{c_1} u_2 \parent{c_{1}, e_2}
+        = \alpha \cdot 5 + \parent{1 - \alpha} \cdot 4
+        = \dfrac{45 + 16}{9}
+        = \dfrac{51}{9}
+        > \dfrac{20}{9}
+        = w_2.
+    \end{equation*}
+    Hence this support does not yield an equilibrium.
+    
+    
+    
+    
+    
+    
+    \item $\mathbf{\{x_1, y_1\}} \times \mathbf{\{x_2, z_2\}}$. \\
+    We define $\sigma_{2} \parent{x_2} = \beta$ and $\sigma_{2} \parent{z_2} = 1 - \beta$. In Step 2, for player 1, we have
+    \begin{equation*}
+        w_1 = \sum_{c_2 \in \bracket{x_2, z_2}} \sigma_{2} \parent{c_2} \cdot u_1 \parent{c_2, d_1} \ \forall \ d_1 \in \bracket{x_1, y_1}.
+    \end{equation*}
+    Hence we must have $w_1 = 0 \cdot \beta + 4 \cdot \parent{1 - \beta} = 4 \cdot \beta + 5 \cdot \parent{1 - \beta}$, or again, $\beta = -\frac{1}{3}$. It is absurd to have a strictly negative probability, hence this support does not yield an equilibrium.
+        
+    
+    \item $\mathbf{\{x_1, y_1\}} \times \mathbf{\{y_2, z_2\}}$. \\
+    We define $\sigma_{1} \parent{x_1} = \alpha$ and $\sigma_{1} \parent{y_1} = 1 - \alpha$. In Step 2, for player 2, we have
+    \begin{equation*}
+        w_2 = \sum_{c_1 \in \bracket{x_1, y_1}} \sigma_{1} \parent{c_1} \cdot u_2 \parent{c_1, d_2} \ \forall \ d_2 \in \bracket{y_2, z_2}.
+    \end{equation*}
+    Hence we must have $w_2 = 4 \cdot \alpha + 0 \cdot \parent{1 - \alpha} = 5 \cdot \alpha + 4 \cdot \parent{1 - \alpha}$, or again, $\alpha = \frac{4}{3}$. It is absurd to have a probability strictly greater than one, hence this support does not yield an equilibrium.
+    
+    \item $\mathbf{\{x_1, z_1\}} \times \mathbf{\{y_2, z_2\}}$. \\
+    We define $\sigma_{2} \parent{y_2} = \beta$ and $\sigma_{1} \parent{z_1} = 1 - \beta$. In Step 2, for player 1, we have
+    \begin{equation*}
+        w_1 = \sum_{c_2 \in \bracket{y_2, z_2}} \sigma_{2} \parent{c_2} \cdot u_1 \parent{c_2, d_1} \ \forall \ d_1 \in \bracket{x_1, z_1}.
+    \end{equation*}
+    Hence we must have $w_1 = 5 \cdot \beta + 4 \cdot \parent{1 - \beta} = 4 \cdot \beta + 0 \cdot \parent{1 - \beta}$, or again, $\beta = \frac{4}{3}$. It is absurd to have a probability strictly greater than one, hence this support does not yield an equilibrium.
+    
+    \vspace{3mm}
+    
+    
+    
+    \item[] Now we can use the symmetry of the problem.
+    
+    \item The support $\mathbf{\{x_1, y_1\}} \times \mathbf{\{x_2, z_2\}}$ does not give an equilibrium, therefore the support $\mathbf{\{x_1, z_1\}} \times \mathbf{\{x_2, y_2\}}$ will not give an equilibrium either.
+    
+    \item The support $\mathbf{\{x_1, y_1\}} \times \mathbf{\{y_2, z_2\}}$ does not give an equilibrium, therefore the support $\mathbf{\{y_1, z_1\}} \times \mathbf{\{x_2, y_2\}}$ will not give an equilibrium either.
+    
+    \item The support $\mathbf{\{x_1, z_1\}} \times \mathbf{\{y_2, z_2\}}$ does not give an equilibrium, therefore the support $\mathbf{\{y_1, z_1\}} \times \mathbf{\{x_2, z_2\}}$ will not give an equilibrium either.
+        
+\end{enumerate}
+
+\item \textbf{Randomized strategy with two choices VS. Randomized strategy with three choices.} \\
+Here we look at support where player 1 has a randomized strategy with two choices, and player 2 has a randomized strategy with three choices. We see that we cannot find any Nash equilibrium. Let us see that rigorously. We have three supports to check.
+\begin{enumerate} [label*= (\arabic*)]
+    \item The support $\mathbf{\{x_1, y_1\}} \times \mathbf{\{x_2, y_2, z_2\}}$ does not give an equilibrium because the support $\mathbf{\{x_1, y_1\}} \times \mathbf{\{x_2, y_2\}}$ does not give an equilibrium.
+    
+    \item The support $\mathbf{\{x_1, z_1\}} \times \mathbf{\{x_2, y_2, z_2\}}$ does not give an equilibrium because the support $\mathbf{\{x_1, z_1\}} \times \mathbf{\{x_2, y_2\}}$ does not give an equilibrium.
+    
+    \item The support $\mathbf{\{y_1, z_1\}} \times \mathbf{\{x_2, y_2, z_2\}}$ does not give an equilibrium because the support $\mathbf{\{y_1, z_1\}} \times \mathbf{\{x_2, y_2\}}$ does not give an equilibrium.
+\end{enumerate}
+
+\item \textbf{Randomized strategy with three choices VS. Randomized strategy with two choices.} \\
+Here we look at support where player 1 has a randomized strategy with three choices, and player 2 has a randomized strategy with two choices. We have three supports to check. Using the symmetry of the game, we can show that the supports
+\begin{enumerate} [label*= (\arabic*)]
+    \item $\mathbf{\{x_1, y_1, z_1\}} \times \mathbf{\{x_2, y_2\}}$
+    \item $\mathbf{\{x_1, y_1, z_1\}} \times \mathbf{\{x_2, z_2\}}$
+    \item $\mathbf{\{x_1, y_1, z_1\}} \times \mathbf{\{y_2, z_2\}}$
+\end{enumerate}
+
+do not give an equilibrium.
+
+\item \textbf{Randomized strategy with three choices VS. Randomized strategy with three choices.} \\
+This is the last paragraph of this long exercise! Hopefully there are not too many typos so far! What is sure is that we haven't found any Nash equilibrium so far. We know that there must be at least one Nash equilibrium in any game, therefore we know for sure that this combination of support will give a Nash equilibrium! Let us check that. We have only one support to check, i.e., the support $\mathbf{\{x_1, y_1, z_1\}} \times \mathbf{\{x_2, y_2, z_2\}}$.
+One the one hand, we define $\sigma_{1} \parent{x_1} = \alpha_1$, $\sigma_{1} \parent{y_1} = \beta_1$ and $\sigma_{1} \parent{z_1} = \gamma_1$.
+One the other hand, we define $\sigma_{2} \parent{x_2} = \alpha_2$, $\sigma_{2} \parent{y_2} = \beta_2$ and $\sigma_{2} \parent{z_2} = \gamma_2$.
+
+For player 1, Step 2 gives
+\begin{equation*}
+    w_1 = \sum_{c_2 \in \bracket{x_2, y_2, z_2}} \sigma_{2} \parent{c_2} \cdot u_1 \parent{c_2, d_1} \ \forall \ d_1 \in \bracket{x_1, y_1, z_1}.
+\end{equation*}
+Hence we must have $w_1 = 0 \cdot \alpha_2 + 5 \cdot \beta_2 + 4 \cdot \gamma_2
+= 4 \cdot \alpha_2 + 0 \cdot \beta_2 + 5 \cdot \gamma_2
+= 5 \cdot \alpha_2 + 4 \cdot \beta_2 + 0 \cdot \gamma_2$. We have three equations and three unknowns. We find $\alpha_2 = \beta_2 = \gamma_2 = \frac{1}{3}$.
+
+For player 2, Step 2 gives
+\begin{equation*}
+    w_2 = \sum_{c_1 \in \bracket{x_1, y_1, z_1}} \sigma_{1} \parent{c_1} \cdot u_2 \parent{c_1, d_2} \ \forall \ d_2 \in \bracket{x_2, y_2, z_2}.
+\end{equation*}
+Hence we must have $w_2 = 0 \cdot \alpha_1 + 5 \cdot \beta_1 + 4 \cdot \gamma_1
+= 4 \cdot \alpha_1 + 0 \cdot \beta_1 + 5 \cdot \gamma_1
+= 5 \cdot \alpha_1 + 4 \cdot \beta_1 + 0 \cdot \gamma_1$. We have three equations and three unknowns. We find $\alpha_1 = \beta_1 = \gamma_1 = \frac{1}{3}$. Since the game is symmetric, this answer is not surprising. 
+
+We do not need to check Step 3 because $C_{i} \backslash D_{i}$ is empty for $i = 1, 2$.
+\end{enumerate}
+
+
+
+To conclude we have one Nash equilibrium. It corresponds to
+\begin{equation*}
+    \squared{\dfrac{1}{3} \parent{x_1 + y_1 + z_1}, \dfrac{1}{3} \parent{x_2 + y_2 + z_2}}.    
+\end{equation*}
+
+The corresponding payoffs are $w = \parent{3,3}$. This concludes the exercise.
