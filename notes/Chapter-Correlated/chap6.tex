@@ -43,7 +43,7 @@ W & 0, 2 & -1, -1
 \end{center}
 
 There are four outcomes for this game: players can have an accident (which matches the choice of strategies ([G],[g])), or player 1 waits ([W],[g]), or player 2 waits ([G],[w]), or both wait ([W],[w]). \\
-The game has 3 Nash Equlibria: ([G],[w]), ([W],[g]), and (0.5[G] + 0.5[W], 0.5[g] + 0.5[w]). We know that, since the players are rational, they are \emph{going to play at a Nash equilibrium}. \\
+The game has 3 Nash Equlibria: $([G],[w])$, $([W],[g])$, and $(\frac{3}{13}[G] + \frac{10}{13}[W], \frac{3}{13}[g] + \frac{10}{13}[w])$. We know that, since the players are rational, they are \emph{going to play at a Nash equilibrium}. \\
 What does this mean? It means that for this games, player 1 may pick [G], [W] or 0.5[G] + 0.5[W] depending on what he \emph{believes} player 2 is going to do. The same occurs for player 2. 
 However, it may very well be the case that player 1 thinks player 2 is going to stop, and the reverse holds for player 2. As a consequence, the players may crash rationally even if neither one played the randomized equilibrium.
 
@@ -172,10 +172,10 @@ A correlated strategy satisfying the strategic incentive constraints is said to 
 
 
 These constraints require that the players cannot improve their payoff by deviating from the correlated strategy $\mu$ suggested by the mediator. Note that cheating would be perfectly rational if it was the case.
-Indeed, when a mediator dictates to a player what he should to to follow the correlated strategy, the player may infer a probability distribution on the other players moves. 
+Indeed, when a mediator dictates to a player what he should do to follow the correlated strategy, the player may infer a probability distribution on the other players moves. 
 More precisely, if a mediator implementing $\mu$ tells $i$ to play $c_i$, then the other players are going to play according to
 $$ \sigma_{-i}(c_{-i}) = \frac{\mu(c_{i}, c_{-i})}{ \sum_{e_{-i} \in C_{-i}} \mu_(c_i, e_{-i})}.$$
-Given this knowledge, a rational player would naturally compute his best response to $\sigma_{-i}(c_{-i})$ and, if this brings him a better payoff thnt the one obtained by following the recommendation, he will adopt the best response.
+Given this knowledge, a rational player would naturally compute his best response to $\sigma_{-i}(c_{-i})$ and, if this brings him a better payoff than the one obtained by following the recommendation, he will adopt the best response.
 
 \begin{example}
 For the crossroads example, the correlated strategy $\mu = 0.5([G], [w]) + 0.5 ([W],[g])$ is incentive compatible. 
@@ -254,7 +254,7 @@ W & 0 / 2 & -1 / -1
 \end{center}
 Regarding the beliefs functions $p$, we may assume $p(V | R) = p(V | V) =  p(V) = 0.1$, $p(R | R) = p(R | V) = p(R) = 0.9$ as objective probabilities.
 
-The problem is that most resident of the city are talented engineer, and they can hack the broadcast device with ease.
+The problem is that most resident of the city are talented engineers, and they can hack the broadcast device with ease.
 Could you build a policy, using red-lights, that allows VIP drivers to have priority over regular ones, but that would also discourage all drivers to hack their devices?
 
 
@@ -283,7 +283,7 @@ In conclusion, yes, it would be rational to hack the device. The design of the p
 
 
 \begin{definition}
-A bayesian correlated strategy $\mu : T \rightarrow \Delta C$ is incentive compatible is it satisfies to the constraints
+A bayesian correlated strategy $\mu : T \rightarrow \Delta C$ is incentive compatible if it satisfies to the constraints
 \begin{align*}
 	U_i(\mu \; | \; t_i) \geq U_i^*(\mu, \; \delta_i, \; s_i \; | \; t_i), \quad \forall i \in N, \ \forall t_i \in T_i, \ \forall s_i \in T_i, \ \forall \delta_i : C_i \rightarrow C_i,
 \end{align*}
@@ -323,7 +323,7 @@ Before ending this section, we mention a special type of bayesian games with com
 
 In this case, the incentivity constraints are but a special case than the ones before:
 \begin{definition}
-For a collective choice problem, a bayesian correlated strategy $\mu : T \rightarrow \Delta C$ is incentive compatible is it satisfies to the constraints
+For a collective choice problem, a bayesian correlated strategy $\mu : T \rightarrow \Delta C$ is incentive compatible if it satisfies to the constraints
 \begin{align*}
 	U_i(\mu \; | \; t_i) \geq U_i^*(\mu,  \; s_i \; | \; t_i), \quad \forall i \in N, \ \forall t_i \in T_i, \ \forall s_i \in T_i, 
 \end{align*}

@@ -1,0 +1,32 @@
+\begin{center}
+\centering
+        \begin{tikzpicture}[scale=2]
+        % Axis
+        \draw[axis] (0,0) -- (1.5,0) node[right=\nudge cm] {$u_{A}$};
+        \draw[axis] (0,0) -- (0,1.5) node[above=\nudge cm] {$u_{B}$};
+        \begin{scope}
+          % Avoid going too far
+          %\clip (-\nudge,-\nudge) rectangle (200+\nudge,100+\nudge);
+          \draw[line] (0,0) -- (1/4,1) coordinate (ineq1);
+          \draw[line] (1/4,1) -- (1,0) coordinate (ineq2);
+          \draw[line] (0,0) -- (1,0) coordinate (ineq2);
+          \begin{scope}
+          %Clip sélectionne ce qu'il y a dans le polygone dessiné.
+            \clip (0,0) |- (1/4,1) -- (1,0);
+            \fill[hash] (0,0)--(1/4,1)--(1,0);
+            %\draw[dashed,line] (0,1) -- (2,2) -- (3,1) -- (2,0);
+          % (4,4) to be enough, anyway clip restrict us to the good part
+          \end{scope}
+        \end{scope}
+        \foreach \coord/\adj in {
+          {(0,0)}/below,
+          {(0.25,1)}/above right,
+          {(1,0)}/below%
+        } {
+          \fill \coord circle (1pt) node[\adj] {$\coord$};
+        }
+        \end{tikzpicture}
+        
+\captionof{figure}{Set $F$ of possible payoffs}
+\label{fig:setF}
+\end{center}
