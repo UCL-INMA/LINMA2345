@@ -1,0 +1,55 @@
+\paragraph{a)}Let $p(\theta_1) \triangleq  p $ and $p(\theta_2) \triangleq  1-p $ be the probabilities of the events $\theta_1$ and $\theta_2$.  The expected gain $v$ of our decisions depend on those probabilities and is given by : 
+\begin{align*}
+    v_\alpha&= 15p + 90(1-p) = 90 - 75p\\
+    v_\beta &= 35p + 75(1-p) = 75 - 40p\\
+    v_\gamma&= 55p + 40(1-p) = 40 + 15p
+\end{align*}
+A decision is optimal when it gives a greater gain than other decisions. Based on this, one can found which decision is the best according to a given value of $p$ :
+\begin{itemize}
+    \item $\alpha$
+    \begin{align*}
+        v_\alpha &\geq  v_\beta \Leftrightarrow 90 - 75p \geq 75 -40 p \Rightarrow p\leq \frac{3}{7}\\
+        v_\alpha &\geq  v_\gamma \Leftrightarrow 90 - 75p \geq 40 +15p \Rightarrow p\leq \frac{5}{9}
+    \end{align*}
+    The decision $\alpha$ is optimal when $p \in [0;\frac{3}{7}]$.
+    \item $\beta$
+    \begin{align*}
+       v_\beta &\geq  v_\gamma \Leftrightarrow 75 - 40p \geq 40 +15p \Rightarrow p\leq \frac{7}{11}
+    \end{align*}
+    The decision $\beta$ is optimal when $p \in [\frac{3}{7},\frac{7}{11}]$. \newline The condition on $\gamma$ is deduced from the conditions above and is optimal when $p \in [\frac{7}{11},1]$.
+\end{itemize}
+
+\paragraph{b)} When $B = 20$, only the gain $v_\beta$ changes : 
+\begin{align*}
+    v_\alpha&= 15p + 90(1-p) = 90 - 75p\\
+    v_\beta &= 20p + 75(1-p) = 75 - 55p\\
+    v_\gamma&= 55p + 40(1-p) = 40 + 15p
+\end{align*}
+
+Let use the same strategy as above : 
+
+\begin{itemize}
+    \item $\alpha$
+    \begin{align*}
+        v_\alpha &\geq  v_\beta \Leftrightarrow 90 - 75p \geq 75 - 55 p \Rightarrow p\leq \frac{3}{4}\\
+        v_\alpha &\geq  v_\gamma \Leftrightarrow 90 - 75p \geq 40 +15p \Rightarrow p\leq \frac{5}{9}
+    \end{align*}
+    The decision $\alpha$ is optimal when $p \in [0;\frac{5}{9}]$.
+    \item $\beta$
+    \begin{align*}
+       v_\beta &\geq  v_\gamma \Leftrightarrow 75 - 55p \geq 40 +15p \Rightarrow p\leq \frac{1}{2}
+    \end{align*}
+    However, $\frac{1}{2} < \frac{5}{9}$ and we showed that under this condition, one would prefer to decide $ \alpha$ against $\beta$ and $\gamma$. Hence $\beta$ is never optimal. \newline
+    Finally, $\gamma$ is optimal when $p\in [\frac{5}{9};1]$. 
+\end{itemize}
+
+\paragraph{c)}Let \textit{c} $\in[0;1]$ be a constant. The decision $\beta$ is strongly dominated by a mixed strategy $\delta = c\alpha + (1-c)\gamma $, if the payoffs of that strategy are strictly greater than the payoffs of $\beta$ : 
+\begin{align*}
+     w_{\theta_1} &= 15c + (1-c)55 > 20 \Leftrightarrow 40 c < 35 \Rightarrow c < \frac{7}{8} \\ 
+     w_{\theta_2} &= 90c + (1-c)40 > 75 \Leftrightarrow 50 c > 35 \Rightarrow c > \frac{7}{10}
+\end{align*}
+The above inequations on $c$ are compatible which means that such a strategy $\delta$ exist. For example one can take c = $\frac{4}{5}$ and see indeed that $\beta$ is strongly dominated by $\delta = \frac{4}{5}\alpha + \frac{1}{5}$ : 
+\begin{align*}
+     w_{\theta_1} &= 23 > 20  \\ 
+     w_{\theta_2} &= 80 > 75 
+\end{align*}
