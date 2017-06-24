@@ -38,7 +38,7 @@
 \RequirePackage[process=auto,crop=pdfcrop]{pstool}
 \RequirePackage{tikz}
 \RequirePackage{tikzpagenodes}
-\usetikzlibrary{positioning, calc, arrows}
+\usetikzlibrary{positioning, calc, arrows, patterns}
 \usepackage{mathtools}
 \def\nudge{.3}
 %\tikzset{axis/.style={ultra thick, Red!75!black, -latex, shorten <=-\nudge cm, shorten >=-2*\nudge cm}}
