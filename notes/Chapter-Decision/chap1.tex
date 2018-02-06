@@ -1,11 +1,11 @@
 \ifx \globalmark \undefined %% This is default.
-	\input{../header}	
+	\input{../header}
 	% Test
 
 
 	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).
-\else 
-	
+\else
+
 \fi
 
 
@@ -16,167 +16,190 @@
 ''} --- Plato\\
 }
 {\small{\itshape
-Chapter based on pages 1 to 23 of the book  ``Game theory - Analysis of conflict'' by R. Myerson.}\\
+The material from this chapter is based on \cite[pp 1 - 23]{MyGTAO}.}\\
 }
 \label{chap:Decision}
 
 
 
-Game theory studies how a set of players make decisions that may impact the welfare of one another.  
+Game theory studies how a set of players makes decisions that may impact the welfare of one another.
 Throughout the course, we will assume that the individuals considered are \emph{intelligent} and \emph{rational}:
 \begin{itemize}
 \item A rational player makes his decisions consistently in pursuit of his own goal.
 \item An intelligent player is able to reflect on the situation and analyze it as well as we would, and to conclude from this analysis what are the good/bad choices available to him.
-\end{itemize} 
-Decision theory focuses on the case where one \emph{single} player has to take a decision in an uncertain context. This will lay down a solid foundation for the study of games with several players, where the actions of the others is part of the uncertainty any single player faces. 
+\end{itemize}
+Decision theory focuses on the case where one \emph{single} player has to take a decision in an uncertain context. This will lay down a solid foundation for the study of games with several players, where the actions of the others is part of the uncertainty any single player faces. In order to convey intuition, we start with a simple example.
 
 \begin{example}
 \label{ch1:ex1}
-The famous rock-paper-scissors game will appear several times throughout the course. While it is a two player game, we here assume that one human plays against a computer that has been programmed in a given way.
+In this example, we consider a human that plays a rock-paper-scissors game against a machine that has been programmed in a given way.
 Consider that the computer's programming is to play
 \begin{enumerate}
 \item \emph{Rock} with a 20\% probability,
 \item \emph{Paper} with a 45\% probability and
 \item \emph{Scissors} with a 35\% probability.
-\end{enumerate} 
-If the human player has access to this information, what should he play?
-
-If the player is intelligent, he knows that playing \emph{scissors} would give him a $45\%$ chance of winning the game, a $20\%$ chance of losing to the computer, and a $35\%$ chance of the game resulting on a tie.
-
-If the player is rational, and assuming his goal is to win, can you tell what he will play? (Hint: it is not rock.)
+\end{enumerate}
+If the human player has access to this information, what should he play against the computer?\\
+Assuming that the player is intelligent, he can infer that playing e.g. \emph{scissors} would give him a $45\%$ chance of winning the game, a $20\%$ chance of losing it, and a $35\%$ chance of the game resulting on a tie.\\
+Assuming the player is rational (and his goal is to win the game), he can infer that playing \emph{scissors} is the best move for him. \\
+In this case, we are therefore able to understand how the player makes his decision.
 \end{example}
+
+We are entitled to ask ourselves, in Example \ref{ch1:ex1}, what should the player do if he had little knowledge of the computer's programming? Or what should he do when faced with another human player? Such questions gave birth to the field of \emph{Decision Theory}, where first and foremost, we ask ourselves \emph{how does a rational and intelligent player takes his decisions?}
+
+
+
+
 
 \section{Basic concepts of Decision Theory}
 
 
 A \emph{player} has to make a decision (rock or paper?...) in an \emph{uncertain} situation (what are the others going to do?...). Depending on his choice, he may or may not receive a  \emph{prize} (winning, loosing, a tie...). \\
-The prize may not be handed to the player in a deterministic manner (we will see this in the next example). The probability of receiving a prize depends on \emph{two} elements: 
+The prize may not be handed to the player in a deterministic manner (we will see this in the next example). The probability of receiving a prize depends on \emph{two} elements:
 \begin{enumerate}
-\item the decision made by the player, 
+\item the decision made by the player,
 \item the realization of the uncertainty.
 \end{enumerate}
+
+In order to formalize this, we rely on the following notation, illustrated later in Example \ref{ch1:ex2}.
+\begin{notation}[$\Delta$]
+For any finite set $Z$, $\Delta(Z)$ is \emph{the set of probability distributions} over the elements of $Z$:
+$$ \Delta(Z) = \Big \{q : Z \rightarrow \reels \, \Big | \, \sum_{y \in Z} q(y) = 1,
+\text{ and }  q(z) \geq 0 ,\, \forall z \in Z \Big \}.$$
+\end{notation}
 
 \begin{example}
 \label{ch1:ex2}
 
-Consider the rock-paper-scissors game where, as in Example \ref{ch1:ex1}, you play against a computer that plays rock, paper or scissors according to some probability distribution. 
+Consider the rock-paper-scissors game where, as in Example \ref{ch1:ex1}, you play against a computer that plays rock, paper or scissors according to some probability distribution.
 
-Your choice as well can be taken as a probability distribution over playing rock, paper and scissors. Let us write this distribution as $p_1 = \{\rho_1, \pi_1, \sigma_1\}$, with   of course $\rho_1, \pi_1, \sigma_1 \geq 0$, $\rho_1+\pi_1+\sigma_1 = 1$.
+Your choice may well be taken as a probability distribution over playing rock, paper and scissors.
+Let us denote by $\rho_1$, $\pi_1$, and $\sigma_1$ the probabilities of playing rock, paper and scissors respectively, and write $p_1 = \{\rho_1, \pi_1, \sigma_1\}$.
 If the computer is programmed to play with a distribution
 $p_2 = \{\rho_2,  \pi_2, \sigma_2\}$, then
 \begin{enumerate}
-\item The probability of you winning the game is 
+\item The probability of you winning the game is
 $w = \rho_1 \sigma_2 + \pi_1 \rho_2 + \sigma_1 \pi_2.$
-\item The probability of you loosing the game is 
+\item The probability of you losing the game is
 $\ell = \rho_1 \pi_2 + \pi_1 \sigma_2 + \sigma_1 \rho_2.$
-\item The probability of the game coming to a tie is 
+\item The probability of the game coming to a tie is
 $t = \rho_1 \rho_2 + \pi_1 \pi_2 + \sigma_1 \sigma_2.$
 \end{enumerate}
-We can conclude that to any choice of $p_1$ you make, and given the configuration of the computer $p_2$ the outcome of the game is to be expressed as a probability distribution $\gamma(p_1, p_2) = \{w, \ell, t\}$ over  the possible outcomes that are winning, loosing, or coming to a tie. 
+We can conclude that to any choice of $p_1$ you make, and given the configuration of the computer $p_2$ the outcome of the game is to be expressed as a probability distribution $z(p_1, p_2) = (w, \ell, t) \in \Delta(\{\text{win, lose, tie}\})$.
 
+We stress that this distribution depends on $p_1$, the action of the player, and $p_2$, which we may refer to as a \emph{state of the world}.
 \end{example}
 
-To summarize, the player makes choices, and for every realization of a set of uncertain parameters, theses choices will result into a certain probability distribution over a set of prizes. This is formalized through the definition of a \emph{lottery}.
 
-\begin{definition}
+
+To summarize, the player makes choices, and for every realization of a set of uncertain parameters, theses choices will result into some probability distribution over a set of prizes. This is formalized through the definition of a \emph{lottery},  that describes the probability of receiving some \emph{prize} in a given \emph{state of the world}.
+
+\begin{definition}[Lottery]
 \label{ch1:def1:lottery}
-A lottery $f$ is a function 
-$$ f : \Omega \mapsto \Delta(X), $$
-where 
-\begin{itemize}
-\item $\Omega$  denotes the (finite) set of all possibles \emph{states of the world}, that are all the possible realizations of the uncertainty, 
-\item $X$ denotes the (finite) set of \emph{prizes} and,
-\item for any finite set $Z$, $\Delta(Z)$ denotes the set of probability distributions over the elements of $Z$:
-$$ \Delta(Z) = \Big \{q : Z \rightarrow \reels \, \Big | \, \sum_{y \in Z} q(y) = 1, 
-\text{ and }  q(z) \geq 0 ,\, \forall z \in Z \Big \}.$$
-\end{itemize}
-
-For a given state $t \in \Omega$, 
-we let $f(\cdot| t) \in \Delta(X)$ be the corresponding probability distribution on $X$.
+A lottery $f$ is a function
+$$ f : \Omega \rightarrow \Delta(X), $$
+where
+\begin{enumerate}
+\item $\Omega$  denotes the (finite) set of all possibles \emph{states of the world}, that are all the possible realizations of the uncertainty,
+\item $X$ denotes the (finite) set of \emph{prizes}.
+\end{enumerate}
+\end{definition}
+\begin{notation}[$f(\cdot | t), \, f(x | t)$]
+Given a lottery $f : \Omega \rightarrow \Delta(X)$, a state $t \in \Omega$, we write $f(\cdot | t) \in \Delta(X)$ be the probability distribution on the prizes if the state of the world is $t$.\\ For a prize $x \in X$, we write $f(x|t)$ to denote the probability of receiving the prize $x$ in the state of the world $t$ for the lottery $f$.\\
 For any $x \in X$, we write $[x]$ to denote a lottery that will always give the prize $x$:
-$$ \forall t \in \Omega, \, \forall y \in X, \, [x](y|t) = 
+$$ \forall t \in \Omega, \, \forall y \in X, \, [x](y|t) =
 \begin{cases}
 1 \text{ if } y = x,\\
 0 \text{ otherwise.}
 \end{cases} $$
-\end{definition}
+\end{notation}
+In Example \ref{ch1:ex2}, we had $X = \{\text{win}, \text{lose}, \text{tie} \}$,
+and $\Omega$ is the set of all probability distributions $p_2$ the computer can be programmed\footnote{Note that in the definition above, we assume $\Omega$ to be finite. We can get away with our example by saying that, since we are programming a computer to play, there is  a finite (but huge) number of possible ways the computer can be programmed to play (due to the finite memory of the machine). However, decision theory also extends to infinite sets of event, which is outside the scope of this chapter.} to follow.  If we fix a distribution $p_1$ for the player, we can see that the outcome of the game (distribution on the prizes) depends only on $p_2$. Thus, by making a choice of a distribution $p_1$, the outcome of the game can be expressed as a lottery as in the above definition.
 
-In Example \ref{ch1:ex2}, we had $X = \{\text{win}, \text{lose}, \text{tie} \}$, 
-and $\Omega$ is the set of all probability distributions $p_2$ the computer can be programmed\footnote{Note that in the definition above, we assume $\Omega$ to be finite. We can get away with our example by saying that since we are programming a computer to play, there is but a finite (but huge) number of possibilities we can make (due to the finite memory of the machine). However, decision theory also extends to infinite sets of event, which is however outside the scope of this chapter.} to follow.  If we fix a distribution $p_1$ for the player, we can see that the outcome of the game (distribution on the prizes) depends only on $p_2$. Thus, by making a choice of a distribution $p_1$, the outcome of the game can be expressed as a lottery as in the above definition.
 
-The notion of \emph{lottery} is somehow the consequence of the choice of a player: once his decisions are made, the outcome is a probability distribution on a set of price that depends on the state of the world. 
-This alone does not tell us \emph{what} action should the player play!
+In a decision making process, player choices lead to  \emph{lotteries}: once his decisions are made, the outcome is a probability distribution on a set of prizes that depends on the state of the world.  Next, we discuss how we can put this notion to good use to understand the mechanism directing the choice of the player.
 
 \section{Preferences and the axioms of Decision Theory}
 
-We now wish to understand how a player, being able to choose between different lotteries, takes his decisions. One of the main difficulties in the decision making is the uncertainty on the \emph{state of the world}. 
+We now wish to understand how a player, being able to choose between different lotteries, takes his decisions. One of the main difficulties in the decision making is the uncertainty on the \emph{state of the world}.
 
 In practice the player might have some prior knowledge on what could or could not happen. Taking Example \ref{ch1:ex2}, the player could have the information that the computer plays \emph{rock} with a probability higher than the one of playing \emph{paper}. Then, assuming the player wants to avoid loosing, he would naturally play \emph{paper} with a higher probability than  \emph{scissors}.
 
-\begin{definition}
-Let $P(\Omega)$ be the set containing all \emph{non-empty} subsets of $\Omega$.
+\begin{definition}[$P(\Omega)$, Event]
+Let $P(\Omega)$ be the set containing all \emph{non-empty} subsets of the set of states of the world $\Omega$.
 An event $S \in P(\Omega)$ is a non-empty subset of $ \Omega $ in which we assume that the true state of the world will be.
 \end{definition}
 
 In what follows, we assume that the player has a subjective knowledge of an event $S$ (maybe $\Omega$ itself), and we develop the notion of preference between lotteries.
 
-\begin{notation}
-Given two lotteries $f$ and $g$ and an event $S \in P(\Omega)$, 
-we write $f \succsim_S g$ if the player finds $f$ to be \emph{at least as good as} $g$ if the true state of the world is in $S$. 
-
-Then, we write $ f \sim_S g $ if $ f \succsim_S g$ and $g \succsim_S f$, and we write  $f \succ_S g$ if $f \succsim_S g$ but $f  {\nsim}_S \, g$.
+\begin{notation}[ $\succsim, \, \sim, \, \succ$]
+Given two lotteries $f$ and $g$ and an event $S \in P(\Omega)$,
+we write $f \succsim_S g$ if the player finds $f$ to be \emph{at least as good as} $g$ if the true state of the world is in $S$. \\
+We write $ f \sim_S g $ if $ f \succsim_S g$ and $g \succsim_S f$, and we write  $f \succ_S g$ if $f \succsim_S g$ but $f  {\nsim}_S \, g$.
 \end{notation}
 
 
 \subsection{Axioms of Decision Theory}
 
-In order to 1) better understand the decision making process and 2) be able to develop mathematical decision-making analysis tools, it is assumed that the preferences of a rational decision maker satisfy a list of axioms.
+In order first to better understand the decision making process and second to be able to develop mathematical decision-making analysis tools, it is assumed that the preferences of a rational decision maker satisfy a list of axioms.
 
 In the following, we let $e, f, g, h$ be lotteries and $S$, $T$ denote two events.
 
 \begin{axiom}[Completeness]
 $f \succsim_S g \text{ or } g \succsim_S f.$
-\end{axiom} 
+\label{ch1axcompleteness}
+\end{axiom}
 \begin{axiom}[Transitivity]
 If $f \succsim_S g$ and $g \succsim_S h$, then $f \succsim_S h$.
-\end{axiom} 
+\label{ch1:ax:trans}
+\end{axiom}
 \begin{axiom}[Relevance]
-If $f(\cdot | t) = g(\cdot | t) \, \forall t \in S$, then $f \sim_S g$. 
+If $f(\cdot | t) = g(\cdot | t) \, \forall t \in S$, then $f \sim_S g$.
+\label{ch1:ax:rel}
 \end{axiom}
 \begin{axiom}[Monotonicity]
-If $f \succ_S h$ and $0 \leq \beta < \alpha \leq 1$, then $\alpha f + (1-\alpha) h \succ_S \beta f + (1-\beta) h$. 
+If $f \succ_S h$ and $0 \leq \beta < \alpha \leq 1$, then $\alpha f + (1-\alpha) h \succ_S \beta f + (1-\beta) h$.
+\label{ch1:ax:mono}
 \end{axiom}
 \begin{axiom}[Continuity]
 If $f \succsim_S g$ and $g \succsim_S h$, then $\exists 0 \leq \gamma \leq 1$ such that $g \sim_S \gamma f + (1-\gamma) h$.
+\label{ch1:ax:conti}
 \end{axiom}
 \begin{axiom}[Objective Substitution]
 If $e \succsim_S f$ and $g \succsim_S h$ and $ 0 \leq \alpha \leq 1$ then $\alpha e + (1-\alpha) g \succsim_S \alpha f + (1-\alpha) h.$
+\label{ch1:ax:objsub}
 \end{axiom}
 \begin{axiom}[Strict Objective Substitution]
 If $e \succ_S f$ and $g \succsim_S h$ and $ 0 < \alpha \leq 1$ then $\alpha e + (1-\alpha) g \succsim_S \alpha f + (1-\alpha) h.$
+\label{ch1:ax:sobjsub}
 \end{axiom}
 \begin{axiom}[Subjective Substitution]
 If $f \succsim_S g$ and $f \succsim_T g$ and $S \cap T = \emptyset$, then $f \succsim_{S \cup T} g$.
+\label{ch1:ax:subsub}
 \end{axiom}
 \begin{axiom}[Strict Subjective Substitution]
 If $f \succ_S g$ and $f \succ_T g$ and $S \cap T = \emptyset$, then $f \succ_{S \cup T} g$.
+\label{ch1:ax:ssubsub}
 \end{axiom}
 \begin{axiom}[Interest]
 For every state $t \in \Omega$, there exists $x, y \in X$ such that $[x] \succ_t [y]$.
+\label{ch1axint}
 \end{axiom}
 
 \begin{axiom}[State Neutrality]
 For any two states $t$ and $r$ in $\Omega$, if $f(\cdot, t) = f(\cdot, r) $, $g(\cdot, t) = g(\cdot, r) $ and $f \succsim_r g$, then $f \succsim_t g$.
+\label{ch1:ax:sn}
 \end{axiom}
 
+The following two examples illustrate the relevance of such axioms for studying decision processes.
 \begin{example}
 \label{ch1:nosubs}
-In this example, we wish to help a player take the best decision, and in order to realize the importance of the Axioms of decision theory, we are going to break one of them (for the reader to find).  \\* 
-Assume a situation with $X = \{w,x,y,z\}$. 
+In this example, we wish to help a player take the best decision, and in order to realize the importance of the Axioms of decision theory, we are going to break one of them (for the reader to find).  \\*
+Assume a situation with $X = \{w,x,y,z\}$.
 The player can do the following: 1) take the prize $w$ or 2) toss a coin  pick $x$ if heads, $z$ if tails or 3) toss a coin and pick  $y$ if heads, $z$ if tails.\\*
 In terms of lotteries, the player can pick
 \begin{enumerate}
-\item $[w]$, 
+\item $[w]$,
 \item $.5[x]+.5[z]$ or
 \item $.5[y]+.5[z]$.
 \end{enumerate}
@@ -187,25 +210,36 @@ Advising him to pick $[w]$ would be nonsense, since he would clearly prefer to p
 It is thus impossible to give a recommendation to the player. Can you find which axiom is not met in this situation?
 \end{example}
 
+\begin{example}
+\label{ch1:otherExa}
+This example is taken from a discussion in \cite[Chapter 3]{ShLeMSAG}, dealing with Axiom \ref{ch1:ax:trans}.
+Given three lotteries $f$, $g$ and $h$, what if it were the case that a player expresses the preferences $f \succ g, \, g \succ h$ but $h \succ f$? \\
+For the sake of the discussion, let us assume that these three lotteries are physically manifested under the form of lottery tickets, and that the player initially hold the ticket for the lottery $f$. \\
+Then, clearly, the agent would be willing to exchange a (perhaps small) amount of money to get a ticket $h$ instead of a ticket $f$. He would then be very happy to exchange another (small) amount of money to get $g$ instead of $f$. Finally, we would be again happy to spend some money to obtain $h$ instead of $g$.\\
+Ultimately, this amounts to the agent accepting to give away some utility for free, which is not rational.
+
+\end{example}
+
 \subsection{The utility maximization theorem}
 
 So far we have discussed the concept of lottery (which tell the player what he may get by doing something) and discussed preference relationships between lotteries.
 
 It seems quite natural that this idea of preference should be related to the benefit that one player gets from receiving a prize. This is reflected through the usage of \emph{utility functions}:
 
-\begin{definition}
-A utility function is a function $u : X \times \Omega \mapsto \reels$.
-\end{definition} 
+\begin{definition}[Utility function]
+A utility function is a function $u : X \times \Omega \rightarrow \reels$, that assigns a value to each prize in each state of the world.
+\end{definition}
 
-This notion allows to characterize a lottery through the \emph{expected utility} a player can gain from it.
+Naturally, a player can't make decisions using only utility functions. For example, the reader would probably be very happy winning at the national lottery. The reason he may not invest all his money into lottery tickets is because he assigns a low probability of actually wining the lottery. These probabilities are captured by conditional probability functions.
 
-\begin{definition}
-A conditional probability function on $\Omega$ is a function $p : P(\Omega) \mapsto \Delta(\Omega)$ that specifies for all $S \in P(\Omega)$ a probability distribution on $\Omega$ such that, for all $t \in \Omega$, 
+\begin{definition}[Conditional probability function]
+A conditional probability function on $\Omega$ is a function $p : P(\Omega) \mapsto \Delta(\Omega)$ that specifies for all $S \in P(\Omega)$ a probability distribution on $\Omega$ such that, for all $t \in \Omega$,
 $$ p(t|S) =  0 \text{ if } t \not \in S, \text{ and } \sum_{r \in S} p(r| S) = 1.$$
 \end{definition}
 
+At this point, a player is able to evaluate a decision based on its \emph{expected utility value}.
 
-\begin{definition}
+\begin{definition}[Expected Utility Value]
 The expected utility value of a lottery $f$ given an event $S$ and a conditional probability function $p$ is given by
 $$ E_p(u(f)|S) = \sum_{t \in S} p(t|S) \sum_{x \in X} u(x,t) f(x,t).$$
 \end{definition}
@@ -213,38 +247,44 @@ $$ E_p(u(f)|S) = \sum_{t \in S} p(t|S) \sum_{x \in X} u(x,t) f(x,t).$$
 These definitions lead us the the most important theorem of this chapter. This theorem is fundamental in that it describes how an individual plays.  \emph{To some extent, all results from game theory can be derived as consequences of this axiomatic description of the players behavior.
 }
 
+
 The theorem states that the behavior of a rational and intelligent decision maker is driven by two main elements. First a \emph{subjective} conditional probability function $p$, encoding his beliefs on the uncertainties he is facing. Second a utility function, transcribing his preferences for the different prices once uncertainty is revealed.
 
-\begin{theorem}[The utility maximisation theorem]
-The Axioms 1 through 10 are satisfied \emph{if and only if} there is a utility function $u$ and a conditional probability function $p$ such that 
+
+\begin{theorem}[The utility maximization theorem]
+The Axioms \ref{ch1axcompleteness} to \ref{ch1axint}  are satisfied \emph{if and only if} there is a utility function $u$ and a conditional probability function $p : P(\Omega) \rightarrow  \Delta(\Omega)$ such that
 \begin{enumerate}
 \item The utility function satisfies $\max_{x \in X} u(x,t) = 1$ and $\min_{x \in X} u(x,t) =0,$  $\forall t \in \Omega;$
 \label{c1}
-\item The probability distribution satisfies $$p(R|T) = p(R|S)p(S|T), \,  \forall R, S , T \subseteq \Omega$$ such that $S \neq \emptyset$ and 
-$ R \subseteq S \subseteq T; $
+\item The conditional probability function satisfies, for all sets $R \subseteq S \subseteq T \subseteq \Omega$ with $S \neq \emptyset$,
+\begin{equation}
+p(R|T) = p(R|S)p(S|T),
+\label{ch1:eq:probaas}
+\end{equation}
+where for two sets $A, B \subseteq \Omega$, $p(A|B) = \sum_{a \in A}p(a|B).$
 \label{c2}
 \item For any two lotteries $f$ and $g$ and for any event $S$, the preference relation $f \succsim_S g$ holds if and only if
 $$ E_p(u(f) | S) \geq E_p(u(g) | S).$$
 \label{c3}
 \end{enumerate}
-Furthermore, axiom 3.11 is also satisfied if and only if the above holds with a \emph{state-independent} utility function, that is, 
-there exists a function $U : X \rightarrow \reels$ such that 
+The Axiom \ref{ch1:ax:sn} is also satisfied on top of the others if and only if the above holds with a \emph{state-independent} utility function, that is,
+there exists a function $U : X \rightarrow \reels$ such that
 $u(x,t) = U(x)$ for all $t \in \Omega$.
 \label{ch1:utility-maximization}
 \end{theorem}
 
 
-Let us discuss on the meaning of the different points of the theorem:
+Let us discuss the meaning of the different points of the theorem:
 \begin{itemize}
-\item Condition \ref{c1} is more of a normative assumption. 
-\item Condition \ref{c2} is a formula which establishes how conditional probabilities assessed in one event must be related to conditional probabilities assessed in another. Beware that the function $p(\cdot|\cdot)$, which we called a ``\emph{conditional probability function}'', is  only required to satisfy the properties defined in Definition 4, and not all the laws of probability.  The theorem tells us that, on top of Definition 4, it must satisfy one more law of probability: namely, Bayes formula.
+\item Condition \ref{c1} is more of a normative assumption.
+\item Condition \ref{c2} is a formula which establishes how conditional probabilities assessed in one event must be related to conditional probabilities assessed in another. Beware that the function $p(\cdot|\cdot)$, which we called a ``\emph{conditional probability function}'', is  only required to satisfy the properties defined in Definition 4, and not all the laws of probability.  The theorem tells us that, on top of Definition 4, it must satisfy one more law of probability, which is Bayes formula.
 \item Condition \ref{c3} is the main one, and states that any rational player in fact behaves exactly like if he was optimizing an expected payoff.
 \end{itemize}
 
 \begin{example}[Understanding the theorem]
-Assuming that the decision maker's preferences satisfy axioms 1 through 10, there are ways to compute a probability function $p$ and a utility function $u$ satisfying the theorem.
+Assuming that the decision maker's preferences satisfy Axioms \ref{ch1axcompleteness} through \ref{ch1axint}, there are ways to compute a probability function $p$ and a utility function $u$ satisfying the theorem.
 
-One can build the utility function for a given price. Consider a state $t \in \Omega$. First there must exist two prizes $y_t$ and $z_t$ in $X$ such that, $\forall x \in X$, 
+One can build the utility function for a given price. Consider a state $t \in \Omega$. First there must exist two prizes $y_t$ and $z_t$ in $X$ such that, $\forall x \in X$,
 $$ [y_t]\succsim_{\{t\}} [x] \succsim_{\{t\}} [z_t].$$
 One can ask the decision maker provide these two prizes. Since these prices are respectively the maximal and minimal valued, their utility is equal to $u(y,t)=1$ and
 $u(z,t)=0$.\\
@@ -257,38 +297,40 @@ $$
 \begin{aligned}
 & b(r) = [y_t] \text{ if $r \in S$}, \\
 & b(r) = [z_t] \text{ if $r \not \in S$}.
-\end{aligned} 
+\end{aligned}
 $$
 Finally, specify $p(t|S)$ as the number such that, for the decision maker,
 $$ b \sim_S p(t|S) [y_t] + (1-p(t|S)) [z_t].$$
 \end{example}
 
 
-The utility function $u$ and conditional probability distribution $p$ in Theorem \ref{ch1:utility-maximization} represent the \emph{preferences} (satisfying axioms 1 through 10) expressed by a decision maker. 
+The utility function $u$ and conditional probability distribution $p$ in Theorem \ref{ch1:utility-maximization} represent the \emph{preferences} (satisfying axioms 1 through 10) expressed by a decision maker.
 It is however important to understand to what extent  we can be sure that this accurately reproduces the mental model of the decision maker. More precisely, is this mental model the unique possible one?  The following theorem tells us that the answer is affirmative, up to some linear scaling.
 
 \begin{theorem}[Equivalent representations of preferences]
-Consider a preference relation ``$\succsim_S$'' satisfying axioms 1 through 10.
-Let $u$ and $p$ be a utility function and a conditional probability function as in Theorem \ref{ch1:utility-maximization}. \\*
-A utility function $v$ and conditional probability function $q$ represent the preferences ``$\succsim_S$'' if and only if there  exists $A > 0$ and $B : S \rightarrow R$ such that
-$$ q(t|S) v(x,t) = Ap(t|S)u(x,t) + B(t), \qquad \forall t \in S, \qquad \forall x \in X. $$
-Moreover, if axiom 11 is also satisfied, then $q = p$ and $B$ is independent of the state $t \in \Omega$.
+Consider a \emph{utility function} $u : \Omega \rightarrow X$ and a \emph{conditional probability function} $p : P(\Omega) \rightarrow \Delta(\Omega)$ satisfying \ref{ch1:eq:probaas}.
+A utility function $v$ and conditional probability function $q$ represent the \emph{same preferences} as $u$ and $p$ from Theorem \ref{ch1:utility-maximization} if and only if there  exists a constant $A > 0$ and a function $B : S \rightarrow R$ such that
+$$ \forall S \subseteq \Omega, \forall t \in S, \forall x \in X: q(t|S) v(x,t) = Ap(t|S)u(x,t) + B(t). $$
 \label{chap1:thm:Equivalent}
 \end{theorem}
 
 
 \subsection{Bayesian probability systems}
 
-We now focus on the conditional probability functions involved in Theorem \ref{ch1:utility-maximization}. Let us recall the formal definition of this object.
-
-\begin{definition}
-The function $p: \Omega \times P(\Omega) \mapsto \reels $ is a \emph{Bayesian Conditional Probability System} on the set $\Omega$ if, $\forall S \subseteq \Omega, \, S \neq \emptyset$, $p(\cdot|S)$ is a probability distribution on $\Omega$ such that $p(S|S) = 1$ and $p(R|T) = p(R|S) p(S|T)$, $\forall R \subseteq S$, $\forall T \supseteq S.$
+We now focus on the conditional probability functions involved in Theorem \ref{ch1:utility-maximization}.
+\begin{definition}[Bayesian probability system]
+A conditional probability function $p: P(\Omega) \rightarrow \Delta(\Omega)$ is a \emph{Bayesian Conditional Probability System} on the set $\Omega$ if, $\forall S \subseteq \Omega, \, S \neq \emptyset$, $p(\cdot|S)$ is a probability distribution on $\Omega$ such that $p(S|S) = 1$ and $p(R|T) = p(R|S) p(S|T)$, $\forall R \subseteq S$, $\forall T \supseteq S.$
 \end{definition}
 
-In other words, $p(\cdot|S)$  is a well defined probability function for all $S \in P(\Omega)$ and, on top of that, satisfies Bayes formula. No other constraint links the different probability functions P(.|S).  As a (strange) consequence, even if a player thinks (in a subjective way) that an event $S$ should not happen, $p(\cdot|S)$ remains well defined.
-The following example gives a natural explanation to this: 
+In other words, $p(\cdot|S)$  is a well defined probability function for all $S \in P(\Omega)$ and, on top of that, satisfies Bayes formula. No other constraint links the different probability functions $p(.|S)$.
+In other words,  if we are given a probability distribution $p' \in \Delta(\Omega)$, it is easy to construct a Bayesian probability systems (by Bayes rule). The opposite is not true, and we leave it to the reader to find why\footnote{Take $p \in \Delta(\Omega)$, and assume that for a set $\emptyset \neq S \in \Omega$, $p(S) = 0$. Try to compute $p(t|S)$ for $t \in S$}.
+
+The fact that a player takes decision using a Bayesian probability system as a reference has an interesting interpretation regarding his planning of events. In particular, even if he known that  an event $S$ \emph{should not happen}, he still needs to define $p(\cdot|S)$.
+
+While this may appear as a mathematical artifact of the theory, it turns out
+this behavior is central in our everyday life decisions, in particular when interacting with other players (see Example \ref{ch1:ex:chess}).
 \begin{example}
-We end this chapter with an example, that also introduces 2-player games. 
+We end this chapter with an example, that also introduces 2-player games.
 Consider the chess-board of Figure \ref{ch1:fig-chess}.
 
 \begin{figure}[h!]\centering\setchessboard{showmover=false}
@@ -298,7 +340,7 @@ Consider the chess-board of Figure \ref{ch1:fig-chess}.
 \caption{Black plays - what are his possible moves to escape the queen?}\label{ch1:fig-chess}
 \end{figure}
 You are the white player, it is the black player's turn, and you need to guess his move.
-Assuming that the black player is rational, intelligent, and wants to avoid check-mate, 
+Assuming that the black player is rational, intelligent, and wants to avoid check-mate,
 you can assign probabilities on the moves the player will make (see Table \ref{ch1:table-chess}).
 
 \begin{table}[h!]\centering
@@ -318,26 +360,25 @@ Mvmt $m$ & $P(m)$ &\\
 
 Let $\Omega_{b}$ be the set of moves of the black player, and $S = \{ka8, \, ka7, \, kc8 \} \subset \Omega_b$ be the set of moves to which white assigns 0 probability of occurrence.
  Theorem \ref{ch1:utility-maximization} - Condition \ref{c2} implies that $P(ka8 | \Omega_b) = P(ka8 | S) P(S|\Omega_b)$ should be equal to 0.
-Theorem \ref{ch1:utility-maximization} - Condition \ref{c3} implies that even in the event $S$, the white player should make a decision maximizing his expected utility, which implies that the player should assign a value to $p(\cdot|S)$. For example, he could consider 
+Theorem \ref{ch1:utility-maximization} - Condition \ref{c3} implies that even in the event $S$, the white player should make a decision maximizing his expected utility, which implies that the player should assign a value to $p(\cdot|S)$. For example, he could consider
 $$p(ka7|S) = p(ka8|S) = p(kc8|S) = 1/3,$$
 even though the event $S$ itself is considered to be of 0 probability.
-
+\label{ch1:ex:chess}
 \end{example}
 
-It feels a little weird to have to consider events that should never happen when planning one's decision. However, Theorem 1 tells us that ``an intelligent and rational decision maker always expects the unexpected!''.
-This is the only possible way to mathematically express rationality: we can only explain that Black will not play \emph{ka7} because we know that white is prepared to this situation, and would play in such a way that he would win the game.
+In other words, we know from Theorem \ref{ch1:utility-maximization} that ``an intelligent and rational decision maker always expects the unexpected!''.
+This is the only possible way to mathematically express rationality: we should not make a bad move at chess against a rational decision maker because we know that he is prepared to react (even if he does not suspect us to play badly).
 
-How to algebraically characterize these strange objects? It can be shown that Bayesian Conditional-Probability Systems are linked, in some sense, to probability distributions assigning non-zero probabilities to all events in $\Omega$. \\
-For such probability distributions, Bayes' formula implies the numerical value of $p(t|S)$ for every choice of $t,S$, and nothing unexpected occurs.  The next theorem provides an algebraic characterization of what can happen in the general case where some events can have zero probability.
+It remains however possible to reconcile Bayesian probability systems with classical probability distributions. In particular, for  probability distributions $p \in \Delta(\Omega)$ assigning non-zero probabilities to all events in $\Omega$ Bayes' formula defines a numerical value for $p(t|S)$ for every choice of $t,S$.  The next theorem provides an algebraic characterization of what can happen in the general case where some events can have zero probability.
 
 \begin{theorem}
-The conditional probability function $p$ is a Bayesian conditional-probability system on $\Omega$ if and only if there is a sequence of probability distributions $P^k \in \Delta(\Omega)$, $k = 1, 2, \ldots$, with $P^k(t) > 0$ $\forall t \in \Omega$, such that
+The conditional probability function $p$ is a Bayesian conditional probability system on $\Omega$ if and only if there is a sequence of probability distributions $p^k \in \Delta(\Omega)$, $k = 1, 2, \ldots$, with $p^k(t) > 0$ $\forall t \in \Omega$, such that
 \begin{equation}
 \begin{aligned}
-p(t|S) & = \lim_{k \rightarrow \infty} \frac{P^k(t)}{\sum_{r \in S} P^k(r)} \qquad \text{if $t \in S$},\\
+p(t|S) & = \lim_{k \rightarrow \infty} \frac{p^k(t)}{\sum_{r \in S} p^k(r)} \qquad \text{if $t \in S$},\\
 p(t|S) & = 0  \qquad \text{if $t \not \in S$}.
 \end{aligned}
-\end{equation} 
+\end{equation}
 \end{theorem}
 
 \subsection{Limits of the Bayesian framework}
@@ -355,7 +396,7 @@ Of course, these axioms represent a formal model for us to work with and, like e
 \begin{example}
 \label{ch1:paradoxAllais}
 Here is a famous paradox due to M. Allais.\\*
-Let $X = \{12 \text{ millions \$}, \, 1 \text{ million \$}, 0 \$ \}$, 
+Let $X = \{12 \text{ millions \$}, \, 1 \text{ million \$}, 0 \$ \}$,
 and let
 \begin{equation}
 \begin{aligned}
@@ -367,7 +408,7 @@ and let
 \end{equation}
 
 What would you pick? Many people will express the preferences $f_1 \succ f_2$ and $f_3\succ f_4$ (remark that the expected payoff of $f4$ is greater than the expected payoff of $f3$)...
-As it turns out, even by relaxing this assumption, we violate an axiom... 
+As it turns out, even by relaxing this assumption, we violate an axiom...
 Indeed, let $x = 12 \text{ millions \$}$, $y = 1 \text{ million \$} $, and $z = 0 \$ $ be the prizes for our scenario.
 By the strict objective substitution axiom (Axiom 7), it should be the case that $.5f_1 + .5f_3 \succ .5 f_2 + .5f_4.$
 However, we can see that
@@ -380,10 +421,10 @@ contradicting the preference relation (since the two lotteries are qualitatively
 
 
 \ifx \globalmark \undefined %% This is default.
-\bibliographystyle{plain}
+\bibliographystyle{apalike}
 \bibliography{../gametheorybibliography}
 	\end{document}
-\else 
-	
+\else
+
 \fi
 

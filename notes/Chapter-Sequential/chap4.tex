@@ -1,7 +1,7 @@
 \ifx \globalmark \undefined %% This is default.
 \input{../header}
-	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
-\else 	
+	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).
+\else
 \fi
 
 
@@ -19,8 +19,8 @@ The Nash equilibrium is a powerful tool for the analysis of games. When \emph{in
 Thus, every player will play at a Nash Equilibrium.\\
 Nash equilibria are computed from the strategic form of a game. The main idea behind the use of the strategic form is that it provides a concise summary of the game, highlighting which strategies can be played, and what are the payoffs resulting of a choice of strategies.  Since the aim of rational players is to  maximize their payoffs, we are tempted to believe that the study of the strategic form is sufficient for understanding the outcome of games.\\
 In this chapter, we show that this is not the case. A game is a sequential process. A strategic form ignores sequentiality, and hides away some features of the game. The main consequence of this is that, even if when studying the game \emph{a priori} a strategy seems to be a best response to the opponents' strategies, \emph{its implementation may not be rational}. This is due to the fact that rational players wish to maximize their payoff \emph{at every move}. This is essentially due to the fact that our rational players actually take several decisions.  And, if we certainly expect that their different decisions have to be coherent with one another, we cannot deduce from this assumption that the decisions about every actions they will take are taken at once, at the beginning of the game.\\
-In this chapter, we begin with examples showing that 
-some Nash equilibria may translate into decisions (in the initial sequential game) which are irrational, and thus should naturally be excluded (Section \ref{ch4:sec:motivations}). Then, we will define several notions relative to extensive forms game (Section \ref{ch4:sec:extform}). In particular, we are going to be using the concept of \emph{behavioural strategies}. Finally, we will study  \emph{sequential rationality} and,  the key solution concept of the chapter, the \emph{sequential equilibrium}.   
+In this chapter, we begin with examples showing that
+some Nash equilibria may translate into decisions (in the initial sequential game) which are irrational, and thus should naturally be excluded (Section \ref{ch4:sec:motivations}). Then, we will define several notions relative to extensive forms game (Section \ref{ch4:sec:extform}). In particular, we are going to be using the concept of \emph{behavioural strategies}. Finally, we will study  \emph{sequential rationality} and,  the key solution concept of the chapter, the \emph{sequential equilibrium}.
 
 
 
@@ -28,7 +28,7 @@ some Nash equilibria may translate into decisions (in the initial sequential gam
 
 \section{Rational and irrational equilibrium}
 \label{ch4:sec:motivations}
-Using simple examples, we are going to bring intuition for answering the questions \emph{what are the rational moves in a game?} 
+Using simple examples, we are going to bring intuition for answering the questions \emph{what are the rational moves in a game?}
 
 Our first example represents a ``good'' scenario, where the Nash equilibrium is rational.
 \begin{example}[The card game: bluff or no bluff?]
@@ -41,8 +41,8 @@ Let us go back to the card game of Example \ref{chap2:example:game}.
    [sibling distance=7cm]
    child {node[noeud-std] (n1a) {}
         [sibling distance=3cm]
-         child[level distance=2cm]{node[noeud-std] (n2c1){} 
-		 [sibling distance=3cm]     
+         child[level distance=2cm]{node[noeud-std] (n2c1){}
+		 [sibling distance=3cm]
          	child[level distance=1cm]{node[noeud-std,fill=white] (leaf1){} }
          	child[level distance=1cm]{node[noeud-std,fill=white] (leaf2){} }
          }
@@ -50,28 +50,28 @@ Let us go back to the card game of Example \ref{chap2:example:game}.
    }
 	child {node[noeud-std] (n1b) {}
         [sibling distance=3cm]
-         child[level distance=2cm]{node[noeud-std] (n2c2){} 
-		 [sibling distance=3cm]     
+         child[level distance=2cm]{node[noeud-std] (n2c2){}
+		 [sibling distance=3cm]
          	child[level distance=1cm]{node[noeud-std,fill=white] (leaf4){} }
          	child[level distance=1cm]{node[noeud-std,fill=white] (leaf5){} }
          }
          child[level distance=1cm]{node[noeud-std,fill=white] (leaf6){} }
    }
    ;
-\node[above=5pt] at (src) {$0$ };  
-\node[above=5pt] at (n1a) {$1.a$ };  
+\node[above=5pt] at (src) {$0$ };
+\node[above=5pt] at (n1a) {$1.a$ };
 \node[above=5pt] at (n1b) {$1.b$ };
 \node[above=5pt] at (n2c1) {$2.c$ };
 \node[above=5pt] at (n2c2) {$2.c$ };
-  
-\node[above=-20pt] at (leaf1) {$ 4 \, / 0$ }; 
-\node[above=-20pt] at (leaf2) {$ 3 \, / 1$ };  
-\node[above=-20pt] at (leaf3) {$ 3 \, / 1$ };  
-\node[above=-20pt] at (leaf4) {$ 0 \, / 4$ };  
-\node[above=-20pt] at (leaf5) {$ 3 \, / 1$ };  
-\node[above=-20pt] at (leaf6) {$ 1 \, / 3$ };    
 
- 
+\node[above=-20pt] at (leaf1) {$ 4 \, / 0$ };
+\node[above=-20pt] at (leaf2) {$ 3 \, / 1$ };
+\node[above=-20pt] at (leaf3) {$ 3 \, / 1$ };
+\node[above=-20pt] at (leaf4) {$ 0 \, / 4$ };
+\node[above=-20pt] at (leaf5) {$ 3 \, / 1$ };
+\node[above=-20pt] at (leaf6) {$ 1 \, / 3$ };
+
+
 \node[above left] at ($(src)!{0.25}!(n1a)$) {red: $0.5$};
 \node[above right] at ($(src)!{0.25}!(n1b)$) {black: $0.5$};
 \node[above right] at ($(n1a)!{0.25}!(leaf4)$) {Fold};
@@ -89,14 +89,14 @@ Let us go back to the card game of Example \ref{chap2:example:game}.
 \caption{Extensive form of the game in Example \ref{chap2:example:game}.}
 \label{chap4:example:figtree}
 \end{figure}
- We computed the Nash equilibrium of the game in Example \ref{chap3:ex:cardgame}, which is given by the mixed strategy profile 
-$$(1/3[Rr] + 2/3[Rf], 2/3[m] + 1/3[p]).$$ 
+ We computed the Nash equilibrium of the game in Example \ref{chap3:ex:cardgame}, which is given by the mixed strategy profile
+$$(1/3[Rr] + 2/3[Rf], 2/3[m] + 1/3[p]).$$
 The equilibrium corresponds to the following decisions:
 \begin{enumerate}
 \item At information state $1.a$ (Player 1 has a red card), the move ``Raise'' is chosen.
 \item At information state $1.b$ (Player 1 has a black card), the move ``raise'' is chosen with probability $\frac{1}{3}$, and ``fold'' with probability $\frac{2}{3}$.
-\item At information state $2.c$, the move ``meet'' is chosen with probability $\frac{2}{3}$ and the move ``pass'' is chosen with probability $\frac{1}{3}$. 
-\end{enumerate} 
+\item At information state $2.c$, the move ``meet'' is chosen with probability $\frac{2}{3}$ and the move ``pass'' is chosen with probability $\frac{1}{3}$.
+\end{enumerate}
 Now, let us put ourselves in the shoes of Player 2. Imagine for the moment that we had \emph{no idea} whatsoever of the strategy of player $1$.  An idealistic strategy for us would be to ``pass'' on a red card, and to ``meet'' on a black card. This strategy is however unavailable to us - since we have no information on the card's color. This is translated in the game by the fact that information state $2.c$ is shared between two decision nodes.\\
 However, it is quite easy to see (left as exercise) that  if we believed that the card was red with probability $\alpha$, and black with probability $1-\alpha$, then our rational move would be to
 \begin{itemize}
@@ -104,10 +104,10 @@ However, it is quite easy to see (left as exercise) that  if we believed that th
 \item play ``pass'' if $\alpha > \frac{3}{4}$,
 \item and play anyone of ``meet'' or ``pass'' if $\alpha = \frac{3}{4}$.
 \end{itemize}
-In our case, the probability $\alpha = \frac{3}{4}$ is actually enforced by the strategy of player $1$ at the equilibrium. 
-Indeed, the probability of reaching information state $2.c$ is given by 
+In our case, the probability $\alpha = \frac{3}{4}$ is actually enforced by the strategy of player $1$ at the equilibrium.
+Indeed, the probability of reaching information state $2.c$ is given by
 $$ p(2.c) = \frac{1}{2}p(R | 1.a) + \frac{1}{2} p(r |  1.b) = \frac{1}{2} + \frac{1}{2} \frac{1}{3} = \frac{2}{3}. $$
-Thus, the probability of being at the upper branch of the game and at node $2.c$ is 
+Thus, the probability of being at the upper branch of the game and at node $2.c$ is
 $$ p(2.c |  \text{red}) = \frac{\frac{1}{2}p(R | 1.a)}{p(2.c)} = \frac{3}{4},$$
 where the above is nothing else that an application of \emph{Bayes} formula.\\
 
@@ -123,26 +123,26 @@ Let us now consider the extensive form game presented in Figure \ref{ch4:fig:bad
 \begin{center}
 \begin{tikzpicture}
 \node[noeud-std] (noeud0) {}
-	[sibling distance=4cm]		
+	[sibling distance=4cm]
 	child[level distance=1cm]{node[noeud-std,fill=white] (noeud1){}}
 	child[level distance=1cm] {node[noeud-std] (noeud2) {}
 		[sibling distance=3cm]
 			child[level distance=1cm]{node[noeud-std,fill=white] (noeud3){}}
 			child[level distance=1cm]{node[noeud-std,fill=white] (noeud4){}}
 		}
-	
+
     ;
 
-\node[above=5pt] at (noeud0) {$1.a$}; 
-\node[above=-25pt] at (noeud0) {$X_0$}; 
+\node[above=5pt] at (noeud0) {$1.a$};
+\node[above=-25pt] at (noeud0) {$X_0$};
 \node[above left] at ($(noeud0)!{0.4}!(noeud1)$) {\texttt{$y_1$}};
 \node[above right] at ($(noeud0)!{0.4}!(noeud2)$) {\texttt{$x_1$}};
-\node[above=-20pt] at (noeud1) {$1\, / \, 9$}; 
+\node[above=-20pt] at (noeud1) {$1\, / \, 9$};
 \node[above=5pt] at (noeud2) {$2.b$};
-\node[above=-25pt] at (noeud2) {$X_1$};   
+\node[above=-25pt] at (noeud2) {$X_1$};
 \node[above left] at ($(noeud2)!{0.4}!(noeud3)$) {\texttt{$y_2$}};
 \node[above right] at ($(noeud2)!{0.4}!(noeud4)$) {\texttt{$x_2$}};
-\node[above=-20pt] at (noeud3) {$0\, / \, 2$};  
+\node[above=-20pt] at (noeud3) {$0\, / \, 2$};
   \node[above=-20pt] at (noeud4) {$2\, / \, 3$};
 \end{tikzpicture}
 \end{center}
@@ -150,7 +150,7 @@ Let us now consider the extensive form game presented in Figure \ref{ch4:fig:bad
 \label{ch4:fig:badEquilibrium}
 \end{figure}
 
-The strategic form is given by 
+The strategic form is given by
 \begin{center}
 \begin{tabular}{c|cc}
  & x2 & y2 \\
@@ -160,19 +160,19 @@ y1 & 1, 9 & 1, 9
 \end{tabular}
 \end{center}
 
-Of the two Nash Equilibria, $([y_1], [y_2])$ is disputable. 
-Indeed, let us put ourselves in the shoes of player 1, and consider the game again through the eye of decision theory. The uncertainty here is one move picked by player $2$; so let us say player 2, at information state $2.b$, plays $x_2$ with probability $\alpha$, and $y_2$ with probability $1-\alpha$. 
+Of the two Nash Equilibria, $([y_1], [y_2])$ is disputable.
+Indeed, let us put ourselves in the shoes of player 1, and consider the game again through the eye of decision theory. The uncertainty here is one move picked by player $2$; so let us say player 2, at information state $2.b$, plays $x_2$ with probability $\alpha$, and $y_2$ with probability $1-\alpha$.
 We need to compare our two moves:
 \begin{itemize}
 \item $y_1$ wins us a payoff of $1$,
 \item $x_1$ wins us a payoff of $2 \alpha$.
 \end{itemize}
-Thus, we prefer $x_1$ over $y_1$ if $\alpha > \frac{1}{2}$. 
+Thus, we prefer $x_1$ over $y_1$ if $\alpha > \frac{1}{2}$.
 Now, let us try and get more information on the possible values of $\alpha$. If player $2$ is at information state $2.b$ then his choice is trivial: playing $x_2$ wins him a payoff of $3$, dominating the decision $y_2$! Consequently, player 1,  knowing that player 2 is rational, should infer $\alpha = 1$, and thus prefer $x_1$ over $y_1$. \\
 We conclude that as long as both players are rational and intelligent, the equilibrium $(y_1, y_2)$ cannot occur.
 
-Remark that this conclusion would be hidden from us if we only studied the strategic form. Here, the extensive form contains information allowing us to discard an equilibrium in the name of rationality. 
-It is hopeless to attempt to obtain the same conclusion from using the strategic form alone. Indeed, the game of Figure \ref{ch4:fig:badEquilibrium2} has the same strategic form, and here both equilibria seem acceptable. Moreover, by playing $[y2]$, player 2 now guarantees himself a payoff of $9$ instead of $3$, which is thus the rational thing to do here. 
+Remark that this conclusion would be hidden from us if we only studied the strategic form. Here, the extensive form contains information allowing us to discard an equilibrium in the name of rationality.
+It is hopeless to attempt to obtain the same conclusion from using the strategic form alone. Indeed, the game of Figure \ref{ch4:fig:badEquilibrium2} has the same strategic form, and here both equilibria seem acceptable. Moreover, by playing $[y2]$, player 2 now guarantees himself a payoff of $9$ instead of $3$, which is thus the rational thing to do here.
 \begin{figure}[!ht]
 \begin{center}
 \begin{tikzpicture}
@@ -180,23 +180,23 @@ It is hopeless to attempt to obtain the same conclusion from using the strategic
    [sibling distance=5cm]
    child[level distance=1cm]{node[noeud-std] (n1a1) {}
         [sibling distance=3cm]
-        child[level distance=1cm]{node[noeud-std,fill=white](x2x1){}}  
+        child[level distance=1cm]{node[noeud-std,fill=white](x2x1){}}
         child[level distance=1cm]{node[noeud-std,fill=white](x2y1){}}
         }
 	child[level distance=1cm]{node[noeud-std] (n1a2) {}
         [sibling distance=3cm]
-        child[level distance=1cm]{node[noeud-std,fill=white](y2x1){}}  
+        child[level distance=1cm]{node[noeud-std,fill=white](y2x1){}}
         child[level distance=1cm]{node[noeud-std,fill=white](y2y1){}}
         }
    ;
-\node[above=5pt] at (n1a1) {$1.a$}; 
-\node[above=5pt] at (n1a2) {$1.a$};   
+\node[above=5pt] at (n1a1) {$1.a$};
+\node[above=5pt] at (n1a2) {$1.a$};
 \node[above=5pt] at (n2b) {$2.b$ };
-  
-\node[above=-20pt] at (x2x1) {$ 2\, / 3$ }; 
-\node[above=-20pt] at (x2y1) {$ 1 \, / 9$};  
-\node[above=-20pt] at (y2x1) { $0 \, / 2$};  
-\node[above=-20pt] at (y2y1) {$ 1 \, / 9$ }; 
+
+\node[above=-20pt] at (x2x1) {$ 2\, / 3$ };
+\node[above=-20pt] at (x2y1) {$ 1 \, / 9$};
+\node[above=-20pt] at (y2x1) { $0 \, / 2$};
+\node[above=-20pt] at (y2y1) {$ 1 \, / 9$ };
 
 \node[above left] at ($(n2b)!{0.4}!(n1a1)$) {$x_2$};
 \node[above right] at ($(n2b)!{0.4}!(n1a2)$) {$y_2$};
@@ -219,8 +219,9 @@ Throughout this chapter, we will study games having the \emph{perfect recall} pr
 \label{ch4:sec:extform}
 The example of the previous section shows that Nash Equilibria may or may not be rational when analyzed through the extensive form. Indeed, a rational agent is going to play a \emph{rational move at every information state}.\\
 
-We will now introduce a formalism for studying this behaviour. Our formalism needs to enable us to access several elements. First and foremost, we will need players, information states and decisions. Additionally, for  a player at a given information state, there is uncertainty about his exact position in the extensive form tree. Thus, we also need to access the different nodes of the game. 
- To do so, we recall the following relevant objects for a game in extensive form $\Gamma_e$ from Chapter \ref{chap:Models}.
+We will now introduce a formalism for studying this behaviour. Our formalism needs to enable us to access several elements. First and foremost, we will need players, information states and decisions. Additionally, for  a player at a given information state, there is uncertainty about his exact position in the extensive form tree. Thus, we also need to access the different nodes of the game.
+ To do so, we recall the following relevant objects for a game in extensive form $\Gamma_e$ from Chapter \ref{chap:Models}. \\
+
 \begin{definition}[Game in extensive form]
  For a game in extensive form $\Gamma_e$, we define the following:
 \begin{itemize}
@@ -237,7 +238,7 @@ Regarding the structure of the tree, we have
 \label{chap4:def:GameInExtForm}
 \end{definition}
 
-Again, there is a clear distinction between information states ($S$) and  nodes in the tree ($X$). 
+Again, there is a clear distinction between information states ($S$) and  nodes in the tree ($X$).
 \begin{example}
 Consider the  game in extensive form of Figure \ref{ch4:fig:exampleFormalism}.
 \begin{figure}[!ht]
@@ -252,41 +253,41 @@ Consider the  game in extensive form of Figure \ref{ch4:fig:exampleFormalism}.
    }
    child {node[noeud-std] (noeud4) {}
         [sibling distance=4cm]
-        child[level distance=1cm]{node[noeud-std] (noeud5){} 
+        child[level distance=1cm]{node[noeud-std] (noeud5){}
          	[sibling distance=3cm]
          	child[level distance=1cm]{node[noeud-std,fill=white] (noeud6){} }
          	child[level distance=1cm]{node[noeud-std,fill=white] (noeud7){} }}
-        child[level distance=1cm]{node[noeud-std] (noeud8){} 
+        child[level distance=1cm]{node[noeud-std] (noeud8){}
          	[sibling distance=3cm]
          	child[level distance=1cm]{node[noeud-std,fill=white] (noeud9){} }
          	child[level distance=1cm]{node[noeud-std,fill=white] (noeud10){} }}
    };
-   
-   \node[above=3pt] at (noeud0) {$1.a$};  
-\node[above=3pt] at (noeud1) {$2.b$};  
-\node[above=-20pt] at (noeud2) {$3 \, / 2$};   
-\node[above=-20pt] at (noeud3) {$2 \, / 3$};  
-\node[above=3pt] at (noeud4) {$2.b$};   
-\node[above=3pt] at (noeud5) {$1.c$};   
-\node[above=-20pt] at (noeud6) {$4 \, / 1 $};   
-\node[above=-20pt] at (noeud7) {$2 \, / 3$};  
-\node[above=3pt] at (noeud8) {$1.c$}; 
-\node[above=-20pt] at (noeud9) {$0 \, / 5$}; 
-\node[above=-20pt] at (noeud10) {$3 \, / 2$};   
- 
 
-\node[above=-25pt] at (noeud0) {$X_0$};   
-\node[above=-25pt] at (noeud1) {$X_1$};   
-\node[above=-35pt] at (noeud2) {$X_2$};   
-\node[above=-35pt] at (noeud3) {$X_3$};   
-\node[above=-25pt] at (noeud4) {$X_4$};   
-\node[above=-25pt] at (noeud5) {$X_5$};   
-\node[above=-35pt] at (noeud6) {$X_6$};   
-\node[above=-35pt] at (noeud7) {$X_7$};   
-\node[above=-25pt] at (noeud8) {$X_8$};   
-\node[above=-35pt] at (noeud9) {$X_9$};   
+   \node[above=3pt] at (noeud0) {$1.a$};
+\node[above=3pt] at (noeud1) {$2.b$};
+\node[above=-20pt] at (noeud2) {$3 \, / 2$};
+\node[above=-20pt] at (noeud3) {$2 \, / 3$};
+\node[above=3pt] at (noeud4) {$2.b$};
+\node[above=3pt] at (noeud5) {$1.c$};
+\node[above=-20pt] at (noeud6) {$4 \, / 1 $};
+\node[above=-20pt] at (noeud7) {$2 \, / 3$};
+\node[above=3pt] at (noeud8) {$1.c$};
+\node[above=-20pt] at (noeud9) {$0 \, / 5$};
+\node[above=-20pt] at (noeud10) {$3 \, / 2$};
+
+
+\node[above=-25pt] at (noeud0) {$X_0$};
+\node[above=-25pt] at (noeud1) {$X_1$};
+\node[above=-35pt] at (noeud2) {$X_2$};
+\node[above=-35pt] at (noeud3) {$X_3$};
+\node[above=-25pt] at (noeud4) {$X_4$};
+\node[above=-25pt] at (noeud5) {$X_5$};
+\node[above=-35pt] at (noeud6) {$X_6$};
+\node[above=-35pt] at (noeud7) {$X_7$};
+\node[above=-25pt] at (noeud8) {$X_8$};
+\node[above=-35pt] at (noeud9) {$X_9$};
 \node[above=-35pt] at (noeud10) {$X_{10}$};
-   
+
 \node[above left] at ($(noeud0)!{0.5}!(noeud1)$) {$a_1$};
 \node[above right] at ($(noeud0)!{0.5}!(noeud4)$) {$b_1$};
 \node[above left] at ($(noeud1)!{0.5}!(noeud2)$) {$x_2$};
@@ -306,20 +307,20 @@ Consider the  game in extensive form of Figure \ref{ch4:fig:exampleFormalism}.
 We have
 \begin{enumerate}
 \item  $N = \{1,2\}$,
-\item $S_1 = \{1.a, 1.c\}$, $S_2 = \{2.b\}$, and $S = S_1 \bigcup S_2$. 
-\item $D_{1.a} = \{a_1,b_1\}$, $D_{2.b} = \{x_2,w_2\}$, $D_{1.c} = \{z_1, y_1\}$. 
+\item $S_1 = \{1.a, 1.c\}$, $S_2 = \{2.b\}$, and $S = S_1 \bigcup S_2$.
+\item $D_{1.a} = \{a_1,b_1\}$, $D_{2.b} = \{x_2,w_2\}$, $D_{1.c} = \{z_1, y_1\}$.
 \end{enumerate}
 Regarding the nodes, we have:
 \begin{enumerate}[resume]
-\item $X = \{X_0, \ldots, X_{10}\}$, 
-\item $Y_{1.a} = \{X_0\}$, $Y_{2.b} = \{X_1, X_4\} $, $Y_{1.c} = \{X_5, X_8\}$, 
-\item $\Omega = \{X_2, X_3, X_6, X_7, X_9, X_{10}\}$ and $X^0 = X_0$. 
+\item $X = \{X_0, \ldots, X_{10}\}$,
+\item $Y_{1.a} = \{X_0\}$, $Y_{2.b} = \{X_1, X_4\} $, $Y_{1.c} = \{X_5, X_8\}$,
+\item $\Omega = \{X_2, X_3, X_6, X_7, X_9, X_{10}\}$ and $X^0 = X_0$.
 \end{enumerate}
 \label{ch4:ex:Formalism}
 \end{example}
 
-Next, we are going to define notions that relate to the players strategies. 
-Recall that in Chapter \ref{chap:Models}, a \emph{pure strategy} was defined as a choice of one move per information state. More formally, the set of pure strategies for player $i \in N$ is 
+Next, we are going to define notions that relate to the players strategies.
+Recall that in Chapter \ref{chap:Models}, a \emph{pure strategy} was defined as a choice of one move per information state. More formally, the set of pure strategies for player $i \in N$ is
 $$ C_i = \times_{s \in S_i} D_s.$$
 For each $c_i \in C_i$ and each information state $s \in S_i$, we can then define $c_i(s)$ has the move played at information state $s$ for the pure strategy $c_i$.
 Then, by considering possible randomizations between strategies, we define the set of \emph{mixed strategies} for player $i \in N$ as
@@ -327,10 +328,10 @@ Then, by considering possible randomizations between strategies, we define the s
 \Delta C_i = \Delta\left ( \times_{s \in S_i} D_s \right ),
 \label{ch4:eq:mixedStrat}
 \end{equation}
-and finally, the set of all mixed strategy profiles as $\times_{i \in N} \Delta C_i = \times_{i \in N}  \left( \Delta\left ( \times_{s \in S_i} D_s \right ) \right )$. 
+and finally, the set of all mixed strategy profiles as $\times_{i \in N} \Delta C_i = \times_{i \in N}  \left( \Delta\left ( \times_{s \in S_i} D_s \right ) \right )$.
 
 \begin{definition}
-A \emph{behavioural strategy} for player $i \in N$ specifies, at each information state $s \in S_i$, a probability distribution on the moves $D_s$ of the player. That is, the set of all behavioural strategies for $i \in N$ is 
+A \emph{behavioural strategy} for player $i \in N$ specifies, at each information state $s \in S_i$, a probability distribution on the moves $D_s$ of the player. That is, the set of all behavioural strategies for $i \in N$ is
 \begin{equation}
 \times_{s \in S_i}  \Delta D_s.
 \label{ch4:eq:behav}
@@ -346,7 +347,7 @@ Mathematically speaking, mixed strategies (\ref{ch4:eq:mixedStrat}) and behaviou
 Consider the game of Example \ref{ch4:ex:Formalism}.
 We take for the example the following mixed strategy for player 1:
 $$( 0.5[a1,y1] + 0.5 [b1,z1] ). $$
-When implementing its strategy, player 1 is first going to randomize between $a1$ and $b1$. Then, if he did do $b1$, he will have to play again at information state $1.c$, where he should play $z1$. 
+When implementing its strategy, player 1 is first going to randomize between $a1$ and $b1$. Then, if he did do $b1$, he will have to play again at information state $1.c$, where he should play $z1$.
 Thus, the mixed strategy actually corresponds to the following behavioural strategy:
 $$ (0.5 [a1] + 0.5 [b1], [z1]), $$
 where the first part corresponds to the move at informations state $1.a$, and the second to the move at information state $1.b$. \\
@@ -356,7 +357,7 @@ From a mixed strategy profile, it is quite easy to compute a corresponding behav
 
 
 \begin{definition}
-Consider an extensive form game $\Gamma^e$. For any behavioural strategy profile $\tau$ and two nodes $x,y \in X$, we define 
+Consider an extensive form game $\Gamma^e$. For any behavioural strategy profile $\tau$ and two nodes $x,y \in X$, we define
 \begin{enumerate}
 \item $P(y | x, \tau)$ as the probability to reach node $y$ from node $x$ by implementing $\tau$.
 \item $P(y|\tau) = P(y | x^0, \tau)$ as the probability of reaching node $y$ from the root of the tree by implementing $\tau$.
@@ -364,7 +365,7 @@ Consider an extensive form game $\Gamma^e$. For any behavioural strategy profile
 \end{definition}
 
 \begin{example}
-Consider again the game of Example \ref{ch4:ex:Formalism}. Take a general behavioural strategy profile of the form 
+Consider again the game of Example \ref{ch4:ex:Formalism}. Take a general behavioural strategy profile of the form
 $$\tau_1 = (\alpha [a_1] + (1-\alpha) [b_1], \, \beta [y_1] + (1-\beta) [z_1]), \, \tau_2 = (\gamma [x_2] + (1-\gamma) [w_2]).$$
 The implementation of this strategy actually infers that each path in the extensive form tree is going to be followed with some probabilities. This is represented in Figure \ref{ch4:fig:ExtFormProba}.
 \begin{figure}[!ht]
@@ -379,41 +380,41 @@ The implementation of this strategy actually infers that each path in the extens
    }
    child {node[noeud-std] (noeud4) {}
         [sibling distance=4cm]
-        child[level distance=1cm]{node[noeud-std] (noeud5){} 
+        child[level distance=1cm]{node[noeud-std] (noeud5){}
          	[sibling distance=3cm]
          	child[level distance=1cm]{node[noeud-std,fill=white] (noeud6){} }
          	child[level distance=1cm]{node[noeud-std,fill=white] (noeud7){} }}
-        child[level distance=1cm]{node[noeud-std] (noeud8){} 
+        child[level distance=1cm]{node[noeud-std] (noeud8){}
          	[sibling distance=3cm]
          	child[level distance=1cm]{node[noeud-std,fill=white] (noeud9){} }
          	child[level distance=1cm]{node[noeud-std,fill=white] (noeud10){} }}
    };
-   
-%   \node[above=3pt] at (noeud0) {$1.a$};  
-%\node[above=3pt] at (noeud1) {$2.b$};  
-%\node[above=-20pt] at (noeud2) {$3 \, / 2$};   
-%\node[above=-20pt] at (noeud3) {$2 \, / 3$};  
-%\node[above=3pt] at (noeud4) {$2.b$};   
-%\node[above=3pt] at (noeud5) {$1.c$};   
-%\node[above=-20pt] at (noeud6) {$4 \, / 1 $};   
-%\node[above=-20pt] at (noeud7) {$2 \, / 3$};  
-%\node[above=3pt] at (noeud8) {$1.c$}; 
-%\node[above=-20pt] at (noeud9) {$0 \, / 5$}; 
-%\node[above=-20pt] at (noeud10) {$3 \, / 2$};   
- 
 
-\node[above=-25pt] at (noeud0) {$X_0$};   
-\node[above=-25pt] at (noeud1) {$X_1$};   
-\node[above=-25pt] at (noeud2) {$X_2$};   
-\node[above=-25pt] at (noeud3) {$X_3$};   
-\node[above=-25pt] at (noeud4) {$X_4$};   
-\node[above=-25pt] at (noeud5) {$X_5$};   
-\node[above=-25pt] at (noeud6) {$X_6$};   
-\node[above=-25pt] at (noeud7) {$X_7$};   
-\node[above=-25pt] at (noeud8) {$X_8$};   
-\node[above=-25pt] at (noeud9) {$X_9$};   
+%   \node[above=3pt] at (noeud0) {$1.a$};
+%\node[above=3pt] at (noeud1) {$2.b$};
+%\node[above=-20pt] at (noeud2) {$3 \, / 2$};
+%\node[above=-20pt] at (noeud3) {$2 \, / 3$};
+%\node[above=3pt] at (noeud4) {$2.b$};
+%\node[above=3pt] at (noeud5) {$1.c$};
+%\node[above=-20pt] at (noeud6) {$4 \, / 1 $};
+%\node[above=-20pt] at (noeud7) {$2 \, / 3$};
+%\node[above=3pt] at (noeud8) {$1.c$};
+%\node[above=-20pt] at (noeud9) {$0 \, / 5$};
+%\node[above=-20pt] at (noeud10) {$3 \, / 2$};
+
+
+\node[above=-25pt] at (noeud0) {$X_0$};
+\node[above=-25pt] at (noeud1) {$X_1$};
+\node[above=-25pt] at (noeud2) {$X_2$};
+\node[above=-25pt] at (noeud3) {$X_3$};
+\node[above=-25pt] at (noeud4) {$X_4$};
+\node[above=-25pt] at (noeud5) {$X_5$};
+\node[above=-25pt] at (noeud6) {$X_6$};
+\node[above=-25pt] at (noeud7) {$X_7$};
+\node[above=-25pt] at (noeud8) {$X_8$};
+\node[above=-25pt] at (noeud9) {$X_9$};
 \node[above=-25pt] at (noeud10) {$X_{10}$};
-   
+
 \node[above left] at ($(noeud0)!{0.5}!(noeud1)$) {$\alpha$};
 \node[above right] at ($(noeud0)!{0.5}!(noeud4)$) {$1-\alpha$};
 \node[above left] at ($(noeud1)!{0.5}!(noeud2)$) {$\gamma$};
@@ -439,10 +440,10 @@ Here we have for example:
 
 \subsection{Behavioural and Mixed strategies representation.}
 
-In this section, we formalize the link between the behavioural and mixed representation of a same strategy. 
+In this section, we formalize the link between the behavioural and mixed representation of a same strategy.
 Intuitively, these two ways of describing the probabilistic behaviour of an agent must be coherent with the laws of probability, and in particular, their relation must satisfy Bayes' formula.
 \begin{definition}
-Consider an extensive form game $\Gamma^e$. For any \emph{mixed} strategy profile $\sigma$ and two nodes $x,y \in X$, we define 
+Consider an extensive form game $\Gamma^e$. For any \emph{mixed} strategy profile $\sigma$ and two nodes $x,y \in X$, we define
 \begin{enumerate}
 \item $\tilde P(y | x, \sigma)$ as the probability to reach node $y$ from node $x$ by implementing $\sigma$.
 \item $ \tilde P(y|\sigma) = \tilde P(y | x^0, \sigma)$ as the probability of reaching node $y$ from the root of the tree by implementing $\sigma$.
@@ -450,29 +451,29 @@ Consider an extensive form game $\Gamma^e$. For any \emph{mixed} strategy profil
 \end{definition}
 
 \begin{definition}[Compatible pure strategies]
-For $s \in S_i$,  the set of pure strategies compatible with $s$ is defined as 
+For $s \in S_i$,  the set of pure strategies compatible with $s$ is defined as
 $$ C_i^*(s) = \{c_i \in C_i : \exists c_{-i} \in C_{-i} : \sum_{x \in Y_s} \tilde P(x | (c_{-i}, c_i)) > 0\}.$$
-For $s \in S_i$ and $d \in D_s$, the set of pure strategies compatible with $s$ and using $d$ is 
+For $s \in S_i$ and $d \in D_s$, the set of pure strategies compatible with $s$ and using $d$ is
 $$ C_i^{**}(d,s) = \{c_i \in C_i^*(s) : c_i(s) = d\}. $$
 \end{definition}
 
 \begin{definition}[Behavioural representation of mixed strategy]
 For a player $i \in N$, let $\sigma \in \Delta C_i$ be a mixed strategy.
-We say that a behavioural strategy $\tau$ is a \emph{behavioural representation} of $\sigma$ if, 
+We say that a behavioural strategy $\tau$ is a \emph{behavioural representation} of $\sigma$ if,
 $$ \forall s \in S_i, d \in D_s, \, \tau_s(d)\cdot\left ( \sum_{e_i \in C_i^*(s)} \sigma_i(e_i) \right ) = \sum_{c_i \in C_i^{**}(d,s)} \sigma_i(c_i). $$
-Conversely, we say that $\sigma$ is a mixed representation of $\tau$ if 
+Conversely, we say that $\sigma$ is a mixed representation of $\tau$ if
 $$\forall c_i \in C_i, \, \sigma_i(c_i) = \prod_{s \in S_i} \tau_s(c_i(s)).$$
 \end{definition}
 
 \begin{definition}[Mixed representation of behavioural strategy]
 For a player $i \in N$, let $\tau \in \times_{s \in S_i} \Delta  D_s$ be a behavioural strategy.
-We say that a mixed strategy $\sigma$ is a \emph{mixed representation} of $\tau$ if, 
+We say that a mixed strategy $\sigma$ is a \emph{mixed representation} of $\tau$ if,
 $$\forall c_i \in C_i, \, \sigma_i(c_i) = \prod_{s \in S_i} \tau_s(c_i(s)).$$
 \end{definition}
 
 \begin{proposition}
-Consider a game in extensive form $\Gamma^e$ and its strategic form $\Gamma$. 
-At a leaf node $x \in \Omega$, let $w_i(x)$ be the payoff for player $i$ in $\Gamma^e$. 
+Consider a game in extensive form $\Gamma^e$ and its strategic form $\Gamma$.
+At a leaf node $x \in \Omega$, let $w_i(x)$ be the payoff for player $i$ in $\Gamma^e$.
 Let $\tau$ be a behavioural strategy and $\sigma$ be a mixed representation of $\tau$.
 Then
 $$ \forall i \in N, \sum_{x \in \Omega} P(x | \tau) w_i(x) = u_i(\sigma),$$
@@ -483,7 +484,7 @@ that is, the payoff of $\tau$ in the extensive form is the same than the one of 
 Any two mixed strategies in $\Delta(C_i)$ that are behaviourally equivalent are also payoff equivalent.
 \end{theorem}
 
-The theorem above has some interesting consequences. If rational and intelligent players only seek to maximize their payoffs, then this justifies the focus on strategic form games as in Chapter \ref{chap:Nash}. However, the Nash Equilibrium alone does not allow us to discard all irrational strategies. We require something more, a notion of equilibrium where players are rational at every information state of the game. 
+The theorem above has some interesting consequences. If rational and intelligent players only seek to maximize their payoffs, then this justifies the focus on strategic form games as in Chapter \ref{chap:Nash}. However, the Nash Equilibrium alone does not allow us to discard all irrational strategies. We require something more, a notion of equilibrium where players are rational at every information state of the game.
 
 \section{Sequential Equilibrium}
 \label{ch4:sec:Eq}
@@ -497,13 +498,13 @@ A first approach would be to adapt the concept of Nash equilibrium so that it ap
 Given a game in extensive form $\Gamma^e$ with players $N$, information states $S = \bigcup_{i \in N} S_i$ and moves $D = \times_{s \in S} D_s$ the multi-agent representation is a normal-form game
 $\Gamma(S,(D_s)_{s \in S}, (v_s)_{s \in S})$ where
 \begin{itemize}
-\item The set of players of the multi-agent representation is the set of the types $S$, 
-\item The set of pure strategies for type $s \in S$ is the set of moves $D_s$, 
-\item For any player $i \in N$, for  any strategy profile $d = (d_s)_{s \in S}$, for any $s \in S_i$, 
+\item The set of players of the multi-agent representation is the set of the types $S$,
+\item The set of pure strategies for type $s \in S$ is the set of moves $D_s$,
+\item For any player $i \in N$, for  any strategy profile $d = (d_s)_{s \in S}$, for any $s \in S_i$,
 the payoff for type $s$ is given by
 $$ v_s(d) = u_i(c(d)),$$
-where $c(d)$ is a mixed representation of $d$ and $u_i(c(d))$ is the payoff of player $i$ for this mixed-strategy. 
-\end{itemize} 
+where $c(d)$ is a mixed representation of $d$ and $u_i(c(d))$ is the payoff of player $i$ for this mixed-strategy.
+\end{itemize}
 \end{definition}
 \begin{example}
 \label{ch4:ex:cardGameMultiAgent}
@@ -528,7 +529,7 @@ The multi-agent representation of the card game of Example \ref{ch4:ex:cardgame}
 \end{tabular}
 \end{tabular}
 .
-\end{center} 
+\end{center}
 \end{example}
 \begin{theorem}
 Given an extensive form game $\Gamma^e$ and a Nash Equilibrium $\sigma$ of its strategic representation, any behavioural representation of $\sigma$ is a Nash Equilibrium of its multi-agent representation.
@@ -559,37 +560,37 @@ After a few simplifications, we can model this game with the following extensive
    }
    child {node[noeud-std] (noeud4) {}
         [sibling distance=3cm]
-        child[level distance=2cm]{node[noeud-std] (noeud5){} 
+        child[level distance=2cm]{node[noeud-std] (noeud5){}
          	[sibling distance=5cm]
-         	child[level distance=1cm]{node[noeud-std] (noeud6){} 
+         	child[level distance=1cm]{node[noeud-std] (noeud6){}
 				[sibling distance=3cm]
 				child[level distance=1cm]{node[noeud-std,fill=white] (noeud7){} }
     	     	child[level distance=1cm]{node[noeud-std,fill=white] (noeud8){} }
          	}
-         	child[level distance=1cm]{node[noeud-std] (noeud9){}          	
+         	child[level distance=1cm]{node[noeud-std] (noeud9){}
          		[sibling distance=2cm]
          		child[level distance=1cm]{node[noeud-std,fill=white] (noeud10){} }
          		child[level distance=1cm]{node[noeud-std,fill=white] (noeud11){} }
          	}
-        	}	
-  		child[level distance=1cm]{node[noeud-std, fill=white] (noeud12){}}       	
+        	}
+  		child[level distance=1cm]{node[noeud-std, fill=white] (noeud12){}}
    	 	}
    ;
-\node[above=5pt] at (noeud0) {$0$ };  
-\node[above=-20pt] at (noeud1) {$2.b$ };  
-\node[above=-20pt] at (noeud2) {$ 4 \, / 0$ };   
-\node[above=-20pt] at (noeud3) {$3 \, / 1$ };  
-\node[above=5pt] at (noeud4) {$1.a$ };   
-\node[above=5pt] at (noeud5) {$2.b$ };   
-\node[above=5pt] at (noeud6) {$1.c$ };   
-\node[above=-20pt] at (noeud7) {$0 \, / 4$ };  
-\node[above=-20pt] at (noeud8) {$1 \, / 3$ }; 
-\node[above=5pt] at (noeud9) {$1.c$ }; 
-\node[above=-20pt] at (noeud10) {$3 \, / 1$ };   
-\node[above=-20pt] at (noeud11) {$1 \, / 3$ }; 
-\node[above=-20pt] at (noeud12) {$1 \, / 3$}; 
+\node[above=5pt] at (noeud0) {$0$ };
+\node[above=-20pt] at (noeud1) {$2.b$ };
+\node[above=-20pt] at (noeud2) {$ 4 \, / 0$ };
+\node[above=-20pt] at (noeud3) {$3 \, / 1$ };
+\node[above=5pt] at (noeud4) {$1.a$ };
+\node[above=5pt] at (noeud5) {$2.b$ };
+\node[above=5pt] at (noeud6) {$1.c$ };
+\node[above=-20pt] at (noeud7) {$0 \, / 4$ };
+\node[above=-20pt] at (noeud8) {$1 \, / 3$ };
+\node[above=5pt] at (noeud9) {$1.c$ };
+\node[above=-20pt] at (noeud10) {$3 \, / 1$ };
+\node[above=-20pt] at (noeud11) {$1 \, / 3$ };
+\node[above=-20pt] at (noeud12) {$1 \, / 3$};
 
- 
+
 \node[above left] at ($(noeud0)!{0.25}!(noeud1)$) {red: $0.5$};
 \node[above right] at ($(noeud0)!{0.25}!(noeud4)$) {black: $0.5$};
 \node[above left] at ($(noeud1)!{0.25}!(noeud2)$) {meet};
@@ -626,8 +627,8 @@ The multi-agent representation  is given by
 \end{tabular}
 \end{tabular}
 .
-\end{center} 
-where the payoffs are written as $(v_{1.a} / v_{1.c} / v_{2.b})$. Observe that the behavioural strategy profile (fold, pass, atck) is a Nash Equilibrium for the multi-agent representation. The equilibrium brings a payoff of 2 to player 1. However, if player 1  chooses the behavioural strategy (raise, surr) instead of (fold, atck), then he would obtain a payoff of 3!. As a conclusion, the mixed representation of   (fold, pass, atck) is not a Nash Equilibrium for the strategic form of the game, even though it is an equilibrium of the multi-agent representation.  
+\end{center}
+where the payoffs are written as $(v_{1.a} / v_{1.c} / v_{2.b})$. Observe that the behavioural strategy profile (fold, pass, atck) is a Nash Equilibrium for the multi-agent representation. The equilibrium brings a payoff of 2 to player 1. However, if player 1  chooses the behavioural strategy (raise, surr) instead of (fold, atck), then he would obtain a payoff of 3!. As a conclusion, the mixed representation of   (fold, pass, atck) is not a Nash Equilibrium for the strategic form of the game, even though it is an equilibrium of the multi-agent representation.
 \end{example}
 
 
@@ -637,15 +638,15 @@ We now set out to develop the notion of sequential rationality, for characterizi
 
 \begin{definition}[Expected Utility at node $x$]
 Consider a game in extensive form $\Gamma^e$.
-Given a player $i \in N$, a node $x \in X$ and a behavioural strategy profile $\tau$, we let 
+Given a player $i \in N$, a node $x \in X$ and a behavioural strategy profile $\tau$, we let
 $$U_i(\tau, x) = \sum_{y \in \Omega} P(y | \tau, x) w_i(y),$$
-where $w_i(y)$ is the payoff of i at the terminal node $y \in \Omega$. $U_i(\tau, x)$ denotes the expected utility of $i$ at $x$ following $\tau$.  
+where $w_i(y)$ is the payoff of i at the terminal node $y \in \Omega$. $U_i(\tau, x)$ denotes the expected utility of $i$ at $x$ following $\tau$.
 \end{definition}
 
-Now of course, at any given node $x \in X$ if a player can make a decision, this player wants to maximize his utility. However, players only have access to their information states, they don't necessarily know at which node they are. As it is the case in Example \ref{ch4:ex:cardgame}, the behaviour of a player will then depend of a probability distribution he assigns to nodes sharing an information state. We call these \emph{belief vectors}. 
+Now of course, at any given node $x \in X$ if a player can make a decision, this player wants to maximize his utility. However, players only have access to their information states, they don't necessarily know at which node they are. As it is the case in Example \ref{ch4:ex:cardgame}, the behaviour of a player will then depend of a probability distribution he assigns to nodes sharing an information state. We call these \emph{belief vectors}.
 
 \begin{definition}[Belief vectors]
-Consider a game in extensive form $\Gamma^e$ with players $N$, types $S = (S_i)_{i \in N}$ and nodes $X$. Let $Y_s \subset X$ be the set of nodes of the tree that have information state $s$. 
+Consider a game in extensive form $\Gamma^e$ with players $N$, types $S = (S_i)_{i \in N}$ and nodes $X$. Let $Y_s \subset X$ be the set of nodes of the tree that have information state $s$.
 A belief vector $\pi$ is any element of the set
 $$ \times_{s \in S} \Delta Y_s.$$
 For $\pi \in  \times_{s \in S} \Delta Y_s $, $i \in N$ $s \in S_i$, and $x \in Y_s$, $\pi_s(x)$ is the probability assigned by player $i$ to be at node $x$ given the fact that $i$ knows his information state $s$.
@@ -656,12 +657,12 @@ Because players know only their information state when playing a game, instead o
 \begin{definition}[Sequential value]
 Consider a game in extensive form $\Gamma^e$, a belief vector $\pi$ for this game and a behavioural strategy profile $\tau$.
 For a player $i \in N$ at an information state $s \in S_i$, the \emph{sequential value} of the move $d \in D_s$ is given by
-$$ U_i(d| s, (\tau, \pi) ) = \sum_{x \in Y_s} \pi_s(x) U_i((\tau_{-i}, d), x). $$ 
+$$ U_i(d| s, (\tau, \pi) ) = \sum_{x \in Y_s} \pi_s(x) U_i((\tau_{-i}, d), x). $$
 \end{definition}
 
 We can finally define the concept of sequential rationality:
 \begin{definition}[Sequential Rationality]
-Consider a game in extensive form $\Gamma^e$, a belief vector $\pi$ for this game and a behavioural strategy profile $\tau = (\tau_i)_{i \in N}$. The strategy $\tau_i$ is sequentially rational for player $i \in N$ at information state $s \in S_i$ according to $\pi$ if 
+Consider a game in extensive form $\Gamma^e$, a belief vector $\pi$ for this game and a behavioural strategy profile $\tau = (\tau_i)_{i \in N}$. The strategy $\tau_i$ is sequentially rational for player $i \in N$ at information state $s \in S_i$ according to $\pi$ if
 $$\tau_i(s) \in \argmax_{d \in D_s}  U_i(d| s, ( \tau, \pi) ).$$
 We say that $\tau$ is sequentially rational if it is rational at every information state according to $\pi$.
 \end{definition}
@@ -669,38 +670,38 @@ We say that $\tau$ is sequentially rational if it is rational at every informati
 Clearly, sequential rationality needs to be part of any reasonable definition of an equilibrium for extensive form games.
 \begin{example}
 \label{ch4:ex:seqRatio}
-Consider the game of Example \ref{ch4:ex:badEqu}. Let $a$ be the node at information state $1.a$, and $b$ be the node at information state $2.b$. 
-Clearly, we have $\pi_{1.a}(a) = 1$ and $\pi_{1.b}(b) = 1$, since there are one node per information state. These beliefs vectors are actually independent of the strategy played. 
+Consider the game of Example \ref{ch4:ex:badEqu}. Let $a$ be the node at information state $1.a$, and $b$ be the node at information state $2.b$.
+Clearly, we have $\pi_{1.a}(a) = 1$ and $\pi_{1.b}(b) = 1$, since there are one node per information state. These beliefs vectors are actually independent of the strategy played.
 Consider the profile $\tau = (y1, y2)$. We already focused on this profile in Example \ref{ch4:ex:badEqu}, as it is a Nash Equilibrium, but it is not rational. \\
-We can indeed verify that 
+We can indeed verify that
 $$ \argmax_{d \in \{x_2, y_2\}} U_2(d | 2.b, (\tau, \pi)) \, = \{x_2\}. $$
 \end{example}
 
-The example above shows an interesting feature of belief vectors: even if we consider the strategy profile $(y_1, y_2)$, for which information state $2.b$ is not encountered, $\pi_{1.b}$ is still well defined. In the next section, we investigate what constitutes valid \emph{belief vectors}. 
+The example above shows an interesting feature of belief vectors: even if we consider the strategy profile $(y_1, y_2)$, for which information state $2.b$ is not encountered, $\pi_{1.b}$ is still well defined. In the next section, we investigate what constitutes valid \emph{belief vectors}.
 \subsection{Weak consistency: Rationality at states that are believed to occur}
 
 
 How does a rational player compute his believe vector?
-It is clear that belief vectors and behavioural strategy profiles need to be related. A fairly natural approach  would be to use Bayes formula and to compute belief vectors from strategy profiles. 
+It is clear that belief vectors and behavioural strategy profiles need to be related. A fairly natural approach  would be to use Bayes formula and to compute belief vectors from strategy profiles.
 More precisely, one's first idea is to compute the belief vector through the formula:
 $$ \pi_s(y) = \frac{P(y | \tau, x^0)}{\sum_{x \in Y_s} P(x | \tau, x^0)}. $$
-However, the above can fail, simply because the denominator could be equal to zero. The above fails, because some elements of the belief vector may not be well defined. This is the case in Example \ref{ch4:ex:seqRatio}, where $\pi_{2.b}(b) = 1$ but  $ \sum_{y \in Y_{2.b}} P(y | \tau) = 0$. 
+However, the above can fail, simply because the denominator could be equal to zero. The above fails, because some elements of the belief vector may not be well defined. This is the case in Example \ref{ch4:ex:seqRatio}, where $\pi_{2.b}(b) = 1$ but  $ \sum_{y \in Y_{2.b}} P(y | \tau) = 0$.
 
-Bayes formula cannot be used when $\sum_{x \in Y_s} P(x | \tau, x^0) = 0$, corresponding to cases where a given information state cannot be reached (see Example \ref{ch4:ex:seqRatio}). 
+Bayes formula cannot be used when $\sum_{x \in Y_s} P(x | \tau, x^0) = 0$, corresponding to cases where a given information state cannot be reached (see Example \ref{ch4:ex:seqRatio}).
 
 \begin{definition}[Weak Consistency]
 A strategy profile $\pi$ is \emph{weakly consistent} with a behavioural strategy profile $\tau$  if it
-satisfies 
+satisfies
 $$\forall s \in S, \, \forall y \in Y_s, \, \left (\sum_{x \in Y_s} P(x | \tau, x^0)\right ) \pi_s(y) =  P(y | \tau, x^0).$$
 \end{definition}
 % Faire remarque avec Th de Decision
 
 \begin{theorem}
-Consider a game in extensive form $\Gamma^e$. Let $\tau$ be an equilibrium in behavioural strategy and $\pi$ be a belief vector \emph{weakly consistent} with $\tau$. 
-For all player $i \in N$, let 
+Consider a game in extensive form $\Gamma^e$. Let $\tau$ be an equilibrium in behavioural strategy and $\pi$ be a belief vector \emph{weakly consistent} with $\tau$.
+For all player $i \in N$, let
 $$
 S^0_i = \{s \in S_i : \sum_{x \in Y_s} P(x| \tau) > 0\}
-$$ 
+$$
 be the set of all information states occurring with positive probability.
 The equilibrium strategy profile $\tau$ is \emph{sequentially rational} at all information states in $\bigcup_{i \in N} S^0_i$ according to the belief vector $\pi$.
 \label{ch4:th:WeakRatio}
@@ -716,9 +717,9 @@ But how can we characterize the sequential rationality at nodes of  probability 
 \begin{definition}
 A belief vector $\pi$ is \emph{fully consistent} with a behavioural strategy profile $\tau$ in the game $\Gamma^e$ if there exists a sequence of profiles $(\tau^k)_{k = 1}^\infty$ such that
 \begin{itemize}
-\item $\tau^k \in \times_{s \in S} \Delta^0 D_s, \forall k = 1,2,\ldots$ \\ (non-zero probabilities on every move), 
+\item $\tau^k \in \times_{s \in S} \Delta^0 D_s, \forall k = 1,2,\ldots$ \\ (non-zero probabilities on every move),
 \item  $\tau(d) = \lim_{k \rightarrow \infty} \tau^k(d),  \forall i \in N, \forall s \in S_i, \forall d \in D_s $\\
- (sequence converges to the strategy), 
+ (sequence converges to the strategy),
 \item $ \pi_s(x) = \lim_{k \rightarrow \infty} \frac{P(x | \tau^k, x^0)}{\sum_{y \in Y_s}P(y| \tau^k, x^0)}, \forall s \in S, \forall x \in Y_s, $\\
 (belief vector is the limit of the sequence of beliefs given by Bayes rule).
 \end{itemize}
@@ -734,7 +735,7 @@ If a belief vector $\pi$ is strongly consistent with  a strategy $\tau$, it is a
 
 We are finally able to define the concept of \emph{sequential equilibria}:
 \begin{definition}
-A \emph{sequential equilibrium} of an extensive form game $\Gamma^e$ is a pair $(\tau, \pi)$ where $\tau \in \times_{s \in S} \Delta D_s$ is sequentially rational according to $\pi$, and $\pi \in \times_{s \in S} \Delta Y_s$ is a belief vector strongly consistent with $\tau$. 
+A \emph{sequential equilibrium} of an extensive form game $\Gamma^e$ is a pair $(\tau, \pi)$ where $\tau \in \times_{s \in S} \Delta D_s$ is sequentially rational according to $\pi$, and $\pi \in \times_{s \in S} \Delta Y_s$ is a belief vector strongly consistent with $\tau$.
 \label{ch4:def:SeqEq}
 \end{definition}
 
@@ -750,7 +751,7 @@ For any finite extensive form game, the set of sequential equilibria is non-empt
 
 \begin{example}[The signalling game]
 \label{ch4:ex:signalling}
-We consider a two-player game. Player 1 is a student seeking to be hired for a job. He has some private information - he is either highly motivated by the job and will be very productive (type $h$ for \emph{high profile candidate}) or maybe he just wants to get the money 
+We consider a two-player game. Player 1 is a student seeking to be hired for a job. He has some private information - he is either highly motivated by the job and will be very productive (type $h$ for \emph{high profile candidate}) or maybe he just wants to get the money
 and do the least amount of job possible (type $l$ for \emph{low profile candidate}).\\ Based on the result of an exam, Player 2 needs to decide whether to hire player 1 ($H$) or not ($N$). \\
 Regarding this test, player 1 can decide to study for it ($S$) or decide to relax instead ($R$).\\
 The game is represented by the following extensive form.
@@ -760,60 +761,60 @@ The game is represented by the following extensive form.
    [sibling distance=8.5cm]
       child {node[noeud-std] (noeud1) {}
       [sibling distance=4cm]
-      child[level distance=1cm]{node[noeud-std] (noeud2){} 
+      child[level distance=1cm]{node[noeud-std] (noeud2){}
          	[sibling distance=2.5cm]
          	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud3){} }
          	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud4){} }}
-      child[level distance=1cm]{node[noeud-std] (noeud5){} 
+      child[level distance=1cm]{node[noeud-std] (noeud5){}
          	[sibling distance=2.5cm]
          	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud6){} }
          	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud7){} }}
    }
    child {node[noeud-std] (noeud8) {}
        [sibling distance=4cm]
-       child[level distance=1cm]{node[noeud-std] (noeud9){} 
+       child[level distance=1cm]{node[noeud-std] (noeud9){}
          	[sibling distance=2.5cm]
          	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud10){} }
          	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud11){} }}
-       child[level distance=1cm]{node[noeud-std] (noeud12){} 
+       child[level distance=1cm]{node[noeud-std] (noeud12){}
          	[sibling distance=2.5cm]
          	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud13){} }
-         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud14){} }}   
+         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud14){} }}
    }
 ;
 
-\node[above=5pt] at (noeud0) {$0$}; 
-\node[above=-25pt] at (noeud0) {$X_0$}; 
+\node[above=5pt] at (noeud0) {$0$};
+\node[above=-25pt] at (noeud0) {$X_0$};
 \node[above=5pt] at (noeud1) {$1.a$};
-\node[above=-25pt] at (noeud1) {$X_1$};   
-\node[above=5pt] at (noeud2) {$2.c$};  
+\node[above=-25pt] at (noeud1) {$X_1$};
+\node[above=5pt] at (noeud2) {$2.c$};
 \node[above=-25pt] at (noeud2) {$X_2$};
-\node[above=-20pt] at (noeud3) {$-6\, / \, 0$};     
-\node[above=-35pt] at (noeud3) {$X_3$}; 
-\node[above=-20pt] at (noeud4) {$0 \, / \, -2$};   
-\node[above=-35pt] at (noeud4) {$X_4$}; 
-\node[above=5pt] at (noeud5) {$2.d$}; 
+\node[above=-20pt] at (noeud3) {$-6\, / \, 0$};
+\node[above=-35pt] at (noeud3) {$X_3$};
+\node[above=-20pt] at (noeud4) {$0 \, / \, -2$};
+\node[above=-35pt] at (noeud4) {$X_4$};
+\node[above=5pt] at (noeud5) {$2.d$};
 \node[above=-25pt] at (noeud5) {$X_5$};
-\node[above=-20pt] at (noeud6) {$-1 \, / \, 0$};  
-\node[above=-35pt] at (noeud6) {$X_6$};   
- \node[above=-20pt] at (noeud7) {$ 4 \, / \, -2$};  
+\node[above=-20pt] at (noeud6) {$-1 \, / \, 0$};
+\node[above=-35pt] at (noeud6) {$X_6$};
+ \node[above=-20pt] at (noeud7) {$ 4 \, / \, -2$};
 \node[above=-35pt] at (noeud7) {$X_7$};
-\node[above=5pt] at (noeud8) {$1.b$}; 
+\node[above=5pt] at (noeud8) {$1.b$};
 \node[above=-25pt] at (noeud8) {$X_8$};
 \node[above=5pt] at (noeud9) {$2.c$};
 \node[above=-25pt] at (noeud9) {$X_9$};
-\node[above=-35pt] at (noeud10) {$X_{10}$}; 
-\node[above=-20pt] at (noeud10) {$-2 \, / \,0$};   
-\node[above=-35pt] at (noeud11) {$X_{11}$}; 
-\node[above=-20pt] at (noeud11) {$3 \, / \, 4$}; 
-\node[above=5pt] at (noeud12) {$2.d$}; 
+\node[above=-35pt] at (noeud10) {$X_{10}$};
+\node[above=-20pt] at (noeud10) {$-2 \, / \,0$};
+\node[above=-35pt] at (noeud11) {$X_{11}$};
+\node[above=-20pt] at (noeud11) {$3 \, / \, 4$};
+\node[above=5pt] at (noeud12) {$2.d$};
 \node[above=-25pt] at (noeud12) {$X_{12}$};
-\node[above=-35pt] at (noeud13) {$X_{13}$};   
+\node[above=-35pt] at (noeud13) {$X_{13}$};
 \node[above=-20pt] at (noeud13) {$-2\,/\,0$};
-\node[above=-35pt] at (noeud14) {$X_{14}$}; 
-\node[above=-20pt] at (noeud14) {$4 \, / \, 4$}; 
+\node[above=-35pt] at (noeud14) {$X_{14}$};
+\node[above=-20pt] at (noeud14) {$4 \, / \, 4$};
 
-  
+
 \node[above left] at ($(noeud0)!{0.25}!(noeud1)$) {\texttt{l : 0.5}};
 \node[above right] at ($(noeud0)!{0.25}!(noeud8)$) {\texttt{h : 0.5}};
 \node[above right] at ($(noeud1)!{0.25}!(noeud5)$) {\texttt{R}};
@@ -843,7 +844,7 @@ Rr & -1.5, 0 & 4, 1 & 1.5, 0 & 4, 1 \\
 \end{tabular}
 \end{center}
 
-A preliminary analysis of the game\footnote{Which may have been written by a relaxed student...} reveals that $Nn$ is dominated: the employer is trying to hire someone. So is $Sr$. 
+A preliminary analysis of the game\footnote{Which may have been written by a relaxed student...} reveals that $Nn$ is dominated: the employer is trying to hire someone. So is $Sr$.
 
 
 After reduction, we have the following game.
@@ -860,27 +861,27 @@ Rr  &  4, 1  & 1.5, 0 & 4, 1 \\
   The first step is to figure our what are the Nash equilibria of the game. There are only three of them, and they are pure strategy profiles: $([Ss], [Hn])$,  $([Rr], [Hh])$ and $([Rr] , [Nh])$.
 Then, we translate these equilibria in behavioural strategies, and look for strongly consistent belief vectors. Finally, we verify whether or not these behavioural representations are sequentially rational for these belief vectors. When this is the case, we obtain sequential equilibria.
 \begin{enumerate}
-\item Pure equilibrium $([Ss], [Hn])$. 
+\item Pure equilibrium $([Ss], [Hn])$.
 \end{enumerate}
 The behavioural representation of this equilibrium is $\tau_1 = ([S],[s])$, $\tau_2 = ([H],[n])$.
-The belief vectors for information states $1.a$, $1.b$, and $2.c$ are uniquely defined: 
+The belief vectors for information states $1.a$, $1.b$, and $2.c$ are uniquely defined:
 $$
 \pi_{1.a}(X_1) = \pi_{1.b}(X_8) =1, \,  \pi_{2.c}(X_2) = \pi_{2.c}(X_9) = \frac{1}{2}.
 $$
-For this behavioural strategy, the information state $2.d$ cannot be reached: 
+For this behavioural strategy, the information state $2.d$ cannot be reached:
 $$P(X_5 | \tau) + P(X_{12} | \tau) = 0. $$
 By setting for example $\pi_{2.d}(X_5) = \pi_{2.d}(X_{12}) = \frac{1}{2}$, the obtained belief vector is \emph{weakly consistent}. Thus, we know from Theorem \ref{ch4:th:WeakRatio} that the strategy is sequentially rational at information states $1.a, 1.b$ and $2.c$.\\
 Yet the action at information state $2.d$ is very important. Indeed, if it is not rational for player 2 to play the move $n$, then we fall back to a situation alike the one of Example \ref{ch4:ex:badEqu}, where the Nash Equilibrium is not rational.\\
-Thus, assume player $1$ plays $\tau_1^{\alpha, \beta} = (1-\alpha[S] + \alpha [R],1-\beta[s] + \beta [r] )$, and let $\tau = (\tau_{1}^{\alpha, \beta}, \tau_2)$\footnote{Here, $\tau_2 \not \in \times_{s \in S_2} \Delta^0 D_s$. This, however, does not impact the beliefs of the players.}. 
-For all $\alpha, \beta \in [0,1]$, we can compute 
+Thus, assume player $1$ plays $\tau_1^{\alpha, \beta} = (1-\alpha[S] + \alpha [R],1-\beta[s] + \beta [r] )$, and let $\tau = (\tau_{1}^{\alpha, \beta}, \tau_2)$\footnote{Here, $\tau_2 \not \in \times_{s \in S_2} \Delta^0 D_s$. This, however, does not impact the beliefs of the players.}.
+For all $\alpha, \beta \in [0,1]$, we can compute
 $$\pi_{2.d}(X_5) = \frac{P(X_5 | \tau)}{ P(X_5 | \tau) + P(X_{12} | \tau) }  = \frac{\alpha}{\alpha + \beta}.$$
 For $Hn$ to be sequentially rational at information state $2.d$, there must be $\alpha, \beta$ small such that the \emph{sequential value} of the move $n$ should be greater or equal to that of $h$. Here, we have
 $$ U_2(n | 2.d, (\tau, \pi)) = \frac{0\alpha+0\beta}{\alpha+\beta} = 0 ,$$
-whereas 
+whereas
 $$U_2(h | 2.d, (\tau, \pi)) = \frac{-2 \alpha+ 4\beta}{\alpha+\beta}. $$
 We wish to investigate the case where it would be rational for player $2$ to play $n$ over $h$ at information state $2.d$. Thus, we require $-2 \alpha+ 4\beta \leq 0$, which is the case when  $\beta \leq 0.5\alpha$. For this to be true, we may set $\beta = \alpha/2$, in which case we obtain
 $$ \pi_{2.d}(X_5) = \frac{2}{3}, \, \pi_{2.d}(X_{12}) = \frac{1}{3}. $$
-So far, we have seen that the behavioural representation of our considered equilibrium was \emph{sequentially rational} when following the belief vector defined above. In order to verify the definition of \emph{sequential equilibrium}, we just need to show that the belief vector is strongly consistent. 
+So far, we have seen that the behavioural representation of our considered equilibrium was \emph{sequentially rational} when following the belief vector defined above. In order to verify the definition of \emph{sequential equilibrium}, we just need to show that the belief vector is strongly consistent.
 
 To do so, we set $$ \tau_1^k = (1 - \alpha_k [S] + \alpha_k [R], 1-\beta_k [s] + \beta_k [r]), \tau_2^k = (\epsilon_k [N] + 1 - \epsilon_k [H], \epsilon_k [h] +  1-\epsilon_k [n]), $$
 and we wish to find expressions for $\alpha_k, \beta_k, \epsilon_k$ such that, first, $(\tau_1^k , \tau_2^k )\rightarrow (\tau_1, \tau_2)$ as $k \rightarrow \infty$, and second, $\pi$ is the limit of $\pi^k$, obtained by applying Bayes formula with $\tau_1^k, \tau_2^k$. \\
@@ -892,19 +893,19 @@ $$ \alpha_k =  \frac{1}{k}, \, \beta_k = \frac{0.5}{k}, \, \epsilon_k = \frac{1}
 \item The equilibrium $([Rr], [Hh])$.
 \end{enumerate}
 
-This situation is similar to the one above, and can be solved using the same approach. 
+This situation is similar to the one above, and can be solved using the same approach.
 The problem lies in defining the beliefs at state $2.c$, which is the node reached when a candidate  (unexpectedly) studies instead of relaxing. Intuitively, our strategy would then be rational under the condition that our beliefs would be ``the candidate is then likely to have a high profile''.
 
 Thus, assume player $1$ plays $\tau_1^{\alpha, \beta} = (\alpha[S] + 1-\alpha [R],\beta[s] + 1-\beta [r] )$, and let $\tau = (\tau_{1}^{\alpha, \beta}, \tau_2)$. Note that as $\alpha, \beta  \rightarrow 0$, $\tau$ converges to a behavioural representation of $([Rr], [Hh])$.
-For all $\alpha, \beta \in [0,1]$, we can compute 
-$$\pi_{2.c}(X_2) = \frac{P(X_2 | \tau)}{ P(X_2 | \tau) + P(X_9 | \tau) }  = \frac{\alpha}{\alpha + \beta}.$$ 
+For all $\alpha, \beta \in [0,1]$, we can compute
+$$\pi_{2.c}(X_2) = \frac{P(X_2 | \tau)}{ P(X_2 | \tau) + P(X_9 | \tau) }  = \frac{\alpha}{\alpha + \beta}.$$
 
 We may then compare the sequential values of the moves $H$ versus $N$, which should satisfy the inequality
 $$ U_2(N | 2.c, \pi) = \frac{0 (\alpha + \beta)}{\alpha + \beta} \leq \frac{( - 2\alpha + 4 \beta)}{\alpha + \beta} = U_2(H | 2.c , \pi),  $$
-implying $\beta  \geq \alpha/2$. 
+implying $\beta  \geq \alpha/2$.
 We are now able to show that the behavioural strategy $([R] + [r], [H] + [h])$, coupled with the strongly consistent belief vector generated e.g. by the sequence of strategies
 $$ \tau_1^k = (\alpha_k [S] + 1-\alpha_k [R], \beta_k [s] + 1-\beta_k [r]), \tau_2^k = (\epsilon_k [N] + 1 - \epsilon_k [H], \epsilon_k [h] +  1-\epsilon_k [n]), $$
-where 
+where
 $$\alpha_k =\frac{1}{k}, \, \beta_k = \frac{0.5}{k}, \, \epsilon_k = \frac{1}{k},$$
 forms a sequential equilibrium.
 
@@ -912,12 +913,12 @@ forms a sequential equilibrium.
 \item The equilibrium $([Rr], [Nh])$.
 \end{enumerate}
 
-We can show that the above corresponds to a sequential equilibria, with a belief vector that reflects that for player 2, in the unlikely scenario that the candidate did study, it is more likely that the candidate has a low profile. 
+We can show that the above corresponds to a sequential equilibria, with a belief vector that reflects that for player 2, in the unlikely scenario that the candidate did study, it is more likely that the candidate has a low profile.
 \end{example}
 \ifx \globalmark \undefined %% This is default.
 \bibliographystyle{plain}
 \bibliography{../gametheorybibliography}
 	\end{document}
-\else 
-	
+\else
+
 \fi

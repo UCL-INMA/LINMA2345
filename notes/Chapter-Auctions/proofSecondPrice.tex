@@ -6,7 +6,7 @@ As a reminder, we have two players, player 1 and player 2, who each have a valua
 \end{enumerate}
 
 However, we know that the last case will happen with a probability zero.
-Notice the difference in the utility functions between the proof of Theorem 17 and this proof. This difference is due to the fact that Theorem 17 is looking at a sealed-bid \textit{first-price} auction, whereas Theorem 18 is looking at a sealed-bid \textit{second-price} auction. 
+Notice the difference in the utility functions between the proof of Theorem 17 and this proof. This difference is due to the fact that Theorem 17 is looking at a sealed-bid \textit{first-price} auction, whereas Theorem 18 is looking at a sealed-bid \textit{second-price} auction.
 
 \vspace{5mm}
 
@@ -15,7 +15,7 @@ First, let us show that $b_1 \parent{v_1} = v_1$ is a best response for player 1
 We need to compute
 \begin{equation*}
     b_1^{*}
-    = \text{argmax} \ 
+    = \text{argmax} \
     \parent{v_1 - b_2} \cdot \mathbb{P} \squared{b_1 > B_2}
     + \dfrac{1}{2} \parent{v_1 - b_2} \cdot \mathbb{P} \squared{b_1 = B_2}
 \end{equation*}
@@ -73,7 +73,7 @@ where $f_{B_2} \parent{b_2}$ is the probability density function of $B_2$. We ar
 
 As a reminder, if $X \sim \text{Unif} \parent{a, b}$, then
 \begin{equation*}
-f_{X}\parent{x} = 
+f_{X}\parent{x} =
     \begin{cases}
         \dfrac{1}{b-a}  & {\text{for }} x \in [a,b], \\
         0               & {\text{otherwise}}.
@@ -102,7 +102,7 @@ where the function $g$ is defined like
     \begin{cases}
        \int_{0}^{b_1} \parent{v_1 - b_2} \mathrm{d} b_2     & 0 \leq b_1 \leq 1, \\
        \int_{0}^{0} \parent{v_1 - b_2} \mathrm{d} b_2       & b_1 < 0, \\
-       \int_{0}^{1} \parent{v_1 - b_2} \mathrm{d} b_2       & b_1 > 1. \\ 
+       \int_{0}^{1} \parent{v_1 - b_2} \mathrm{d} b_2       & b_1 > 1. \\
      \end{cases}
 \end{equation*}
 
@@ -113,7 +113,7 @@ Computing the integrals, we find $\int_{0}^{b_1} \parent{v_1 - b_2} \mathrm{d} b
     \begin{cases}
        b_{1} \cdot \parent{v_1 - \dfrac{b_1}{2}}    & 0 \leq b_1 \leq 1, \\
        0                                            & b_1 < 0, \\
-       v_1 - \dfrac{1}{2}                           & b_1 > 1. \\ 
+       v_1 - \dfrac{1}{2}                           & b_1 > 1. \\
      \end{cases}
 \end{equation*}
 
@@ -124,14 +124,14 @@ We can compute the differential of $g$ with respect to $b_1$. We find
     \begin{cases}
        v_1 - b_1  & 0 \leq b_1 \leq 1, \\
        0 & b_1 < 0, \\
-       0 & b_1 > 1. \\ 
+       0 & b_1 > 1. \\
      \end{cases}
 \end{equation*}
 
 Hence we find the value of $b_1^{*}$ by cancelling the derivative. We find
 \begin{equation*}
     g' \parent{b_1^{*}} = 0
-    \Leftrightarrow 
+    \Leftrightarrow
     \begin{cases}
        v_1 = b_1^{*}  & 0 \leq b_1 \leq 1, \\
        0 & b_1 < 0, \\
@@ -139,9 +139,9 @@ Hence we find the value of $b_1^{*}$ by cancelling the derivative. We find
      \end{cases}
 \end{equation*}
 
-We know that $b_1 < 0$ and $b_1 > 1$ are absurd. Hence we only consider the case $0 \leq b_1 \leq 1$, and we conclude that $b_1^{*} = b_1 \parent{v_1} = v_1$. 
+We know that $b_1 < 0$ and $b_1 > 1$ are absurd. Hence we only consider the case $0 \leq b_1 \leq 1$, and we conclude that $b_1^{*} = b_1 \parent{v_1} = v_1$.
 
-Finally, it is important to do a continuity check. 
+Finally, it is important to do a continuity check.
 
 
 \vspace{5mm}
