@@ -14,7 +14,7 @@ First, let us show that $b_1 \parent{v_1} = \frac{1}{2} v_1$ is a best response 
 We need to compute
 \begin{equation*}
     b_1^{*}
-    = \text{argmax} \ 
+    = \text{argmax} \
     \parent{v_1 - b_1} \cdot \mathbb{P} \squared{b_1 > B_2}
     + \dfrac{1}{2} \parent{v_1 - b_1} \cdot \mathbb{P} \squared{b_1 = B_2}
 \end{equation*}
@@ -66,7 +66,7 @@ where the function $f$ is defined like
     \begin{cases}
        2 b_1 \parent{v_1 - b_1}  & 0 \leq b_1 \leq \frac{1}{2}, \\
        0 & b_1 < 0, \\
-       \parent{v_1 - b_1} & b_1 > \frac{1}{2}. \\ 
+       \parent{v_1 - b_1} & b_1 > \frac{1}{2}. \\
      \end{cases}
 \end{equation*}
 
@@ -77,23 +77,23 @@ We can compute the differential of $f$ with respect to $b_1$. We find
     \begin{cases}
        2 \parent{v_1 - 2 b_1}  & 0 \leq b_1 \leq \frac{1}{2}, \\
        0 & b_1 < 0, \\
-       -1 & b_1 > \frac{1}{2}. \\ 
+       -1 & b_1 > \frac{1}{2}. \\
      \end{cases}
 \end{equation*}
 
 Hence we find the value of $b_1^{*}$ by cancelling the derivative. We find
 \begin{equation*}
     f' \parent{b_1^{*}} = 0
-    \Leftrightarrow 
+    \Leftrightarrow
     \begin{cases}
        \frac{1}{2} v_1 = b_1^{*}  & 0 \leq b_1 \leq \frac{1}{2}, \\
        0 & b_1 < 0.
      \end{cases}
 \end{equation*}
 
-We know that $b_1 < 0$ is absurd. Hence we only consider the case $0 \leq b_1 \leq \frac{1}{2}$, and we conclude that $b_1^{*} = b_1 \parent{v_1} = \frac{1}{2} v_1$. 
+We know that $b_1 < 0$ is absurd. Hence we only consider the case $0 \leq b_1 \leq \frac{1}{2}$, and we conclude that $b_1^{*} = b_1 \parent{v_1} = \frac{1}{2} v_1$.
 
-Finally, it is important to do a continuity check. 
+Finally, it is important to do a continuity check.
 
 
 \vspace{5mm}
