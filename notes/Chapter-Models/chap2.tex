@@ -33,14 +33,14 @@ In order to introduce the models, we begin, in Example \ref{chap2:example:game},
 \TAtwo{} asks \TAone{} to play a game. He explains the rules as follows:
 \begin{enumerate}
 \item Both players put $1\EUR$ on a table. \label{ex1}
-\item  \TAtwo{} picks a card randomly out of a regular deck of 52 cards. He looks at the card privately. \label{ex2}
+\item \TAtwo{} picks a card randomly out of a regular deck of 52 cards. He looks at the card privately. \label{ex2}
 \item At this point, two options are available to him: \label{ex3}
 	\begin{enumerate}
-	\item He reveals the card to $\TAone{}$. If the card is \emph{red}, $\TAtwo{}$ gets all the money on the table, and if \emph{black}, $\TAone{}$ gets all the money. \label{ex3a}
-	\item He chooses not to reveal the card, and raises the bet puts an additional  $1\EUR$ on the table. In this case, then $\TAone{}$ has to decide to either \label{ex3b}
+	\item He reveals the card to \TAone{}. If the card is \emph{red}, \TAtwo{} gets all the money on the table, and if \emph{black}, \TAone{} gets all the money. \label{ex3a}
+	\item He chooses not to reveal the card, and raises the bet, i.e, he puts an additional $1\EUR$ on the table. In this case, \TAone{} has to decide to either \label{ex3b}
 	\begin{enumerate}
-		\item Folding, letting $\TAone{}$ win the game, or \label{ex3b1}
-		\item meeting the raise, adding $1\EUR$ on the table. In this case, the card is revealed, and $\TAtwo{}$ wins everything if it is \emph{red}, or $\TAone{}$ wins if it is \emph{black}. \label{ex3b2}
+		\item fold, letting \TAtwo{} win the game, or \label{ex3b1}
+		\item meet the raise, adding $1\EUR$ on the table. In this case, the card is revealed, and \TAtwo{} wins everything if it is \emph{red}, or \TAone{} wins if it is \emph{black}. \label{ex3b2}
 	\end{enumerate}
 	In any case, \textbf{the game ends here}.
 	\end{enumerate}
@@ -49,8 +49,8 @@ In order to introduce the models, we begin, in Example \ref{chap2:example:game},
 At this point, we would like to encourage the reader to reflect on the game of Example \ref{chap2:example:game}.
 In particular, we are interested by the following questions
 \begin{itemize}
-	\item What should $\TAtwo{}$ do in the situation \ref{ex3}? When should he reveal the card, and when should he raise the bet?
-	\item What should $\TAone{}$ do in the situation \ref{ex3b2}? Should he meet the raise, or fold?
+	\item What should \TAtwo{} do in the situation \ref{ex3}? When should he reveal the card, and when should he raise the bet?
+	\item What should \TAone{} do in the situation \ref{ex3b}? Should he meet the raise, or fold?
 \end{itemize}
 Rest assured that answering these questions is not trivial at all! In fact, the answers will not come until Chapter \ref{chap:Nash}.
 
@@ -74,7 +74,7 @@ Maybe the first step in analyzing a game is to single out the answers to the fol
 We invite you to answer these questions for the game of Example \ref{chap2:example:game}, and provide two examples next.
 
 \begin{example}[Answers for the game of Chess]
-$\,$\\
+$\,$
 \begin{enumerate}
 \item There are at least two players,
 \item at their turn, they can move any chess piece and take one of the other player piece as long as it obeys the rules,
@@ -86,7 +86,7 @@ $\,$\\
 To the chess fans: we are leaving lots of interesting details aside.
 \end{example}
 \begin{example}[Answers for the game of Poker]
-$\,$\\
+$\,$
 \begin{enumerate}
 \item There are two or more players around a table,
 \item at their turn, player learn about their own hands (not the others, they may bid, raise, fold, etc...,
@@ -119,7 +119,7 @@ Other events are controlled by players, and are more commonly referred to as \em
 They correspond to a player doing something at some point of the game.
 After a sequence of events, the game ends, and players receive their payoffs.
 
-In order to capture these notions, the \emph{extensive form game} takes to form of a \emph{tree.}
+In order to capture these notions, the \emph{extensive form game} takes the form of a \emph{tree}.
  For the sake of understanding, we begin with by illustrating the concepts with Example \ref{ch2:ex:theTree}.
 
 
@@ -203,8 +203,8 @@ Next, we add structure to represent in which sequence the actions can be taken.
 \item To each chance node $v \in V_0$, we attach a distribution $p_x \in \Delta(V)$, which corresponds to the probability of reaching some node in the graph from the node $v$ as a result of uncertainty.
 \item For each state $s \in \bigcup S_i$, for each node $y \in Y_s$ and each action $d \in D_s$ that can be chosen at this state, we let $t_s(y,d) \in V$ be the destination node attained in the tree.
 \end{enumerate}
-Once the tree is defined (of course, the distributions $p_v$ and transition functions $t_s$ much be chosen such that we obtain a tree), it actually provides a sequential representation of the game.
-\item The last element we need is a \emph{utility function} $w : X \rightarrow \reels^N$, that assigns a value to each player in each leaf of the tree. Here, we simply put the amount of money each player has in the end of the game, assuming they each begin with 4 coins in their pockets.
+Once the tree is defined (of course, the distributions $p_x$ and transition functions $t_s$ much be chosen such that we obtain a tree), it actually provides a sequential representation of the game.
+\item The last element we need is a \emph{utility function} $w : X \rightarrow \reels^N$, that assigns a value to each player in each leaf of the tree. Here, we simply put the amount of money each player has in the end of the game, assuming they each begin with two $1\EUR$ coins in their pockets.
 \end{itemize}
 \end{example}
 
@@ -233,7 +233,7 @@ where
 \item $X \subset V$ is the set of \emph{leafs}.
 \item $t = (t_s)_{s \in S}$ are transitions, where for each information state $s$,  $t_s : Y_s \times D_s \rightarrow V$ assigns to every \emph{source node} $y \in Y_s$ and action $d \in D_s$ a destination node $x \in V$.
 \item $p = (p_{x})_{x \in V_0}$ assigns a probability distribution $p_x \in \Delta(V)$ to each chance node $x \in V_0$.
-\item $w : X \rightarrow \reels^N$ is a utility function, assigning to each leaf $x \in X$ .
+\item $w : X \rightarrow \reels^N$ is a utility function, assigning a vector $w(x) \in \reels^N$ where the $n$-th entry represents the utility outcome of player $n$ to each leaf $x \in X$ .
 \end{itemize}
 \end{definition}
 
@@ -282,8 +282,8 @@ Let us begin with the concept of decision. In Chapter \ref{chap:Decision}, we as
  In our current context, the decision of a player $i$ consists in choosing, at all $s \in S_i$, an action $d \in D_s$ to perform.\\
  This leads us to the concept of \emph{pure strategy}. \\
  \begin{definition} [Pure strategy]
-Given a game in extensive form $\Gamma_e$, a \emph{pure strategy} for a player $i \in N$ is a element
-$c \in C_i = \times_{s \in S_i} D_s$, acting as a function that associate to each information  state of the player a \emph{move} to be played at that state.
+Given a game in extensive form $\Gamma_e$, a \emph{pure strategy} for a player $i \in N$ is an element
+$c \in C_i = \times_{s \in S_i} D_s$, acting as a function that associates to each information  state of the player a \emph{move} to be played at that state.
 \end{definition}
 \begin{example}
 In Example \ref{chap2:example:game},
@@ -293,21 +293,21 @@ with two moves at each. A possible strategy is
 \TAone{} has 2 pure strategies, since he has only 1 information state and 2 available moves at this state.
 These strategies are \emph{always raise} and \emph{always pass}.
 \end{example}
- Later, and in particular in Chapter \ref{chap:Seq}, we consider the possibility for a player to chose a randomized strategy: he will pick at each state $s \in S_i$ a distribution $\sigma_s \in \Delta(D_s)$, and pick $d \in D_s$ with probability $\sigma_s(d)$.
+ Later, and in particular in Chapter \ref{chap:Seq}, we consider the possibility for a player to choose a randomized strategy: he will pick at each state $s \in S_i$ a distribution $\sigma_s \in \Delta(D_s)$, and pick $d \in D_s$ with probability $\sigma_s(d)$.
 
-Once such a decision in made, the player receives a prize depending on the realization of uncertainty at chance nodes as well as the moves of other players. Hence, we way to define a \emph{state of the world} is to
+Once such a decision is made, the player receives a prize depending on the realization of uncertainty at chance nodes as well as the moves of other players. Hence, a way to define a \emph{state of the world} is to
 let $\Omega$ be a set containing first the probability distributions on the uncertainty at chance nodes, and second the strategy (or randomized strategies) played by other players at their information states.
 
-Interestingly, this alone teaches us something about how a rational and intelligent decision maker should reflect on a game! Indeed, the Utility Maximization Theorem states that a player should possess a \emph{conditional probability function}, expressing thus is own beliefs on what the other players will do in the game.
+Interestingly, this alone teaches us something about how a rational and intelligent decision maker should reflect on a game! Indeed, the Utility Maximization Theorem states that a player should possess a \emph{conditional probability function}, expressing thus its own beliefs on what the other players will do in the game.
 \subsection{The strategic form}
 \label{subsec:StratForm}
 
 A \emph{strategic form game} can be seen as a summary of an extensive form game, where we keep only the answers to the questions
 \begin{center}
-\textit{Who are the players, what can they do, and what they will receive by doing so?}
+\textit{Who are the players, what can they do, and what will they receive by doing so?}
 \end{center}
 
-To answer this question, we focus on \emph{pure strategies} and they \emph{payoffs}.
+To answer these questions, we focus on \emph{pure strategies} and their \emph{payoffs}.
 
 
 \begin{definition}[The strategic form]
@@ -325,22 +325,22 @@ When constructing a strategic form game from a game in extensive form, the payof
 $$u_i(c) = \sum_{\text{leaf $\ell$ in the tree}} p(\ell|c) w_i(\ell), $$
 where $w_i(\ell)$ is the payoff of player $i$ at a leaf denoted by $\ell$ in the tree, and $p(\ell|c)$ is the probability of reaching that leaf if the players picked their strategies following $c$.
 \end{definition}
-Throughout the course, we will focus on finite games, that are games where both the sets $N$ and $C$ are finite.
+Throughout the course, we will focus on finite games, i.e., games where both the sets $N$ and $C$ are finite.
 \begin{example}
 For Example \ref{chap2:example:game}, the set of players is $N = \{1,2\}$,
 the pure strategies for each players are
  $$C_1 = \begin{pmatrix}
-Raise/raise, \\
-Raise/fold, \\
-Fold/raise, \\
-Fold/fold.
+Raise/raise \\
+Raise/fold \\
+Fold/raise \\
+Fold/fold
 \end{pmatrix}, C_2 = \begin{pmatrix}
-meet,\\
-pass.
+meet\\
+pass
 \end{pmatrix},$$
-and the set $C$ are given as the cartesian product of $C_1$ and $C_2$.
+and the set $C$ is given by the cartesian product of $C_1$ and $C_2$.
 Consider now the strategy profile $c = (Raise/fold, meet)$.
-The payoff are then given by
+The payoffs are then given by
 $$u(c) = \frac{1}{2} \cdot (4,0) + 0 \cdot (3,1)+ 0 \cdot (0,4) + 0 \cdot (3,1) + \frac{1}{2} \cdot (1,3) = (2.5,1.5).$$
 \end{example}
 
@@ -351,7 +351,7 @@ A normal representation is a table in $N$ dimensions
  (one dimension per player),
  and represents the payoff function
  $u : C \rightarrow \reels^N$.
- We prefer an example to a definition here:
+ We prefer an example to a definition here.
 \begin{example}
 The \emph{normal representation} of the game of Example $\ref{chap2:example:game}$ is given at Figure \ref{chap2:table}
 By convention, we always refer to the player on the left of the table as the \emph{first} player,
@@ -373,7 +373,8 @@ Fold/fold & 2, 2 & 2, 2
 \end{example}
 
 The strategic form is built using \emph{pure} strategies. In practice, there are games where one would rather \emph{randomize} between strategies.
-For example,  in rock-paper-scissor, the pure strategies are to play \emph{rock},  \emph{paper} or \emph{scissors}. However, in practice, people often try to play rock, paper or scissor with probability 1/3 each.
+For example, in rock-paper-scissors, the pure strategies are to play \emph{rock}, \emph{paper} or \emph{scissors}. However, in practice, people
+often try to play rock, paper or scissors with probability 1/3 each.
 
 \begin{definition}[Randomized strategy]
 Given a player $i \in N$ and its set of strategies $C_i$, a \emph{randomized strategy} for the player is a probability distribution $\sigma_i \in \Delta(C_i)$:
@@ -783,7 +784,7 @@ Fold  & 1/3 & 1/3 \\
 The belief function of \TAone{} is $p_2(\text{red} | \text{gambler}) = \alpha$,  $p_2(\text{black}|\text{gambler}) = 1-\alpha$.
  \end{example}
 
- Representing the belief functions of each player can be cumbersome. This can be made easier is the beliefs are \emph{consistent}:
+ Representing the belief functions of each player can be cumbersome. This can be made easier if the beliefs are \emph{consistent}:
  \begin{definition}[Consistent beliefs]
  We say that the belief functions $p = (p_i)_{i \in N}$ are \emph{consistent} if there exists an a-priori probability distribution $P \in \Delta(T)$ such that for all $t_{-i} \in T_{-i} $, $t_i \in T_i$,
   $$ p_i(t_{-{i}} | t_i) = \frac{P(t_i, t_{-i})}{\sum_{s \in T_{-i}} P( t_i, s) } $$
