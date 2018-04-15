@@ -16,373 +16,477 @@
 Chapter based on \cite[pages 308 - 331]{MyGTAO}, \cite[Section 6.1]{ShLeMSAG}.}\\
 }
 
-A repeated game is a strategic situation where a set of players play a same game several times in a row. These situations occur quite often in real life, and in fact, most of our every-day interactions can be seen as part of a repeated game.\\
-Interestingly, the behavior of a player in a repeated game may be different than that of the same player when playing the game only once. For example, while we know that the only Nash Equilibrium of
-the Prisoner Dilemma game is for both players to betray the other, cooperation may occur rationally in the repeated game setting.
+A repeated game is a strategic situation where a set of players play a same
+game several times in a row. These situations occur quite often in real life
+, and in fact, most of our everyday interactions can be seen as part of a
+repeated game.\\
+Interestingly, the behavior of a player in a repeated game may be different
+than that of the same player when playing the game only once. For example,
+while we know that the only Nash Equilibrium of the Prisoner's Dilemma game
+is for both players to betray the other, cooperation may occur rationally
+in the repeated game setting.
 
-The chapter is split in three sections, presenting matters from the more particular to the more general. Section \ref{sec:FinRep} discusses finitely repeated game, that can be studied directly with the analysis tools of previous chapters. Section \ref{sec:InfRep} discusses infinitely repeated games. There, we start observing interesting phenomena, in particular concerning the Prisoner's Dilemma. Finally, in Section \ref{sec:GenMod}, we present a more general and involved model for repeated games, and discuss the notions of equilibria in more details.
+The chapter is split in three sections, presenting matters from the more
+particular to the more general. Section~\ref{sec:FinRep} discusses finitely
+repeated game, that can be studied directly with the analysis tools of
+previous chapters. Section~\ref{sec:InfRep} discusses infinitely repeated
+games. There, we start observing interesting phenomena, in particular
+concerning the Prisoner's Dilemma. Finally, in Section~\ref{sec:GenMod}, we
+present a more general and involved model for repeated games, and discuss
+the notions of equilibria in more details.
 
 \section{Finitely repeated games}
 \label{sec:FinRep}
-In a \emph{finitely repeated games}, players play to \emph{a same game $\Gamma$} repeatedly for a finite number of times $K$. The number $K$ is known to the players at the beginning of the game. This situation is represented in Figure \ref{fig:repeatedFiniteNumberOfTimes}.
-\begin{figure}[!ht]
-\centering
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, semithick, scale = 1, transform shape ]
-\node	(start)								{Start};
-\node[state] 	(n1)    	[right of = start]		{Round 1};
-\node[state] 	(n2)		[right of = n1]			{Round 2};
-\node	(dots)		[right of = n2]			{$\cdots$};
-\node[state] 	(nk)		[right of = dots]		{Round K};
-\node	(stop)		[right of = nk]			{Stop};
-\path 	(start) edge node {}	(n1)
-		(n1)	edge node {}	(n2)
-		(n2)	edge node {}	(dots)
-		(dots)	edge node {}	(nk)
-		(nk) 	edge node {}	(stop);
-\end{tikzpicture}
-\caption{Finitely Repeated Games}
-\label{fig:repeatedFiniteNumberOfTimes}
-\end{figure}
-After each round, the players collect their payoffs and then move on to the next.
+In a \emph{finitely repeated games}, players play to \emph{a same game
+$\Gamma$} repeatedly for a finite number of times $K$. The number $K$ is
+known to the players at the beginning of the game. This situation is
+represented in Figure~\ref{fig:repeatedFiniteNumberOfTimes}.
 
-A finitely repeated game can be written as a classical game, where players have to decide before the first round on a strategy to play at each round.
-The next example illustrates this on the Prisoner Dilemma.
-\begin{example}[Twice Repeated Prisoner Dilemma]
-\label{ch9:ex:PD1}
-Consider the prisoner dilemma game $\Gamma$ below
-\begin{center}
-\begin{tabular}{c|cc}
- Prisoner Dilemma & c & d \\
-\hline
-C & 1, 1 & -1, 2 \\
-D & 2, -1 & 0, 0
-\end{tabular}
+\begin{figure}[!ht]
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, semithick, scale = 1, transform shape ]
+        \node	(start)								{Start};
+        \node[state] 	(n1)    	[right of = start]		{Round 1};
+        \node[state] 	(n2)		[right of = n1]			{Round 2};
+        \node	(dots)		[right of = n2]			{$\cdots$};
+        \node[state] 	(nk)		[right of = dots]		{Round K};
+        \node	(stop)		[right of = nk]			{Stop};
+        \path 	(start) edge node {}	(n1)
+                (n1)	edge node {}	(n2)
+                (n2)	edge node {}	(dots)
+                (dots)	edge node {}	(nk)
+                (nk) 	edge node {}	(stop);
+    \end{tikzpicture}
+    \caption{Finitely Repeated Games.}
+    \label{fig:repeatedFiniteNumberOfTimes}
+\end{figure}
+After each round, the players collect their payoffs and then move on to
+the next.
+
+A finitely repeated game can be written as a classical game, where players
+have to decide before the first round on a strategy to play at each round.
+The next example illustrates this on the Prisoner's Dilemma.
+\begin{example}[Twice Repeated Prisoner's Dilemma]
+    \label{ch9:ex:PD1}
+    Consider the Prisoner's Dilemma game $\Gamma$ below
+    \begin{center}
+    \begin{tabular}{c|cc}
+        Prisoner's Dilemma & c & d \\
+        \hline
+        C & 1, 1 & -1, 2 \\
+        D & 2, -1 & 0, 0
+    \end{tabular}
 \end{center}
-The only Nash Equilibrium is the situation where both players defect $(D,d)$. However, it has been observe that, in many social interactions, players have a natural tendency to cooperate.
-Furthermore, it makes sense, intuitively, that if one is going to interact with another on several occasions, it would be rational to show ourselves as agreeable and cooperative in order to foster a prosperous relation.
+The only Nash Equilibrium is the situation where both players defect
+$(D,d)$. However, it has been observed that, in many social interactions,
+players have a natural tendency to cooperate.
+Furthermore, it makes sense, intuitively, that if one is going to interact
+with another on several occasions, it would be rational to show ourselves
+as agreeable and cooperative in order to foster a prosperous relation.
 
-Let us see what happens then when the game is repeated twice. The players are now faced with the situation represented in Figure \ref{fig:2PDtree}.
+Let us see what happens then when the game is repeated twice. The players
+are now faced with the situation represented in Figure~\ref{fig:2PDtree}.
 \begin{figure}[!ht]
-\centering
-\begin{tikzpicture}
-\node[noeud-std] (n1) {}
-   [sibling distance=8.5cm]
-      child {node[noeud-std] (n2-1c) {} % 1
-      [sibling distance=4cm]
-		   	 child{node[noeud-std] (n1-1c2c){} % 2
-      		   	[sibling distance=2cm]
-      		   	child{node[noeud-std] (n2-1c2c1c){}  % 1
-       		  		[sibling distance = 1cm]
-      		   			 child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2c1c2c){} } % 1
-      		   			 child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2c1c2d){} } % 1
-      		   		 }
-     		    child{node[noeud-std] (n2-1c2c1d){}  % 1
-         			[sibling distance = 1cm]
-         		 		child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2c1d2c){} } % 1
-         		 		child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2c1d2d){} } % 1
-         		 	}
-    	  	}
-    	    child{node[noeud-std] (n1-1c2d){} % 2
-      		   	[sibling distance=2cm]
-      		   	child{node[noeud-std] (n2-1c2d1c){}  % 1
-       		  		[sibling distance = 1cm]
-      		   			 child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2d1c2c){} } % 1
-      		   			 child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2d1c2d){} } % 1
-      		   		 }
-     		    child{node[noeud-std] (n2-1c2d1d){}  % 1
-         			[sibling distance = 1cm]
-         		 		child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2d1d2c){} } % 1
-         		 		child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2d1d2d){} } % 1
-         		 	}
-    	  	}
-   }
-   child {node[noeud-std] (n2-1d) {} % 1
-      [sibling distance=4cm]
-		   	 child{node[noeud-std] (n1-1d2c){} % 2
-      		   	[sibling distance=2cm]
-      		   	child{node[noeud-std] (n2-1d2c1c){}  % 1
-       		  		[sibling distance = 1cm]
-      		   			 child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2c1c2c){} } % 1
-      		   			 child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2c1c2d){} } % 1
-      		   		 }
-     		    child{node[noeud-std] (n2-1d2c1d){}  % 1
-         			[sibling distance = 1cm]
-         		 		child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2c1d2c){} } % 1
-         		 		child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2c1d2d){} } % 1
-         		 	}
-    	  	}
-    	    child{node[noeud-std] (n1-1d2d){} % 2
-      		   	[sibling distance=2cm]
-      		   	child{node[noeud-std] (n2-1d2d1c){}  % 1
-       		  		[sibling distance = 1cm]
-      		   			 child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2d1c2c){} } % 1
-      		   			 child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2d1c2d){} } % 1
-      		   		 }
-     		    child{node[noeud-std] (n2-1d2d1d){}  % 1
-         			[sibling distance = 1cm]
-         		 		child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2d1d2c){} } % 1
-         		 		child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2d1d2d){} } % 1
-         		 	}
-    	  	}
-   }
+    \centering
+    \begin{tikzpicture}
+    \node[noeud-std] (n1) {}
+       [sibling distance=8.5cm]
+          child {node[noeud-std] (n2-1c) {} % 1
+          [sibling distance=4cm]
+                 child{node[noeud-std] (n1-1c2c){} % 2
+                    [sibling distance=2cm]
+                    child{node[noeud-std] (n2-1c2c1c){}  % 1
+                        [sibling distance = 1cm]
+                             child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2c1c2c){} } % 1
+                             child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2c1c2d){} } % 1
+                         }
+                    child{node[noeud-std] (n2-1c2c1d){}  % 1
+                        [sibling distance = 1cm]
+                            child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2c1d2c){} } % 1
+                            child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2c1d2d){} } % 1
+                        }
+                }
+                child{node[noeud-std] (n1-1c2d){} % 2
+                    [sibling distance=2cm]
+                    child{node[noeud-std] (n2-1c2d1c){}  % 1
+                        [sibling distance = 1cm]
+                             child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2d1c2c){} } % 1
+                             child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2d1c2d){} } % 1
+                         }
+                    child{node[noeud-std] (n2-1c2d1d){}  % 1
+                        [sibling distance = 1cm]
+                            child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2d1d2c){} } % 1
+                            child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2d1d2d){} } % 1
+                        }
+                }
+       }
+       child {node[noeud-std] (n2-1d) {} % 1
+          [sibling distance=4cm]
+                 child{node[noeud-std] (n1-1d2c){} % 2
+                    [sibling distance=2cm]
+                    child{node[noeud-std] (n2-1d2c1c){}  % 1
+                        [sibling distance = 1cm]
+                             child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2c1c2c){} } % 1
+                             child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2c1c2d){} } % 1
+                         }
+                    child{node[noeud-std] (n2-1d2c1d){}  % 1
+                        [sibling distance = 1cm]
+                            child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2c1d2c){} } % 1
+                            child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2c1d2d){} } % 1
+                        }
+                }
+                child{node[noeud-std] (n1-1d2d){} % 2
+                    [sibling distance=2cm]
+                    child{node[noeud-std] (n2-1d2d1c){}  % 1
+                        [sibling distance = 1cm]
+                             child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2d1c2c){} } % 1
+                             child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2d1c2d){} } % 1
+                         }
+                    child{node[noeud-std] (n2-1d2d1d){}  % 1
+                        [sibling distance = 1cm]
+                            child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2d1d2c){} } % 1
+                            child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2d1d2d){} } % 1
+                        }
+                }
+       }
 
-;
-%
-\node[above=5pt] at (n1) {$1.a$};
-\node[above left] at ($(n1)!{0.5}!(n2-1c)$) {C};
-\node[above right] at ($(n1)!{0.5}!(n2-1d)$) {D};
+    ;
+    %
+    \node[above=5pt] at (n1) {$1.a$};
+    \node[above left] at ($(n1)!{0.5}!(n2-1c)$) {C};
+    \node[above right] at ($(n1)!{0.5}!(n2-1d)$) {D};
 
-\node[above=5pt] at (n2-1c) {$2.b$};
-\node[above left] at ($(n2-1c)!{0.5}!(n1-1c2c)$) {c};
-\node[above right] at ($(n2-1c)!{0.5}!(n1-1c2d)$) {d};
-\node[above=5pt] at (n1-1c2c) {$1.c$};
-\node[above left] at ($(n1-1c2c)!{0.5}!(n2-1c2c1c)$) {C};
-\node[above right] at ($(n1-1c2c)!{0.5}!(n2-1c2c1d)$) {D};
-\node[above=5pt] at (n2-1c2c1d) {$2.d$};
-\node[above left] at ($(n2-1c2c1d)!{0.5}!(p-1c2c1d2c)$) {c};
-\node[above right] at ($(n2-1c2c1d)!{0.5}!(p-1c2c1d2d)$) {d};
-\node[above=5pt] at (n2-1c2c1c) {$2.d$};
-\node[above left] at ($(n2-1c2c1c)!{0.5}!(p-1c2c1c2c)$) {c};
-\node[above right] at ($(n2-1c2c1c)!{0.5}!(p-1c2c1c2d)$) {d};
-\node[above=5pt] at (n1-1c2d) {$1.e$};
-\node[above left] at ($(n1-1c2d)!{0.5}!(n2-1c2d1c)$) {C};
-\node[above right] at ($(n1-1c2d)!{0.5}!(n2-1c2d1d)$) {D};
-\node[above=5pt] at (n2-1c2d1d) {$2.f$};
-\node[above left] at ($(n2-1c2d1d)!{0.5}!(p-1c2d1d2c)$) {c};
-\node[above right] at ($(n2-1c2d1d)!{0.5}!(p-1c2d1d2d)$) {d};
-\node[above=5pt] at (n2-1c2d1c) {$2.f$};
-\node[above left] at ($(n2-1c2d1c)!{0.5}!(p-1c2d1c2c)$) {c};
-\node[above right] at ($(n2-1c2d1c)!{0.5}!(p-1c2d1c2d)$) {d};
+    \node[above=5pt] at (n2-1c) {$2.b$};
+    \node[above left] at ($(n2-1c)!{0.5}!(n1-1c2c)$) {c};
+    \node[above right] at ($(n2-1c)!{0.5}!(n1-1c2d)$) {d};
+    \node[above=5pt] at (n1-1c2c) {$1.c$};
+    \node[above left] at ($(n1-1c2c)!{0.5}!(n2-1c2c1c)$) {C};
+    \node[above right] at ($(n1-1c2c)!{0.5}!(n2-1c2c1d)$) {D};
+    \node[above=5pt] at (n2-1c2c1d) {$2.d$};
+    \node[above left] at ($(n2-1c2c1d)!{0.5}!(p-1c2c1d2c)$) {c};
+    \node[above right] at ($(n2-1c2c1d)!{0.5}!(p-1c2c1d2d)$) {d};
+    \node[above=5pt] at (n2-1c2c1c) {$2.d$};
+    \node[above left] at ($(n2-1c2c1c)!{0.5}!(p-1c2c1c2c)$) {c};
+    \node[above right] at ($(n2-1c2c1c)!{0.5}!(p-1c2c1c2d)$) {d};
+    \node[above=5pt] at (n1-1c2d) {$1.e$};
+    \node[above left] at ($(n1-1c2d)!{0.5}!(n2-1c2d1c)$) {C};
+    \node[above right] at ($(n1-1c2d)!{0.5}!(n2-1c2d1d)$) {D};
+    \node[above=5pt] at (n2-1c2d1d) {$2.f$};
+    \node[above left] at ($(n2-1c2d1d)!{0.5}!(p-1c2d1d2c)$) {c};
+    \node[above right] at ($(n2-1c2d1d)!{0.5}!(p-1c2d1d2d)$) {d};
+    \node[above=5pt] at (n2-1c2d1c) {$2.f$};
+    \node[above left] at ($(n2-1c2d1c)!{0.5}!(p-1c2d1c2c)$) {c};
+    \node[above right] at ($(n2-1c2d1c)!{0.5}!(p-1c2d1c2d)$) {d};
 
-\node[above=5pt] at (n2-1d) {$2.g$};
-\node[above left] at ($(n2-1d)!{0.5}!(n1-1d2c)$) {c};
-\node[above right] at ($(n2-1d)!{0.5}!(n1-1d2d)$) {d};
-\node[above=5pt] at (n1-1d2c) {$1.h$};
-\node[above left] at ($(n1-1d2c)!{0.5}!(n2-1d2c1c)$) {C};
-\node[above right] at ($(n1-1d2c)!{0.5}!(n2-1d2c1d)$) {D};
-\node[above=5pt] at (n2-1d2c1d) {$2.i$};
-\node[above left] at ($(n2-1d2c1d)!{0.5}!(p-1d2c1d2c)$) {c};
-\node[above right] at ($(n2-1d2c1d)!{0.5}!(p-1d2c1d2d)$) {d};
-\node[above=5pt] at (n2-1d2c1c) {$2.i$};
-\node[above left] at ($(n2-1d2c1c)!{0.5}!(p-1d2c1c2c)$) {c};
-\node[above right] at ($(n2-1d2c1c)!{0.5}!(p-1d2c1c2d)$) {d};
-\node[above=5pt] at (n1-1d2d) {$1.h$};
-\node[above left] at ($(n1-1d2d)!{0.5}!(n2-1d2d1c)$) {C};
-\node[above right] at ($(n1-1d2d)!{0.5}!(n2-1d2d1d)$) {D};
-\node[above=5pt] at (n2-1d2d1d) {$2.j$};
-\node[above left] at ($(n2-1d2d1d)!{0.5}!(p-1d2d1d2c)$) {c};
-\node[above right] at ($(n2-1d2d1d)!{0.5}!(p-1d2d1d2d)$) {d};
-\node[above=5pt] at (n2-1d2d1c) {$2.j$};
-\node[above left] at ($(n2-1d2d1c)!{0.5}!(p-1d2d1c2c)$) {c};
-\node[above right] at ($(n2-1d2d1c)!{0.5}!(p-1d2d1c2d)$) {d};
+    \node[above=5pt] at (n2-1d) {$2.b$};
+    \node[above left] at ($(n2-1d)!{0.5}!(n1-1d2c)$) {c};
+    \node[above right] at ($(n2-1d)!{0.5}!(n1-1d2d)$) {d};
+    \node[above=5pt] at (n1-1d2c) {$1.g$};
+    \node[above left] at ($(n1-1d2c)!{0.5}!(n2-1d2c1c)$) {C};
+    \node[above right] at ($(n1-1d2c)!{0.5}!(n2-1d2c1d)$) {D};
+    \node[above=5pt] at (n2-1d2c1d) {$2.h$};
+    \node[above left] at ($(n2-1d2c1d)!{0.5}!(p-1d2c1d2c)$) {c};
+    \node[above right] at ($(n2-1d2c1d)!{0.5}!(p-1d2c1d2d)$) {d};
+    \node[above=5pt] at (n2-1d2c1c) {$2.h$};
+    \node[above left] at ($(n2-1d2c1c)!{0.5}!(p-1d2c1c2c)$) {c};
+    \node[above right] at ($(n2-1d2c1c)!{0.5}!(p-1d2c1c2d)$) {d};
+    \node[above=5pt] at (n1-1d2d) {$1.i$};
+    \node[above left] at ($(n1-1d2d)!{0.5}!(n2-1d2d1c)$) {C};
+    \node[above right] at ($(n1-1d2d)!{0.5}!(n2-1d2d1d)$) {D};
+    \node[above=5pt] at (n2-1d2d1d) {$2.j$};
+    \node[above left] at ($(n2-1d2d1d)!{0.5}!(p-1d2d1d2c)$) {c};
+    \node[above right] at ($(n2-1d2d1d)!{0.5}!(p-1d2d1d2d)$) {d};
+    \node[above=5pt] at (n2-1d2d1c) {$2.j$};
+    \node[above left] at ($(n2-1d2d1c)!{0.5}!(p-1d2d1c2c)$) {c};
+    \node[above right] at ($(n2-1d2d1c)!{0.5}!(p-1d2d1c2d)$) {d};
 
-\path (n2-1d)  edge [dashed] node {} (n2-1c);
-\path (n2-1c2c1d)  edge [dashed] node {} (n2-1c2c1c);
-\path (n2-1c2d1d)  edge [dashed] node {} (n2-1c2d1c);
-\path (n2-1d2c1d)  edge [dashed] node {} (n2-1d2c1c);
-\path (n2-1d2d1d)  edge [dashed] node {} (n2-1d2d1c);
+    \path (n2-1d)  edge [dashed] node {} (n2-1c);
+    \path (n2-1c2c1d)  edge [dashed] node {} (n2-1c2c1c);
+    \path (n2-1c2d1d)  edge [dashed] node {} (n2-1c2d1c);
+    \path (n2-1d2c1d)  edge [dashed] node {} (n2-1d2c1c);
+    \path (n2-1d2d1d)  edge [dashed] node {} (n2-1d2d1c);
 
-\node[below = 5pt] at ($(p-1c2c1c2c)$) {2,2};
-\node[below = 5pt] at ($(p-1c2c1c2d)$) {0,3};
-\node[below = 5pt] at ($(p-1c2c1d2c)$) {3,0};
-\node[below = 5pt] at ($(p-1c2c1d2d)$) {1,1};
-
-
-\node[below = 5pt] at ($(p-1c2d1c2c)$) {0,3};
-\node[below = 5pt] at ($(p-1c2d1c2d)$) {-2,4};
-\node[below = 5pt] at ($(p-1c2d1d2c)$) {1,1};
-\node[below = 5pt] at ($(p-1c2d1d2d)$) {-1,2};
+    \node[below = 5pt] at ($(p-1c2c1c2c)$) {2,2};
+    \node[below = 5pt] at ($(p-1c2c1c2d)$) {0,3};
+    \node[below = 5pt] at ($(p-1c2c1d2c)$) {3,0};
+    \node[below = 5pt] at ($(p-1c2c1d2d)$) {1,1};
 
 
-\node[below = 5pt] at ($(p-1d2c1c2c)$) {3,0};
-\node[below = 5pt] at ($(p-1d2c1c2d)$) {0,3};
-\node[below = 5pt] at ($(p-1d2c1d2c)$) {4,-2};
-\node[below = 5pt] at ($(p-1d2c1d2d)$) {2,-1};
+    \node[below = 5pt] at ($(p-1c2d1c2c)$) {0,3};
+    \node[below = 5pt] at ($(p-1c2d1c2d)$) {-2,4};
+    \node[below = 5pt] at ($(p-1c2d1d2c)$) {1,1};
+    \node[below = 5pt] at ($(p-1c2d1d2d)$) {-1,2};
 
 
-\node[below = 5pt] at ($(p-1d2d1c2c)$) {1,1};
-\node[below = 5pt] at ($(p-1d2d1c2d)$) {-1,2};
-\node[below = 5pt] at ($(p-1d2d1d2c)$) {2,-1};
-\node[below = 5pt] at ($(p-1d2d1d2d)$) {0,0};
+    \node[below = 5pt] at ($(p-1d2c1c2c)$) {3,0};
+    \node[below = 5pt] at ($(p-1d2c1c2d)$) {0,3};
+    \node[below = 5pt] at ($(p-1d2c1d2c)$) {4,-2};
+    \node[below = 5pt] at ($(p-1d2c1d2d)$) {2,-1};
 
-\end{tikzpicture}
-\caption{The twice repeated prisoner dilemma, in extensive form. The payoffs at the terminal nodes are the sum of those at both rounds. }
-\label{fig:2PDtree}
+
+    \node[below = 5pt] at ($(p-1d2d1c2c)$) {1,1};
+    \node[below = 5pt] at ($(p-1d2d1c2d)$) {-1,2};
+    \node[below = 5pt] at ($(p-1d2d1d2c)$) {2,-1};
+    \node[below = 5pt] at ($(p-1d2d1d2d)$) {0,0};
+
+    \end{tikzpicture}
+    \caption{The twice repeated Prisoner's Dilemma, in extensive form.
+    The payoffs at the terminal nodes are the sum of those at both
+    rounds.}
+    \label{fig:2PDtree}
 \end{figure}
 
-For the analysis, we begin by studying how should the player act at the second round. Clearly, they only want to maximize their contributions to their own payoffs. Hence, in the second round, they should select $([D],[d])$ (Nash Equilibrium).
-Knowing this, we can infer (by recurrence) that the players should pick $([D],[d])$ as well in the first round.
+For the analysis, we begin by studying how should the player act at the
+second round. Clearly, they only want to maximize their contributions to
+their own payoffs. Hence, in the second round, they should select
+$([D],[d])$ (Nash Equilibrium).
+Knowing this, we can infer (by recurrence) that the players should pick
+$([D],[d])$ as well in the first round.
 
-In conclusion, when playing a finitely repeated version of the Prisoner's Dilemma, players should always defect at every round.
-We did the exercise for when the game is repeated twice, but this holds for any fixed number $K$ of repetitions.
+In conclusion, when playing a finitely repeated version of the Prisoner's
+Dilemma, players should always defect at every round.
+We did the exercise for when the game is repeated twice, but this holds
+for any fixed number $K$ of repetitions.
 \end{example}
 
-The study of repeated games calls for the definition of an appropriate notion of \emph{strategy}. The following definition, informal, carries on to the infinitely repeated case.
+The study of repeated games calls for the definition of an appropriate
+notion of \emph{strategy}. The following informal definition carries on
+to the infinitely repeated case.
 \begin{definition}[Strategy in a repeated game (informal)]
-In a repeated game with $N$ players, a strategy for player $i$ defines, at each round $k = 1, \ldots, $ a (randomized) strategy to play for the game at round $k$ given the information available at the begining of round $k$.
+In a repeated game with $N$ players, a strategy for player $i$ defines,
+at each round $k = 1, 2, \ldots$ a (randomized) strategy to play for the
+game at round $k$ given the information available at the beginning of
+round $k$.
 \end{definition}
 
-Let us linger a bit longer on what constitute \emph{information} for a player in round $k$. A player should at least be aware of \emph{the history of his moves and payoffs} so far.
-The players may also know the others move, or their payoffs, depending on the scenario.
-
+Let us linger a bit longer on what constitutes \emph{information} for a
+player in round $k$. A player should at least be aware of
+\emph{the history of his moves and payoffs} so far.
+The players may also know other players moves or their payoffs depending
+on the scenario.
 
 \begin{definition}[Stationary Strategy (informal)]
-In a repeated game, a \emph{stationary strategy} is a strategy that depends only on the current round.
+In a repeated game, a \emph{stationary strategy} is a strategy that
+depends only on the current round.
 \end{definition}
 
 \begin{proposition}[Equilibrium in Finitely Repeated Prisoner's Dilemma]
-In a finitely repeated prisoner's Dilemma, the unique equilibrium strategy is stationary, where each player defect at every turn.
+In a finitely repeated Prisoner's Dilemma, the unique equilibrium
+strategy is stationary, where each player defect at every round.
 \end{proposition}
 
-Remarkably, in \emph{infinitely repeated games}, the players will have access to a richer array of actions and payoffs. They will not be confined to playing Nash Equilibria at each round, but they will now be able to learn and adapt their moves in accordance to the history of the game. In particular, we can observe the rise of cooperation in the prisoner's Dilemma in the infinitely repeated setting.
-
+Remarkably, in \emph{infinitely repeated games}, the players will have
+access to a richer array of actions and payoffs. They will not be
+confined to playing Nash Equilibria at each round, but they will now be
+able to learn and adapt their moves in accordance to the history of the
+game. In particular, we can observe the rise of cooperation in the
+Prisoner's Dilemma in the infinitely repeated setting.
 
 \section{Infinitely Repeated Games}
 \label{sec:InfRep}
 
-In an infinitely repeated game, all the players involved know that they will have to play the game an infinite amount of time.
-At each round, player gather their payoffs for the current round before playing the next (see Figure \ref{fig:infiRepeated}).
-\begin{figure}[]
-\centering
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, semithick, scale = 1, transform shape ]
-\node	(start)								{Start};
-\node[state] 	(nk)    	[right of = start]		{Round k};
-\path 	(start) edge node {}	(nk)
-		(nk)	edge [loop left, out = -30, in = 30, distance = 2cm] node[right] {$k := k +1$}	(nk);
-\end{tikzpicture}
-\caption{Infinitely Repeated Games}
-\label{fig:infiRepeated}
+In an infinitely repeated game, all the players involved know that they
+will have to play the game an infinite amount of time.
+At each round, players gather their payoffs for the current round before
+playing the next (see Figure~\ref{fig:infiRepeated}).
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, semithick, scale = 1, transform shape ]
+        \node	(start)								{Start};
+        \node[state] 	(nk)    	[right of = start]		{Round k};
+        \path 	(start) edge node {}	(nk)
+                (nk)	edge [loop left, out = -30, in = 30, distance = 2cm] node[right] {$k := k +1$}	(nk);
+    \end{tikzpicture}
+    \caption{Infinitely Repeated Games.}
+    \label{fig:infiRepeated}
 \end{figure}
+
 \begin{notation}[Time superscript]
-Given a sequence $r$ in time, we use the superscript $r^{[t]}$ to denote the element of the sequence $r$ at time $t$.
+Given a sequence $r$ in time, we use the superscript $r^{[t]}$ to denote
+the element of the sequence $r$ at time $t$.
 \end{notation}
+
 \begin{definition}[Standard Repeated Game]
-A \emph{standard repeated game} is an infinitely repeated game where a same game $\Gamma$ is repeated infinitely and where at each round $k$, every player knows all the players past moves.
+A \emph{standard repeated game} is an infinitely repeated game where a
+same game $\Gamma$ is repeated infinitely and where at each round $k$,
+every player knows all the players past moves.
 \end{definition}
-When playing a repeated game, players needs to select some strategy to be played instead of others. To do so, they need to be able to express preferences, as prescribed by Decision Theory.
-The following provides two classical notions of "payoffs" in repeated games, allowing to compare the sequences of payoffs resulting from a choice of strategy.
+
+When playing a repeated game, players needs to select some strategy to be
+played instead of others. To do so, they need to be able to express
+preferences, as prescribed by Decision Theory.
+The following definitions provide two classical criteria for ranking
+payoffs in repeated games.
+
 \begin{definition}[Average and Discounted Payoffs]
-Given a sequence of payoffs $r_i^{[1]}, r_i^{[2]}, \ldots$ for player $i$ in an infinitely repeated game,
+Given a sequence of payoffs $r_i^{[1]}, r_i^{[2]}, \ldots$ for player $i$
+in an infinitely repeated game,
 \begin{itemize}
-\item the \emph{average payoff} of $i$ is
-\begin{equation}
- \lim_{k \rightarrow \infty} \frac{\sum_{j = 1}^k r_i^{[j]}}{k},
- \label{eq:averagePayoffRep}
- \end{equation}
-\item for a \emph{discount factor} $ 0 \leq \delta < 1$, the \emph{$\delta-$discounted payoff} is
-\begin{equation}
-\sum_{j = 1}^{\infty} \delta^{j-1} r_i^{[j]}.
-\label{eq:discountedPayoffRep}
- \end{equation}
- \item for a \emph{discount factor} $ 0 \leq \delta < 1$, the \emph{$\delta-$discounted average payoff} is
-\begin{equation}
-(1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1} r_i^{[j]}.
-\label{eq:discountedAvgPayoffRep}
- \end{equation}
+    \item the \emph{limit average payoff} of $i$ is
+    \begin{equation}
+        \lim_{k \rightarrow \infty} \frac{\sum_{j = 1}^k r_i^{[j]}}{k}.
+        \label{eq:averagePayoffRep}
+    \end{equation}
+    Note that this limit may not exist (but more sophisticated
+    limit definitions can be used to circumvent this),
+    \item for a \emph{discount factor} $0 \leq \delta < 1$, the
+    \emph{$\delta-$discounted payoff} is
+    \begin{equation}
+        \sum_{j = 1}^{\infty} \delta^{j-1} r_i^{[j]}.
+        \label{eq:discountedPayoffRep}
+    \end{equation}
+    \item for a \emph{discount factor} $0 \leq \delta < 1$, the
+    \emph{$\delta-$discounted average payoff} is
+    \begin{equation}
+        (1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1} r_i^{[j]}.
+        \label{eq:discountedAvgPayoffRep}
+    \end{equation}
 \end{itemize}
 \end{definition}
-Other notions can be used, see \cite[page 315]{MyGTAO}.
+Other criteria exist, see~\cite[page 315]{MyGTAO}.
 
 The \emph{discounted payoff} can be interpreted in a number of ways.\\
-The \emph{discount factor} $\delta$ is commonly understood as a measure of the player's \emph{patience}: the closer to $0$, the more the player aims at obtaining immediate payoffs, and the closer to $1$, the more the player is willing to wait for future payoffs.\\
-Another way to interpret the discount factor is as a \emph{probability that the game is repeated one more round} (see Figure \ref{fig:infiRepeatedDiscount}). There, in order to obtain the payoff $r_i^{(j)}$, the game must be repeated $j-1$ times, which occurs with probability $\delta^{j-1}$. The discounted payoff is then the expected payoff of the game under this interpretation.\\
-The \emph{discounted average payoff} is a normalized version of the discounted payoff, where if $r_i^{[t]} = 1$ for all $t$,
-$$ (1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1} 1 = 1. $$
-\begin{figure}[]
-\centering
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=7cm, semithick, scale = 1, transform shape ]
-\node	(start)								{Start};
-\node [state] 	(nk)    	[right of = start]		{Round k};
-\node	(stop)			[right of = nk]					{Stop};
-\path 	(start) edge node {}	(nk)
-		(nk)	edge [loop above] node {Probability $\delta$,  $k := k +1$}	(nk)
-		(nk) edge[]node{Probability $1-\delta$} (stop);
-\end{tikzpicture}
-\caption{Interpretation of discounted payoff: the game ends with probability $1 - \delta$.}
-\label{fig:infiRepeatedDiscount}
+The \emph{discount factor} $\delta$ is commonly understood as a measure
+of the player's \emph{patience}: the closer to $0$, the more the player
+aims at obtaining immediate payoffs, and the closer to $1$, the more the
+player is willing to wait for future payoffs.\\
+Another way to interpret the discount factor is as a \emph{probability
+that the game is repeated one more round} (see
+Figure~\ref{fig:infiRepeatedDiscount}). There, in order to obtain the
+payoff $r_i^{(j)}$, the game must be repeated $j-1$ times, which occurs
+with probability $\delta^{j-1}$. The discounted payoff is then the
+expected payoff of the game under this interpretation.\\
+The \emph{discounted average payoff} is a normalized version of the
+discounted payoff, where if $r_i^{[t]} = 1$ for all $t$,
+$$(1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1} 1 = 1.$$
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=7cm, semithick, scale = 1, transform shape ]
+        \node (start) {Start};
+        \node [state] (nk) [right of = start] {Round $k$};
+        \node (stop) [right of = nk] {Stop};
+        \path (start) edge node {} (nk)
+        (nk) edge [loop above] node {Probability $\delta$, $k := k +1$}
+        (nk) (nk) edge[] node{Probability $1-\delta$} (stop);
+    \end{tikzpicture}
+    \caption{Interpretation of discounted payoff: the game ends with
+    probability $1 - \delta$.}
+    \label{fig:infiRepeatedDiscount}
 \end{figure}
 
-
-
 \begin{definition}[Equilibrium for Repeated Games (informal)]
-An equilibrium of a repeated game is a set of strategies (one per player) where each strategy is a best response to the others, in that it maximizes the selected payoff criterion given the others strategies.
+An equilibrium of a repeated game is a set of strategies (one per player)
+where each strategy is a best response to the others, in that it maximizes
+the selected payoff criterion given the others strategies.
 \end{definition}
 
 \begin{example}
 \label{ch9:ex:trigger}
-In an infinitely repeated version of the Prisoner's Dilemma, cooperation can appear as a rational strategy to be played at each round.
-Consider a discount factor $\delta$ and the game of Example \ref{ch9:ex:PD1}.
-
-We define the strategy of the player as follows: each player is suppose to start the game by cooperating then, if at any turn a player defects, the other reacts by defecting for the rest of the game.
-
+In an infinitely repeated version of the Prisoner's Dilemma, cooperation
+can appear as a rational strategy to be played at each round.
+Consider a discount factor $\delta$ and the game of
+Example~\ref{ch9:ex:PD1}.
+We define the strategy of the player as follows: each player is supposed
+to start the game by cooperating. Then, if at any round a player defects,
+the other reacts by defecting for the rest of the game.
 The $\delta$-discounted payoff for the strategy is
-$$ \sum_{j = 1}^{\infty}(\delta)^{j-1} 1 = \frac{1}{1-\delta}$$
-where players cooperate at every turn.
-If a player defects at the first turn, he has a payoff of $2$, independent of $\delta$.
+$$\sum_{j = 1}^{\infty}(\delta)^{j-1} 1 = \frac{1}{1-\delta}$$
+where players cooperate at every round.
+If a player defects at the first round, he gets a payoff of $2$ and then
+always gets a payoff of $0$ because the other player reacts by always
+defecting. His total payoff is then simply $2$, independently of $\delta$.
 Consequently, if
-$$ \frac{1}{1-\delta} \geq 2 \Leftrightarrow \delta \geq 0.5, $$
-the  strategy is an equilibrium, leading to a cooperative output for the game.
+$$\frac{1}{1-\delta} \geq 2 \Leftrightarrow \delta \geq 0.5,$$
+the  strategy is an equilibrium, leading to a cooperative outcome for
+the game.
 \end{example}
 
-
-In the example above, the strategy leading to the cooperative equilibrium punishes a player for uncooperative behaviors.
-Other classical strategies, leading to cooperative equilibria, are as follows.
+In the example above, the strategy leading to the cooperative equilibrium
+infinitely punishes a player for uncooperative behaviors. This is called
+the \textbf{grim} (or \textbf{trigger}) strategy. Other classical
+strategies, leading to cooperative equilibria, are as follows
 \begin{itemize}
-\item \textbf{Grim:} The grim strategy is that of Example \ref{ch9:ex:trigger}. We begin the game with cooperation and continue cooperating at each round unless the other player defects. From this point on, we defect.
-\item \textbf{Tit-for-tat:} We begin by cooperating and then, at every round, we chose the move of our opponent at the last round.
-\item \textbf{Getting-even:} We begin by cooperating, and continue cooperating \emph{unless} the opponent has defected more time that we did defect. If this is the case, we defect.
+    \item \textbf{tit-for-tat}: we begin by cooperating and then, at every
+    round, we choose the move of our opponent at the last round,
+    \item \textbf{getting-even}: we begin by cooperating, and continue
+    cooperating \emph{unless} the opponent has defected more time that
+    we did. If this is the case, we defect.
 \end{itemize}
 
 \subsection{Folk Theorems and Cooperation}
-Infinitely repeated games offer opportunities for cooperative behaviors, which can be linked to the theory of cooperative game theory.
-The following is taken from  \cite[Theorem 6.15]{ShLeMSAG}.
+Infinitely repeated games offer opportunities for cooperative behaviors,
+which can be linked to the theory of cooperative game theory.
+The following is taken from~\cite[Theorem 6.15]{ShLeMSAG}.
 \begin{theorem}[Folk Theorem]
 \label{ch9:thm:folk1}
-Consider any $N$-player normal-form game $\Gamma = (N,C,u)$, and a payoff profile $r = (r_i)_{i \in N}$ with $r_i \in \reels$.
+Consider any $N$-player normal-form game $\Gamma = (N,C,u)$, and a
+payoff profile $r = (r_i)_{i \in N}$ with $r_i \in \reels$.
 Assume that
 \begin{itemize}
-\item the profile $r$ satisfies $r_i \geq v_i$, where
-$$v_i = \min_{c_{-i} \in C_{-i}} \max_{c_i \in C_i} u_i(c_{-i}, c_i),$$
-\item and there is a correlated strategy $\tau \in \Delta C$, where $\tau(c)$ is rational for each $c \in C$, such that
-$$r_i = \sum_{c \in C} \tau(c) u_i(c).$$
+    \item the profile $r$ satisfies $r_i \geq v_i$, where
+    $$v_i = \min_{c_{-i} \in C_{-i}} \max_{c_i \in C_i}
+    u_i(c_{-i}, c_i),$$
+    \item and there is a correlated strategy $\tau \in \Delta C$, where
+    $\tau(c)$ is rational for each $c \in C$, such that
+    $$r_i = \sum_{c \in C} \tau(c) u_i(c).$$
 \end{itemize}
-Then $r$ is the payoff obtained by the players for some Nash Equilibrium of the infinitely repeated game with \emph{average rewards}.
+Then $r$ is the payoff obtained by the players for some Nash Equilibrium
+of the infinitely repeated game with \emph{average rewards}.
 \end{theorem}
-There is an interesting parallel here with Chapter \ref{chap:Cor} and in particular Section \ref{ch5:sec:cont}.
-As a reminder, the topic there was finding rules under which a group of players is willing to sign a contract, forcing each of them to follow the recommendations of a mediator.
-The mediator is a proxy to represent communication processes between the players. \\
-The following example illustrates the results.
 
-\begin{example}[Example \ref{ch5:ex:minimax} revisited.]
-Alice and Bob wish to hold an old promise: once a month, for the rest of their lives (which we assume to be infinite for the exercise), they will meet either at the cinema or at the ballet.
+There is an interesting parallel here with Chapter~\ref{chap:Cor} and in
+particular Section \ref{ch5:sec:cont}.
+As a reminder, the topic there was finding rules under which a group of
+players is willing to sign a contract, forcing each of them to follow the
+recommendations of a mediator. The mediator is a proxy to represent
+communication processes between the players. The following example
+illustrates the results.
+
+\begin{example}[Example~\ref{ch5:ex:minimax} revisited.]
+Alice and Bob wish to hold an old promise: once a month, for the rest of
+their lives (which we assume to be infinite for the exercise), they will
+meet either at the cinema or at the ballet.
 Alice prefers to go to the ballet, and Bob to the cinema.
-Their payoffs and moves are summarized in the table below (Alice is player 1, Bob is player 2).
+Their payoffs and moves are summarized in the table below (Alice is player
+1, Bob is player 2).
+
 \begin{center}
-\begin{tabular}{c | c  c}
-& c & b\\
-\hline
-C & 2, 3 & -1, -1  \\
-B & 1, 1 & 3, 2
-\end{tabular}
-.
+    \begin{tabular}{c | c  c}
+          & c & b \\
+        \hline
+        C & 2, 3 & -1, -1 \\
+        B & 1, 1 & 3, 2
+    \end{tabular}.
 \end{center}
-We computed in Example \ref{ch5:ex:minimax} the minimax values
-$v = (7.5, 7.5)$
-for this game, and saw in Example \ref{example:AliceBobCinemaBargain} that a very good correlated strategy here is to play $\tau([C],[c]) = 0.5$, $\tau([B],[b]) = 0.5$, with expected payoffs $(2.5,2.5)$.
+We computed in Example~\ref{ch5:ex:minimax} the minimax values
+$v = (7/5, 7/5)$ for this game, and saw in
+Example~\ref{example:AliceBobCinemaBargain} that a very good correlated
+strategy here is to play $\tau([C],[c]) = 0.5$, $\tau([B],[b]) = 0.5$,
+with expected payoffs $(2.5,2.5)$.
 
-For the sake of the exercise, let us assume that Alice and Bob don't plan ahead during these activities: they just enjoy the moment, and have no other means of communication.
-They decide their moves based on the history of the game (here, it is easy to find out where was the other if they do not meet).
+For the sake of the exercise, let us assume that Alice and Bob don't plan
+ahead during these activities: they just enjoy the moment, and have no
+other means of communication.
+They decide their moves based on the history of the game (here, it is easy
+to find out where was the other if they do not meet).
 
-It is not difficult to construct strategies for Alice and Bob that grant them an \emph{average payoff} of $2.5$ in the infinitely repeated game.
+It is not difficult to construct strategies for Alice and Bob that grant
+them an \emph{average payoff} of $2.5$ in the infinitely repeated game.
 
-Let us consider the sequence of outcomes $a^{(t)} = ([C],[c])$ if $t$ is even, and $a^{(t)} = ([B],[b])$ if $t$ is odd.
-Consider the following strategy for each player: begin by playing with $a^{(1)}$ at round 1, and then at round $k$,
+Let us consider the sequence of outcomes $a^{(t)} = ([C],[c])$ if $t$ is
+even, and $a^{(t)} = ([B],[b])$ if $t$ is odd.
+Consider the following strategy for each player: begin by playing with
+$a^{(1)}$ at round 1, and then at round $k$
 \begin{itemize}
-\item if the outcomes at all previous rounds are those of the sequence $a$, then play according to $a^{(k)}$,
-\item else, play the minimax strategy for the other player.
+    \item if the outcomes at all previous rounds are those of the
+    sequence $a$, then play according to $a^{(k)}$,
+    \item else, play the minimax strategy for the other player.
 \end{itemize}
-Clearly, if both player follow this strategy, they get an average payoff of $2.5$.
-Moreover, if one deviates from this strategy, his expected payoff drops to $7/5$, because the other plays is minimax for eternity. Hence, the strategy is a Nash Equilibrium.
+Clearly, if both player follow this strategy, they get an average payoff
+of $2.5$. Moreover, if one deviates from this strategy, his expected
+payoff drops to $7/5$, because the other plays is minimax for eternity.
+Hence, the strategy is a Nash Equilibrium.
 \end{example}
 
 
