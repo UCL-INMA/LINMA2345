@@ -13,7 +13,8 @@
 
 %\section*{Exercices}
 
-\paragraph{1. } Alice and Bob are discussing to decide whether to go to the boxing match, to the ballet or to stay home tonight. For Bob, only the boxing match is of interest, and he considers that going to the ballet or staying home are equally bad options. For Alice, the best option is to go to the ballet. However, for her, going to the boxing match would be equivalent to choosing a lottery with a probability $1/4$ of going to the ballet and a probability $3/4$ of staying home. During her studies, Alice has learned how to use Matlab and so she knows how to generate random numbers to simulate a lottery that can help them make a decision. If they fail to agree, the couple will stay home. It is to be noted that both Bob and Alice follow the axioms of von Neumann-Morgenstern utility theory.
+\section{}
+Alice and Bob are discussing to decide whether to go to the boxing match, to the ballet or to stay home tonight. For Bob, only the boxing match is of interest, and he considers that going to the ballet or staying home are equally bad options. For Alice, the best option is to go to the ballet. However, for her, going to the boxing match would be equivalent to choosing a lottery with a probability $1/4$ of going to the ballet and a probability $3/4$ of staying home. During her studies, Alice has learned how to use Matlab and so she knows how to generate random numbers to simulate a lottery that can help them make a decision. If they fail to agree, the couple will stay home. It is to be noted that both Bob and Alice follow the axioms of von Neumann-Morgenstern utility theory.
 
 \begin{enumerate}
 	\item[a.] Describe this situation by a two-player bargaining problem $(F,v)$ and compute its Nash's bargaining solution.
@@ -26,8 +27,7 @@
 \input{0901}
 \end{solution}
 
-\newpage
-\paragraph{2. } We consider the following three-player game with cooperation:
+\section{} We consider the following three-player game with cooperation:
 
 	\begin{center}
 		\begin{tabular}[h!]{l|ccc}
@@ -35,13 +35,13 @@
 			&
 			\begin{tabular}[h!]{cccccc}
 				\hline
-				& \Large{$x_2$} &&& \Large{$y_2$} & 
+				& \Large{$x_2$} &&& \Large{$y_2$} &
 			\end{tabular}
 			&&
 			\begin{tabular}[h!]{cccccc}
 				\hline
-				& \Large{$x_2$} &&& \Large{$y_2$} & 
-			\end{tabular} 
+				& \Large{$x_2$} &&& \Large{$y_2$} &
+			\end{tabular}
 			\\[.2cm]
 			\hline
 			\\[-.4cm]
@@ -50,17 +50,17 @@
 			\end{tabular}
 			&
 			\begin{tabular}[h!]{ccccc}
-				& \Large{0,0,0} && \Large{6,5,4} & \\ 
-				& \Large{5,4,6} && \Large{0,0,0} & 
+				& \Large{0,0,0} && \Large{6,5,4} & \\
+				& \Large{5,4,6} && \Large{0,0,0} &
 			\end{tabular}
 			&&
 			\begin{tabular}[h!]{ccccc}
-				& \Large{4,6,5} && \Large{0,0,0} & \\ 
-				& \Large{0,0,0} && \Large{0,0,0} & 
+				& \Large{4,6,5} && \Large{0,0,0} & \\
+				& \Large{0,0,0} && \Large{0,0,0} &
 			\end{tabular}
-		\end{tabular} 
+		\end{tabular}
 	\end{center}
-	
+
 \begin{enumerate}
 	\item[a.] Propose a generalization of Theorem~1 (see Reminders below) for bargaining problems with more than two players (without a proof).
 	\item[b.] For the specific problem above, assuming that players can negotiate and sign a contract that binds them to the directives of a mediator, describe the situation as a three-player bargaining problem $(F, v)$.
@@ -70,17 +70,19 @@
 \begin{solution}
 \input{0902}
 \end{solution}
-\paragraph{3. } \textbf{(Theoretical exercise.)} Consider the optimization problem~\eqref{thm1} appearing in the statement of Theorem~1 (see Reminders).
+
+\section{(Theoretical exercise.)}
+Consider the optimization problem~\eqref{thm1} appearing in the statement of Theorem~1 (see Reminders).
 \begin{enumerate}
 	\item[a.] Formulate the KKT conditions of this optimization problem and interpret them geometrically.
-	
+
 	For simplicity, we will assume that $v = (0, 0)$ (without loss of generality), that $F$ is essential and that there exists a homogeneous and derivable function $f : \mathbb{R}^2 \rightarrow \mathbb{R}$ such that $F = \{ \, (x_1, x_2) \; | \; f(x_1, x_2) \leq 1 \, \}$.
 	\item[b.] Use these conditions to prove Theorem~2 (see Reminders).
 \end{enumerate}
 
-	
-\paragraph{4. } \textbf{(Theoretical exercise.)} Suppose that $x, y \in F, \; x_2 = v_2, \; y_1 = v_1$ and that $1/2 \, x + 1/2 \, y$ is a strongly efficient allocation in $F$. Show that $1/2 \, x + 1/2 \, y$ is the Nash bargaining solution of $(F,v)$.
-	
+\section{(Theoretical exercise.)}
+Suppose that $x, y \in F, \; x_2 = v_2, \; y_1 = v_1$ and that $1/2 \, x + 1/2 \, y$ is a strongly efficient allocation in $F$. Show that $1/2 \, x + 1/2 \, y$ is the Nash bargaining solution of $(F,v)$.
+
 \newpage
 
 \section*{Reminders}
@@ -90,27 +92,27 @@
 
 	\item \textbf{The two-players bargaining problem}
 	\vspace{.3cm}
-	
+
 	A bargaining problem with two players is defined by a pair $(F, v)$ where $F$ is a closed convex set of $\mathbb{R}^2$ which represents the set of possible payoffs and $v = (v_1, v_2) \in \mathbb{R}^2$ is the \emph{disagreement point} and represents the payoffs that both players would receive in the event of failure of the negotiation.
-	
+
 	Such a problem can be obtained for example from a game in strategic form $\Gamma = (\{ 1,2 \}, C_1, C_2, u_1, u_2)$, if the players can negotiate the establishment of a mechanism, and sign a contract binding them to the realization of the injunction imposed by this mechanism. In this case, the set $F$ can be defined by:
 	\begin{align*}
 		F = \Big\{ \big( \, u_1(\mu), \, u_2(\mu) \, \big) \; | \; \mu \in \Delta(C) \, \Big\}, \quad \text{where } \, u_i(\mu) \, = \, \sum_{c \in C} \mu(c) u_i(c).
 	\end{align*}
 	The disagreement point can be defined in different ways depending on the problem studied.
-	
-	We write $\phi(F, v) \in \mathbb{R}^2$ the solution of such a negotiation. 
-	
-	We also write $x \geq y$ iff $x_1 \geq y_1$ and $x_2 \geq y_2$ and $x > y$ iff $x_1 > y_1$ and $x_2 > y_2$. 
-	
-	We say that $(F, v)$ is \emph{essential} iff there exists at least one allocation $y$ in $F$ such that $y > v$. 
-	
+
+	We write $\phi(F, v) \in \mathbb{R}^2$ the solution of such a negotiation.
+
+	We also write $x \geq y$ iff $x_1 \geq y_1$ and $x_2 \geq y_2$ and $x > y$ iff $x_1 > y_1$ and $x_2 > y_2$.
+
+	We say that $(F, v)$ is \emph{essential} iff there exists at least one allocation $y$ in $F$ such that $y > v$.
+
 	\vspace{.3cm}
 	\item \textbf{The axioms}
 	\vspace{.3cm}
 
 	\begin{enumerate}
-	
+
 		\item[(1)\phantom{'}] \textbf{Strong efficiency.} $\phi(F, v)$ is an allocation in $F$ and, for all $x$ in $F$, if $x \geq \phi(F, v)$, then $x = \phi(F, v)$.
 		\item[(1')] \textbf{Weak efficiency.} $\phi(F, v) \, \in \, F$ and there does not exist any $y$ in $F$ such that $y > \phi(F, v)$.
 		\item[(2)\phantom{'}] \textbf{Individual rationality.} $\phi(F, v) \geq v$.
@@ -122,55 +124,55 @@
 		Then $\phi(G, w) = ( \, \lambda_1 \,  \phi_1(F, v) + \gamma_1, \,  \lambda_2 \,  \phi_2(F, v) + \gamma_2 \, )$.
 		\item[(4)\phantom{'}] \textbf{Independence of irrational alternatives.} For any closed convex set $G$, if $G \subseteq F$ and $\phi(F, v) \, \in \, G$, then $\phi(G, v) = \phi(F, v)$.
 		\item[(5)\phantom{'}] \textbf{Symmetry.} If $v_1 = v_2$ and $\{ \, (x_2, x_1) \; | \; (x_1, x_2) \, \in \, F \, \} = F$, then $\phi_1(F, v) = \phi_2(F, v)$.
-		
+
 	\end{enumerate}
-	
+
 	\vspace{.3cm}
 	\item \textbf{The Nash bargaining Theorem}
 	\vspace{.3cm}
-	
+
 	\textbf{Theorem 1.} There is a unique solution function $\phi(\cdot, \cdot)$ that satisfies Axioms $(1)$ to $(5)$ above. This solution function satisfies, for every two-person bargaining problem $(F, v)$:
 	\begin{equation} \label{thm1}
 		\phi(F, v) \, \in \, \underset{x \, \in \, F, \, x \geq v}{\mathrm{argmax}} \ (x_1 - v_1)(x_2 - v_2).
 	\end{equation}
-	
+
 	\vspace{.3cm}
 	\item \textbf{Interpersonal comparison of weighted utility}
 	\vspace{.3cm}
-	
+
 	In real bargaining situations, the players often reason by comparing their respective utilities. They usually do so in two different ways:
 	\begin{itemize}
-		\item The ``equal gains'' principle: \emph{``You should do that for me because I do more for you.''} 
-		
+		\item The ``equal gains'' principle: \emph{``You should do that for me because I do more for you.''}
+
 		In agreement with this principle, we define the \emph{$\lambda-$equalitarian solution} of a bargaining problem $(F, v)$ as the unique point $x$ of $F$ that is weakly efficient in $F$ and that satisfies the following condition:
 		\begin{align*}
 			\lambda_1 (x_1 - v_1) = \lambda_2 (x_2 - v_2).
 		\end{align*}
-		
+
 		\item The ``greater good'' principle: \emph{``You should do this for me because it helps me more than it harms you.''}
-		
+
 		The \emph{$\lambda-$utilitarian solution} of a bargaining problem $(F, v)$ that derives from this principle is any solution function that yields $x \, \in \, F$ such that:
 		\begin{align*}
 			\lambda_1 \, x_1 + \lambda_2 \, x_2 = \max_{y \in F} \ (\lambda_1 \, y_1 + \lambda_2 \, y_2).
 		\end{align*}
 	\end{itemize}
 	The following theorem expresses the fact that the Nash bargaining solution is a natural synthesis of the equal gains and greater good principles.
-	
+
 	\vspace{.3cm}
 	\textbf{Theorem 2.} Let $(F, v)$ be an essential bargaining problem with two players and let $x$ be an allocation vector such that $x \, \in \, F$ and $x \geq v$. Then $x$ is the Nash bargaining solution for $(F, v)$ iff there exist $\lambda_1 > 0$ and $\lambda_2 > 0$ such that:
 	\begin{align*}
 		& \lambda_1 \, x_1 - \lambda_1 \, v_1 \hspace{.03cm} \ = \ \lambda_2 \, x_2 - \lambda_2 \, v_2 \qquad \; \text{and} \\
 		& \lambda_1 \, x_1 + \lambda_2 \, x_2 \ = \ \max_{y \in F} \ (\lambda_1 \, y_1 + \lambda_2 \, y_2).
 	\end{align*}
-	
+
 	\newpage
 	\item \textbf{The KKT conditions}
 	\vspace{.3cm}
-	
+
 	Let the optimization problem with $n$ variables, $p$ equality constraints and $q$ inequality constraints:
 	\begin{equation*}
 		\begin{array}{lll}
-			\max && f(x), \\ 
+			\max && f(x), \\
 			\mbox{s.t.} && g_i \hspace{.1cm} (x) = 0 \quad \forall \; i = 1, ..., p, \\
 			&& h_j(x) \geq 0 \quad \forall \; j = 1, ..., q.
 		\end{array}
@@ -183,7 +185,7 @@
 		\gamma_j & \geq 0 \hspace{3.1cm} \forall \; j = 1, ..., q, \\
 		\gamma_j h_j(x) & = 0 \hspace{3.1cm} \forall \; j = 1, ..., q.
 	\end{align*}
-		
+
 \end{itemize}
 
 \end{document}
