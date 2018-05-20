@@ -16,11 +16,12 @@ We need to compute
 \begin{equation*}
     b_1^{*}
     = \text{argmax} \
-    \parent{v_1 - b_2} \cdot \mathbb{P} \squared{b_1 > B_2}
-    + \dfrac{1}{2} \parent{v_1 - b_2} \cdot \mathbb{P} \squared{b_1 = B_2}
+    \mathbb{E}[v_1 - B_2] \cdot \mathbb{P} \squared{b_1 > B_2}
+    + \dfrac{1}{2}  \mathbb{E}[v_1 - B_2] \cdot \mathbb{P} \squared{b_1 = B_2}
 \end{equation*}
 
-where $B_2$ is written with a capital letter, because it denotes a random variable. Indeed, in this part of the proof, we fix $b_2$ such that $b_2 \parent{v_2} = v_2$. Since we know that $V_2 \sim \text{Unif} \parent{0, 1}$, we know that $B_2 \sim \text{Unif} \parent{0, 1}$. Now let us compute the two probabilities. We have
+where $B_2$ is written with a capital letter because it denotes a random variable and $\mathbb{E}$ stands for the expectation, conditional to the fact that $b_1>B_2$.
+Indeed, in this part of the proof, we fix $b_2$ such that $b_2 \parent{v_2} = v_2$. Since we know that $V_2 \sim \text{Unif} \parent{0, 1}$, we know that $B_2 \sim \text{Unif} \parent{0, 1}$. Now let us compute the two probabilities. We have
 \begin{equation*}
     \mathbb{P} \squared{b_1 = B_2}
     = 0,
@@ -45,20 +46,21 @@ where $F_{B_2}$ denotes the cumulative distribution function of $B_{2}$. Again, 
 Let us use $\tilde{b}_1$ to shorten the notations, with $\tilde{b}_1 = \max \bracket{0, \min \bracket{1, b_1}}$. Hence we have
 \begin{equation*}
     b_1^{*}
-    = \text{argmax} \ \parent{v_1 - b_2} \cdot \tilde{b}_1.
+    = \text{argmax} \ \mathbb{E}[v_1 - B_2] \cdot \tilde{b}_1.
 \end{equation*}
 
-Knowing that $B_2$ is a random variable, it should be apparent that the above expression is incorrect: we should write $\parent{v_1 - B_2}$ instead of $\parent{v_1 - b_2}$. Hence we have
-\begin{equation*}
-    b_1^{*}
-    = \text{argmax} \ \parent{v_1 - B_2} \cdot \tilde{b}_1.
-\end{equation*}
+%Knowing that $B_2$ is a random variable, it should be apparent that the above expression is incorrect: we should write $\parent{v_1 - B_2}$ instead of $\parent{v_1 - b_2}$.
+%Hence we have
+%\begin{equation*}
+ %   b_1^{*}
+  %  = \text{argmax} \ \mathbb{E}[v_1 - B_2]\cdot \tilde{b}_1.
+%\end{equation*}
 
-Now, a new problem arises. Since $B_2$ is a random variable, it should not appear "in the wild". It should be contained in a certain aggregation like an expected value $\mathbb{E} \parent{\cdot}$, or a probability $\mathbb{P} \parent{\cdot}$. Hence we have
-\begin{equation*}
-    b_1^{*}
-    = \text{argmax} \ \mathbb{E} \squared{v_1 - B_2} \cdot \tilde{b}_1.
-\end{equation*}
+%Now, a new problem arises. Since $B_2$ is a random variable, it should not appear "in the wild". It should be contained in a certain aggregation like an expected value $\mathbb{E} \parent{\cdot}$, or a probability $\mathbb{P} \parent{\cdot}$. Hence we have
+%\begin{equation*}
+ %   b_1^{*}
+  %  = \text{argmax} \ \mathbb{E} \squared{v_1 - B_2} \cdot \tilde{b}_1.
+%\end{equation*}
 
 We can compute
 \begin{equation*}
@@ -66,7 +68,8 @@ We can compute
     = \int_{- \infty}^{\infty} \parent{v_1 - b_2} f_{B_2} \parent{b_2} \mathrm{d} b_2
 \end{equation*}
 
-where $f_{B_2} \parent{b_2}$ is the probability density function of $B_2$. We are in the second case of the enumeration made at the beginning of the proof. Hence $B_2$ will not go from $- \infty$ to $+ \infty$. Instead, $B_2$ will go from $0$ to $\tilde{b}_1$. Therefore, we have $B_2 \sim \text{Unif} \parent{0, \tilde{b}_1}$, we have
+where $f_{B_2} \parent{b_2}$ is the probability density function of $B_2$. Recall that $\mathbb{E}$ is the expectation conditional to the fact that $b_1>B_2$.  Hence, we have $B_2 \sim \text{Unif} \parent{0, \tilde{b}_1}$ and so
+%We are in the second case of the enumeration made at the beginning of the proof. Hence $B_2$ will not go from $- \infty$ to $+ \infty$. Instead, $B_2$ will go from $0$ to $\tilde{b}_1$. Therefore, we have $B_2 \sim \text{Unif} \parent{0, \tilde{b}_1}$, we have
 \begin{equation*}
     f_{B_2} \parent{b_2} = \dfrac{1}{\tilde{b}_1 - 0} = \dfrac{1}{\tilde{b}_1}.
 \end{equation*}
@@ -139,9 +142,7 @@ Hence we find the value of $b_1^{*}$ by cancelling the derivative. We find
      \end{cases}
 \end{equation*}
 
-We know that $b_1 < 0$ and $b_1 > 1$ are absurd. Hence we only consider the case $0 \leq b_1 \leq 1$, and we conclude that $b_1^{*} = b_1 \parent{v_1} = v_1$.
-
-Finally, it is important to do a continuity check.
+We know that $b_1 < 0$ and $b_1 > 1$ are absurd. Hence we only consider the case $0 \leq b_1 \leq 1$, and we conclude that $b_1^{*} = b_1 \parent{v_1} = v_1$. Again, we leave to the reader the verification of the values at the discontinuous points.
 
 
 \vspace{5mm}

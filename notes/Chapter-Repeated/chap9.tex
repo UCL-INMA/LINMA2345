@@ -37,7 +37,7 @@ the notions of equilibria in more details.
 
 \section{Finitely repeated games}
 \label{sec:FinRep}
-In a \emph{finitely repeated games}, players play to \emph{a same game
+In a \emph{finitely repeated game}, players play the \emph{same game
 $\Gamma$} repeatedly for a finite number of times $K$. The number $K$ is
 known to the players at the beginning of the game. This situation is
 represented in Figure~\ref{fig:repeatedFiniteNumberOfTimes}.
@@ -235,11 +235,10 @@ are now faced with the situation represented in Figure~\ref{fig:2PDtree}.
     rounds.}
     \label{fig:2PDtree}
 \end{figure}
-
-For the analysis, we begin by studying how should the player act at the
+The key to analyze repeated games is the \emph{backward analysis.} For this, we begin by studying how the players should act at the
 second round. Clearly, they only want to maximize their contributions to
 their own payoffs. Hence, in the second round, they should select
-$([D],[d])$ (Nash Equilibrium).
+$([D],[d])$ (the Nash Equilibrium).
 Knowing this, we can infer (by recurrence) that the players should pick
 $([D],[d])$ as well in the first round.
 
@@ -250,8 +249,8 @@ for any fixed number $K$ of repetitions.
 \end{example}
 
 The study of repeated games calls for the definition of an appropriate
-notion of \emph{strategy}. The following informal definition carries on
-to the infinitely repeated case.
+notion of \emph{strategy}. The following definition, though informal, has the advantage to represent our intuition and it is valid for both the finitely and infinitely repeated case.
+
 \begin{definition}[Strategy in a repeated game (informal)]
 In a repeated game with $N$ players, a strategy for player $i$ defines,
 at each round $k = 1, 2, \ldots$ a (randomized) strategy to play for the
@@ -262,7 +261,7 @@ round $k$.
 Let us linger a bit longer on what constitutes \emph{information} for a
 player in round $k$. A player should at least be aware of
 \emph{the history of his moves and payoffs} so far.
-The players may also know other players moves or their payoffs depending
+The players may also know other players' moves or their payoffs depending
 on the scenario.
 
 \begin{definition}[Stationary Strategy (informal)]
@@ -274,7 +273,7 @@ depends only on the current round.
 In a finitely repeated Prisoner's Dilemma, the unique equilibrium
 strategy is stationary, where each player defect at every round.
 \end{proposition}
-
+This can be easily proven by using the \emph{backward analysis}, see Ch.\ \ref{chap:Seq}, Sect.\ \ref{ch4:sec:motivations}.\\
 Remarkably, in \emph{infinitely repeated games}, the players will have
 access to a richer array of actions and payoffs. They will not be
 confined to playing Nash Equilibria at each round, but they will now be
@@ -287,8 +286,8 @@ Prisoner's Dilemma in the infinitely repeated setting.
 
 In an infinitely repeated game, all the players involved know that they
 will have to play the game an infinite amount of time.
-At each round, players gather their payoffs for the current round before
-playing the next (see Figure~\ref{fig:infiRepeated}).
+At each round, the players gather their payoffs for the current round before
+playing the next one (see Figure~\ref{fig:infiRepeated}).
 \begin{figure}
     \centering
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, semithick, scale = 1, transform shape ]
@@ -308,7 +307,7 @@ the element of the sequence $r$ at time $t$.
 
 \begin{definition}[Standard Repeated Game]
 A \emph{standard repeated game} is an infinitely repeated game where a
-same game $\Gamma$ is repeated infinitely and where at each round $k$,
+same game in strategic form $\Gamma$ is repeated infinitely and where at each round $k$,
 every player knows all the players past moves.
 \end{definition}
 
@@ -350,11 +349,7 @@ The \emph{discount factor} $\delta$ is commonly understood as a measure
 of the player's \emph{patience}: the closer to $0$, the more the player
 aims at obtaining immediate payoffs, and the closer to $1$, the more the
 player is willing to wait for future payoffs.\\
-Another way to interpret the discount factor is as a \emph{probability
-that the game is repeated one more round} (see
-Figure~\ref{fig:infiRepeatedDiscount}). There, in order to obtain the
-payoff $r_i^{(j)}$, the game must be repeated $j-1$ times, which occurs
-with probability $\delta^{j-1}$. The discounted payoff is then the
+There is another way to interpret the discount factor, which is useful to model situations where the game will actually not be played an infinite number of time, but will end at some moment, \emph{in a probabilistic way}. Indeed, suppose that at every round, the game may terminate with probability $1-\delta$, or go on for at least one more round with probability $\delta$ (see Figure~\ref{fig:infiRepeatedDiscount}). The reader can observe that the equations for the expected payoff are exactly the same than in the discounted setting.  Indeed, if the game may stop at every round with probability $1-\delta$, in order to obtain the payoff $r_i^{(j)}$ the game must be repeated $j-1$ times, which occurs with probability $\delta^{j-1}$. The discounted payoff is then the
 expected payoff of the game under this interpretation.\\
 The \emph{discounted average payoff} is a normalized version of the
 discounted payoff, where if $r_i^{[t]} = 1$ for all $t$,
@@ -378,7 +373,7 @@ $$(1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1} 1 = 1.$$
 \begin{definition}[Equilibrium for Repeated Games (informal)]
 An equilibrium of a repeated game is a set of strategies (one per player)
 where each strategy is a best response to the others, in that it maximizes
-the selected payoff criterion given the others strategies.
+the selected payoff criterion given the other players' strategies.
 \end{definition}
 
 \begin{example}
@@ -407,6 +402,7 @@ infinitely punishes a player for uncooperative behaviors. This is called
 the \textbf{grim} (or \textbf{trigger}) strategy. Other classical
 strategies, leading to cooperative equilibria, are as follows
 \begin{itemize}
+	\item \textbf{Grim}: the grim strategy is that of Example \ref{ch9:ex:trigger}. We begin the game with cooperation and continue cooperating at each round unless the other player defects. From this point on, we defect. See the analysis in \cite[pp. 308-310]{MyGTAO} for a detailed analysis of this example.
     \item \textbf{tit-for-tat}: we begin by cooperating and then, at every
     round, we choose the move of our opponent at the last round,
     \item \textbf{getting-even}: we begin by cooperating, and continue
@@ -432,7 +428,7 @@ Assume that
     $$r_i = \sum_{c \in C} \tau(c) u_i(c).$$
 \end{itemize}
 Then $r$ is the payoff obtained by the players for some Nash Equilibrium
-of the infinitely repeated game with \emph{average rewards}.
+of the infinitely repeated game with \emph{discounted rewards}, for some sufficiently large discount.
 \end{theorem}
 
 There is an interesting parallel here with Chapter~\ref{chap:Cor} and in
@@ -568,7 +564,7 @@ The behavioral strategy $\sigma$ is an equilibrium for
 \end{definition}
 
 The formalism above highlights one of the big challenges of the analysis of repeated games: the set of behavioral strategies is infinite, and so checking if a strategy is an equilibrium can be very hard!
-In practice one often focuses on strategies relying only on limited information (for example, use only the $\ell$ last signal received to define the strategy). This can be understood as a relaxation of the concept of rationality and intelligence in favor of pragmatism: in reality,  players may not have access to a perfect memory or be able to reflect perfectly about the game. Think for example of the follow situation: what if rational players, instead of choosing a move in each round by themselves,  have to program a computer with a limited amount of memory and computational power to do so?
+In practice one often focuses on strategies relying only on limited information (for example, use only the $\ell$ last signal received to define the strategy). This can be understood as a relaxation of the concept of rationality and intelligence in favor of pragmatism: in reality,  players may not have access to a perfect memory or be able to reflect perfectly about the game. Think for example about the following situation: what if rational players, instead of choosing a move in each round by themselves,  have to program a computer with a limited amount of memory and computational power to do so?
 We refer to this as the \emph{bounded rationality} principle, which is discussed in e.g.  \cite{RuMBR}, \cite[Section 6.1.3]{ShLeMSAG}, \cite[Chapter 9]{OsRuACIG}.
 
 

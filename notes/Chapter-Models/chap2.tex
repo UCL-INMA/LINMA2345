@@ -26,21 +26,21 @@ gain a finer understanding of how we can expect rational players to behave in a 
 
 \section{The extensive form and the strategic form}
 
-We first present tools that allow to provide a mathematical description from a game out of an high-level description, to a mathematical description of said game.
+We first present tools that allow to provide a mathematical description from a game out of a high-level description, to a mathematical description of this game.
 In order to introduce the models, we begin, in Example \ref{chap2:example:game}, by describing a game to be modeled and analyzed later.
 \begin{example}[The betting game]
 \label{chap2:example:game}
 \TAtwo{} asks \TAone{} to play a game. He explains the rules as follows:
 \begin{enumerate}
 \item Both players put $1\EUR$ on a table. \label{ex1}
-\item \TAtwo{} picks a card randomly out of a regular deck of 52 cards. He looks at the card privately. \label{ex2}
+\item  \TAtwo{} picks a card randomly out of a regular deck of 52 cards. He looks at the card privately. \label{ex2}
 \item At this point, two options are available to him: \label{ex3}
 	\begin{enumerate}
-	\item He reveals the card to \TAone{}. If the card is \emph{red}, \TAtwo{} gets all the money on the table, and if \emph{black}, \TAone{} gets all the money. \label{ex3a}
-	\item He chooses not to reveal the card, and raises the bet, i.e, he puts an additional $1\EUR$ on the table. In this case, \TAone{} has to decide to either \label{ex3b}
+	\item He reveals the card to $\TAone{}$. If the card is \emph{red}, $\TAtwo{}$ gets all the money on the table, and if \emph{black}, $\TAone{}$ gets all the money. \label{ex3a}
+	\item He chooses not to reveal the card, and raises the bet by putting an additional  $1\EUR$ on the table. In this case, then $\TAone{}$ has to decide to either \label{ex3b}
 	\begin{enumerate}
-		\item fold, letting \TAtwo{} win the game, or \label{ex3b1}
-		\item meet the raise, adding $1\EUR$ on the table. In this case, the card is revealed, and \TAtwo{} wins everything if it is \emph{red}, or \TAone{} wins if it is \emph{black}. \label{ex3b2}
+		\item Fold, letting $\TAone{}$ win the game, or \label{ex3b1}
+		\item meet the raise, adding $1\EUR$ on the table. In this case, the card is revealed, and $\TAtwo{}$ wins everything if it is \emph{red}, or $\TAone{}$ wins if it is \emph{black}. \label{ex3b2}
 	\end{enumerate}
 	In any case, \textbf{the game ends here}.
 	\end{enumerate}
@@ -49,8 +49,8 @@ In order to introduce the models, we begin, in Example \ref{chap2:example:game},
 At this point, we would like to encourage the reader to reflect on the game of Example \ref{chap2:example:game}.
 In particular, we are interested by the following questions
 \begin{itemize}
-	\item What should \TAtwo{} do in the situation \ref{ex3}? When should he reveal the card, and when should he raise the bet?
-	\item What should \TAone{} do in the situation \ref{ex3b}? Should he meet the raise, or fold?
+	\item What should $\TAtwo{}$ do in the situation \ref{ex3}? When should he reveal the card, and when should he raise the bet?
+	\item What should $\TAone{}$ do in the situation \ref{ex3b2}? Should he meet the raise, or fold?
 \end{itemize}
 Rest assured that answering these questions is not trivial at all! In fact, the answers will not come until Chapter \ref{chap:Nash}.
 
@@ -74,10 +74,10 @@ Maybe the first step in analyzing a game is to single out the answers to the fol
 We invite you to answer these questions for the game of Example \ref{chap2:example:game}, and provide two examples next.
 
 \begin{example}[Answers for the game of Chess]
-$\,$
+$\,$\\
 \begin{enumerate}
 \item There are at least two players,
-\item at their turn, they can move any chess piece and take one of the other player piece as long as it obeys the rules,
+\item at their turn, they can move any chess piece and take one of the other player's pieces as long as it obeys the rules,
 \item the configuration of the board (position of each pieces on it) defines what actions can be done, and their outcome,
 \item they both see the board,
 \item the white player starts, and then they take turn,
@@ -86,13 +86,13 @@ $\,$
 To the chess fans: we are leaving lots of interesting details aside.
 \end{example}
 \begin{example}[Answers for the game of Poker]
-$\,$
+$\,$\\
 \begin{enumerate}
 \item There are two or more players around a table,
-\item at their turn, player learn about their own hands (not the others, they may bid, raise, fold, etc...,
+\item at their turn, players learn about their own hands (not the others'), they may bid, raise, fold, etc...,
 \item there are a lot of possible hands that can be dealt,
 \item they know their own hand, how much money has been bet by all players, who has folded, etc...,
-\item player play in a clock-wise manner, taking turn with the first player being chosen at the begining of the game,
+\item players play in a clock-wise manner, taking turn with the first player being chosen at the begining of the game,
 \item a player that has not folded and has the better hand wins all active bets.
 \end{enumerate}
 To the poker fans: we are leaving lots of interesting details aside.
@@ -103,29 +103,29 @@ In order to analyze such a game, we need first to represent it in a mathematical
 
 
 
- Later, we will present the   \emph{strategic form}, which is a more \emph{concise} model for games and focuses on the players,  their possible choices of actions, and the expected utility (e.g. monetary...) payoffs  these actions lead to.
+ Later, we will present the   \emph{strategic form}, which is a more \emph{concise} (bearing less information) model for games and focuses on the players,  their possible choices of actions, and the expected utility (e.g. monetary...) payoffs  these actions lead to.
 
 
 \subsection{The extensive form}
 \label{subsec:ExtForm}
 The first model we present below is called the \emph{extensive form}.
-The reason we start with this is that it is a very natural (and almost verbatim) representation of a game.  This has benefits and drawbacks, as it will contain lots of information,  providing us with a deep understanding of the structure of the game. However,  the amount of information  contained in the model
+The reason we start with this is that it is a very natural (and almost verbatim) representation of a game.  This has benefits and drawbacks, as it will contain lots of information,  providing us with a complete understanding of the structure of the game. However,  the amount of information  contained in the model
  often makes the analysis more cumbersome.
 
 
-The extensive form describes a \emph{dynamic, sequential game}. A game is a sequence of \emph{events}.
+The extensive form describes a \emph{sequential (or dynamic) game}. Such a game is a sequence of \emph{events}.
 Some events are due to chance, such as the random selection of the card color in Example \ref{chap2:example:game}.
 Other events are controlled by players, and are more commonly referred to as \emph{moves}.
 They correspond to a player doing something at some point of the game.
 After a sequence of events, the game ends, and players receive their payoffs.
 
-In order to capture these notions, the \emph{extensive form game} takes the form of a \emph{tree}.
- For the sake of understanding, we begin with by illustrating the concepts with Example \ref{ch2:ex:theTree}.
+In order to capture these notions, the \emph{extensive form game} takes to form of a \emph{tree.}
+ For the sake of understanding, we start by illustrating the concepts with Example \ref{ch2:ex:theTree}.
 
 
 \begin{example}\label{ch2:ex:theTree}
 The extensive form of the game of Example \ref{chap2:example:game}
-is given on Figure \ref{chap2:example:figtree} as an illustration.
+is given in Figure \ref{chap2:example:figtree} as an illustration.
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}
@@ -192,7 +192,7 @@ Note that player 2 only has a single information state: he only knows when it is
 \end{itemize}
 Next, we add structure to represent in which sequence the actions can be taken.
 \begin{itemize}
-\item We construct a tree on a set of nodes $V$. These represent three concepts: random events, decisions, or termination of the game.
+\item We construct a tree on a set of nodes $V$. These represent three concepts: random events, decisions, or termination of the game, and we assume without loss of generality that all the payoffs are collected there. We thus represent these payoffs in the order corresponding to the players.
 \begin{enumerate}
 \item We let $V_0$ be the set of \emph{chance nodes}. In the tree of Figure \ref{chap2:example:figtree}, there is one chance node at the root of the tree with a label $"0"$. It corresponds to drawing a card, which can be either black or red with probability 1/2 each.
 \item For each information state $s$, we let $Y_s$ be the set of \emph{decision nodes} for the state $s$. Note that, in the above, $Y_c$ has two nodes: we use this to represent the fact that when at state $c$, player 2 does not have perfect information about the state of the game.
@@ -203,8 +203,8 @@ Next, we add structure to represent in which sequence the actions can be taken.
 \item To each chance node $v \in V_0$, we attach a distribution $p_x \in \Delta(V)$, which corresponds to the probability of reaching some node in the graph from the node $v$ as a result of uncertainty.
 \item For each state $s \in \bigcup S_i$, for each node $y \in Y_s$ and each action $d \in D_s$ that can be chosen at this state, we let $t_s(y,d) \in V$ be the destination node attained in the tree.
 \end{enumerate}
-Once the tree is defined (of course, the distributions $p_x$ and transition functions $t_s$ much be chosen such that we obtain a tree), it actually provides a sequential representation of the game.
-\item The last element we need is a \emph{utility function} $w : X \rightarrow \reels^N$, that assigns a value to each player in each leaf of the tree. Here, we simply put the amount of money each player has in the end of the game, assuming they each begin with two $1\EUR$ coins in their pockets.
+Once the tree is defined (of course, the distributions $p_v$ and transition functions $t_s$ much be chosen such that we obtain a tree), it actually provides a sequential representation of the game.
+\item The last element we need is a \emph{utility function} $w : X \rightarrow \reels^N$, that assigns a value to each player in each leaf of the tree. Here, we simply put the amount of money each player has in the end of the game, assuming they each begin with 4 coins in their pockets.
 \end{itemize}
 \end{example}
 
@@ -233,7 +233,7 @@ where
 \item $X \subset V$ is the set of \emph{leafs}.
 \item $t = (t_s)_{s \in S}$ are transitions, where for each information state $s$,  $t_s : Y_s \times D_s \rightarrow V$ assigns to every \emph{source node} $y \in Y_s$ and action $d \in D_s$ a destination node $x \in V$.
 \item $p = (p_{x})_{x \in V_0}$ assigns a probability distribution $p_x \in \Delta(V)$ to each chance node $x \in V_0$.
-\item $w : X \rightarrow \reels^N$ is a utility function, assigning a vector $w(x) \in \reels^N$ where the $n$-th entry represents the utility outcome of player $n$ to each leaf $x \in X$ .
+\item $w : X \rightarrow \reels^N$ is a utility function, assigning to each leaf $x \in X$ the payoff of every players if the game ends up at that leaf.
 \end{itemize}
 \end{definition}
 
@@ -293,21 +293,20 @@ with two moves at each. A possible strategy is
 \TAone{} has 2 pure strategies, since he has only 1 information state and 2 available moves at this state.
 These strategies are \emph{always raise} and \emph{always pass}.
 \end{example}
- Later, and in particular in Chapter \ref{chap:Seq}, we consider the possibility for a player to choose a randomized strategy: he will pick at each state $s \in S_i$ a distribution $\sigma_s \in \Delta(D_s)$, and pick $d \in D_s$ with probability $\sigma_s(d)$.
+ Later, and in particular in Chapter \ref{chap:Seq}, we consider the possibility for a player to chose a randomized strategy: he will pick at each state $s \in S_i$ a distribution $\sigma_s \in \Delta(D_s)$, and pick $d \in D_s$ with probability $\sigma_s(d)$.
 
-Once such a decision is made, the player receives a prize depending on the realization of uncertainty at chance nodes as well as the moves of other players. Hence, a way to define a \emph{state of the world} is to
-let $\Omega$ be a set containing first the probability distributions on the uncertainty at chance nodes, and second the strategy (or randomized strategies) played by other players at their information states.
+Once such a decision in made, the player receives a prize depending on the realization of uncertainty at chance nodes (which represent objective probabilities) as well as the moves of other players (which are subjective in the sense that they are not defined as part of the game). Hence, the \emph{state of the world} for a player making a decision at state $Y_s,$ denoted $\Omega_s,$ will be an element of the set containing all the subsequent decisions played by other players at the later information states.
 
-Interestingly, this alone teaches us something about how a rational and intelligent decision maker should reflect on a game! Indeed, the Utility Maximization Theorem states that a player should possess a \emph{conditional probability function}, expressing thus its own beliefs on what the other players will do in the game.
+Interestingly, this alone teaches us something about how a rational and intelligent decision maker should reflect on a game! Indeed, the Utility Maximization Theorem states that a player should possess a \emph{conditional probability function}, expressing thus his own beliefs on what the other players will do in the game. We will develop that idea in full extent in Chapter \ref{chap:Seq}.
 \subsection{The strategic form}
 \label{subsec:StratForm}
 
 A \emph{strategic form game} can be seen as a summary of an extensive form game, where we keep only the answers to the questions
 \begin{center}
-\textit{Who are the players, what can they do, and what will they receive by doing so?}
+\textit{Who are the players, what can they do, and what they will receive by doing so?}
 \end{center}
 
-To answer these questions, we focus on \emph{pure strategies} and their \emph{payoffs}.
+To answer this question, we focus on \emph{pure strategies} and they \emph{payoffs}.
 
 
 \begin{definition}[The strategic form]
@@ -325,20 +324,20 @@ When constructing a strategic form game from a game in extensive form, the payof
 $$u_i(c) = \sum_{\text{leaf $\ell$ in the tree}} p(\ell|c) w_i(\ell), $$
 where $w_i(\ell)$ is the payoff of player $i$ at a leaf denoted by $\ell$ in the tree, and $p(\ell|c)$ is the probability of reaching that leaf if the players picked their strategies following $c$.
 \end{definition}
-Throughout the course, we will focus on finite games, i.e., games where both the sets $N$ and $C$ are finite.
+Throughout the course, we will focus on finite games, that are games where both the sets $N$ and $C$ are finite.
 \begin{example}
 For Example \ref{chap2:example:game}, the set of players is $N = \{1,2\}$,
 the pure strategies for each players are
  $$C_1 = \begin{pmatrix}
-Raise/raise \\
-Raise/fold \\
-Fold/raise \\
-Fold/fold
+Raise/raise, \\
+Raise/fold, \\
+Fold/raise, \\
+Fold/fold.
 \end{pmatrix}, C_2 = \begin{pmatrix}
-meet\\
-pass
+meet,\\
+pass.
 \end{pmatrix},$$
-and the set $C$ is given by the cartesian product of $C_1$ and $C_2$.
+and the set $C$ is the cartesian product of $C_1$ and $C_2$.
 Consider now the strategy profile $c = (Raise/fold, meet)$.
 The payoffs are then given by
 $$u(c) = \frac{1}{2} \cdot (4,0) + 0 \cdot (3,1)+ 0 \cdot (0,4) + 0 \cdot (3,1) + \frac{1}{2} \cdot (1,3) = (2.5,1.5).$$
@@ -351,9 +350,9 @@ A normal representation is a table in $N$ dimensions
  (one dimension per player),
  and represents the payoff function
  $u : C \rightarrow \reels^N$.
- We prefer an example to a definition here.
+ We prefer an example to a definition here:
 \begin{example}
-The \emph{normal representation} of the game of Example $\ref{chap2:example:game}$ is given at Figure \ref{chap2:table}
+The \emph{normal representation} of the game of Example $\ref{chap2:example:game}$ is given at Figure \ref{chap2:table}.
 By convention, we always refer to the player on the left of the table as the \emph{first} player,
 which means that the first entry in the payoff vector is always his payoff.
 \begin{figure}[!ht]
@@ -373,15 +372,14 @@ Fold/fold & 2, 2 & 2, 2
 \end{example}
 
 The strategic form is built using \emph{pure} strategies. In practice, there are games where one would rather \emph{randomize} between strategies.
-For example, in rock-paper-scissors, the pure strategies are to play \emph{rock}, \emph{paper} or \emph{scissors}. However, in practice, people
-often try to play rock, paper or scissors with probability 1/3 each.
+For example,  in rock-paper-scissor, the pure strategies are to play \emph{rock},  \emph{paper} or \emph{scissors}. However, in practice, people often try to play rock, paper or scissor with probability 1/3 each.
 
 \begin{definition}[Randomized strategy]
 Given a player $i \in N$ and its set of strategies $C_i$, a \emph{randomized strategy} for the player is a probability distribution $\sigma_i \in \Delta(C_i)$:
 $$ \forall c_i \in C_i: \sigma_i(c_i) \geq 0; \qquad \sum_{c_i \in C_i} \sigma_i(c_i) = 1.$$
-A randomized strategy profile $\sigma \in \Delta(C)$ is the choice of one randomized strategy per player.
+A randomized strategy profile $\sigma \in \Delta(C)$ is a set of one randomized strategy per player.
 The \emph{expected payoff} of player $i \in N$ for the profile $\sigma \in \Delta(C)$ is given by
-$$E_\sigma(u_i(c)) = \sum_{c_i \in C_i} \sigma_i(c_i) \sum_{c_{-i} \in C_{-i}} \sigma_{-i}(c_{-i}) u_i(c_i, c_{-i}), $$
+$$E_\sigma(u_i(c)) = \sum_{c \in C} \sigma(c) u_i(c)= \sum_{c_i \in C_i} \sigma_i(c_i) \sum_{c_{-i} \in C_{-i}} \sigma_{-i}(c_{-i}) u_i(c_i, c_{-i}), $$
 where ``$-i$'' denotes the set of all players except $i$, and
 $\sigma_{-i}(c_{-i}) = \prod_{j \neq i}\sigma_{j}(c_j)$, with $c_{-i} = (c_j)_{j \neq i}$.
 \end{definition}
@@ -394,18 +392,19 @@ However, it is often sufficient to study the normal representation of a game for
 \section{Best responses and domination}
 
 In the previous section, we \emph{represented games}. We did not approach the following fundamental question:
- \textbf{What should each player do in a game?}
+ \textbf{What should (or will?) each player do in a game?}
 
 This question is similar to the one targeted by \emph{Decision Theory} (Chapter \ref{chap:Decision}).
 For game theory, we ask ourselves what should be the decision taken by a single player if he wants to maximize his own gains, \emph{and he knows that the other players too.}
 
 
 
+We will first introduce the concept of \emph{best response strategy}. It is a very important concept for understanding the behavior of rational players, because this simple concept, derived from our axioms of decision theory, will lead as to a (partial) solution to the above question. The rationale is the following: if a particular strategy can never be optimal, whatever the other players do, then, one can for sure rule it out of its sensible actions.
+
 
 
 \subsection{Best responses}
 \label{chap2:subsec:BR}
-We now introduce the concept of \emph{best response strategy}. It is a very important concept for understanding the behavior of rational players.
 
 \begin{definition}[Best response]
 Consider a player $i \in N$. If the players $-i$ play following the strategy profile $\sigma_{-i} \in \Delta(C_{-i})$, then the set of \emph{best response strategies} for player $i \in N$ is given by
@@ -414,7 +413,7 @@ $$ \argmax_{c_i \in C_i} \sum_{c_{-i} \in C_{-i}} \sigma_{-i}(c_{-i}) u_i(c_i, c
 
 The fact that best responses are a central concept in game theory can be seen as a direct consequence of decision theory. If player $i$ associates a probability $\sigma_{-i}(c_{-i}) $ that other players play the strategy $c_{-i}$, then picking a best-response strategy corresponds to maximizing its expected utility (Theorem \ref{ch1:utility-maximization}), which is the expected behavior of an intelligent and rational player.
 
-Since we can assume that every player in the game wants to pick a best response, we can try and build algorithms allowing us to predict the decision of the players.
+Now, one can push this reasoning further: Since we can assume that every player in the game wants to pick a best response, we can iterate this argument, allowing us to refine our prediction (or recommendation) on the decision of the players.
 Indeed, the choice of a best response for player $i$ is driven by what he thinks others will play: $\sigma_{-i}(c_{-i}) $. However, since the other players want to pick best responses as well, player $i$ might be able to adapt his beliefs $\sigma_{-i}(c_{-i}) $.
 
 This observation leads to a recursive way to  find the \emph{best} strategy to play. First, pick an initial strategy $\sigma_{-i}$,  then repeat
@@ -431,20 +430,21 @@ Take again the game of example \ref{chap2:example:game}. \TAtwo{} wants to find 
 \begin{itemize}
 \item Assume first \TAone{} is going to ``pass'' everytime. Then \TAtwo{} should play ``Raise/raise'' or ``Fold/raise'', which guarantees a payoff of $3\$$.
 \item If \TAtwo{}s plays as defined above, \TAone{} should play ``meet'', which gives him an expected payoff of $2.25\$$.
-\item In that case \TAtwo{} should play ``Raise/fold!''...
+\item In that case \TAtwo{} should play ``Raise/fold''!...
 \item ...to which the best response from \TAone{} is ``pass'', which brings us back at the beginning of the analysis.
 \end{itemize}
 \label{chap2:example:bestresponseequilibria}
 \end{example}
 
+We have to be more clever...
 
 \subsection{Domination}
 
 A rational player always plays what he believes is a best response to the other moves. Knowing this, we can sometimes rule out the possibility that one player plays a particular strategy $c_i$, in particular when we can show that $c_i$ can never be a best response.
 
  \begin{definition}[Strong domination]
- For a player $i \in N$, a strategy $d$ is \emph{strongly} dominated if it is \emph{never} a best response: $\forall \sigma_{-i} \in \Delta(C_{-i})$,
- $$ d \not \in \argmax_{c_i \in C_i} \sum_{c_{-i} \in C_{-i}} \sigma_{-i}(c_{-i}) u_i(c_i, c_{-i}).$$
+ For a player $i \in N$, a strategy $d$ is \emph{strongly} dominated if it is \emph{never} a best response:
+ $$\forall \sigma_{-i} \in \Delta(C_{-i}), \  d \not \in \argmax_{c_i \in C_i} \sum_{c_{-i} \in C_{-i}} \sigma_{-i}(c_{-i}) u_i(c_i, c_{-i}).$$
  \label{chap2:defdomibr}
  \end{definition}
 
@@ -477,7 +477,7 @@ A pure strategy $d_i$ is \emph{weakly dominated} if there exists a randomized st
  u_i(d_i, c_{-i}) \leq \sum_{e_i \in C_i} \sigma_i(e_i) u_i(e_i, c_{-i}),
  \label{domination}
 \end{equation}
-with the inequality being strict for at least one strategy in $c_{-i}$.\\*
+with the inequality being strict for at least one\footnote{naturally, if the inequality is never strict, then the strategies are equivalent.} strategy in $c_{-i}$.\\*
 The strategy $d_i$ is \emph{strongly dominated} if the inequality (\ref{domination}) is strict for all $c_{-i}$.
 \label{defdomipayoffs}
  \end{definition}
@@ -486,7 +486,7 @@ The strategy $d_i$ is \emph{strongly dominated} if the inequality (\ref{dominati
 \section{Equivalent games}
 \label{chap2:subsec:Equivalences}
 
-In this section, we characterize different notions of \emph{equivalence} between games.  Equivalence here relates to the similar notion present in Decision Theory (see Chapter \ref{chap:Decision}, Theorem \ref{chap1:thm:Equivalent}). Players will behave the same for two equivalent games because their preferences are preserved.\\
+In this section, we characterize different notions of \emph{equivalence} between games.  Equivalence here relates to the similar notion present in Decision Theory (see Chapter \ref{chap:Decision}, Theorem \ref{chap1:thm:Equivalent}). Intuitively, we will seek for a notion of equivalence that encompasses the fact that players behave the same in both games. So, two games might have very different available payoffs but yet be equivalent, if these payoffs can never occur in practice (i.e. in situations where players are rational.)
 
 \begin{definition}[Full equivalence]
 The two games $\Gamma = (N, C, u)$ and $\hat \Gamma = (N,C,\hat{u})$ are \emph{fully equivalent} if
@@ -503,7 +503,7 @@ Adeline's version is as follows:
 \hline r & 0, 0 &  -1, 1 & 1, -1 \\
  p & 1, -1 &  0, 0 & -1, 1 \\
  s & -1, 1 &  1, -1 & 0, 0 \\
-\end{tabular}
+\end{tabular} ,
 \end{center}
 Emilie's version is as follows:
 \begin{center}
@@ -512,16 +512,16 @@ Emilie's version is as follows:
 \hline r & 1, 1 &  -1, 3 & 3, -1 \\
  p & 3, -1 &  1, 1 & -1, 3 \\
  s & -1, 3 &  3, -1 & 1, 1 \\
-\end{tabular}
+\end{tabular} .
 \end{center}
 Let us now reflect on two questions:
 \begin{itemize}
 \item Which one would you rather play?
 \item Would you behave differently in playing  one game or the other?
 \end{itemize}
-The first is a trick-question: what is the utility scale in each game?\\*
-For the second, a rational and intelligent decision maker will make the same decisions in both games.
- The games are fully equivalent. The payoff in the second game are obtained by multiplying the ones in the first by 2, and then adding 1.
+The first one is a tricky question and id depends on the utility scale in each game.\\
+The second question however, admits a clear answer: a rational and intelligent decision maker will make the same decisions in both games, that is,
+the games are fully equivalent. Indeed, he payoff in the second game are obtained by multiplying the ones in the first by 2, and then adding 1.
 \end{example}
 
 Full equivalence is a property that is difficult to satisfy, and is mostly used in proofs.
@@ -784,7 +784,7 @@ Fold  & 1/3 & 1/3 \\
 The belief function of \TAone{} is $p_2(\text{red} | \text{gambler}) = \alpha$,  $p_2(\text{black}|\text{gambler}) = 1-\alpha$.
  \end{example}
 
- Representing the belief functions of each player can be cumbersome. This can be made easier if the beliefs are \emph{consistent}:
+ Representing the belief functions of each player can be cumbersome. This can be made easier is the beliefs are \emph{consistent}:
  \begin{definition}[Consistent beliefs]
  We say that the belief functions $p = (p_i)_{i \in N}$ are \emph{consistent} if there exists an a-priori probability distribution $P \in \Delta(T)$ such that for all $t_{-i} \in T_{-i} $, $t_i \in T_i$,
   $$ p_i(t_{-{i}} | t_i) = \frac{P(t_i, t_{-i})}{\sum_{s \in T_{-i}} P( t_i, s) } $$

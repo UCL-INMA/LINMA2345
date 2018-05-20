@@ -18,9 +18,9 @@ Chapter based on pages 154 to 177 of the book  ``Game theory - Analysis of confl
 The Nash equilibrium is a powerful tool for the analysis of games. When \emph{intelligent and rational} players have to make decisions, they will make sure to maximize their own payoffs (rationality) knowing that the other players will do the same (intelligence and rationality of the others).
 Thus, every player will play at a Nash Equilibrium.\\
 Nash equilibria are computed from the strategic form of a game. The main idea behind the use of the strategic form is that it provides a concise summary of the game, highlighting which strategies can be played, and what are the payoffs resulting of a choice of strategies.  Since the aim of rational players is to  maximize their payoffs, we are tempted to believe that the study of the strategic form is sufficient for understanding the outcome of games.\\
-In this chapter, we show that this is not the case. A game is a sequential process. A strategic form ignores sequentiality, and hides away some features of the game. The main consequence of this is that, even if when studying the game \emph{a priori} a strategy seems to be a best response to the opponents' strategies, \emph{its implementation may not be rational}. This is due to the fact that rational players wish to maximize their payoff \emph{at every move}. This is essentially due to the fact that our rational players actually take several decisions.  And, if we certainly expect that their different decisions have to be coherent with one another, we cannot deduce from this assumption that the decisions about every actions they will take are taken at once, at the beginning of the game.\\
+In this chapter, we show that this is not the case. A game is a sequential process. A strategic form ignores sequentiality, and hides away some features of the game. The main consequence of this is that, even if when studying the game \emph{a priori} a strategy seems to be a best response to the opponents' strategies, \emph{its implementation may not be rational}. This is due to the fact that rational players wish to maximize their payoff \emph{at every move}. This is essentially due to the fact that our rational players actually take several decisions.  And, if we certainly expect that their different decisions have to be coherent with one another, we cannot deduce from this assumption that the decisions about every actions they will take are taken at once, at the beginning of the game. Even more, we can certainly not deduce that their \emph{beliefs} about the state of the world can be decided at once, at the beginning of the game, for every future moment where they will have to make a decision, without taking into account the sequentiality of these decisions.\\
 In this chapter, we begin with examples showing that
-some Nash equilibria may translate into decisions (in the initial sequential game) which are irrational, and thus should naturally be excluded (Section \ref{ch4:sec:motivations}). Then, we will define several notions relative to extensive forms game (Section \ref{ch4:sec:extform}). In particular, we are going to be using the concept of \emph{behavioural strategies}. Finally, we will study  \emph{sequential rationality} and,  the key solution concept of the chapter, the \emph{sequential equilibrium}.
+some Nash equilibria may translate into decisions (in the initial sequential game) which are irrational, and thus should naturally be excluded (Section \ref{ch4:sec:motivations}). Then, we will define several notions relative to extensive forms game allowing us to generalize the notion of rationality to sequential scenarios (Section \ref{ch4:sec:extform}). In particular, we are going to be using the concept of \emph{behavioural strategies}. Finally, we will study  \emph{sequential rationality} and,  the key solution concept of the chapter, the \emph{sequential equilibrium}.
 
 
 
@@ -146,7 +146,7 @@ Let us now consider the extensive form game presented in Figure \ref{ch4:fig:bad
   \node[above=-20pt] at (noeud4) {$2\, / \, 3$};
 \end{tikzpicture}
 \end{center}
-\caption{This game has two Nash Equilibria: $([x1],[x2])$ and $([y1], [y2])$. The second equilibrium assumes an irrational move from player 2...}
+\caption{This game has two Nash Equilibria: $([x1],[x2])$ and $([y1], [y2])$. The second equilibrium assumes an irrational move from Player 2...}
 \label{ch4:fig:badEquilibrium}
 \end{figure}
 
@@ -161,18 +161,18 @@ y1 & 1, 9 & 1, 9
 \end{center}
 
 Of the two Nash Equilibria, $([y_1], [y_2])$ is disputable.
-Indeed, let us put ourselves in the shoes of player 1, and consider the game again through the eye of decision theory. The uncertainty here is one move picked by player $2$; so let us say player 2, at information state $2.b$, plays $x_2$ with probability $\alpha$, and $y_2$ with probability $1-\alpha$.
+Indeed, let us put ourselves in the shoes of Player 1, and consider the game again through the eye of decision theory. The uncertainty here is one move picked by Player $2$; so let us say Player 2, at information state $2.b$, plays $x_2$ with probability $\alpha$, and $y_2$ with probability $1-\alpha$.
 We need to compare our two moves:
 \begin{itemize}
 \item $y_1$ wins us a payoff of $1$,
 \item $x_1$ wins us a payoff of $2 \alpha$.
 \end{itemize}
 Thus, we prefer $x_1$ over $y_1$ if $\alpha > \frac{1}{2}$.
-Now, let us try and get more information on the possible values of $\alpha$. If player $2$ is at information state $2.b$ then his choice is trivial: playing $x_2$ wins him a payoff of $3$, dominating the decision $y_2$! Consequently, player 1,  knowing that player 2 is rational, should infer $\alpha = 1$, and thus prefer $x_1$ over $y_1$. \\
+Now, let us try and get more information on the possible values of $\alpha$. If Player $2$ is at information state $2.b$ then his choice is trivial: playing $x_2$ wins him a payoff of $3$, dominating the decision $y_2$! Consequently, Player 1,  knowing that Player 2 is rational, should infer $\alpha = 1$, and thus prefer $x_1$ over $y_1$. \\
 We conclude that as long as both players are rational and intelligent, the equilibrium $(y_1, y_2)$ cannot occur.
 
 Remark that this conclusion would be hidden from us if we only studied the strategic form. Here, the extensive form contains information allowing us to discard an equilibrium in the name of rationality.
-It is hopeless to attempt to obtain the same conclusion from using the strategic form alone. Indeed, the game of Figure \ref{ch4:fig:badEquilibrium2} has the same strategic form, and here both equilibria seem acceptable. Moreover, by playing $[y2]$, player 2 now guarantees himself a payoff of $9$ instead of $3$, which is thus the rational thing to do here.
+It is hopeless to attempt to obtain the same conclusion from using the strategic form alone. Indeed, the game of Figure \ref{ch4:fig:badEquilibrium2} has the same strategic form, and here both equilibria seem acceptable. Moreover, by playing $[y2]$, Player 2 now guarantees himself a payoff of $9$ instead of $3$, which is thus the rational thing to do here.
 \begin{figure}[!ht]
 \begin{center}
 \begin{tikzpicture}
@@ -212,6 +212,12 @@ It is hopeless to attempt to obtain the same conclusion from using the strategic
 \end{figure}
 
 \end{example}
+
+Most of the problems will come from imperfect information in sequential games. If we have perfect information, then by the \emph{backward analysis} we can easily describe the sequential equilibria of a game, as stated by the following theorem.
+
+\begin{theorem}[Zermelo's theorem]
+If $ \Gamma^e $ is an extensive form game with perfect information, then there exists at least one sequential equilibrium of $ \Gamma^e $ in pure strategies (so every move probability is either $0$ or $1$). Furthermore, for all generic games with perfect information, there is exactly one sequential equilibrium.
+\end{theorem}
 
 Throughout this chapter, we will study games having the \emph{perfect recall} property. At any step of the game, all the players of the game are always able to recall the whole history of their past moves.
 
@@ -535,7 +541,8 @@ The multi-agent representation of the card game of Example \ref{ch4:ex:cardgame}
 Given an extensive form game $\Gamma^e$ and a Nash Equilibrium $\sigma$ of its strategic representation, any behavioural representation of $\sigma$ is a Nash Equilibrium of its multi-agent representation.
 \end{theorem}
 
- The converse, as shown in the next example, is not true.
+The above theorem somehow represents a negative result.  It means that our attempt to represent sequentiality by `splitting' an agent into a set of virtual agents, has failed: all the Nash equilibria of the strategic representation turn out to be Nash equilibria of the multi-agent representation. Thus, we were not able to rule out the ``bad'' equilibria, which do not take into account sequentiality.\\
+The converse, as shown in the next example, is not true.
 
 \begin{example}
 \label{ch4:ex:cardGame2}

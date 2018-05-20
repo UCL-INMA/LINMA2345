@@ -19,11 +19,8 @@ Chapter based on \cite[pages 370 - 390 and 417 - 444]{MyGTAO} and \cite[Chapter 
 }
 
 
-The question of \emph{how can rational players cooperate?} is particularly intriguing. There are several reasons for this. First, of course, negotiations play a central role in our everyday interactions, should they be at the personal or corporate level. The second reason is deeper: our theoretical framework assumes that agents seek solely to improve their own payoff, we are hence interested by understanding the mechanisms of cooperation.
-
-Negotiation is often tied to communication (arguably, communication is necessary for negotiation). In Chapter \ref{chap:Cor} we give a first glimpse at games where agents may communicate. We focused on highlighting those strategies that agents \emph{may accept to play} in this context.
-
-In the current chapter, we discuss the process by which agents chose, among all the strategies they may accept to play, those that best suit their needs.
+The question of \emph{how can rational players cooperate?} is particularly intriguing. There are several reasons for this. First, of course, negotiations play a central role in our everyday interactions, should they be at the personal or corporate level. The second reason is deeper: our theoretical framework assumes that agents seek solely to improve their own payoff, but here our goal is to find the "fairest outcome" of a game, which is somehow contradictory with the fact that agents do not care about fairness in game theory, but only in optimizing their payoff.  It is not surprising that we will have to postulate new axioms in order to formalize what we mean by "fairness".
+Negotiation is often tied to communication (arguably, communication is necessary for negotiation). In Chapter \ref{chap:Cor} we give a first glimpse at games where agents may communicate. We focused on highlighting those strategies that agents \emph{may accept to play} in this context.In the current chapter, we discuss the process by which agents chose, among all the mechanisms they may accept to play, the one that seems the fairest for all.
 
 The chapter is divided into two parts:
 \begin{itemize}
@@ -38,7 +35,7 @@ The chapter is divided into two parts:
 \label{sec2PBarg}
 
 
-We define (informally) a bargaining problem as a situation where a set of players must decide on an outcome for a game such that "everyone benefits from the outcome". We will shortly provide a mathematical formalism for its definition, and begin with Example \ref{example1Barg}.
+We define (informally) a bargaining problem as a situation where a set of players must decide on a single for a game such that "everyone benefits from the outcome". We will shortly provide a mathematical formalism for its definition, and begin with Example \ref{example1Barg}.
 
 \begin{example}
 \label{example1Barg}
@@ -62,12 +59,11 @@ $$u_A(x) = \left \{ \begin{aligned}
 \end{aligned} \right . $$
 \item If they can't agree on splitting the money, they decide to give away the prize to a charity. This gives a payoff of $60$ to Alice, and $25$ to Bob.
 \end{itemize}
-
 Alice and Bob sit down to reflect on the situation.
 The first question they ask is \emph{what are all the possible way they can share the money?}
 They represent this at Figure \ref{examplePayoff}. There, the scales show \emph{utility} instead of the actual sum of money allocated. \\
-On the same figure, in red is shown the set of all allocations that make them at least as happy as giving the money to charity. Clearly, this set of of great importance: Alice and Bob being rational and intelligent, they would never pick an allocation outside the set.\\
-The point $f$ appears particularly interesting: at that point, Alice and Bob would get the same amount of utility above the point $v$, which is 24.
+On the same figure, in red is shown the set of all allocations that make them at least as happy as giving the money to charity. Clearly, this set is of great importance: Alice and Bob being rational and intelligent, they would never pick an allocation outside the set.\\
+The point $f$ appears particularly interesting: at that point, Alice and Bob would each get the same amount of utility above the point $v$, which is 24.
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}
@@ -104,18 +100,17 @@ The point $f$ appears particularly interesting: at that point, Alice and Bob wou
 \end{example}
 
 \begin{definition}[Bargaining problem]
-A two players bargaining problem with two players is a pair
+A two players bargaining problem is a pair
 $$(F, v)$$ where $F$ is a closed convex set of $\mathbb{R}^2$ which represents the set of possible payoffs and $v = (v_1, v_2) \in \mathbb{R}^2$ is the \emph{disagreement point} and represents the payoffs that both players would receive in the event of failure of the negotiation.
 \end{definition}
-
-\vspace{3cm}
+%\vspace{3cm}
 To better interpret these structures, note that Bargaining problems arise naturally in the context of Chapter \ref{chap:Cor}.
 Consider players strategic form game $\Gamma = (\{1,2\}, C, u)$.
 For this game, we can have
 \begin{align*}
 	F = \Big\{ \big( \, u_1(\mu), \, u_2(\mu) \, \big) \; | \; \mu \in \Delta(C) \, \Big\}, \quad \text{where } \, u_i(\mu) \, = \, \sum_{c \in C} \mu(c) u_i(c),
 \end{align*}
-where $\mu \in \Delta(C)$ is a correlated strategy satisfying, depending on the context, to the conditions of Theorem \ref{thm:minimaxcor} (payoff greater than minimax for binding contracts), or strategic incentive constraints (see Definitions \ref{ch6:def:incentive} or \ref{incentiveCompatible}).\\
+where $\mu \in \Delta(C)$ is a correlated strategy satisfying, depending on the context, to the conditions of Theorem \ref{thm:minimaxcor} (payoff greater than minimax for binding contracts), or strategic incentive constraints (see Definitions \ref{ch6:def:incentive} or \ref{incentiveCompatible}). Observe that in all these cases, the set of possible payoff allocations is convex (why?).\\
 The disagreement point can be defined in several ways depending on the problem studied. We discuss three typical definitions in Section~\ref{sec:disagreement}.\\
 Convexity of $F$ can be justified by the possibility to \emph{randomize} among allocations by the players.
 
@@ -144,10 +139,9 @@ The following hold:
 \begin{itemize}
 \item $(F,v)$ is essential.
 \item All points in the red area are rational.
-\item All points on the $[d,e]$ line segment are \emph{weakly Pareto efficient}.
 \item All points on the segments $[a,b]$, $[b,c]$ and $[c,d]$ are \emph{strongly Pareto efficient}.
-\item Point $f$ is \emph{egalitarian}, at coordinates $(84,104)$. Observe that since we have $v = (60,80)$, we get $x_1 - v_1 = x_2 - v_2 = 24$ at this point.
-\item Point $c$ is \emph{utilitarian}, with $x_1 + x_2 = 200$. Observe that, on the figure, no other points achieve the same  sum of payoffs.
+\item Point $f$ is \emph{egalitarian}, at coordinates $(84,54)$. Observe that since we have $v = (60,30)$, we get $x_1 - v_1 = x_2 - v_2 = 24$ at this point.
+\item Point $c$ is \emph{utilitarian}, with $x_1 + x_2 = 140$. Observe that, on the figure, no other points achieve the same  sum of payoffs.
 \end{itemize}
 \end{example}
 
@@ -155,7 +149,7 @@ The following hold:
 Given a bargaining problem, we wish to find a point that will satisfy all players.
 This is clearly a hard task, as we can easily oppose different views regarding what is a "good solution".
 First of all, players may not share a same utility scale, rendering the comparison of payoffs hazardous.
-Second, some may prone the usage of an \emph{eqalitarian solution}, appearing \emph{fair to everyone}, while others may view this as a waste, preferring a \emph{utilitarian solution}.
+Second, some may prone the usage of an \emph{egalitarian solution}, appearing \emph{fair to everyone}, while others may view this as a waste, preferring a \emph{utilitarian solution}.
 
 In the next section, we will see how Nash was able to propose a meaningful solution to this question. We will also see in Section~\ref{sec:egalitarian-utilitarian} how Nash's solution relates to the egalitarian and utilitarian solutions.
 
@@ -207,7 +201,7 @@ There is a unique solution function $\phi(\cdot, \cdot)$ that satisfies Axioms \
 
 \begin{example}[Example \ref{ch5:ex:minimax} continued.]
 \label{example:AliceBobCinemaBargain}
-In Example  \ref{ch5:ex:minimax}, Charles needs to pick an allocation for Alice and Bob that are playing the game
+In Example  \ref{ch5:ex:minimax}, Charles needs to pick an allocation for Alice and Bob, who are playing the game
 \begin{center}
 \begin{tabular}{c | c  c}
 & c & b\\
@@ -275,10 +269,10 @@ We may just find the maximum along each line, compare these maxima, and pick the
 $$ y = \frac{80 - 60}{60 - 80} x + 80 - \frac{80 - 60}{60 - 80} 60 = - x + 140. $$
 When restricted on this line, our program becomes
 $$ \max_{x \in [60,80]} x (- x + 140). $$
-To solve this, we derivative of $x (- x + 140)$ to $0$, which gives us
+To solve this, we compute the derivative of $x (- x + 140)$ at $0$, which gives us
 $$  x = 140. $$
 This point is outside the range $[60,80]$, however since our objective function to be maximized is concave, we conclude that the solution here is $x = 80$.
-\item Second, we consider the line segment $[c,d]$. It corresponds by a line with equation
+\item Second, we consider the line segment $[c,d]$. It corresponds to a line with equation
 $$ y =  = -1.5 x + 180. $$
 Repeating our procedure, we find a solution $x = 80$ (the point cancelling the derivative is $x = 60$, rounded to 80).
 
@@ -333,14 +327,14 @@ Depending on the problem studied, the disagreement point $v$ can be defined in a
 	\begin{align*}
 		v_i = \min_{\sigma_{-i} \in \Delta(C_{-i})} \max_{\sigma_i \in \Delta(C_i)} u_i(\sigma_i, \sigma_{-i}), \quad \text{with} \ i \in \{1,2\}.
 	\end{align*}
-	This choice of $v$ can be useful to model unpredictable, irrational or risk averse behaviors for instance. Playing the minimax strategy can also make sense in a situation where the failure of a negotiation would be the fault of some particular player who could then choose to play safely because he feels threatened.
+	This choice of $v$ can be useful to model unpredictable, irrational or risk averse behaviors for instance. Playing the minimax strategy can also make sense in a situation where the failure of a negotiation would be the fault of some particular player who could then choose to play safely because he cannot be threatened of having a payoff smaller than his minimax strategy.
 	\item[Nash equilibrium.] If $\sigma$ is a Nash equilibrium of the game, then we may define $v$ such that $v_i = u_i(\sigma)$.
 	\item[Rational threats.] The idea of rational threats is for each player to choose (and announce) his disagreement strategy in order to maximize his value with the Nash bargaining solution. Doing so, the players of course assume for an eventual agreement. More precisely, suppose that in case of a disagreement, the players announce that they will play $\tau_1$ and $\tau_2$ respectively. We call $\tau_1$ and $\tau_2$ \emph{threats}. If those actions were to happen, the payoffs of the players would be $u(\tau_1, \tau_2)$ and the Nash bargaining solution would be $\phi(F, u(\tau_1, \tau_2))$. We say that the threats $\tau_1$ and $\tau_2$ are \emph{rational} iff
 	\begin{align*}
 		\phi_1(F, u(\tau_1, \tau_2)) &\geq \phi_1(F, u(\sigma_1, \tau_2)) \quad \text{for all} \ \sigma_1 \in \Delta(C_1)\\
 		\text{and} \quad \phi_2(F, u(\tau_1, \tau_2)) &\geq \phi_2(F, u(\tau_1, \sigma_2)) \quad \text{for all} \ \sigma_2 \in \Delta(C_2)
 	\end{align*}
-	and in that case, we define $v$ as $u(\tau_1, \tau_2)$. In other words, changing $\tau_i$ to any other threat would deteriorate the Nash bargaining solution for player $i$. This definition of $v$ is perhaps the most meaningful of the three but it may also be too hard to compute... except in the case of transferable utility.
+	and in that case, we define $v$ as $u(\tau_1, \tau_2)$. In other words, changing $\tau_i$ to any other threat would deteriorate the Nash bargaining solution for player $i$. This definition of $v$ is perhaps the most meaningful of the three but it may also be too hard to compute... except in the case of transferable utility. Note that in the framework of Rational Threats, we assume that the players commit to play their disagreement strategy in case the negotiation fails (via some sort of binding contract).  This assumption may not hold in some practical cases.
 \end{description}
 
 
@@ -359,25 +353,34 @@ Here $v_{12}$ corresponds to the largest total payoff that the players can achie
 \begin{align*}
 	\phi_1 = \frac{v_{12} + v_1 - v_2}{2} \quad \text{and} \quad \phi_2 = \frac{v_{12} - v_1 + v_2}{2}.
 \end{align*}
+We end this section with a theorem that shows that rational threats can be easily computed in the case of transferable utility.
+\begin{theorem}
+The solution of the two-player Nash bargaining problem with transferable utility when the players are using the threats $\tau_1$ and $\tau_2$ respectively is given by:
+\begin{align}
+	&\phi_1(F, u(\tau_1, \tau_2)) = \frac{v_{12} + u_1(\tau_1, \tau_2) - u_2(\tau_1, \tau_2)}{2}\label{eq: nbp_threats1}\\
+	\text{and} \quad &\phi_2(F, u(\tau_1, \tau_2)) = \frac{v_{12} - u_1(\tau_1, \tau_2) + u_2(\tau_1, \tau_2)}{2}. \label{eq: nbp_threats2}
+\end{align}
+Therefore, the threats $\tau_1$ and $\tau_2$ are rational iff they are an equilibrium of the two-player zero-sum game given by $\Gamma^*=(\{1,2\}, \Delta(C_1), \Delta(C_2), u_1-u_2, u_2-u_1)$.
+\end{theorem}
+The last part of the theorem comes from the fact that the
+players aim to maximize expression (\ref{eq: nbp_threats1}) and (\ref{eq: nbp_threats2}) respectively, which boils down to maximizing $u_1(\tau_1, \tau_2) - u_2(\tau_1, \tau_2)$ for player 1 and $u_2(\tau_1, \tau_2) - u_1(\tau_1, \tau_2)$ for player 2. We remind that the equilibria of a two-player zero-sum game can be easily computed.
 
-To end this section, let us observe that the rational threats can be easily computed in the case of transferable utility. Indeed, the payoff of the players when using the threats $\tau_1$ and $\tau_2$ respectively is then given by
-\begin{align*}
-	&\phi_1(F, u(\tau_1, \tau_2)) = \frac{v_{12} + u_1(\tau_1, \tau_2) - u_2(\tau_1, \tau_2)}{2}\\ \text{and} \quad &\phi_2(F, u(\tau_1, \tau_2)) = \frac{v_{12} - u_1(\tau_1, \tau_2) + u_2(\tau_1, \tau_2)}{2}.
-\end{align*}
-The players aim to maximize this expression which boils down to maximizing $u_1(\tau_1, \tau_2) - u_2(\tau_1, \tau_2)$ for player 1 and $u_2(\tau_1, \tau_2) - u_1(\tau_1, \tau_2)$ for player 2. Therefore, the threats $\tau_1$ and $\tau_2$ are rational iff they are an equilibrium of the two-player zero-sum game given by $\Gamma^*=(\{1,2\}, \Delta(C_1), \Delta(C_2), u_1-u_2, u_2-u_1)$. It is well known that equilibria can be easily computed for such games.
+
+%To end this section, let us observe that the rational threats can be easily computed in the case of transferable utility. Indeed, the payoff of the players when using the threats $\tau_1$ and $\tau_2$ respectively is then given by
+
+%The players aim to maximize expression (\ref{eq: nbp_threats1}) and (\ref{eq: nbp_threats2}) respectively, which boils down to maximizing $u_1(\tau_1, \tau_2) - u_2(\tau_1, \tau_2)$ for player 1 and $u_2(\tau_1, \tau_2) - u_1(\tau_1, \tau_2)$ for player 2. Therefore, the threats $\tau_1$ and $\tau_2$ are rational iff they are an equilibrium of the two-player zero-sum game given by $\Gamma^*=(\{1,2\}, \Delta(C_1), \Delta(C_2), u_1-u_2, u_2-u_1)$. Equilibria can be easily computed for such games.
 
 \subsection{Game of Alternative offers}
 
-We end the topic of two players bargaining problems by discussing Alternating-Offer Bargaining Games. This refers to a situation where both players negociate on a prize, offering a price one after another, until either they agree to exchange the item at this prize, or they cease negotiations.
+We end the topic of two-player bargaining problems by discussing Alternating-Offer Bargaining Games. This refers to a situation where both players negociate on a prize, offering a price one after another, until either they agree to exchange the item at this prize, or they cease negotiations.
 
 Let $(F,v)$ be a regular two-person bargaining problem, and let $0 < p_1, p_2 < 1$  be two numbers that can be interpreted as the \emph{patience} of each player.
 
 The game plays as follows.
 \begin{itemize}
-\item At every odd numbered round, player 1 makes an \emph{offer} $x \in F$. If player 2 accepts the offer, the games end. If the player rejects the offer, then there are two possibilities.
-The game  may end with probability $p_2$ and players have a payoff $(v_1,w_2)$, where $w_2$ is a payoff that satisfy $w_2 \leq \max_{y \in F, y \geq v} y_2$. Otherwise, the next round begins.
-\item  At every even numbered round, player 2 makes an \emph{offer} $x \in F$. If player 1 accepts the offer, the games end. If the player rejects the offer, then there are two possibilities.
-The game  may end with probability $p_1$ and players have a payoff $(w_1,v_2)$, where $w_1$ is a payoff that satisfy $w_1 \leq \max_{y \in F, y \geq v} y_1$. Otherwise, the next round begins.
+\item At every odd numbered round, Player 1 makes an \emph{offer} $x \in F$. If Player 2 accepts the offer, the game ends, and the players receive the payoff corresponding to the offer $ x $. If the player rejects the offer, then there are two possibilities. Either the game ends with a disagreement, which occurs with probability $p_1$ where $p_1$ represents the probability that Player 1 gets impatient. In this case the players receive a payoff $(v_1,v_2)$. Otherwise, the next round begins.
+\item  At every even numbered round, Player 2 makes an \emph{offer} $x \in F$. If Player 1 accepts the offer, the games ends. If the player rejects the offer, then there are two possibilities.
+The game  may end with probability $p_2$ and the players have a payoff $(v_1,v_2)$. Otherwise, the next round begins.
 \end{itemize}
 
 
@@ -399,7 +402,7 @@ Furthermore, player $1$ would accept any offer giving him at least $\bar{y}_1$, 
 \section{The bargaining problem with more than two players}
 
 
-We have dealt the case where two players seek to find an agreement through the means of negociations. The natural following to this study is to consider what happens when three or more players, each with their respective objectives, find themselves in a similar scenario. Surprisingly, we will see that the solution concept of the previous section, the Nash Bargaining Solution, becomes inadequate when considering $N \geq 3$ players. One of the main root of this is that, as more and more players enter the picture, we now have to deal with an additional phenomenon: \emph{players may now form coalitions, where a part of the group band together in order to maximize their own objectives.}
+We have dealt with the case where two players seek to find an agreement through the means of negociations. The natural next step is to consider what happens when three or more players, each with their respective objectives, find themselves in a similar scenario. Surprisingly, we will see that the solution concept of the previous section, the Nash Bargaining Solution, becomes inadequate when considering $N \geq 3$ players. One of the main root of this is that, as more players enter the picture, we now have to deal with an additional phenomenon: \emph{players may now form coalitions, where a part of the group band together in order to maximize their own objectives.}
 Example \ref{exCoal1} illustrates the fact that a direct generalization of the tools of Section \ref{sec2PBarg} may be inadequate.
 
 \begin{example}
@@ -418,22 +421,17 @@ Indeed, Bob and Jean-Henry can team up and see that the allocation $x = (0,150,1
 Alice can then propose a deal to Bob: the allocation $x = (50, 250, 0)$ is clearly better for both of them (she would have got nothing in the previous deal).\\
 Jean-Henry could then approach Alice with a new deal she could not refuse: the allocation $x = (150,0,150)$ would be better for both of them compared to the previous one!
 
-As the reader may guess, the above will not lead to a solution. Every time a group of players  discuss an allocation, another group can be formed for which a better allocation exist. It is critical to study when these dynamics may occur.
+As the reader may guess, the above reasoning will not lead to a solution. Every time a group of players  discuss an allocation, another group can be formed for which a better allocation exist. It is critical to study when these dynamics may occur.
 \end{example}
-
-
-
-
-The study these N-players bargaining games requires us to take into account the possibility that the player form  coalitions to improve their own payoffs.
-We focus of games with \emph{transferable utility}.
+We focus on games with \emph{transferable utility}. That is, we assume that after the game happened, the players are allowed to redistribute their payoffs among the players in the coalition.  In this setting, a coalition game is completely described by a function that returns the value earned by each coalition (that is, the sum of the payoffs earned by the members of the coalition).
 
 Our main tool to describe a coalition game with transferable utility is the \emph{characteristic function.}
 \begin{definition}[Characteristic function]
-Given a coalition game with players $N$, a \emph{characteristic function} is a function of the form
+Given a coalition game with $N$ players, a \emph{characteristic function} is a function of the form
 $$v : 2^N \rightarrow \reels: S \mapsto v(S), $$
-with $v(\emptyset) = 0$, that assigns to each coalition $S \subseteq N$ the amount of transferable utility $v(S)$, or \emph{worth}, is can achieve. \\
+with $v(\emptyset) = 0$, that assigns to each coalition $S \subseteq N$ the amount of transferable utility $v(S)$it can achieve.  We call it the \emph{worth} of the coalition.
 \end{definition}
-The characteristic function is the central concept we use here to define coalitionnal games.
+The characteristic function is the central concept we use here to define coalitional games.
 \begin{definition}
 A coalitional game is a pair $(N,v)$, where $v$ is a characteristic function.
 \end{definition}
@@ -442,12 +440,12 @@ A coalition game $(N,v)$ is:
 \begin{itemize}
 \item \emph{super-additive} if, for any pair $S,T \subseteq N$, with $S \cap T = \emptyset$,
 $$v(S \cup T) \geq v(S) + v(T), $$
-\item \emph{convex} if,  for any pair $S,T \subseteq N$,
+\item \emph{convex} (or \emph{super-modular}) if,  for any pair $S,T \subseteq N$,
 $$v(S \cup T) \geq v(S) + v(T) - v(S \cap T). $$
 \end{itemize}
 \end{definition}
-With a super-additive characteristic function, the payoff that all players get together is greater than what they would get if the group was divided into smaller teams. Unless stated otherwise, we make the assumption that super-additivity holds.\\
-Convexity is stronger than super-additivity. These games may appear particular, but are not so rare in practice (\cite{ShLeMSAG}).
+With a super-additive characteristic function, the payoff that all players get together is greater than what they would get if the group was divided into smaller teams. Unless stated otherwise, we make the assumption that super-additivity holds. Note that there are easy techniques in order to obtain an equivalent super-additive characteristic function from an arbitrary characteristic function.  Hence, this assumption is not conservative.\\
+Convexity is weaker than super-additivity when the characteristic function is positive. These games may appear particular, but are not so rare in practice (\cite{ShLeMSAG}). In fact, we call it `convexity' because it is the natural equivalent to the notion of convexity in functional analysis.  Hence, it is not surprising that this property 1) is naturally appearing in many applications, and 2) often enhances our ability to solve problems in an efficient way.
 \begin{example}(Airport Game,  (\cite{ShLeMSAG}))
 A number $N$ of cities need airport capacity.
 A first solution is for each city to build its own airport. The cost of an airport for city $i$ is $y_i$, that scales with the size of the runway that city needs.
@@ -473,9 +471,9 @@ The rest of this section is divided into two parts. First, we will linger a bit 
 
 
 
-\subsection{Constructing characteristic functions}
+\subsection{Constructing characteristic functions from a game in strategic form}
 
-We are given a game in strategic form $\Gamma = (N, C, u)$ with transferable utility (this means that, first, all players share a same utility scale, and that second players have the possibility to give away part of their utility payoffs to other players).
+We are given a game in strategic form $\Gamma = (N, C, u)$ with transferable utility (recall that this means that, first, all players share the same utility scale, and that second, players have the possibility to give away part of their utility payoffs to other players).
 
 We discuss three ways to define a characteristic function for this game, that are similar in fact to what we use to define the disagreement points in two-players bargaining problems \ref{sec:disagreement}.
 
@@ -496,7 +494,7 @@ we consider a game with two \emph{meta-players} corresponding to the coalition $
  The characteristic function is given by
 	$$v(S) = \sum_{i \in S} u_i(\bar{\sigma}_S, \bar{\sigma}_{N \backslash S}).$$
 
-	The interpretation here	is more in line with our rationality assumption: for every choice of $S$, we assume that both $S$ and $N \backslash S$ seek only to maximize their payoff.
+	The interpretation here	is more in line with our rationality assumption: for every choice of $S$, we assume that both $S$ and $N \backslash S$ seek only to maximize their payoff. However, there could be several different Nash Equilibria in the coalition game, and so this model leaves some arbitrary choice, which is a drawback.
 
 	\item[Rational threats.] The rational threat representation is somehow \emph{in between} the two others. The focus here is one making a coalition $S$ \emph{more appealing} than a coalition $N \backslash S$.
 	The strategies of $S$ and $N \backslash S$ are chosen as follows:
@@ -508,7 +506,7 @@ we consider a game with two \emph{meta-players} corresponding to the coalition $
 	\end{align}
 
 \end{description}
-When the three representations lead to the same characteristic function, we say the game has \emph{orthogonal coalitions}.
+When the three representations lead to the same characteristic function, we say the game has \emph{orthogonal coalitions} (see \cite[p. 426]{MyGTAO}).
 \begin{example}[{{\cite[pages 425 - 426]{MyGTAO}}}]
 Consider the following three players game in strategic form.
   \begin{center}
@@ -521,13 +519,13 @@ $b_1$
 \end{tabular} &
 \begin{tabular}{cc}
 \hline $a_3$ & $b_3$ \\
-\hline $4,4,4$ & $2,5,2$ \\
-$5,2,2$ & $3,3,0$
+\hline $4,4,4$ & $2,2,5$ \\
+$5,2,2$ & $3,0,3$
 \end{tabular}&
 \begin{tabular}{cc}
 \hline $a_3$ & $b_3$ \\
-\hline $2,2,5$ & $0,3,3$ \\
-$3,0,3$ & $1,1,1$
+\hline $2,5,2$ & $0,3,3$ \\
+$3,3,0$ & $1,1,1$
 \end{tabular}
 \end{tabular}
 \end{center}
@@ -556,16 +554,15 @@ $$
 &v(\{1,2,3\}) = 12.
 \end{aligned}
 $$
-This last case appears less intuitive than the two above, so we comment it a bit more.
-When $S$ contains only one player, we claim that $S$ and $N \backslash S$ should both play according to their $b$ strategy. In this case, \eqref{eq1RT} achieves a difference of payoffs of $-1$, while \eqref{eq2RT} a yields a difference of $+1$. Deviating unilaterally from these strategies would decrease these differences. A similar exercise can be done for when $S$ has two players.
 \end{itemize}
 \end{example}
 
 
 
 \subsection{The Core}
+Until now, we have provided a modeling framework for a coalitional game.  We are now in position to propose a \emph{solution concept}.  That is, we seek for a payoff allocation for each player that reflects their ability to generate payoffs for the group.  Since we are restricting ourself to super-additive games, we can start our analysis by assuming that the overall payoff generated by the full set of agent is the payoff corresponding to $N$, which we call the \emph{grand} coalition.  Indeed, it would not be rational to generate less payoff, as $v(N)$ is the maximal possible overall payoff.  Our goal (our ``solution concept'') boils thus down to answering the question: `how should we split the payoff of $v(N)$ into the different players?'.
 
-The core is a very natural concept. We want to allocate payoffs to player such that they can never secure a better payoff by forming a small coalition.
+The core is the first solution concept that we propose for a game in coalitional form.  It comes naturally from our intuition: we want to allocate payoffs to the players such that they can never secure a better payoff by forming a smaller coalition.
 \begin{definition}[Feasibility, Improvability, and the Core]
 Consider a characteristic function $v = (v(S))_{S \subseteq N}$ for a coalition game and a payoff allocation $x \in \reels^N$.\\
  For a coalition $S \subseteq N$; $x$ is \emph{feasible} for $S$ if $$\sum_{i \in S} x_i \leq v(S).$$
@@ -576,9 +573,9 @@ i.e. the set of all allocations feasible for the coalition $N$ and which cannot 
 \end{definition}
 
 The concept of the core is perfectly in line with the notion of rationality: the only way players will play together in a big coalition $N$ is that they cannot improve their payoffs by forming smaller coalitions (including the possibility of playing alone).
-Remark that the core describes a set of feasible allocations that players should accept, but does not produce a unique solution. To remedy this, one can add a criterion that need to be optimized, e.g. minimize the difference between allocations to make them more "egalitarian".
+Remark that the core describes a set of feasible allocations that players should accept, but does not produce a unique solution. To remedy this, one can add a criterion that needs to be optimized, e.g. minimize the difference between allocations to make them more ``egalitarian''. However the function to optimize might not be agreed upon by all the players, and this constitutes thus a first weakness for this solution concept.
 
-Surprisingly, while very intuitive with respect to the above, the core has weaknesses in that there are some games for which it is \emph{empty}.
+Surprisingly, while very intuitive with respect to our goals, the core has another weakness of even greater importance, in that there are some games for which it is \emph{empty}.
 \begin{example}[Example \ref{exCoal1} continued]
 In Example \ref{exCoal1}, Alice, Bob and Jean-Henry wanted to share 300$\EUR$ between them. The twist was that an allocation would be accepted if $2$ of the three accepted it.
 Let us build a characteristic function for the game. We chose the minimax representation here (however, one can show that the three representations coincide here).
@@ -595,7 +592,7 @@ $$x_1 + x_2 \geq 300, \, x_1 + x_3 \geq 300, \, x_2 + x_3 \geq 300, \, x_1 + x_2
 which is impossible.
 \end{example}
 
-In other case, the core may not be empty, but the allocations in the core may seem \emph{unfair}, or are \emph{highly sensitive to disturbances}.
+In other case, the core may not be empty, but the allocations in the core may seem \emph{unfair}, or are \emph{highly sensitive to disturbances}; we show this third weakness in the following example.
 \begin{example}[Matching gloves]
 There are two groups of $n_1$ and $n_2$ people. The first group manufacture \emph{left gloves}, and the second group manufactures \emph{right gloves}. While a single glove can't be sold, a \emph{pair} is sold $1\EUR$ on the market. Therefore, members of the two groups must find an arrangement if they hope to make a profit.
 
@@ -609,7 +606,7 @@ To see why, assume that we gave a payoff of $\epsilon > 0$ to some player in the
 \item $n_1 = n_2$. In this case, there is a continuum of possible allocations.
 \item $n_1 < n_2$. This is similar to the first case.
 \end{itemize}
-Hence, the allocation depends only (non-continuously!) on the number of players in each group.
+Hence, the allocation depends only (`non-continuously') on the number of players in each group.
 \end{example}
 
 The core is therefore a very elegant concept and comes with its flaws. Several extensions have been studied to remedy these flaws.
@@ -656,10 +653,10 @@ Given any characteristic function $v$, there exists a \emph{unique} function $\p
 \end{theorem}
 
 
-The above formula finds an intuitive explanation in the following idea. Suppose that all the players were entering the game one by one. Each time a new player, $i$, enters the game, he brings some additional value $v(S \cup {i}) - v(S)$ to the coalition $S$ already there, which he takes for himself. Then we consider every possible order in which the players can enter the game (there are $|N|!$ such orders) and it is easy to see that the Shapley Value is exactly this 'expected eazrnings', when the ordering in which agents enter the coalition is choosen randomly.
+The above formula finds an intuitive explanation in the following idea. Suppose that all the players were entering the game one by one. Each time a new player, $i$, enters the game, he brings some additional value $v(S \cup {i}) - v(S)$ to the coalition $S$ already there, which he takes for himself. Then we consider every possible order in which the players can enter the game (there are $|N|!$ such orders) and it is easy to see that the Shapley Value is exactly this `expected earning', when the ordering in which agents enter the coalition is choosen randomly.
 
 Let us now comment on the link between the Shapley Value and the core.
-At first sight, the Shapley value is not guaranteed to be in the core. This means that, in theory, rational agents may not agree on the Shapley value allocation. In practice, the Shapley value is very appealing since it provides us with a unique solution concept satisfying sound axioms.
+At first sight, the Shapley value is not guaranteed to be in the core. This means that, in theory, rational agents may not agree on the Shapley value allocation. In practice, the Shapley value is very appealing since it provides us a unique and always well-defined solution concept satisfying such axioms.
 
 There are some cases where the Shapley value is indeed in the core.
 \begin{theorem}
