@@ -709,6 +709,29 @@ This means that if we know the second player is going for Tit-for-Tat, we should
 
 \end{example}
 
+\section{Learning in repeated games}
+In repeated games, \textit{learning} strategies refer to a set of strategies
+that use the information collected by a player during the previous rounds to
+improve its behavior in future rounds. This corresponds to the way we see
+learning in our everyday lifes: using past inputs to improve itself in the
+future. 
+\todo[note]{Introduction to be improved, use Standford MOOC for motivation.}
+
+\subsection{Fictitious play}
+Fictitious play is an algorithm introduced by \textsc{Brown} at the RAND
+corporation in 1949. Originally, the objective of this algorithm was to
+provide an explanation for the origin of Nash's equilibria. One can imagine
+this algorithm as a player playing against itself multiple times, trying to
+devise the best strategy (i.e. a Nash's equilibrium) for when the time to
+play against a real opponent will come. Nowadays, fictitious play 
+
+More rigorously, fictitious play
+is an instance of \textit{model-based} learning where learners maintain 
+beliefs about opponent's behaviors. The way the opponent's model is build
+is really simple and relies on a single assumption: the opponent is playing
+a mixed strategy given by the empirical distribution of its past moves.
+
+
 
 \ifx \globalmark \undefined %% This is default.
 \bibliographystyle{apalike}
