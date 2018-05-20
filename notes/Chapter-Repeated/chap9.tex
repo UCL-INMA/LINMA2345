@@ -716,6 +716,17 @@ learning in our everyday lifes: using past inputs to improve itself in the
 future. 
 \todo[note]{Introduction to be improved, use Standford MOOC for motivation.}
 
+\begin{definition}[Learning strategy]
+    A learning strategy is a strategy where a player use previous information
+    to improve its behaviour. As they unfold, learning strategies are supposed
+    to draw interesting inferences or use accumulated experience in an
+    interesting way.
+\end{definition}
+
+There exists a lot of learning strategies but in this course we are only going
+to talk about two learning strategies: \emph{Fictitious play} and
+\emph{No-regret playing}.
+
 \subsection{Fictitious play}
 Fictitious play is an algorithm introduced by \textsc{Brown} at the RAND
 corporation in 1949. Originally, the objective of this algorithm was to
@@ -730,37 +741,19 @@ beliefs about opponent's behaviors. The way the opponent's model is build
 is really simple and relies on a single assumption: the opponent is playing
 a mixed strategy given by the empirical distribution of its past moves.
 
-
-
-\section{Learning in repeated games}
-
-During repeated games, it might be useful to have some kind of strategy in order to improve your behaviour and to react accordingly to the behaviour of your opponent. This kind of strategy is called a \emph{learning strategy}. 
-
-
-\begin{definition}[Learning strategy]
-	A learning strategy is a strategy where a player use previous information to improve its behaviour. As they unfold, learning strategies are supposed to draw interesting inferences or use accumulated experience in an interesting way.
-\end{definition}
-
-There exists a lot of learning strategies but in this course we are only going to talk about two learning strategies: \emph{Fictitious play} and \emph{No-regret playing}.
-
-\subsection{Fictitious play}
-
-The concept of fictitous play was introduced \textsc{Brown}  at RAND in 1949 as an explanation to Nash equilibrium. Fictitous play is an instance of \emph{model-based} learning where the learner maintains a belief about the opponent: in this case we assume the opponent is playing a mixed strategy consistent with the empirical distribution of the opponent's previous actions. The algorithm of Fictitious play is the following:
-
 \begin{procedure}[Fictitious play]
-\emph{Repeat:}
-\begin{enumerate}
-	\item Play a best response to the assessed strategy of the opponent
-	\item Observe the opponent's actual play and update beliefs accordingly
-\end{enumerate}
-\label{chap9:fictplayproc}
+    \emph{Repeat:}
+    \begin{enumerate}
+	    \item Play a best response to the assessed strategy of the opponent
+	    \item Observe the opponent's actual play and update beliefs accordingly
+    \end{enumerate}
+    \label{chap9:fictplayproc}
 \end{procedure}
 
 \begin{example}[Example of the fictitious play algorithm]
-\label{ex:fictitiousPlay}
-
-For the example for fictitious play, we consider two players using the fictitious play algorithm in the following game:
-
+    \label{ex:fictitiousPlay}
+    For the example for fictitious play, we consider two players using the
+    fictitious play algorithm in the following game:
 
 \begin{table}
 	\Large
@@ -782,67 +775,105 @@ For this example, we are going to use the following notation:
         \item $\sigma_i^t$: strategy of player $i$ at turn $t+1$
 \end{itemize}
 
-Let's assume for the sake of the example that player 1 plays U and player 2 plays l at first turn.\\
+Let's assume for the sake of the example that player 1 plays U and player 2
+plays l at first turn.\\
 
-At the second turn the belief vectors of each player are the following: $\nu_1^2=(1,0), \nu_2^2=(1,0)$. The expected play of the two players are thus the following: player 1 expect player 2 to play $\mu_1^2=l$ and player 2 expect player 1 to play $\mu_2^2=U$. The best response strategy of each player is thus going to be the following: player 1 is going to play $\sigma_1^2=D$ and player 2 is going to play $\sigma_2^2=l$.\\
+At the second turn the belief vectors of each player are the following:
+$\nu_1^2=(1,0), \nu_2^2=(1,0)$. The expected play of the two players are
+thus the following: player 1 expect player 2 to play $\mu_1^2=l$ and player
+2 expect player 1 to play $\mu_2^2=U$. The best response strategy of each
+player is thus going to be the following: player 1 is going to play
+$\sigma_1^2=D$ and player 2 is going to play $\sigma_2^2=l$.\\
 
-At the third turn the belief vectors are $\nu_1^3=(2,0)$ and $\nu_2^3=(1,1)$. The expected strategy of each player is thus $\mu_1^3=l$ and $\mu_2^3=\frac{1}{2}U+\frac{1}{2}D$. The best response strategy for each player is thus $\sigma_1^3=D$ and $\sigma_2^3=l$: in fact for player 2 the expected payoff if  he plays $l$ is going to be equal to $\frac{1}{2}*3+\frac{1}{2}*0=1.5$ and the payoff for playing right is $\frac{1}{2}*0+\frac{1}{2}*1=0.5$, thus playing $l$ is the best response against the supposed mixed strategy of the opponent.\\
+At the third turn the belief vectors are $\nu_1^3=(2,0)$ and $\nu_2^3=(1,1)$.
+The expected strategy of each player is thus $\mu_1^3=l$ and
+$\mu_2^3=\frac{1}{2}U+\frac{1}{2}D$. The best response strategy for each
+player is thus $\sigma_1^3=D$ and $\sigma_2^3=l$: in fact for player 2 the
+expected payoff if  he plays $l$ is going to be equal to
+$\frac{1}{2}*3+\frac{1}{2}*0=1.5$ and the payoff for playing right is
+$\frac{1}{2}*0+\frac{1}{2}*1=0.5$, thus playing $l$ is the best response
+against the supposed mixed strategy of the opponent.\\
 
-At the fourth turn the belief vectors are $\nu_1^4=(3,0)$ and $\nu_2^4=(1,2)$. The expected strategy of each player is thus $\mu_1^4=l$ and $\mu_2^4=\frac{1}{3}U+\frac{2}{3}D$. The best response strategy for each player is thus $\sigma_1^4=D$ and $\sigma_2^4=l$: the expected payoff for player 2 is equal to $\frac{1}{3}*3+\frac{2}{3}*0=1$ if he plays l and $\frac{1}{3}*0+\frac{2}{3}*1=\frac{2}{3}$ if he plays right.\\
+At the fourth turn the belief vectors are $\nu_1^4=(3,0)$ and $\nu_2^4=(1,2)$.
+The expected strategy of each player is thus $\mu_1^4=l$ and
+$\mu_2^4=\frac{1}{3}U+\frac{2}{3}D$. The best response strategy for each
+player is thus $\sigma_1^4=D$ and $\sigma_2^4=l$: the expected payoff for
+player 2 is equal to $\frac{1}{3}*3+\frac{2}{3}*0=1$ if he plays l and
+$\frac{1}{3}*0+\frac{2}{3}*1=\frac{2}{3}$ if he plays right.\\
 
-At the fifth turn the belief vectors are $\nu_1^5=(4,0)$ and $\nu_2^5=(1,3)$. The expected strategy of each player is thus $\mu_1^5=l$ and $\mu_2^5=\frac{1}{4}U+\frac{3}{4}D$. The best response strategy for each player is thus $\sigma_1^5=D$ and $\sigma_2^5$ can be either equal to $l$ or to $r$, in fact, the expected payoffs for player 2 are the same: $\frac{1}{4}*3+\frac{3}{4}*0=0.75$ if he plays l and $\frac{1}{4}*0+\frac{3}{4}*1=0.75$ if he plays right.\\
+At the fifth turn the belief vectors are $\nu_1^5=(4,0)$ and $\nu_2^5=(1,3)$.
+The expected strategy of each player is thus $\mu_1^5=l$ and
+$\mu_2^5=\frac{1}{4}U+\frac{3}{4}D$. The best response strategy for each
+player is thus $\sigma_1^5=D$ and $\sigma_2^5$ can be either equal to $l$
+or to $r$, in fact, the expected payoffs for player 2 are the same:
+$\frac{1}{4}*3+\frac{3}{4}*0=0.75$ if he plays l and
+$\frac{1}{4}*0+\frac{3}{4}*1=0.75$ if he plays right.\\
 
-Finally at the sixth turn, the belief vectors are $\nu_1^6=(5,0)$ and $\nu_2^6=(1,4)$. The expected strategy of each player is thus $\mu_1^6=l$ and $\mu_2^6=\frac{1}{5}U+\frac{4}{5}D$. The best response strategy for each player is thus $\sigma_1^4=D$ and $\sigma_2^4=r$: in fact,  the expected payoff for player 2 is equal to $\frac{1}{5}*3+\frac{4}{5}*0=0.6$ if he plays l and $\frac{1}{5}*0+\frac{4}{5}*1=0.8$ if he plays right. Since the strategy $(D,l)$ is a Nash equilibirum (and a strongly dominating strategy) of the game, the strategy of each player won't change anymore.\\
-
+Finally at the sixth turn, the belief vectors are $\nu_1^6=(5,0)$ and
+$\nu_2^6=(1,4)$. The expected strategy of each player is thus $\mu_1^6=l$
+and $\mu_2^6=\frac{1}{5}U+\frac{4}{5}D$. The best response strategy for
+each player is thus $\sigma_1^4=D$ and $\sigma_2^4=r$: in fact,  the
+expected payoff for player 2 is equal to $\frac{1}{5}*3+\frac{4}{5}*0=0.6$
+if he plays l and $\frac{1}{5}*0+\frac{4}{5}*1=0.8$ if he plays right.
+Since the strategy $(D,l)$ is a Nash equilibirum (and a strongly dominating
+strategy) of the game, the strategy of each player won't change anymore.\\
 \end{example}
 
-We can thus see thanks to this example that the algorithm of fictious play does sometimes converge under certain conditions. We are first going to detail the solution to which the algorithm is going to converge:
+We can thus see thanks to this example that the algorithm of fictious play does
+sometimes converge under certain conditions. We are first going to detail the
+solution to which the algorithm is going to converge:
 
 \begin{theorem}
-\label{thm:fpconvergence}
-If the empirical distribution of each player's strategies converges in fictitious play, then \emph{it converges to a Nash equilibrium}.
+    \label{thm:fpconvergence}
+    If the empirical distribution of each player's strategies converges in
+    fictitious play, then \emph{it converges to a Nash equilibrium}.
 \end{theorem}
 
-Once we know this result, we can now detail sufficient conditions for the convergence of the fictitious play algorithm:
+Once we know this result, we can now detail sufficient conditions for the
+convergence of the fictitious play algorithm:
 
 \begin{theorem}
-\label{thm:fpconvergencecond}
-Each of the following are a sufficient conditions for the empirical
-        frequencies of play to converge in fictitious play
-        \begin{itemize}
-            \item the game is zero-sum;
-            \item the game is solvable by iterated elimination of strictly dominated strategies
-        \end{itemize}
+    \label{thm:fpconvergencecond}
+    Each of the following are a sufficient conditions for the empirical
+    frequencies of play to converge in fictitious play
+    \begin{itemize}
+        \item the game is zero-sum;
+        \item the game is solvable by iterated elimination of strictly dominated strategies
+    \end{itemize}
 \end{theorem}
 
 \subsection{No-regret playing}
-
-The second algorithm we are going to study in this section is \emph{no-regret playing}. To be able to define the concept of \emph{no-regret playing}, we first need to define the concept of \emph{regret}:
+The second algorithm we are going to study in this section is \emph{no-regret
+playing}. To be able to define the concept of \emph{no-regret playing}, we
+first need to define the concept of \emph{regret}:
 
 \begin{definition}[Regret]
-Let $\alpha^t$ be the average per-period reward the agent received up to time $t$\\
-Let $\alpha^t(d)$ the average per-period reward the agent would have received by playing strategy $d$. \\
-The regret an agent experiences at time $t$ for not having played $d$ is:
-        $$R^t(d) = \alpha^t(d) - \alpha^t.$$
+    Let $\alpha^t$ be the average per-period reward the agent received up to time
+    $t$\\ Let $\alpha^t(d)$ the average per-period reward the agent would have
+    received by playing strategy $d$. \\ The regret an agent experiences at
+    time $t$ for not having played $d$ is:
+    $$R^t(d) = \alpha^t(d) - \alpha^t.$$
 \end{definition}
 
 Once we have defined the concept of regret, we can define \emph{no-regret playing}:
 
 \begin{definition}[No-regret playing]
-A learning rule exhibits no regret if it guarantees with high probability that the agent will not experience any positive regret\\
-        $$P([\liminf R^t(d)] \leq 0) = 1.$$
+    A learning rule exhibits no regret if it guarantees with high probability that
+    the agent will not experience any positive regret\\ $$P([\liminf R^t(d)]
+    \leq 0) = 1.$$
 \end{definition}
 
-We can see in this case that no-regret playing is a way more general concept than fictitious play: in fact in this case it is a whole new category of algorithms. One example of a no-regret playing algorithm is \emph{regret matching}. The concept of the regret matching algorithm is the following:
+We can see in this case that no-regret playing is a way more general concept
+than fictitious play: in fact in this case it is a whole new category of
+algorithms. One example of a no-regret playing algorithm is \emph{regret
+matching}. The concept of the regret matching algorithm is the following:
 
 \begin{procedure}[Regret matching]
-\emph{Repeat:\\}
+    \emph{Repeat:\\}
 	\quad At each time step each action is chosen with probability consistent to its regret:\\
 			$$\sigma_i^{t+1}(d)= \frac{R^t(d)}{\sum_{d'\in D_i} R^t(d')}$$
-\label{chap9:regretmatchproc}
+    \label{chap9:regretmatchproc}
 \end{procedure}
-
-
 
 
 
