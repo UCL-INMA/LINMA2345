@@ -12,7 +12,8 @@
 }
 \label{chap:Rep}
 {\small{\itshape
-Chapter based on \cite[pages 308 - 331]{MyGTAO}, \cite[Section 6.1]{ShLeMSAG}.}\\
+Chapter based on \cite[pages 308 - 331]{MyGTAO}, \cite[Section 6.1]{ShLeMSAG}.} and on
+the Stanford/Coursera MOOC on Game Theory (for the section on learning in repeated games).\\
 }
 
 A repeated game is a strategic situation where a set of players play a same
@@ -743,16 +744,22 @@ distribution of its past moves.
 \begin{procedure}[Fictitious play]
     \emph{Repeat:}
     \begin{enumerate}
-	    \item Play a best response to the assessed strategy of the opponent
+        \item Play a best response to the assessed strategy of the opponent (if
+        first round, play an arbitrary strategy)
 	    \item Observe the opponent's actual play and update beliefs accordingly
     \end{enumerate}
     \label{chap9:fictplayproc}
 \end{procedure}
 
+Note that this algorithm is often given with an additionnal beliefs initialization
+step. As a consequence, step 1 always consists in playing a best reponse (and
+no longer an arbitrary strategy at the first round). However, this version does
+not correspond to the original algorithm proposed by \textsc{Brown}.
+
 \begin{example}[Example of the fictitious play algorithm]
 \label{ex:fictitiousPlay}
 For the example for fictitious play, we consider two players using the
-fictitious play algorithm in the following game:
+fictitious play algorithm in the following game.
 
 \begin{table}
     \centering
@@ -773,8 +780,8 @@ Let's first define some notations
         \item $\sigma_i^t$: strategy of player $i$ at turn $t+1$.
 \end{itemize}
 
-Let's assume for the sake of the example that player 1 plays U and player 2
-plays l at first turn.\\
+At the first round, each player plays an arbitrary strategy.
+Let's assume then that player 1 plays U and player 2 plays l initially.\\
 
 At the second turn the belief vectors of each player are the following:
 $\nu_1^2=(1,0), \nu_2^2=(1,0)$. The expected play of the two players are
