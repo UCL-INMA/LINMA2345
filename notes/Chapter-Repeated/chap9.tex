@@ -717,7 +717,7 @@ In repeated games, \textit{learning} strategies can be defined as follows.
     player during the previous rounds to improve its behavior in future rounds.
 \end{definition}
 
-This corresponds to the way we see learning in our everyday lifes: using
+This corresponds to the way we see learning in our everyday life: using
 past inputs to improve itself in the future. 
 In addition, learning strategies are supposed to draw interesting inferences
 or use accumulated experience in an interesting way. This will be illustrated
@@ -729,10 +729,10 @@ section \emph{fictitious play} and \emph{no-regret playing}.
 \subsection{Fictitious play}
 Fictitious play is an algorithm introduced by \textsc{Brown} at the RAND
 corporation in 1949. Originally, the objective of this algorithm was to
-provide an explanation for the origin of Nash's equilibria as well an heuristic
-to compute Nash's equilibria. One can imagine this algorithm as a player
+provide an explanation for the origin of Nash equilibria as well a heuristic
+to compute Nash equilibria. One can imagine this algorithm as a player
 playing against itself multiple times, trying to devise the best strategy
-(i.e. a Nash's equilibrium) for when the time to play against a real opponent
+(i.e. a Nash equilibrium) for when the time to play against a real opponent
 will come. 
 
 More rigorously, fictitious play is an instance of \textit{model-based}
@@ -751,15 +751,15 @@ distribution of its past moves.
     \label{chap9:fictplayproc}
 \end{procedure}
 
-Note that this algorithm is often given with an additionnal beliefs initialization
+Note that this algorithm is often given with an additional beliefs initialization
 step. As a consequence, step 1 always consists in playing a best reponse (and
 no longer an arbitrary strategy at the first round). However, this version does
 not correspond to the original algorithm proposed by \textsc{Brown}.
 
-\begin{example}[Example of the fictitious play algorithm]
+\begin{example}[Fictitious play]
 \label{ex:fictitiousPlay}
-For the example for fictitious play, we consider two players using the
-fictitious play algorithm in the following game.
+Let's consider the normal form game given in table~\ref{chap9:tab-fic-play-ex} and
+two players using the fictitious play algorithm.
 
 \begin{table}
     \centering
@@ -771,6 +771,7 @@ fictitious play algorithm in the following game.
     \end{tabular}
     \caption{Normal form game used in the Fictitious play example. The only
     Nash Equilibrium of this game is (D, r).}
+    \label{chap9:tab-fic-play-ex}
 \end{table}
 
 Let's first define some notations 
@@ -783,14 +784,14 @@ Let's first define some notations
 At the first round, each player plays an arbitrary strategy.
 Let's assume then that player 1 plays U and player 2 plays l initially.\\
 
-At the second turn the belief vectors of each player are the following:
-$\nu_1^2=(1,0), \nu_2^2=(1,0)$. The expected play of the two players are
-thus the following: player 1 expect player 2 to play $\mu_1^2=l$ and player
-2 expect player 1 to play $\mu_2^2=U$. The best response strategy of each
+At the second round the belief vectors of each player are the following:
+$\nu_1^2=(1,0), \nu_2^2=(1,0)$. The expected move of the two players are
+thus the following: player 1 expects player 2 to play $\mu_1^2=l$ and player
+2 expects player 1 to play $\mu_2^2=U$. The best response strategy of each
 player is thus going to be the following: player 1 is going to play
 $\sigma_1^2=D$ and player 2 is going to play $\sigma_2^2=l$.\\
 
-At the third turn the belief vectors are $\nu_1^3=(2,0)$ and $\nu_2^3=(1,1)$.
+At the third round the belief vectors are $\nu_1^3=(2,0)$ and $\nu_2^3=(1,1)$.
 The expected strategy of each player is thus $\mu_1^3=l$ and
 $\mu_2^3=\frac{1}{2}U+\frac{1}{2}D$. The best response strategy for each
 player is thus $\sigma_1^3=D$ and $\sigma_2^3=l$: in fact for player 2 the
@@ -799,14 +800,14 @@ $\frac{1}{2}\cdot3+\frac{1}{2}\cdot0=1.5$ and the payoff for playing right is
 $\frac{1}{2}\cdot0+\frac{1}{2}\cdot1=0.5$, thus playing $l$ is the best response
 against the supposed mixed strategy of the opponent.\\
 
-At the fourth turn the belief vectors are $\nu_1^4=(3,0)$ and $\nu_2^4=(1,2)$.
+At the fourth round the belief vectors are $\nu_1^4=(3,0)$ and $\nu_2^4=(1,2)$.
 The expected strategy of each player is thus $\mu_1^4=l$ and
 $\mu_2^4=\frac{1}{3}U+\frac{2}{3}D$. The best response strategy for each
 player is thus $\sigma_1^4=D$ and $\sigma_2^4=l$: the expected payoff for
 player 2 is equal to $\frac{1}{3}\cdot3+\frac{2}{3}\cdot0=1$ if he plays l and
 $\frac{1}{3}\cdot0+\frac{2}{3}\cdot1=\frac{2}{3}$ if he plays right.\\
 
-At the fifth turn the belief vectors are $\nu_1^5=(4,0)$ and $\nu_2^5=(1,3)$.
+At the fifth round the belief vectors are $\nu_1^5=(4,0)$ and $\nu_2^5=(1,3)$.
 The expected strategy of each player is thus $\mu_1^5=l$ and
 $\mu_2^5=\frac{1}{4}U+\frac{3}{4}D$. The best response strategy for each
 player is thus $\sigma_1^5=D$ and $\sigma_2^5$ can be either equal to $l$
@@ -814,7 +815,7 @@ or to $r$, in fact, the expected payoffs for player 2 are the same:
 $\frac{1}{4}\cdot3+\frac{3}{4}\cdot0=0.75$ if he plays l and
 $\frac{1}{4}\cdot0+\frac{3}{4}\cdot1=0.75$ if he plays right.\\
 
-Finally at the sixth turn, the belief vectors are $\nu_1^6=(5,0)$ and
+Finally at the sixth round, the belief vectors are $\nu_1^6=(5,0)$ and
 $\nu_2^6=(1,4)$. The expected strategy of each player is thus $\mu_1^6=l$
 and $\mu_2^6=\frac{1}{5}U+\frac{4}{5}D$. The best response strategy for
 each player is thus $\sigma_1^4=D$ and $\sigma_2^4=r$: in fact,  the
@@ -824,7 +825,7 @@ Since the strategy $(D,l)$ is a Nash equilibirum (and a strongly dominating
 strategy) of the game, the strategy of each player won't change anymore.\\
 \end{example}
 
-This example suggests that fictious play might converge. In particular,
+This example suggests that fictitious play might converge. In particular,
 in might converge to a Nash's Equilibrium. Two questions remain, however:
 does it always converge? Does it always converge to a Nash's Equilibrium?
 The two following theorems answer these two questions.
