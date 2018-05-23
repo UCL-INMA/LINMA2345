@@ -413,7 +413,7 @@ strategies, leading to cooperative equilibria, are as follows
 \subsection{Folk Theorems and Cooperation}
 Infinitely repeated games offer opportunities for cooperative behaviors,
 which can be linked to the theory of cooperative game theory.
-The following is taken from~\cite[Theorem 6.15]{ShLeMSAG}.
+The following is taken from~\cite[Theorem 6.1.5]{ShLeMSAG}.
 \begin{theorem}[Folk Theorem]
 \label{ch9:thm:folk1}
 Consider any $N$-player normal-form game $\Gamma = (N,C,u)$, and a
@@ -424,11 +424,12 @@ Assume that
     $$v_i = \min_{c_{-i} \in C_{-i}} \max_{c_i \in C_i}
     u_i(c_{-i}, c_i),$$
     \item and there is a correlated strategy $\tau \in \Delta C$, where
-    $\tau(c)$ is rational for each $c \in C$, such that
+    $\tau(c) \in \mathbb{Q}$ for each $c \in C$ where $\mathbb{Q}$ is the set
+    of rational numbers, such that
     $$r_i = \sum_{c \in C} \tau(c) u_i(c).$$
 \end{itemize}
 Then $r$ is the payoff obtained by the players for some Nash Equilibrium
-of the infinitely repeated game with \emph{discounted rewards}, for some sufficiently large discount.
+of the infinitely repeated game with \emph{limit average rewards}.
 \end{theorem}
 
 There is an interesting parallel here with Chapter~\ref{chap:Cor} and in
