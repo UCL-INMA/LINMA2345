@@ -29,9 +29,13 @@ We now put ourselves in the situation where players will have to play this game 
 	\item[b.] Now, the game can potentially be repeated an infinite amount of time. At every step, first they decide on their strategy, then they play the game and receive their payoffs, and finally, a computer decides with probability $\alpha$ that there will be a next step and probability $1-\alpha$ that the game ends there.\\
 	Describe this situation as a repeated game $$\Gamma(N, \Theta, (D_i, S_i, u_i)_{i \in N}, q, r).$$
 	Recall that $N$ is the set of players, $\Theta$ is a set of \emph{state of the worlds} (you need to decide what it is going to be), $S_i$ is a set of signals, used by the players to decide their moves (here also, what could it be?), $u : \Theta \times D \rightarrow \reels$, $q$ is an initial condition in $\Delta( \Theta \times S)$, and $p$ describes the transitions between the states.
-		\item[c.] What would be the average payoff of the players if they did the following:
+	\item[c.] What would be the average payoff of the players if they did the following:
 		\emph{every time I can play, I just play 0.5[C]+0.5[D]}. 
 \end{enumerate}
+
+\begin{solution}
+\input{1101.tex}
+\end{solution}
 
 \section{War of attrition.}
 Two small grocery stores close to one another are starting to feel the effects of the supermarket that has just moved to a kilometer away. While they remain on the market, they each lose \SI{4000}{\EUR} per month. The first day of the month, just before paying rent, each grocer still on the market must decide whether or not to close his shop. If one of the two stores closes, the one who remains on the market will make a profit of \SI{2000}{\EUR} a month. In addition, it is assumed that the closure of a grocery store is final. Every grocer wants to maximize the \emph{discounted expected value} of its monthly benefit, assuming a discount factor of $\delta = .99$.
@@ -40,6 +44,8 @@ Two small grocery stores close to one another are starting to feel the effects o
 	\item[b.] How else could the grocers have equilibrated this situation?
 	\item[c.] Now suppose that Grocer~1 was slightly larger than Grocer~2. As long as the two grocers remain on the market, Grocer~1 loses \SI{4800}{\EUR} a month while Grocer~2 loses only \SI{3600}{\EUR} a month. Conversely, if Grocer~1 was the only one on the market, he would win \SI{2800}{\EUR} a month, against \SI{1600}{\EUR} only for Grocer~2 in the same situation. Find an equilibrium for the situation in which the two grocers randomize each month between leaving the market or stay there until at least one of them actually closes its store. In this case, which of the two grocers has the highest chance to leave first?
 \end{enumerate}
+
+\nosolution
 
 %\newpage
 
