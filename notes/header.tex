@@ -1,142 +1,125 @@
 \documentclass[a4paper,12pt]{report}
 
-%%% Text Formatting
+%%% PACKAGES %%%
 
-	\usepackage[french,english]{babel}	
-	\usepackage[ansinew]{inputenc}
-	\usepackage[T1]{fontenc}		
-	% Font
-	\usepackage{lmodern}			
+\usepackage[french, english] {babel}	% langue principale
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}		% Police contenant les caractères français
+\usepackage{lmodern}			% plus beau
+\usepackage[a4paper]{geometry} 
+	\geometry{hscale=0.75,vscale=0.8,centering}
 
-%%% Margins
+\usepackage[hidelinks]{hyperref} % pas de couleurs ici
+%
+\usepackage[natbibapa]{apacite}
 
-	\usepackage[a4paper]{geometry} 
-		\geometry{hscale=0.75,vscale=0.8,centering}
+%% Maths
+\usepackage{amsfonts} % Equations etc
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
 
-%%% Maths
+\usepackage{cleveref}
 
-	\usepackage{amsfonts} % Equations etc
-	\usepackage{amsmath}
-	\usepackage{mathtools}
-	\usepackage{amssymb}
+%% Itemizes
+\usepackage{enumerate}
+\usepackage{enumitem}
 
-
-%%% QOL
-	
-	\usepackage[hidelinks]{hyperref}
-	\usepackage{cleveref}
-	%% Itemizes
-		\usepackage{enumerate}
-		\usepackage{enumitem}
-	%% Meta
-	\usepackage{etoolbox}
-
-	% Easy debuging - Catch missing refs (instead of ???, will write down the ref you were using)
-	\makeatletter
-		\patchcmd{\@setref}{\bfseries ??}{{\color{red}[\texttt{\detokenize{ #3 }}]}}{}{%
-		  \GenericWarning{}{Failed to patch \protect\@setref}}
-		\patchcmd{\@citex}{\bfseries ?}{{\color{red}[\texttt{\detokenize{ #3 }}]}}{}{%{{\color{red}\texttt{\@citeb}}}{}{%
-		  \GenericWarning{}{Failed to patch \protect\@citex}}
-	\makeatother
-	
-	%% Biblio
-	\usepackage[natbibapa]{apacite}
-	
-	%% Dates
-	\usepackage{datetime}
-		\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
-
-
-
-%%% Figures
-
-	\usepackage[pdftex]{graphicx} 
-	\usepackage{epstopdf}
-	\usepackage{color, xcolor}
-	\usepackage{chessboard}
-	\usepackage{booktabs,tabularx,multirow}
-	\usepackage[babel=true,kerning=true]{microtype}
-	%> Tikz
-	\usepackage{tikz}
-	\usepackage{hf-tikz}
-	\usetikzlibrary{ 
-		calc,
-		arrows,
-		arrows.meta,
-		automata, 
-		shapes, 
-		snakes, 
-		positioning, 
-		decorations,
-		decorations.text,
-		fit,
-		matrix,
-		mindmap
-		}
-	\tikzstyle{noeud-std}=[draw,fill=black,circle,inner sep=0pt,minimum size=7pt]% 7pt est la taille des cercles noirs
-	\usepackage{tkz-graph}
-	\newcommand{\tikzmark}[2]{\tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {#2};}
-	\newcommand{\Highlight}[1][submatrix]{%
-    	\tikz[overlay,remember picture]{
-	    \node[highlight,fit=(left.north west) (right.south east)] (#1) {};}
- 	   }
-	\tikzset{%
-		  highlight/.style={rectangle,rounded corners,fill=ocre!50,draw,
-	      fill opacity=0.5,thick,inner sep=0pt}
+%% Dessins & Plots
+\usepackage[pdftex]{graphicx} %Images dans le PDF
+\usepackage{epstopdf}
+\usepackage{color, xcolor}
+\usepackage{chessboard}
+\usepackage{booktabs,tabularx,multirow}
+\usepackage[babel=true,kerning=true]{microtype}
+%> Tikz
+\usepackage{tikz}
+\usepackage{hf-tikz}
+\usetikzlibrary{ 
+	calc,
+	arrows,
+	arrows.meta,
+	automata, 
+	shapes, 
+	snakes, 
+	positioning, 
+	decorations,
+	decorations.text,
+	fit,
+	matrix,
+	mindmap
 	}
-	\newcommand{\mytikzmark}[2]{\tikz[overlay,remember picture, baseline=(#1.base)] \node (#1) {#2};}
-
-	
-	
-
-%%% Theorems and such
-
-	\usepackage{framed}
-	\usepackage{mdframed}
-	\usepackage[amsmath,thref, framed]{ntheorem}
-
-	%% Counters for theorem.
-	% The current choice is that all environments share a counter within chapters.
-	% It that regards, it becomes easy to navigate the document.
-
-	\newcounter{theo}[chapter]\setcounter{theo}{0}
-	\renewcommand{\thetheo}{\arabic{chapter}.\arabic{theo}}
+	\tikzstyle{noeud-std}=[draw,fill=black,circle,inner sep=0pt,minimum size=7pt]% 7pt est la taille des cercles noirs
+\usepackage{tkz-graph}
+\newcommand{\tikzmark}[2]{\tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {#2};}
+\newcommand{\Highlight}[1][submatrix]{%
+    \tikz[overlay,remember picture]{
+    \node[highlight,fit=(left.north west) (right.south east)] (#1) {};}
+    }
+\tikzset{%
+  highlight/.style={rectangle,rounded corners,fill=ocre!50,draw,
+    fill opacity=0.5,thick,inner sep=0pt}
+}
+\newcommand{\mytikzmark}[2]{\tikz[overlay,remember picture, baseline=(#1.base)] \node (#1) {#2};}
 
 
+%% Meta
+\usepackage{etoolbox}
 
-	% The following is adapted from https://texblog.org/2015/09/30/fancy-boxes-for-theorem-lemma-and-proof-with-mdframed/
-	% \newenvironment{name}[args]{begin_def}{end_def}
-	\newenvironment{generic_theo}[2][] % 2 arguments, and one is optional. The first argument will say if we have a Thm or somth, the second is the name of the thm.
-		{% begin_def
-			\refstepcounter{theo}%
-			\ifstrempty{#2} % looking at the name of the thm
-			{	
-				\mdfsetup{
-					frametitle={
-						\tikz[baseline=(current bounding box.east),outer sep=0pt]
-						\node[anchor=east,rectangle,fill=white!20, draw = black!20, line width = 2pt]
-						{\strut #1~\thetheo};}
-				} % The #1 will say Theorem, or other.
-			}
-			{
-				\mdfsetup{
-					frametitle={
+% Debugging purposes: Catch when a reference is missing
+\makeatletter
+	\patchcmd{\@setref}{\bfseries ??}{{\color{red}[\texttt{\detokenize{ #3 }}]}}{}{%
+	  \GenericWarning{}{Failed to patch \protect\@setref}}
+	\patchcmd{\@citex}{\bfseries ?}{{\color{red}[\texttt{\detokenize{ #3 }}]}}{}{%{{\color{red}\texttt{\@citeb}}}{}{%
+	  \GenericWarning{}{Failed to patch \protect\@citex}}
+\makeatother
+
+%% CUSTOM ENVIRONMENTS
+% Packages
+\usepackage{framed}
+\usepackage{mdframed}
+\usepackage[amsmath,thref, framed]{ntheorem}
+
+%% Counters for theorem.
+% The current choice is that all environments share a counter within chapters.
+% It that regards, it becomes easy to navigate the document.
+
+\newcounter{theo}[chapter]\setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{chapter}.\arabic{theo}}
+
+
+
+% The following is adapted from https://texblog.org/2015/09/30/fancy-boxes-for-theorem-lemma-and-proof-with-mdframed/
+% \newenvironment{name}[args]{begin_def}{end_def}
+\newenvironment{generic_theo}[2][] % 2 arguments, and one is optional. The first argument will say if we have a Thm or somth, the second is the name of the thm.
+	{% begin_def
+		\refstepcounter{theo}%
+		\ifstrempty{#2} % looking at the name of the thm
+		{	
+			\mdfsetup{
+				frametitle={
 					\tikz[baseline=(current bounding box.east),outer sep=0pt]
 					\node[anchor=east,rectangle,fill=white!20, draw = black!20, line width = 2pt]
-					{\strut #1~\thetheo:~#2};}
-				}
-			}
-			\mdfsetup{innertopmargin=10pt,linecolor=black!20,
-					linewidth=2pt,topline=true,
-					frametitleaboveskip=\dimexpr-\ht\strutbox\relax
-					}
-			\begin{mdframed}[]\relax
+					{\strut #1~\thetheo};}
+			} % The #1 will say Theorem, or other.
 		}
 		{
-			\end{mdframed}
+			\mdfsetup{
+				frametitle={
+				\tikz[baseline=(current bounding box.east),outer sep=0pt]
+				\node[anchor=east,rectangle,fill=white!20, draw = black!20, line width = 2pt]
+				{\strut #1~\thetheo:~#2};}
+			}
 		}
+		\mdfsetup{innertopmargin=10pt,linecolor=black!20,
+					linewidth=2pt,topline=true,
+					frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+				}
+\begin{mdframed}[]\relax}{\end{mdframed}}
 
-	\newenvironment{generic_proof}[2][] % 2 arguments, and one is optional. The first argument will say if we have a Thm or somth, the second is the name of the thm.
+
+%% Proofs (slightly different)
+\newenvironment{generic_proof}[2][] % 2 arguments, and one is optional. The first argument will say if we have a Thm or somth, the second is the name of the thm.
 	{% begin_def
 		\refstepcounter{theo}%
 		\ifstrempty{#2} % looking at the name of the thm
@@ -158,13 +141,8 @@
 					linewidth=1pt,topline=true,
 					frametitleaboveskip=\dimexpr-\ht\strutbox\relax
 				}
-		\begin{mdframed}[]
-	}
-	{
-		\end{mdframed}
-	}
-
-%% NOTE TO CONTRIBUTORS (FROM MATTHEW) : I stopped refactoring here... below is still a jungle.
+\begin{mdframed}[]
+}{\end{mdframed}}
 
 %% Examples/Exercices
 \newenvironment{generic_ex}[2][] % 2 arguments, and one is optional. The first argument will say if we have a Thm or somth, the second is the name of the thm.
