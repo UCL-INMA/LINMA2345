@@ -1,0 +1,95 @@
+We notice that the game is invariant under cyclic permutation of the actions $x, y, z$.
+That is, if we apply the same number of cyclic permutation to the actions $x_1, y_1, z_1$ and $x_2, y_2, z_2$, we payoff matrix is the same.
+Moreover, the game is invariant under a permutation of the two players.
+As optimizing a linear objective over the set of correlated equilibria is a convex program, if the objective is also invariant under one of these transformation, there exists an optimal solution which is invariant under this transformation.
+For a., the objective is invariant under both transformations and for b., it is only invariant under cyclic permutations.
+
+Therefore, for a., we can consider correlated strategies $\mu$ of the form:
+\[
+  \mu = \begin{pmatrix}
+    \gamma & \alpha & \alpha\\
+    \alpha & \gamma & \alpha\\
+    \alpha & \alpha & \gamma
+  \end{pmatrix}
+\]
+and for b. we can consider correlated strategies $\mu$ of the form:
+\[
+  \mu = \begin{pmatrix}
+    \gamma & \alpha & \beta\\
+    \beta  & \gamma & \alpha\\
+    \alpha & \beta  & \gamma
+  \end{pmatrix}.
+\]
+
+\subsection*{a.}
+It suffices to take $\gamma = 0$, hence $\alpha = 1/6$ since $6\alpha + 3\gamma = 1$.
+
+We have to check if it is a correlated equilibrium. Recall that a correlated equilibrium for a game in strategic form must satisfy the following strategic incentive constraints :
+\begin{align*}
+  \sum_{c_{-i} \in C_{-i}} \mu(c) \, \big( u_i(c_{-i}, \; c_i) - u_i(c_{-i}, \; e_i) \big) \geq 0, \quad \forall i \in N, \ \forall c_i \in C_i, \ \forall e_i \in C_i,
+\end{align*}
+where $c = (c_{-i}, c_i)$, $c_{-i}$ being the strategy of the players other than $i$. These constraints require that the players cannot improve their payoff by deviating from the correlated strategy $\mu$ suggested by the mediator.
+
+As the game is symmetric under the permutation of players and under cyclic permutations of actions, we only need to check the following two cases\footnote{Indeed, for instance the case $i=1$, $c_1 = y_2$, $e_1 = x_2$ is obtained from the case $i=2, c_2 = x_2, e_2 = z_2$ for which we apply a player permutation and a cyclic action permutation}:
+\begin{itemize}
+  \item $i=2$ $c_2=x_2$  $e_2=y_2$
+    \begin{equation*}
+      \frac{1}{6}(5-0) + \frac{1}{6}(4-5) = \frac{2}{3} \ge 0
+    \end{equation*}
+  \item $i=2$ $c_2=x_2$  $e_2=z_2$
+    \begin{equation*}
+      \frac{1}{6}(5-4) + \frac{1}{6}(4-0) = \frac{5}{6} \ge 0
+    \end{equation*}
+\end{itemize}
+
+This means that the players 2 has no interest in playing $y_2$ or $z_2$ rather than $x_2$. And so it is a correlated equilibrium and the payoff equal to $\frac{27}{6} = 4.5 \ge 4$
+
+\subsection*{b.}
+
+Note that we can not put $\gamma$ to zero even if its associated payoff is zero.
+Indeed taking a non zero value for $\gamma$ can increase the value of $\alpha$ or $\beta$ and so we can have a possible better payoff.
+
+The solution $\mu$ is not invariant under player permutation but both $\mu$ and the game are invariant under cyclic permutation of the actions.
+Therefore, it is sufficient to check the following cases:
+
+\begin{itemize}
+  \item $i=1$ $c_1=x_1$  $e_1=y_1$
+    \begin{equation*}
+      \gamma(0-4) + \alpha(5-0) + \beta(4-5) = -4\gamma + 5\alpha - \beta \ge 0
+    \end{equation*}
+  \item $i=1$ $c_1=x_1$  $e_1=z_1$
+    \begin{equation*}
+      \gamma(0-5) + \alpha((5-4) + \beta(4-0) = -5\gamma + \alpha + 4\beta \ge 0
+    \end{equation*}
+
+  \item $i=2$ $c_2=x_2$  $e_2=y_2$
+    \begin{equation*}
+      \gamma(0-4) + \alpha(4-5) + \beta(5-0) = -4\gamma - \alpha + 5\beta \ge 0
+    \end{equation*}
+  \item $i=2$ $c_2=x_2$  $e_2=z_2$
+    \begin{equation*}
+      \gamma(0-5) + \alpha((4-0) + \beta(5-4) = -5\gamma + 4\alpha + \beta \ge 0
+    \end{equation*}
+\end{itemize}
+
+Then we compute the payoff of the player 2 :
+\begin{equation*}
+    U_2 = (4+4+4)\alpha + (5+5+5)\beta = 12\alpha + 15\beta
+\end{equation*}
+
+Finally we have a maximization problem under strategic incentive constraints :
+\begin{align*}
+    \max &\  12\alpha + 15\beta \\
+      s.t& \\
+      -& 4\gamma + 5\alpha - \beta \ge 0 \\
+      -& 5\gamma + \alpha + 4\beta \ge 0 \\
+      -& 4\gamma -\alpha + 5\beta \ge 0 \\
+      -& 5\gamma + 4\alpha + \beta \ge 0 \\
+      & 3\alpha + 3\beta + 3\gamma = 1 \\
+      & 0 \le \alpha,\beta,\gamma \le \frac{1}{3}
+\end{align*}
+
+We can solve the problem using a graph taking $\gamma=\frac{1}{3}-\alpha-\beta$ for example or we can simply see that it's more interesting to put all in $\beta$ and so the only conditions constraining are $-4\gamma + 5\alpha - \beta \ge 0$ and $3\alpha + 3\beta + 3\gamma = 1$. We find $\alpha=\frac{1}{18}$, $\beta=\frac{5}{18}$ and $\gamma=0$. So the payoff equal to :
+\begin{equation*}
+    U_2 = \frac{12}{18}+\frac{75}{18} = \frac{29}{6} \approx 4.834
+\end{equation*}

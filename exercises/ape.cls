@@ -14,15 +14,15 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
 
-\RequirePackage[lmargin=2.3cm, rmargin=2.3cm,bottom=3.15cm,top=3cm]{geometry} 
+\RequirePackage[lmargin=2.3cm, rmargin=2.3cm,bottom=3.15cm,top=3cm]{geometry}
 
 \RequirePackage{amsmath}
-\RequirePackage{amsthm} 
-\RequirePackage{amssymb}  
-\RequirePackage{eurosym} 
+\RequirePackage{amssymb}
+\RequirePackage{eurosym}
 \RequirePackage{url}
 \RequirePackage{ifthen}
 \RequirePackage{enumitem}
+\RequirePackage{caption}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
@@ -38,7 +38,17 @@
 \RequirePackage[process=auto,crop=pdfcrop]{pstool}
 \RequirePackage{tikz}
 \RequirePackage{tikzpagenodes}
-\usetikzlibrary{positioning, calc, arrows}
+\usetikzlibrary{positioning, calc, arrows, patterns}
+\usepackage{mathtools}
+\def\nudge{.3}
+%\tikzset{axis/.style={ultra thick, Red!75!black, -latex, shorten <=-\nudge cm, shorten >=-2*\nudge cm}}
+\tikzset{axis/.style={thick, Black!75!black, -latex, shorten <=-0.5*\nudge cm, shorten >=-\nudge cm}}
+\tikzset{ineq1/.style={thick,Green}}
+\tikzset{ineq2/.style={thick,Red}}
+\tikzset{eq/.style={thick,Blue}}
+\tikzset{obj/.style={thick,Red}}
+\tikzset{hash/.style={pattern=north west lines, pattern color=blue}}
+\tikzstyle{noeud-std}=[draw,fill=black,circle,inner sep=0pt,minimum size=7pt]
 
 % For multirow in tabular
 \RequirePackage{multirow}
@@ -55,10 +65,13 @@
 {0.5ex} % sep
 {} % before-code
 
+\newcommand{\session}[2]{\hspace{-.5cm}\Large{\textbf{Session #1 -- #2}}}
+\newcommand{\thex}{\section{(Theoretical exercise.)}}
+
 \newcommand{\QAlabel}{Exercise}
 \newcommand{\theQA}{\thesection}
 
-\newcommand{\SolutionLabel}{Solution to APE~\theQA}
+\newcommand{\SolutionLabel}{Solution to \QAlabel~\theQA}
 
 \usepackage[framemethod=tikz]{mdframed}
 \input{../greyarrow.tex}

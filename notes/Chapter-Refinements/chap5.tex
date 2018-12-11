@@ -1,7 +1,7 @@
 \ifx \globalmark \undefined %% This is default.
 \input{../header}
-	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
-\else 	
+	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).
+\else
 \fi
 
 
@@ -16,17 +16,17 @@ Chapter based on pages 213 to 232 of the book  ``Game theory - Analysis of confl
 
 So far, our goal has been to understand the behaviour of rational and intelligent agents in a finite game, where the players take actions, without negotiation, with the goal of maximizing their payoffs. Decision  theory (Chapter \ref{chap:Decision}) and the Utility Maximization Theorem brought  valuable insights to that end, that lead to the development of the Nash Equilibrium (Chapter \ref{chap:Nash}). This chapter is the last one to be situated in this context.\\
 At the end, Nash Equilibria have drawbacks in that they don't alone, capture the rational behaviour of players. But they are computed from the strategic form, a compact representation of a game. Sequential Equilibria (Chapter \ref{chap:Seq}) capture the  sequential rationality of players (a rational player wants to maximize its payoff at every move, not all Nash equilibria allow for this) are computed from the extensive form of a game. \\
-In this chapter, we investigate other definitions of equilibria. Namely, we will describe the Sub-game perfect equilibrium, the Perfect Equilibrium. Ending this chapter, we situate these definitions relative to one another, providing a unifying picture. 
+In this chapter, we investigate other definitions of equilibria. Namely, we will describe the Sub-game perfect equilibrium, the Perfect Equilibrium. Ending this chapter, we situate these definitions relative to one another, providing a unifying picture.
 \section{The Sub-game perfect equilibrium}
 
 When playing rock-paper-scissors, the one and only Nash equilibrium of the game is to play each move with probability $1/3$. If we played the game 10 times in a row, what should we do on the 10th game?
 The answer is easy: regardless of the outcomes of the previous 9 games, the 10th game being nothing else than a rock-paper-scissors game, we should again play each move with probability $1/3$.\\
-In this section, we tackle situations where a player, at some point in the game, has to make decisions knowing that the payoffs he will get from these decisions is actually independent of the past decisions made in the game (which comprise both his and his opponent's actions). 
+In this section, we tackle situations where a player, at some point in the game, has to make decisions knowing that the payoffs he will get from these decisions is actually independent of the past decisions made in the game (which comprise both his and his opponent's actions).
 To do so, we define the concept of a \emph{subgame} of a game in strategic form. Note that we here make use of the formalism of Chapter \ref{chap:Seq} describing extensive form trees (Definition \ref{chap4:def:GameInExtForm}). An example is shown afterwards.
 \begin{definition}[Subroots and subgames]
 Consider a game in extensive form $\Gamma^e$.
 For any node $x \in X$, let $F(x) \subseteq X$ be the set of nodes in the subtree rooted at $x$. \\
-A \emph{subroot} of the game is a node $x \in X$ such that, for any information state $s \in S$, we have 
+A \emph{subroot} of the game is a node $x \in X$ such that, for any information state $s \in S$, we have
 $$\text{either } Y_s \cap F(x) = \emptyset, \text{ or } Y_s \cap F(x) = Y_s.$$
 Given a subroot $x \in X$ of $\Gamma^e$, a \emph{subgame} rooted at $x$ is the game obtained by removing from $\Gamma^e$ all nodes not in $F(x)$.
 \end{definition}
@@ -37,32 +37,32 @@ Consider the following game, from Example \ref{ch4:ex:badEqu}:
 \begin{center}
 \begin{tikzpicture}
 \node[noeud-std] (noeud0) {}
-	[sibling distance=4cm]		
+	[sibling distance=4cm]
 	child[level distance=1cm]{node[noeud-std,fill=white] (noeud1){}}
 	child[level distance=1cm] {node[noeud-std] (noeud2) {}
 		[sibling distance=3cm]
 			child[level distance=1cm]{node[noeud-std,fill=white] (noeud3){}}
 			child[level distance=1cm]{node[noeud-std,fill=white] (noeud4){}}
 		}
-	
+
     ;
 
-\node[above=5pt] at (noeud0) {$1.a$}; 
-\node[above=-25pt] at (noeud0) {$X_0$}; 
+\node[above=5pt] at (noeud0) {$1.a$};
+\node[above=-25pt] at (noeud0) {$X_0$};
 \node[above left] at ($(noeud0)!{0.4}!(noeud1)$) {\texttt{$y_1$}};
 \node[above right] at ($(noeud0)!{0.4}!(noeud2)$) {\texttt{$x_1$}};
-\node[above=-20pt] at (noeud1) {$1\, / \, 9$}; 
+\node[above=-20pt] at (noeud1) {$1\, / \, 9$};
 \node[above=5pt] at (noeud2) {$2.b$};
-\node[above=-25pt] at (noeud2) {$X_1$};   
+\node[above=-25pt] at (noeud2) {$X_1$};
 \node[above left] at ($(noeud2)!{0.4}!(noeud3)$) {\texttt{$y_2$}};
 \node[above right] at ($(noeud2)!{0.4}!(noeud4)$) {\texttt{$x_2$}};
-\node[above=-20pt] at (noeud3) {$0\, / \, 2$};  
+\node[above=-20pt] at (noeud3) {$0\, / \, 2$};
   \node[above=-20pt] at (noeud4) {$2\, / \, 3$};
 \end{tikzpicture}
 \end{center}
 \end{figure}
 
-Both the nodes $X_0$ and $X_1$ are subroot of the game. 
+Both the nodes $X_0$ and $X_1$ are subroot of the game.
 The big idea is that at both of these nodes, the payoffs depend only on future actions.
 \label{ch5:ex:subgame1}
 \end{example}
@@ -73,20 +73,20 @@ A \emph{subgame perfect equilibrium} of an extensive form game $\Gamma^e$ is any
 \begin{theorem}
 The set of subgame perfect equilibria is non-empty.
 \end{theorem}
-At a subgame perfect equilibrium, a player will play rationally at every subgame. 
+At a subgame perfect equilibrium, a player will play rationally at every subgame.
 If a subgame perfect equilibrium is a Nash equilibrium, all Nash equilibria are not subgame perfect.
 \begin{example}
 The strategic form of the game of Example \ref{ch5:ex:subgame1}
-is 
+is
 \begin{center}
 \begin{tabular}{c|cc}
 & $x_2$ & $y_2$ \\
-\hline 
+\hline
 $x_1$ & 2,  3 & 0, 2 \\
 $y_1$ & 1, 9 & 1, 9
 \end{tabular}
 \end{center}
-There are two Nash equilibria to that game, which are $([x_1], [x_2])$ and $([y_1], [y_2])$. However, only the second one is subgame perfect. Indeed, if we consider the subgame rooted at node $X_1$, whose strategic form is 
+There are two Nash equilibria to that game, which are $([x_1], [x_2])$ and $([y_1], [y_2])$. However, only the first one is subgame perfect. Indeed, if we consider the subgame rooted at node $X_1$, whose strategic form is
 \begin{center}
 \begin{tabular}{c|cc}
 $X_1$ subgame & $x_2$ & $y_2$ \\
@@ -98,15 +98,15 @@ we see that the payoffs depend only on the move of player 2. Here, $x_2$ dominat
 \end{example}
 One of the main flaw in the definition of subgame-perfect equilibria is that they are highly sensitive to the modelling of the game, as shown next.
 \begin{example}
-Consider this variant of the game of Example \ref{ch5:ex:subgame1}. 
+Consider this variant of the game of Example \ref{ch5:ex:subgame1}.
 
 \begin{figure}[!ht]
 \begin{center}
 \begin{tikzpicture}
 \node[noeud-std] (noeud0) {}
-	[sibling distance=4cm]		
+	[sibling distance=4cm]
 	child[level distance=1cm]{node[noeud-std] (noeud1){}
-		child[level distance=1cm] {node[noeud-std,fill=white] (noeud7) {} }	
+		child[level distance=1cm] {node[noeud-std,fill=white] (noeud7) {} }
 	}
 	child[level distance=1cm] {node[noeud-std] (noeud2) {}
 		[sibling distance=3cm]
@@ -117,26 +117,26 @@ Consider this variant of the game of Example \ref{ch5:ex:subgame1}.
 				child[level distance=1cm] {node[noeud-std,fill=white] (noeud6) {} }
 			}
 		}
-	
+
     ;
 
-\node[above=5pt] at (noeud0) {$1.a$}; 
-\node[above=-25pt] at (noeud0) {$X_0$}; 
+\node[above=5pt] at (noeud0) {$1.a$};
+\node[above=-25pt] at (noeud0) {$X_0$};
 \node[above left] at ($(noeud0)!{0.4}!(noeud1)$) {\texttt{$y_1$}};
 \node[above right] at ($(noeud0)!{0.4}!(noeud2)$) {\texttt{$x_1$}};
-\node[above=-20pt] at (noeud7) {$1\, / \, 9$}; 
+\node[above=-20pt] at (noeud7) {$1\, / \, 9$};
 \node[above=5pt] at (noeud2) {$2.b$};
-\node[above=-25pt] at (noeud2) {$X_1$};   
+\node[above=-25pt] at (noeud2) {$X_1$};
 \node[above left] at ($(noeud2)!{0.4}!(noeud3)$) {\texttt{$y_2$}};
 \node[above right] at ($(noeud2)!{0.4}!(noeud4)$) {\texttt{$x_2$}};
-\node[above=-20pt] at (noeud5) {$0\, / \, 2$};  
+\node[above=-20pt] at (noeud5) {$0\, / \, 2$};
   \node[above=-20pt] at (noeud6) {$2\, / \, 3$};
   \node[ left] at ($(noeud1)!{0.4}!(noeud7)$) {\texttt{$d$}};
   \node[ left] at ($(noeud3)!{0.4}!(noeud5)$) {\texttt{$d$}};
   \node[ left] at ($(noeud4)!{0.4}!(noeud6)$) {\texttt{$d$}};
-  \node[above=5pt] at (noeud1) {$1.c$}; 
-    \node[above=5pt] at (noeud3) {$1.c$}; 
-       \node[above=5pt] at (noeud4) {$1.c$}; 
+  \node[above=5pt] at (noeud1) {$1.c$};
+    \node[above=5pt] at (noeud3) {$1.c$};
+       \node[above=5pt] at (noeud4) {$1.c$};
 \end{tikzpicture}
 \end{center}
 \end{figure}
@@ -148,43 +148,43 @@ The game now has only 1 subroot (which is $X_0$), thus both the equilibria $([x_
 This shows that simply by adding one more step to the game (with no effects at all on the outcomes), subgame-perfect equilibria may no longer help us detect irrational Nash Equilibria.
 \end{example}
 
-Even if they are sensitive to the modelization, subgame-perfect equilibria remain  particularly relevant when addressing \emph{Repeated Games} (see Chapter \ref{chap:Rep}). 
+Even if they are sensitive to the modelization, subgame-perfect equilibria remain  particularly relevant when addressing \emph{Repeated Games} (see Chapter \ref{chap:Rep}).
 
 \section{The Perfect equilibrium}
 
 Perfect equilibria, as we will explain, are very robust by definition. They are also known as \emph{Trembling Hand perfect equilibria}.\\
 \begin{definition}
-A perfect equilibrium for a game in strategic form $\Gamma(N,C,u)$ is a strategy profile $\sigma \in \times_{i \in N} \Delta (C_i)$ such that there is a sequence of strategy profiles $ (\sigma^k)_{k = 1}^\infty$ satisfying 
+A perfect equilibrium for a game in strategic form $\Gamma(N,C,u)$ is a strategy profile $\sigma \in \times_{i \in N} \Delta (C_i)$ such that there is a sequence of strategy profiles $ (\sigma^k)_{k = 1}^\infty$ satisfying
 \begin{itemize}
-\item $\sigma^k \in \times_{i \in N} \Delta^0 (C_i)$ (non-zero probability of playing any strategy), 
-\item $\lim_{k \rightarrow \infty} \sigma^k = \sigma$ (sequence converges to equilibrium), 
+\item $\sigma^k \in \times_{i \in N} \Delta^0 (C_i)$ (non-zero probability of playing any strategy),
+\item $\lim_{k \rightarrow \infty} \sigma^k = \sigma$ (sequence converges to equilibrium),
 \item $ \sigma_i \in \argmax_{\tau_i \in \Delta(C_i)}u_i(\sigma^k_{-i}, \tau_i), \forall i \in N, k = 1,2, \cdots $ (equilibrium is best response to all strategies in the sequence).
 \end{itemize}
 \label{ch5:def:perfectEq}
 \end{definition}
-The concept shows some resemblance with the one of sequential equilibrium (Definitions \ref{ch4:def:StrongCons} and \ref{ch4:def:SeqEq}). A sequential equilibrium requires a fully consistent belief vector. The two concepts embed within their definition the idea that the equilibrium strategy is obtained as the limit of strategies which put non-zero probabilities on every move. The difference here lies in the fact that the perfect equilibrium strategy must \emph{additionally} be a best response to all the strategies in the sequence. \\
-As an immediate effect, we may prove (left as an exercise) that a perfect equilibrium may never be composed of \emph{weakly dominated strategies}. 
+The concept shows some resemblance with the one of sequential equilibrium (Definitions \ref{ch4:def:StrongCons} and \ref{ch4:def:SeqEq}). A sequential equilibrium requires a fully consistent belief vector. The two concepts embed within their definition the idea that the equilibrium strategy is obtained as the limit of strategies which put non-zero probabilities on every move. The difference here lies in the fact that the perfect equilibrium strategy must \emph{additionally} be a best response to all the strategies in the sequence.
+%As an immediate effect, we may prove (left as an exercise) that a perfect equilibrium may never be composed of \emph{weakly dominated strategies}.
 \begin{example}
 Consider the following game:
 \begin{center}
 \begin{tabular}{c | c  c}
 & $x_2$ & $y_2$ \\
-\hline 
-$x_1$ & 2, 2 & -1, 2 \\ 
+\hline
+$x_1$ & 2, 2 & -1, 2 \\
 $y_1$ & 2, -1 & 0, 0
 \end{tabular}
 \end{center}
-For both players, the strategy $x$ is weakly dominated by the strategy $y$. 
+For both players, the strategy $x$ is weakly dominated by the strategy $y$.
 Nevertheless, amongst the two Nash equilibria of the game $([x_1],[x_2])$ and $([y_1],[y_2])$, the first uses weakly dominated strategies. \\
-Let us now verify if these equilibria are \emph{perfect}. 
+Let us now verify if these equilibria are \emph{perfect}.
 Take  any randomized strategy of player 2, say $\sigma_2 = (\alpha [x_2] + 1- \alpha [y_2])$. If $\alpha \in ]0,1[$, $\sigma_2 \in \Delta^0(C_2)$. For player 1, the best response to $\sigma_2$ is always $y_1$, which grants him a payoff of $2 \alpha$ (compared to $3\alpha - 1 < 2 \alpha$ for $\alpha \leq 1$).\\
 Since the game is symmetric and that  best response of player 1 to any strategy in $\Delta^0(C_2)$ is $y_1$, we conclude that $([y_1], [y_2])$ is a perfect equilibrium, but not $([x_1],[x_2])$.
 \end{example}
 
 The previous example illustrates one of the drawbacks of perfect equilibria, in that players may no longer consider equilibria in weakly dominated strategies. Nevertheless, in many games, doing so makes a lot of sense!\\
-Perfect equilibria, however, do come with a good news. 
+Perfect equilibria, however, do come with a good news.
 \begin{theorem}
-For any \emph{extensive form} game $\Gamma^e$, if the behavioural strategy profile $\sigma$  is a perfect equilibrium for the multi-agent representation of $\Gamma^e$, then there exists a strongly consistent belief vector $\pi$ such that $(\sigma, \pi)$ is a sequential equilibrium. 
+For any \emph{extensive form} game $\Gamma^e$, if the behavioural strategy profile $\sigma$  is a perfect equilibrium for the multi-agent representation of $\Gamma^e$, then there exists a strongly consistent belief vector $\pi$ such that $(\sigma, \pi)$ is a sequential equilibrium.
 \end{theorem}
 
 Moreover, the existence of a perfect equilibria is guaranteed
@@ -194,7 +194,7 @@ Given a game in strategic form, the set of all perfect equilibria is non-empty.
 \begin{example}
 We go back to the signalling game of Example \ref{ch4:ex:signalling}.
 We saw that the game had 3 Nash equilibria, which all match sequential equilibria, but two of them were composed of weakly dominated strategies. \\
-Consequently, amongst the 3, only one can correspond to a perfect equilibrium. 
+Consequently, amongst the 3, only one can correspond to a perfect equilibrium.
 Interestingly, it is the one that corresponds to always choosing the relax option for player 1, and always choosing the hire option for player 2...
 \end{example}
 
@@ -202,13 +202,13 @@ Interestingly, it is the one that corresponds to always choosing the relax optio
 
 In the above, we learnt that a perfect equilibria of a multi-agent representation corresponds to a sequential equilibria. The result is actually quite surprising: we can find a \emph{sequentially rational} set of moves without even looking at the extensive form of a game! We still need to consider the multi-agent form though.
 
-The concept of perfect equilibrium can be further refined. 
+The concept of perfect equilibrium can be further refined.
 \begin{definition}
-A \emph{proper} equilibrium for a game in strategic form $\Gamma(N,C,u)$ is a strategy profile $\sigma \in \times_{i \in N} \Delta (C_i)$ such that there is a sequence of strategy profiles $ (\sigma^k)_{k = 1}^\infty$, and a sequence $(\epsilon_k)_{k = 1}^{\infty}$ satisfying 
+A \emph{proper} equilibrium for a game in strategic form $\Gamma(N,C,u)$ is a strategy profile $\sigma \in \times_{i \in N} \Delta (C_i)$ such that there is a sequence of strategy profiles $ (\sigma^k)_{k = 1}^\infty$, and a sequence $(\epsilon_k)_{k = 1}^{\infty}$ satisfying
 \begin{itemize}
-\item $\sigma^k \in \times_{i \in N} \Delta^0 (C_i)$ (non-zero probability of playing any strategy), 
-\item $\lim_{k \rightarrow \infty} \sigma^k = \sigma$ (sequence converges to equilibrium), 
-\item $ \sigma_i \in \argmax_{\tau_i \in \Delta(C_i)}u_i(\sigma^k_{-i}, \tau_i), \forall i \in N, k = 1,2, \cdots $ (equilibrium is best response to any strategy in the sequence), 
+\item $\sigma^k \in \times_{i \in N} \Delta^0 (C_i)$ (non-zero probability of playing any strategy),
+\item $\lim_{k \rightarrow \infty} \sigma^k = \sigma$ (sequence converges to equilibrium),
+\item $ \sigma_i \in \argmax_{\tau_i \in \Delta(C_i)}u_i(\sigma^k_{-i}, \tau_i), \forall i \in N, k = 1,2, \cdots $ (equilibrium is best response to any strategy in the sequence),
 \end{itemize}
 and in addition,
 \begin{itemize}
@@ -221,12 +221,12 @@ and in addition,
 The fun thing with proper equilibria is that we can now detect sequential equilibria of a game \emph{from its strategic form!}
 
 \begin{theorem}
-Consider a game $\Gamma^e$ in extensive form with a normal representation $\Gamma(N,C,u)$. 
+Consider a game $\Gamma^e$ in extensive form with a normal representation $\Gamma(N,C,u)$.
 If $\sigma$ is a proper equilibrium of $\Gamma$, then there is a behavioural representation $\tau$ of $\sigma$ and a belief vector $\pi$ such that $(\tau, \pi)$ is a sequential equilibrium of $\Gamma^e$.
 \end{theorem}
 
-This has actually deep repercussions. One of the problems with the strategic form is that it may represent several games in extensive form. 
-Consequently: an equilibrium for a game $\Gamma$ can be perfect if and only if there is an extensive form game, whose strategic form is $\Gamma$, where a behavioural representation of the equilibrium is sequential. 
+This has actually deep repercussions. One of the problems with the strategic form is that it may represent several games in extensive form.
+Consequently: an equilibrium for a game $\Gamma$ can be perfect if and only if there is an extensive form game, whose strategic form is $\Gamma$, where a behavioural representation of the equilibrium is sequential.
 
 
 \section{Equilibria in non-cooperative games: unifying picture}
@@ -235,17 +235,17 @@ Given a game in extensive form (its more general representation), we are interes
 Any game always has at least one \emph{Nash Equilibrium}, and rational players need to play at Nash equilibria. However, the reverse is not true: not all Nash Equilibrium correspond to strategies rational players may play.
 The problem with Nash Equilibria is that players make several sequential decisions  in a game, and seek to maximize their payoffs at every stage. In this context, \emph{Subgame perfect} equilibria appear naturally. They correspond to Nash Equilibria whose restriction to any subgame is also a Nash Equilibria. Any game always has at least one Subgame perfect equilibrium!
 One step further is the Sequential Equilibrium. Here, players not only make rational moves at the beginning of the game (Nash) or at the beginning of each subgame (Subgame perfect), but at \emph{every information state}. Again, any game always has at least one Sequential Equilibria. These equilibria are described in terms of behavioural strategies, and their computation relies on the extensive form of a game. Sequential equilibria are perhaps the solution concepts that capture the notion of rationality the best. At a sequential equilibria, player motivate their actions through their beliefs vectors: from their point of view, their actions are rational at every information state.
-Finally, we discussed perfect equilibria and proper equilibria. 
-They offer cautious definitions for equilibria, where a player should play a strategy which is a best response to a sequence of randomized strategies, that put positive probabilities on all actions. They have some interesting theoretical properties: both are guaranteed to exists, a perfect equilibrium of the multi-agent representation corresponds to a sequential equilibrium, and so does a proper equilibrium of strategic form. 
+Finally, we discussed perfect equilibria and proper equilibria.
+They offer cautious definitions for equilibria, where a player should play a strategy which is a best response to a sequence of randomized strategies, that put positive probabilities on all actions. They have some interesting theoretical properties: both are guaranteed to exists, a perfect equilibrium of the multi-agent representation corresponds to a sequential equilibrium, and so does a proper equilibrium of strategic form.
 
 The relation between the above mentioned types of  equilibria is shown on Figure \ref{ch5:fig:equilibriaRelation}.
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[scale=0.7]{equilibriaRelation.eps}
+\includegraphics[scale=0.7]{equilibriaRelationMOD.png}
 \caption{Inclusion relations between different types of equilibria.}
 \label{ch5:fig:equilibriaRelation}
-\end{figure} 
+\end{figure}
 
 
 
@@ -257,6 +257,6 @@ The relation between the above mentioned types of  equilibria is shown on Figure
 \bibliographystyle{plain}
 \bibliography{../gametheorybibliography}
 	\end{document}
-\else 
-	
+\else
+
 \fi

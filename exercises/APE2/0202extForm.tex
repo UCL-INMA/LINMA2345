@@ -1,0 +1,95 @@
+\begin{center}
+\centering
+
+\begin{tikzpicture}
+\node[noeud-std] (noeud0) {}
+   [sibling distance=8.5cm]
+      child {node[noeud-std] (noeud1) {}
+      [sibling distance=2.5cm]
+      child[level distance=1cm]{node[noeud-std] (noeud2){} 
+         	[sibling distance=2.5cm]
+         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud3){} }
+         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud4){} }}
+      child[level distance=1cm]{node[noeud-std,fill=white] (noeud15){} 
+         	[sibling distance=2cm]
+         	}
+      child[level distance=1cm]{node[noeud-std] (noeud5){} 
+         	[sibling distance=2.5cm]
+         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud6){} }
+         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud7){} }}
+   }
+   child {node[noeud-std] (noeud8) {}
+       [sibling distance=2.5cm]
+       child[level distance=1cm]{node[noeud-std] (noeud9){} 
+         	[sibling distance=2.5cm]
+         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud10){} }
+         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud11){} }}
+       child[level distance=1cm]{node[noeud-std,fill=white] (noeud16){} 
+         	[sibling distance=2cm]
+         	}
+       child[level distance=1cm]{node[noeud-std] (noeud12){} 
+         	[sibling distance=2.5cm]
+         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud13){} }
+         	child[level distance=1.5cm]{node[noeud-std,fill=white] (noeud14){} }}   
+   }
+;
+
+\node[above=5pt] at (noeud0) {$0$}; 
+\node[above=-25pt] at (noeud0) {}; 
+\node[above=5pt] at (noeud1) {$1.a$};
+\node[above=-25pt] at (noeud1) {};   
+\node[above=5pt] at (noeud2) {$2.c$};  
+\node[above=-25pt] at (noeud2) {};
+\node[above=-20pt] at (noeud3) {$15 /  1$};     
+\node[above=-35pt] at (noeud3) {}; 
+\node[above=-20pt] at (noeud4) {$12  / 4$};   
+\node[above=-35pt] at (noeud4) {}; 
+\node[above=5pt] at (noeud5) {$2.d$}; 
+\node[above=-25pt] at (noeud5) {};
+\node[above=-20pt] at (noeud6) {$16  /  0$};  
+\node[above=-35pt] at (noeud6) {};   
+ \node[above=-20pt] at (noeud7) {$ 12  /  4$};  
+\node[above=-35pt] at (noeud7) {};
+\node[above=5pt] at (noeud8) {$1.b$}; 
+\node[above=-25pt] at (noeud8) {};
+\node[above=5pt] at (noeud9) {$2.c$};
+\node[above=-25pt] at (noeud9) {};
+\node[above=-35pt] at (noeud10) {}; 
+\node[above=-20pt] at (noeud10) {$1 / 15$};   
+\node[above=-35pt] at (noeud11) {}; 
+\node[above=-20pt] at (noeud11) {$12  /  4$}; 
+\node[above=5pt] at (noeud12) {$2.d$}; 
+\node[above=-25pt] at (noeud12) {};
+\node[above=-35pt] at (noeud13) {};   
+\node[above=-20pt] at (noeud13) {$0 / 16$};
+\node[above=-35pt] at (noeud14) {}; 
+\node[above=-20pt] at (noeud14) {$12  /  4$}; 
+\node[above=-35pt] at (noeud15) {}; 
+\node[above=-20pt] at (noeud15) {$12  /  4$}; 
+\node[above=-35pt] at (noeud16) {}; 
+\node[above=-20pt] at (noeud16) {$4  /  12$}; 
+
+  
+\node[above left] at ($(noeud0)!{0.25}!(noeud1)$) {red : 0.5};
+\node[above right] at ($(noeud0)!{0.25}!(noeud8)$) { black : 0.5};
+\node[above right] at ($(noeud1)!{0.25}!(noeud5)$) {R4};
+\node[above left] at ($(noeud1)!{0.3}!(noeud2)$) { R3};
+\node[below left] at ($(noeud1)!{0.3}!(noeud15)$) {F};
+\node[above right] at ($(noeud8)!{0.3}!(noeud12)$) { r4};
+\node[above left] at ($(noeud8)!{0.3}!(noeud9)$) { r3};
+\node[below left] at ($(noeud8)!{0.3}!(noeud16)$) { f};
+\node[above right] at ($(noeud2)!{0.3}!(noeud4)$) { P};
+\node[above left] at ($(noeud2)!{0.3}!(noeud3)$) { M};
+\node[above right] at ($(noeud5)!{0.3}!(noeud7)$) { p};
+\node[above left] at ($(noeud5)!{0.3}!(noeud6)$) { m};
+\node[above right] at ($(noeud9)!{0.3}!(noeud11)$) { P};
+\node[above left] at ($(noeud9)!{0.3}!(noeud10)$) { M};
+\node[above right] at ($(noeud12)!{0.3}!(noeud14)$) { p};
+\node[above left] at ($(noeud12)!{0.3}!(noeud13)$) { m};
+\end{tikzpicture}
+
+
+
+\captionof{figure}{A nice strategic form}
+\label{fig:stratForm45}
+\end{center}

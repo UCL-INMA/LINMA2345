@@ -1,98 +1,891 @@
 \ifx \globalmark \undefined %% This is default.
 	\input{../header}
-	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
-\else 	
+	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).
+\else
 \fi
-
 
 
 
 \chapter{Repeated Games}
 {\large{\itshape
-``When playing a game reapeatedly, the fear of retaliation may lead to outcomes that otherwise would not occur''} --- Drew Fudenberg and Eric Maskin.\\
+``Insanity: Doing the same thing over and over again and expecting different results.''} --- Albert Einstein.\\
 }
 \label{chap:Rep}
 {\small{\itshape
-Chapter based on pages 308 to 331 of the book  ``Game theory - Analysis of conflict'' by R. Myerson.}\\
+Chapter based on \cite[pages 308 - 331]{MyGTAO}, \cite[Section 6.1]{ShLeMSAG}.} and on
+the Stanford/Coursera MOOC on Game Theory (for the section on learning in repeated games).\\
 }
 
+A repeated game is a strategic situation where a set of players play a same
+game several times in a row. These situations occur quite often in real life,
+and in fact, most of our everyday interactions can be seen as part of a
+repeated game.\\
+Interestingly, the behavior of a player in a repeated game may be different
+than that of the same player when playing the game only once. For example,
+while we know that the only Nash Equilibrium of the Prisoner's Dilemma game
+is for both players to betray the other, cooperation may occur rationally
+in the repeated game setting.
 
-Nash equilibria are weird. Recall for instance the prisoner's dilemma where defection was the only rational choice. Yet, in our daily life, we often encounter situations where people play the collaborative option. Does this mean that we are all stupid or irrational? Not necessarily, because when we encounter prisoner's dilemma--like situations, it is usually not a one-time event. Indeed, in our everyday life, we do not want to be surrounded by enemies because we are likely to find ourselves in a situation where we need to play with them again. This is the reason why playing a game repeatedly may lead to completely new phenomena, which we are going to look at in this chapter.
+The chapter is split in three sections, presenting matters from the more
+particular to the more general. Section~\ref{sec:FinRep} discusses finitely
+repeated game, that can be studied directly with the analysis tools of
+previous chapters. Section~\ref{sec:InfRep} discusses infinitely repeated
+games. There, we start observing interesting phenomena, in particular
+concerning the Prisoner's Dilemma. Finally, in Section~\ref{sec:GenMod}, we
+present a more general and involved model for repeated games, and discuss
+the notions of equilibria in more details.
+
+\section{Finitely repeated games}
+\label{sec:FinRep}
+In a \emph{finitely repeated game}, players play the \emph{same game
+$\Gamma$} repeatedly for a finite number of times $K$. The number $K$ is
+known to the players at the beginning of the game. This situation is
+represented in Figure~\ref{fig:repeatedFiniteNumberOfTimes}.
+
+\begin{figure}[!ht]
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, semithick, scale = 1, transform shape ]
+        \node	(start)								{Start};
+        \node[state] 	(n1)    	[right of = start]		{Round 1};
+        \node[state] 	(n2)		[right of = n1]			{Round 2};
+        \node	(dots)		[right of = n2]			{$\cdots$};
+        \node[state] 	(nk)		[right of = dots]		{Round K};
+        \node	(stop)		[right of = nk]			{Stop};
+        \path 	(start) edge node {}	(n1)
+                (n1)	edge node {}	(n2)
+                (n2)	edge node {}	(dots)
+                (dots)	edge node {}	(nk)
+                (nk) 	edge node {}	(stop);
+    \end{tikzpicture}
+    \caption{Finitely Repeated Games.}
+    \label{fig:repeatedFiniteNumberOfTimes}
+\end{figure}
+After each round, the players collect their payoffs and then move on to
+the next.
+
+A finitely repeated game can be written as a classical game, where players
+have to decide before the first round on a strategy to play at each round.
+The next example illustrates this on the Prisoner's Dilemma.
+\begin{example}[Twice Repeated Prisoner's Dilemma]
+    \label{ch9:ex:PD1}
+    Consider the Prisoner's Dilemma game $\Gamma$ below
+    \begin{center}
+    \begin{tabular}{c|cc}
+        Prisoner's Dilemma & c & d \\
+        \hline
+        C & $1, 1$ & $-1, 2$ \\
+        D & $2, -1$ & $0, 0$
+    \end{tabular}
+\end{center}
+The only Nash Equilibrium is the situation where both players defect
+$(D,d)$. However, it has been observed that, in many social interactions,
+players have a natural tendency to cooperate.
+Furthermore, it makes sense, intuitively, that if one is going to interact
+with another on several occasions, it would be rational to show ourselves
+as agreeable and cooperative in order to foster a prosperous relation.
+
+Let us see what happens then when the game is repeated twice. The players
+are now faced with the situation represented in Figure~\ref{fig:2PDtree}.
+\begin{figure}[!ht]
+    \centering
+    \begin{tikzpicture}
+    \node[noeud-std] (n1) {}
+       [sibling distance=8.5cm]
+          child {node[noeud-std] (n2-1c) {} % 1
+          [sibling distance=4cm]
+                 child{node[noeud-std] (n1-1c2c){} % 2
+                    [sibling distance=2cm]
+                    child{node[noeud-std] (n2-1c2c1c){}  % 1
+                        [sibling distance = 1cm]
+                             child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2c1c2c){} } % 1
+                             child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2c1c2d){} } % 1
+                         }
+                    child{node[noeud-std] (n2-1c2c1d){}  % 1
+                        [sibling distance = 1cm]
+                            child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2c1d2c){} } % 1
+                            child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2c1d2d){} } % 1
+                        }
+                }
+                child{node[noeud-std] (n1-1c2d){} % 2
+                    [sibling distance=2cm]
+                    child{node[noeud-std] (n2-1c2d1c){}  % 1
+                        [sibling distance = 1cm]
+                             child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2d1c2c){} } % 1
+                             child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2d1c2d){} } % 1
+                         }
+                    child{node[noeud-std] (n2-1c2d1d){}  % 1
+                        [sibling distance = 1cm]
+                            child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1c2d1d2c){} } % 1
+                            child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1c2d1d2d){} } % 1
+                        }
+                }
+       }
+       child {node[noeud-std] (n2-1d) {} % 1
+          [sibling distance=4cm]
+                 child{node[noeud-std] (n1-1d2c){} % 2
+                    [sibling distance=2cm]
+                    child{node[noeud-std] (n2-1d2c1c){}  % 1
+                        [sibling distance = 1cm]
+                             child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2c1c2c){} } % 1
+                             child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2c1c2d){} } % 1
+                         }
+                    child{node[noeud-std] (n2-1d2c1d){}  % 1
+                        [sibling distance = 1cm]
+                            child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2c1d2c){} } % 1
+                            child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2c1d2d){} } % 1
+                        }
+                }
+                child{node[noeud-std] (n1-1d2d){} % 2
+                    [sibling distance=2cm]
+                    child{node[noeud-std] (n2-1d2d1c){}  % 1
+                        [sibling distance = 1cm]
+                             child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2d1c2c){} } % 1
+                             child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2d1c2d){} } % 1
+                         }
+                    child{node[noeud-std] (n2-1d2d1d){}  % 1
+                        [sibling distance = 1cm]
+                            child[level distance=1.5cm]{node[noeud-std,fill=white] (p-1d2d1d2c){} } % 1
+                            child[level distance=2.5cm]{node[noeud-std,fill=white] (p-1d2d1d2d){} } % 1
+                        }
+                }
+       }
+
+    ;
+    %
+    \node[above=5pt] at (n1) {$1.a$};
+    \node[above left] at ($(n1)!{0.5}!(n2-1c)$) {C};
+    \node[above right] at ($(n1)!{0.5}!(n2-1d)$) {D};
+
+    \node[above=5pt] at (n2-1c) {$2.b$};
+    \node[above left] at ($(n2-1c)!{0.5}!(n1-1c2c)$) {c};
+    \node[above right] at ($(n2-1c)!{0.5}!(n1-1c2d)$) {d};
+    \node[above=5pt] at (n1-1c2c) {$1.c$};
+    \node[above left] at ($(n1-1c2c)!{0.5}!(n2-1c2c1c)$) {C};
+    \node[above right] at ($(n1-1c2c)!{0.5}!(n2-1c2c1d)$) {D};
+    \node[above=5pt] at (n2-1c2c1d) {$2.d$};
+    \node[above left] at ($(n2-1c2c1d)!{0.5}!(p-1c2c1d2c)$) {c};
+    \node[above right] at ($(n2-1c2c1d)!{0.5}!(p-1c2c1d2d)$) {d};
+    \node[above=5pt] at (n2-1c2c1c) {$2.d$};
+    \node[above left] at ($(n2-1c2c1c)!{0.5}!(p-1c2c1c2c)$) {c};
+    \node[above right] at ($(n2-1c2c1c)!{0.5}!(p-1c2c1c2d)$) {d};
+    \node[above=5pt] at (n1-1c2d) {$1.e$};
+    \node[above left] at ($(n1-1c2d)!{0.5}!(n2-1c2d1c)$) {C};
+    \node[above right] at ($(n1-1c2d)!{0.5}!(n2-1c2d1d)$) {D};
+    \node[above=5pt] at (n2-1c2d1d) {$2.f$};
+    \node[above left] at ($(n2-1c2d1d)!{0.5}!(p-1c2d1d2c)$) {c};
+    \node[above right] at ($(n2-1c2d1d)!{0.5}!(p-1c2d1d2d)$) {d};
+    \node[above=5pt] at (n2-1c2d1c) {$2.f$};
+    \node[above left] at ($(n2-1c2d1c)!{0.5}!(p-1c2d1c2c)$) {c};
+    \node[above right] at ($(n2-1c2d1c)!{0.5}!(p-1c2d1c2d)$) {d};
+
+    \node[above=5pt] at (n2-1d) {$2.b$};
+    \node[above left] at ($(n2-1d)!{0.5}!(n1-1d2c)$) {c};
+    \node[above right] at ($(n2-1d)!{0.5}!(n1-1d2d)$) {d};
+    \node[above=5pt] at (n1-1d2c) {$1.g$};
+    \node[above left] at ($(n1-1d2c)!{0.5}!(n2-1d2c1c)$) {C};
+    \node[above right] at ($(n1-1d2c)!{0.5}!(n2-1d2c1d)$) {D};
+    \node[above=5pt] at (n2-1d2c1d) {$2.h$};
+    \node[above left] at ($(n2-1d2c1d)!{0.5}!(p-1d2c1d2c)$) {c};
+    \node[above right] at ($(n2-1d2c1d)!{0.5}!(p-1d2c1d2d)$) {d};
+    \node[above=5pt] at (n2-1d2c1c) {$2.h$};
+    \node[above left] at ($(n2-1d2c1c)!{0.5}!(p-1d2c1c2c)$) {c};
+    \node[above right] at ($(n2-1d2c1c)!{0.5}!(p-1d2c1c2d)$) {d};
+    \node[above=5pt] at (n1-1d2d) {$1.i$};
+    \node[above left] at ($(n1-1d2d)!{0.5}!(n2-1d2d1c)$) {C};
+    \node[above right] at ($(n1-1d2d)!{0.5}!(n2-1d2d1d)$) {D};
+    \node[above=5pt] at (n2-1d2d1d) {$2.j$};
+    \node[above left] at ($(n2-1d2d1d)!{0.5}!(p-1d2d1d2c)$) {c};
+    \node[above right] at ($(n2-1d2d1d)!{0.5}!(p-1d2d1d2d)$) {d};
+    \node[above=5pt] at (n2-1d2d1c) {$2.j$};
+    \node[above left] at ($(n2-1d2d1c)!{0.5}!(p-1d2d1c2c)$) {c};
+    \node[above right] at ($(n2-1d2d1c)!{0.5}!(p-1d2d1c2d)$) {d};
+
+    \path (n2-1d)  edge [dashed] node {} (n2-1c);
+    \path (n2-1c2c1d)  edge [dashed] node {} (n2-1c2c1c);
+    \path (n2-1c2d1d)  edge [dashed] node {} (n2-1c2d1c);
+    \path (n2-1d2c1d)  edge [dashed] node {} (n2-1d2c1c);
+    \path (n2-1d2d1d)  edge [dashed] node {} (n2-1d2d1c);
+
+    \node[below = 5pt] at ($(p-1c2c1c2c)$) {2,2};
+    \node[below = 5pt] at ($(p-1c2c1c2d)$) {0,3};
+    \node[below = 5pt] at ($(p-1c2c1d2c)$) {3,0};
+    \node[below = 5pt] at ($(p-1c2c1d2d)$) {1,1};
 
 
-%
-%\section{Finitely repeated games}
-%
-%
-%
-%To appear later. (In the meantime, see Fran\c cois Sponart's presentation.)
+    \node[below = 5pt] at ($(p-1c2d1c2c)$) {0,3};
+    \node[below = 5pt] at ($(p-1c2d1c2d)$) {-2,4};
+    \node[below = 5pt] at ($(p-1c2d1d2c)$) {1,1};
+    \node[below = 5pt] at ($(p-1c2d1d2d)$) {$-1$,2};
+
+
+    \node[below = 5pt] at ($(p-1d2c1c2c)$) {3,0};
+    \node[below = 5pt] at ($(p-1d2c1c2d)$) {0,3};
+    \node[below = 5pt] at ($(p-1d2c1d2c)$) {4,-2};
+    \node[below = 5pt] at ($(p-1d2c1d2d)$) {2,$-1$};
+
+
+    \node[below = 5pt] at ($(p-1d2d1c2c)$) {1,1};
+    \node[below = 5pt] at ($(p-1d2d1c2d)$) {$-1$,2};
+    \node[below = 5pt] at ($(p-1d2d1d2c)$) {2,$-1$};
+    \node[below = 5pt] at ($(p-1d2d1d2d)$) {0,0};
+
+    \end{tikzpicture}
+    \caption{The twice repeated Prisoner's Dilemma, in extensive form.
+    The payoffs at the terminal nodes are the sum of those at both
+    rounds.}
+    \label{fig:2PDtree}
+\end{figure}
+The key to analyze repeated games is the \emph{backward analysis.} For this, we begin by studying how the players should act at the
+second round. Clearly, they only want to maximize their contributions to
+their own payoffs. Hence, in the second round, they should select
+$([D],[d])$ (the Nash Equilibrium).
+Knowing this, we can infer (by recurrence) that the players should pick
+$([D],[d])$ as well in the first round.
+
+In conclusion, when playing a finitely repeated version of the Prisoner's
+Dilemma, players should always defect at every round.
+We did the exercise for when the game is repeated twice, but this holds
+for any fixed number $K$ of repetitions.
+\end{example}
+
+The study of repeated games calls for the definition of an appropriate
+notion of \emph{strategy}. The following definition, though informal, has the advantage to represent our intuition and it is valid for both the finitely and infinitely repeated case.
+
+\begin{definition}[Strategy in a repeated game (informal)]
+In a repeated game with $N$ players, a strategy for player $i$ defines,
+at each round $k = 1, 2, \ldots$ a (randomized) strategy to play for the
+game at round $k$ given the information available at the beginning of
+round $k$.
+\end{definition}
+
+Let us linger a bit longer on what constitutes \emph{information} for a
+player in round $k$. A player should at least be aware of
+\emph{the history of his moves and payoffs} so far.
+The players may also know other players' moves or their payoffs depending
+on the scenario.
+
+\begin{definition}[Stationary Strategy (informal)]
+In a repeated game, a \emph{stationary strategy} is a strategy that
+depends only on the current round.
+\end{definition}
+
+\begin{proposition}[Equilibrium in Finitely Repeated Prisoner's Dilemma]
+In a finitely repeated Prisoner's Dilemma, the unique equilibrium
+strategy is stationary, where each player defect at every round.
+\end{proposition}
+This can be easily proven by using the \emph{backward analysis}, see Ch.\ \ref{chap:Seq}, Sect.\ \ref{ch4:sec:motivations}.\\
+Remarkably, in \emph{infinitely repeated games}, the players will have
+access to a richer array of actions and payoffs. They will not be
+confined to playing Nash Equilibria at each round, but they will now be
+able to learn and adapt their moves in accordance to the history of the
+game. In particular, we can observe the rise of cooperation in the
+Prisoner's Dilemma in the infinitely repeated setting.
+
+\section{Infinitely Repeated Games}
+\label{sec:InfRep}
+
+In an infinitely repeated game, all the players involved know that they
+will have to play the game an infinite amount of time.
+At each round, the players gather their payoffs for the current round before
+playing the next one (see Figure~\ref{fig:infiRepeated}).
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5cm, semithick, scale = 1, transform shape ]
+        \node	(start)								{Start};
+        \node[state] 	(nk)    	[right of = start]		{Round k};
+        \path 	(start) edge node {}	(nk)
+                (nk)	edge [loop left, out = -30, in = 30, distance = 2cm] node[right] {$k := k +1$}	(nk);
+    \end{tikzpicture}
+    \caption{Infinitely Repeated Games.}
+    \label{fig:infiRepeated}
+\end{figure}
+
+\begin{notation}[Time superscript]
+Given a sequence $r$ in time, we use the superscript $r^{[t]}$ to denote
+the element of the sequence $r$ at time $t$.
+\end{notation}
+
+\begin{definition}[Standard Repeated Game]
+A \emph{standard repeated game} is an infinitely repeated game where a
+same game in strategic form $\Gamma$ is repeated infinitely and where at each round $k$,
+every player knows all the players past moves.
+\end{definition}
+
+When playing a repeated game, players needs to select some strategy to be
+played instead of others. To do so, they need to be able to express
+preferences, as prescribed by Decision Theory.
+The following definitions provide two classical criteria for ranking
+payoffs in repeated games.
+
+\begin{definition}[Average and Discounted Payoffs]
+Given a sequence of payoffs $r_i^{[1]}, r_i^{[2]}, \ldots$ for player $i$
+in an infinitely repeated game,
+\begin{itemize}
+    \item the \emph{limit average payoff} of $i$ is
+    \begin{equation}
+        \lim_{k \rightarrow \infty} \frac{\sum_{j = 1}^k r_i^{[j]}}{k}.
+        \label{eq:averagePayoffRep}
+    \end{equation}
+    Note that this limit may not exist (but more sophisticated
+    limit definitions can be used to circumvent this),
+    \item for a \emph{discount factor} $0 \leq \delta < 1$, the
+    \emph{$\delta-$discounted payoff} is
+    \begin{equation}
+        \sum_{j = 1}^{\infty} \delta^{j-1} r_i^{[j]}.
+        \label{eq:discountedPayoffRep}
+    \end{equation}
+    \item for a \emph{discount factor} $0 \leq \delta < 1$, the
+    \emph{$\delta-$discounted average payoff} is
+    \begin{equation}
+        (1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1} r_i^{[j]}.
+        \label{eq:discountedAvgPayoffRep}
+    \end{equation}
+\end{itemize}
+\end{definition}
+Other criteria exist, see~\cite[page 315]{MyGTAO}.
+
+The \emph{discounted payoff} can be interpreted in a number of ways.\\
+The \emph{discount factor} $\delta$ is commonly understood as a measure
+of the player's \emph{patience}: the closer to $0$, the more the player
+aims at obtaining immediate payoffs, and the closer to $1$, the more the
+player is willing to wait for future payoffs.\\
+There is another way to interpret the discount factor, which is useful to model situations where the game will actually not be played an infinite number of time, but will end at some moment, \emph{in a probabilistic way}. Indeed, suppose that at every round, the game may terminate with probability $1-\delta$, or go on for at least one more round with probability $\delta$ (see Figure~\ref{fig:infiRepeatedDiscount}). The reader can observe that the equations for the expected payoff are exactly the same than in the discounted setting.  Indeed, if the game may stop at every round with probability $1-\delta$, in order to obtain the payoff $r_i^{(j)}$ the game must be repeated $j-1$ times, which occurs with probability $\delta^{j-1}$. The discounted payoff is then the
+expected payoff of the game under this interpretation.\\
+The \emph{discounted average payoff} is a normalized version of the
+discounted payoff, where if $r_i^{[t]} = 1$ for all $t$,
+$$(1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1} 1 = 1.$$
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=7cm, semithick, scale = 1, transform shape ]
+        \node (start) {Start};
+        \node [state] (nk) [right of = start] {Round $k$};
+        \node (stop) [right of = nk] {Stop};
+        \path (start) edge node {} (nk)
+        (nk) edge [loop above] node {Probability $\delta$, $k := k +1$}
+        (nk) (nk) edge[] node{Probability $1-\delta$} (stop);
+    \end{tikzpicture}
+    \caption{Interpretation of discounted payoff: the game ends with
+    probability $1 - \delta$.}
+    \label{fig:infiRepeatedDiscount}
+\end{figure}
+
+\begin{definition}[Equilibrium for Repeated Games (informal)]
+An equilibrium of a repeated game is a set of strategies (one per player)
+where each strategy is a best response to the others, in that it maximizes
+the selected payoff criterion given the other players' strategies.
+\end{definition}
+
+\begin{example}
+\label{ch9:ex:trigger}
+In an infinitely repeated version of the Prisoner's Dilemma, cooperation
+can appear as a rational strategy to be played at each round.
+Consider a discount factor $\delta$ and the game of
+Example~\ref{ch9:ex:PD1}.
+We define the strategy of the player as follows: each player is supposed
+to start the game by cooperating. Then, if at any round a player defects,
+the other reacts by defecting for the rest of the game.
+The $\delta$-discounted payoff for the strategy is
+$$\sum_{j = 1}^{\infty}(\delta)^{j-1} 1 = \frac{1}{1-\delta}$$
+where players cooperate at every round.
+If a player defects at the first round, he gets a payoff of $2$ and then
+always gets a payoff of $0$ because the other player reacts by always
+defecting. His total payoff is then simply $2$, independently of $\delta$.
+Consequently, if
+$$\frac{1}{1-\delta} \geq 2 \Leftrightarrow \delta \geq 0.5,$$
+the  strategy is an equilibrium, leading to a cooperative outcome for
+the game.
+\end{example}
+
+In the example above, the strategy leading to the cooperative equilibrium
+infinitely punishes a player for uncooperative behaviors. This is called
+the \textbf{grim} (or \textbf{trigger}) strategy. Other classical
+strategies, leading to cooperative equilibria, are as follows
+\begin{itemize}
+	\item \textbf{Grim}: the grim strategy is that of Example \ref{ch9:ex:trigger}. We begin the game with cooperation and continue cooperating at each round unless the other player defects. From this point on, we defect. See the analysis in \cite[pp. 308-310]{MyGTAO} for a detailed analysis of this example.
+    \item \textbf{tit-for-tat}: we begin by cooperating and then, at every
+    round, we choose the move of our opponent at the last round,
+    \item \textbf{getting-even}: we begin by cooperating, and continue
+    cooperating \emph{unless} the opponent has defected more time that
+    we did. If this is the case, we defect.
+\end{itemize}
+
+\subsection{Folk Theorems and Cooperation}
+Infinitely repeated games offer opportunities for cooperative behaviors,
+which can be linked to the theory of cooperative game theory.
+The following is taken from~\cite[Theorem 6.1.5]{ShLeMSAG}.
+\begin{theorem}[Folk Theorem]
+\label{ch9:thm:folk1}
+Consider any $N$-player normal-form game $\Gamma = (N,C,u)$, and a
+payoff profile $r = (r_i)_{i \in N}$ with $r_i \in \reels$.
+Assume that
+\begin{itemize}
+    \item the profile $r$ satisfies $r_i \geq v_i$, where
+    $$v_i = \min_{c_{-i} \in C_{-i}} \max_{c_i \in C_i}
+    u_i(c_{-i}, c_i),$$
+    \item and there is a correlated strategy $\tau \in \Delta C$, where
+    $\tau(c) \in \mathbb{Q}$ for each $c \in C$ where $\mathbb{Q}$ is the set
+    of rational numbers, such that
+    $$r_i = \sum_{c \in C} \tau(c) u_i(c).$$
+\end{itemize}
+Then $r$ is the payoff obtained by the players for some Nash Equilibrium
+of the infinitely repeated game with \emph{limit average rewards}.
+\end{theorem}
+
+There is an interesting parallel here with Chapter~\ref{chap:Cor} and in
+particular Section \ref{ch5:sec:cont}.
+As a reminder, the topic there was finding rules under which a group of
+players is willing to sign a contract, forcing each of them to follow the
+recommendations of a mediator. The mediator is a proxy to represent
+communication processes between the players. The following example
+illustrates the results.
+
+\begin{example}[Example~\ref{ch5:ex:minimax} revisited.]
+Alice and Bob wish to hold an old promise: once a month, for the rest of
+their lives (which we assume to be infinite for the exercise), they will
+meet either at the cinema or at the ballet.
+Alice prefers to go to the ballet, and Bob to the cinema.
+Their payoffs and moves are summarized in the table below (Alice is player
+1, Bob is player 2).
+
+\begin{center}
+    \begin{tabular}{c | c  c}
+          & c & b \\
+        \hline
+        C & $2, 3$ & $-1, -1$ \\
+        B & $1, 1$ & $3, 2$
+    \end{tabular}.
+\end{center}
+We computed in Example~\ref{ch5:ex:minimax} the minimax values
+$v = (7/5, 7/5)$ for this game, and saw in
+Example~\ref{example:AliceBobCinemaBargain} that a very good correlated
+strategy here is to play $\tau([C],[c]) = 0.5$, $\tau([B],[b]) = 0.5$,
+with expected payoffs $(2.5,2.5)$.
+
+For the sake of the exercise, let us assume that Alice and Bob don't plan
+ahead during these activities: they just enjoy the moment, and have no
+other means of communication.
+They decide their moves based on the history of the game (here, it is easy
+to find out where was the other if they do not meet).
+
+It is not difficult to construct strategies for Alice and Bob that grant
+them an \emph{average payoff} of $2.5$ in the infinitely repeated game.
+
+Let us consider the sequence of outcomes $a^{(t)} = ([C],[c])$ if $t$ is
+even, and $a^{(t)} = ([B],[b])$ if $t$ is odd.
+Consider the following strategy for each player: begin by playing with
+$a^{(1)}$ at round 1, and then at round $k$
+\begin{itemize}
+    \item if the outcomes at all previous rounds are those of the
+    sequence $a$, then play according to $a^{(k)}$,
+    \item else, play the minimax strategy for the other player.
+\end{itemize}
+Clearly, if both player follow this strategy, they get an average payoff
+of $2.5$. Moreover, if one deviates from this strategy, his expected
+payoff drops to $7/5$, because the other plays is minimax for eternity.
+Hence, the strategy is a Nash Equilibrium.
+\end{example}
 
 
 
-\section{A general model for infinitely repeated games}
+
+\section{General Model of Repeated Games}
+\label{sec:GenMod}
 
 
-
-To represent a repeated game, we need a number of elements. First, of course, we need a set of players $N$ and a set of actions $(D_i)_{i \in N}$ that the players can play at each round with an associated reward $u_i: D_i \rightarrow \mathbb{R}$, like in previous chapters. 
-
-But that is not enough. Indeed, we also want to represent the fact that players should be able to react to the other players' last moves. This is something we represent through a set of \emph{signals} $S_i$. For instance in the repeated prisoner's dilemma, we could have a signal for ``\emph{My opponent was gentle in the last round}'' and for ``\emph{Omg, you crazy bast***!}''. In that sense, the signal received at round $k$ depends on the actions of the other players in the past rounds and will influence the player's action right now. 
-
-But this is still not enough: we also want to represent the fact that what players play may impact the game itself. For instance, we may want to play a game repeatedly with a certain probability to stop playing at each round. (This is quite different from a finitely repeated game setting!) We represent this by a set of \emph{states} of the world $\Theta$; in this case, there would be a state to say ``\emph{Let us play again!}'' and a state for ``\emph{Stop! The game is over!}''.
-
-One last element is required to make the link between the different rounds. This is achieved by a \emph{transition function} $p$: given the state of the world $\theta^k$ and the action $d^k$ that the players played at round $k$, it assigns a probability $p(\theta^{k+1}, s^{k+1} \, | \, \theta^k, d^k)$ for the next state $\theta^{k+1}$ with the signal $s^{k+1}$ to come. And to be complete, we should also specify the initial situation through a probability function $q$.
-
-With all the above elements in place, we may define a \emph{strategy} for each of the players: each of them should specify a probability distribution over their set of actions in every possible event. Of course, describing such a strategy can become a bit tricky because there are so many events to take into account: it should depend on the state of the world, on the received signal but also on the whole game history. (See Myerson for a complete description.) Let us assume that we have a description of such strategies. We may ask the following questions: are there equilibria for such games? How can we identify them? And how do we even define them?
-
-In order to get to a definition of equilibria in repeated games, we first need to define what the utility of the players is when they play according to some strategy. Indeed, when playing the game, the players receive a payoff after each round, so their goal is to optimize a sequence of payoffs $(w_i(k))_{k \geq 0}$. But how valuable is such a sequence? It cannot simply be the sum of payoffs because this may not be a finite value (unless there is a payoff-free absorbing state of the world in the game, such as for instance a ``\emph{Stop! The game is over!}''--state). In fact, there exists a number of different options to evaluate payoff sequences, such as computing the average payoff of the sequence for instance. Which option to choose really depends on the application. However in what follows, we describe a typical and meaningful way of doing: the \emph{discounted average}. 
-
-With the discounted average criterion, the value of a payoff sequence $(w_i(k))_{k \geq 0}$ is given by 
-\begin{align} \label{eq:discount}
-	(1-\delta) \sum_{k \geq 0} \delta^k w_i(k),
-\end{align}
-where $0 \leq \delta < 1$ is called the \emph{discount factor}. The idea behind this criterion is that future payoffs are less valuable than the immediate ones. Yet another interpretation is that, at each round, there is a probability of $1-\delta$ to stop playing and $\delta$ to go on. The discount factor characterizes the patience of the players: a low value of $\delta$ means that immediate rewards are much more important than the future ones (or that the game will finish quickly). In~\eqref{eq:discount}, the factor $(1-\delta)$ is used as a normalization such that the resulting discounted value lies somewhere between $\min_k w_i(k)$ and $\max_k w_i(k)$.
-
-We are now ready to describe the equilibria of these quite general repeated games. In fact, the definition is the same as always: a strategy for all players is an equilibrium iff, at any round or at any state, no player has an interest to deviate alone from his strategy. 
-
-Under these circumstances, it is not hard to see that repeatedly playing an equilibrium of the original game leads to an equilibrium of the repeated game. But in fact, there exist a shipload of equilibria. For instance in the prisoner's dilemma, the well known Tit-for-Tat strategy is an equilibrium and can be used to achieve collaboration. In this strategy, starting with a collaboration, the players always rewards collaboration (resp. defection) from the other player last round with a collaboration (resp. defection) in this round. But this is just one of the many examples. In fact, it can even be shown that for any repeated game with the discounted average criterion, almost any feasible payoff allocation that is higher than the minimax of the players can be achieved with an equilibrium (with an assumption specifying that the discount factor should be high enough). Nevertheless, a universal description of these equilibria is still unknown... unless we assume that the players have a complete knowledge of the information state. This is the topic of the next section.
+So far, we have focused on finitely repeated games and standard repeated games. We now discuss a more general model, with the associated computational tools for formally defining strategies and equilibria.
 
 
+To represent a repeated game, we need a number of elements. First, of course, we need a set of players $N$ and a set of actions $D = \times_{i \in N} D_i$ that the players can play at each round.\\ Additionally, we may consider that in each round, the game is in a different \emph{state}. For example we can understand the situation Figure \ref{fig:infiRepeatedDiscount} as one infinitely repeated game with \emph{two} states: the game is either running or stopped, and the finitely repeated game of Figure \ref{fig:repeatedFiniteNumberOfTimes} as infinitely repeated games with $K+1$ states: K rounds and the stop state.
+In all generality, we let $\Theta$ be the set of \emph{states of the world}. \\
+The actions of players lead to rewards at the end of each round, depending on the state of nature, through a utility function $u_i : D \times \Theta \rightarrow \reels$ for each $i \in N$. \\
+As mentioned before, players make decision based on currently available information, gathered through past rounds. This is something we represent through a set of \emph{signals} $S = \times_{i \in N} S_i.$
+Signals are flexible in their nature: the set of signal $S_i$ for player $i$ could contain $D$, meaning he obtain at each round information about the moves of all players on the past round; or it may contain $\Theta$, meaning the player has information on the state of the world, etc... This flexibility can be used for modeling purpose.\\
+Additionally, we need to define how the game \emph{starts}. At the beginning of the game, each player must receive a signal (which can be as simple as "the game as started"), and a state of world has to be selected.
+This is represented by an \emph{initial distribution}
+$ q \in \Delta(S \times \Theta).$
+Finally, as the game evolves, players will be fed signals and the state of the world will change. In all generality, we represent this by a \emph{transition function}
+$ p : D \times \Theta \rightarrow \Delta(S \times \Theta).$
 
-\section{Repeated games with complete state information and discounting}
+\begin{definition}[General Repeated Game]
+A general repeated game is a structure of the form
+$$\Gamma^r = (N, \Theta, (D_i, S_i, u_i)_{i \in N}, q, p), $$
+where
+\begin{itemize}
+\item $N$ is the set of \emph{players},
+\item $\Theta$ is the set of \emph{state of the worlds},
+\item $D_i$ is the set of \emph{moves} available to player $i$,
+\item $S_i$ is the set of \emph{signals} that player $i$ may receive,
+\item $q \in \Delta(S \times \Theta)$ is the \emph{initial distribution},
+\item $p : D \times \Theta \rightarrow \Delta(S \times \Theta) $ is the \emph{transition function}.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Strategy]
+Consider a repeated game $\Gamma^r = (N, \Theta, (D_i, S_i, u_i)_{i \in N}, q, p).$
+The set of all \emph{pure strategies} is $C = \times_{i \in N} C_i$,
+$$C_i = \{ c_i = (c^{[k]})_{k = 1}^{\infty} \mid \forall k , c_i^{[k]} : (S_i)^{\times k} \rightarrow D_i\}. $$
+The set of all \emph{behavioral strategies} is $B = \times_{i \in N} B_i$,
+$$B_i = \{ b_i = (b^{[k]})_{k = 1}^{\infty} \mid \forall k , \sigma_i^{[k]} : (S_i)^{\times k} \rightarrow \Delta D_i\}. $$
+\end{definition}
+In the above, the set $(S_i)^{\times k}$ is the $k$-fold Cartesian product of the set $S_i$.\\
+The next concept will allow us to compute the payoffs of a given set of strategies.
+\begin{definition}[Probability of playing move and reaching state]
+Given a repeated game $\Gamma^r = (N, \Theta, (D_i, S_i, u_i)_{i \in N}, q, p)$, a behavioral strategy $\sigma \in B$,
+moves $d \in D$ and a state of the world $\theta \in \Theta$, we let
+$$ P^{[k]}(d,\theta \mid \sigma)$$
+be the probability that, at round $k$, the state of the world is $\theta$ and the players' moves are $d$ if they play according to $\sigma$.
+\end{definition}
+
+These probabilities can be computed as follows. Let
+$$Q^{[k]}(s,\theta \mid \sigma) $$
+be the probability that, at time $k$, the players are in the state $\sigma$ and have received the signal $s \in (S)^{\times k}$.
+By definition, we have
+$$ P^{[k]}(d, \theta \mid \sigma) = \sum_{s \in (S)^{\times k}} Q^{[k]}(s, \theta \mid \sigma) \prod_{i \in N} \sigma^{[k]}_i(d_i \mid s). $$
+The probabilities $Q^{[k]}$ can be computed recursively:
+\begin{equation*}
+\begin{aligned}
+& Q^{[1]}(s^{[1]}, \theta^{[1]} \mid \sigma)  = q(s^{[1]}, \theta^{[1]}), \\
+& Q^{[k+1]}(s^{[1]} \ldots s^{[k+1]}, \theta^{[k+1]} \mid \sigma) =  \\
+& \qquad \sum_{\theta^{[k]} \in \Theta} \sum_{d \in D} Q^{[k]}(s^{[1]} \ldots s^{[k]}, \theta^{[k]} \mid \sigma) \left( \prod_{i \in N} \sigma_i^{[k]}(d_i \mid s^{[1]} \ldots s^{[k]}) \right ) p(s^{[k+1]}, \theta^{[k+1]}|d,\theta^{[k]}).
+\end{aligned}
+\end{equation*}
+
+The payoff of a player $i  \in N$ at round $k$ when following the strategies in $\sigma$ is therefore given by
+$$ r_i^{[k]}(\sigma)  = \sum_{d \in D} \sum_{\theta \in \Theta} P^{[k]}(d, \theta|\sigma) u_i(d,\theta).$$
+
+\begin{definition}[Equilibrium]
+The behavioral strategy $\sigma$ is an equilibrium for
+\begin{itemize}
+\item the $\delta$ - discounted payoff criterion if
+	$$\forall i \in N, \forall \sigma' \in B: \sum_{k = 1}^\infty \delta^{k-1} r_i^{[k]}(\sigma) \geq \sum_{k = 1}^\infty \delta^{k-1} r_i^{[k]}(\sigma');$$
+\item the average payoff criterion if
+	$$\forall i \in N, \forall \sigma' \in B: \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^\infty  r_i^{[j]}(\sigma)}{k} \geq \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^\infty  r_i^{[j]}(\sigma')}{k}.$$
+\end{itemize}
+\end{definition}
+
+The formalism above highlights one of the big challenges of the analysis of repeated games: the set of behavioral strategies is infinite, and so checking if a strategy is an equilibrium can be very hard!
+In practice one often focuses on strategies relying only on limited information (for example, use only the $\ell$ last signal received to define the strategy). This can be understood as a relaxation of the concept of rationality and intelligence in favor of pragmatism: in reality,  players may not have access to a perfect memory or be able to reflect perfectly about the game. Think for example about the following situation: what if rational players, instead of choosing a move in each round by themselves,  have to program a computer with a limited amount of memory and computational power to do so?
+We refer to this as the \emph{bounded rationality} principle, which is discussed in e.g.  \cite{RuMBR}, \cite[Section 6.1.3]{ShLeMSAG}, \cite[Chapter 9]{OsRuACIG}.
 
 
+\subsection{Games with complete state information and discounting}
 
-We say that a repeated game has \emph{complete state information} iff, at every round, every player knows the current state of nature. In other words, we may now assume that the signals that every player receives at each round is known to everyone. In that case, we can represent the combination of a set of signals and a state of the world as some meta-state that contains all the conjoint information.
+We now narrow our scope to a particular (yet expressive) class of games.
+\begin{definition}[Games with Complete state information]
+A repeated game $\Gamma^r = (N, \Theta, (D_i, S_i, u_i)_{i \in N}, q, p) $ has \emph{complete state information}
+if, at every round, every player knows the current state of nature. That is, there is a function $w_i : S_i \rightarrow \Theta$ known by each player such that
+$$\forall s \in S, \forall \theta, \theta' \in \Theta, \forall d \in D:  p(s , \theta' | d, \theta) = 0 \text{ if } \theta' \neq w_i(s_i). $$
+\end{definition}
 
-In such a situation, it is possible to represent the game with a number of states of a \emph{Markov chain} (that correspond to the meta-states of the world). Together, the states represent all the possible set ups for the game and the transition function $p$ defined above represents the transition probabilities between the state, depending on the players' actions. Every time a state $\theta$ of this Markov chain is visited, we may consider that the set up is exactly the same, therefore we may assume that the strategy of the players should remain the same every time $\theta$ is visited. This is what we call a \emph{stationary} strategy and it is all we need here. Then, the goal of the players is to find a stationary strategy that is an equilibrium for this game, which we call a \emph{stochastic game}.
+\begin{definition}[Stationary strategy]
+In a game with complete state information, a behavioral strategy is \emph{stationary} if the move of each player at each time \emph{depends only on the information state of the game at that time}.
+That is, there is a function $\tau_{i}: \Theta \rightarrow \Delta(D_i)$ such that
+$$\forall k, \forall s \in (S)^{\times k}: \sigma_i^{[k]}(\cdot \mid s) = \tau_i(\cdot \mid w_i(s_i^{[k]})). $$
+\end{definition}
 
-More precisely, let $N$ be the set of players and $\Theta$ be the set of states of the game. Let $D_i$ be the set of actions of player $i$, $S_i$ be the set of signals that he can receive on the state of the game, $u_i : D_i \times \Theta \rightarrow \mathbb{R}$ be his payoffs and $\tau_i : \Theta \rightarrow \Delta(D_i)$ be his stationary strategy. Finally, let $p : D \times \Theta \rightarrow \Delta(S \times \Theta)$ be the transition function between the states.
+\begin{example}
+Consider the Prisoner's Dilemma game of Example \ref{ch9:ex:PD1} in a setting where players make this decision based only on the last moves of their adversary.
+Note that this goes against the idea that player are rational and intelligent, since they use only a part of the information at their disposal (bounded rationality).
+Nevertheless, many intuitive strategies can be analyzed in such a setting. It is for example the case for the Tit-for-Tat strategy discussed in Section \ref{sec:InfRep}.\\
+A natural way to model the situation is as a game with complete state information.
+Here, we have 4 states, each one assigned to the way the player moved on the last round:
+$$ \Theta = \{([C],[c]), \,  ([C],[d]), \, ([D],[c]), \, ([D], [d]) \}. $$
+Regarding the signals, we let $S_i = \Theta $ and both players see the state of the world at every round.\\
+For the initial distribution, we can assume that $q( ([C],[c]) ) = 1$ in the beginning. \\
+The transition function is straightforward:
+$$ p(s, \theta \mid d, \theta') = 1 \text{ if } d = \theta \text{ and } s = (\theta,\theta), $$
+and it is equal to $0$ for any other $s, \theta$.\\
+If both players play according to the Tit-for-Tat (stationary here) strategy, the execution of the game can be summarized at Figure \ref{fig:Tit-for-Tat}.
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm, semithick, scale = 1, transform shape ]
+\node	(start)								{Start};
+\node[state] 	(Cc)    	[right of = start]		{$([C],[c])$};
+\node[state] 	(Cd)		[right of = Cc]			{$([C],[d])$};
+\node[state]	(Dc)	    [below of = Cc]			{$([D],[c])$};
+\node[state] 	(Dd)		[right of = Dc]			{$([D],[d])$};
+\path 	(start) edge node {}	(Cc)
+		(Cc)	edge[loop above] node {C}	(Cc)
+				edge[dashed] node[left] {D}	(Dc)
+		(Dc)	edge[bend left] node[right] {C}	(Cd)
+				edge[dashed] node[below] {D}	(Dd)
+		(Cd) 	edge[dashed] node[above] {C}	(Cc)
+				edge[bend left] node[left] {D}	(Dc)
+		(Dd)	edge[loop right] node {D}	(Dd)
+				edge[dashed] node[right] {C}	(Cd);
+\end{tikzpicture}
+\caption{Prisonner's dilemma when playing Tit-for-Tat. Assuming player 2 plays Tit-for-Tat, the plain arrows correspond to when player 1 plays Tit-for-Tat as well, and the dashed arrows are what would happen should he decide to do the opposite.}
+\label{fig:Tit-for-Tat}
+\end{figure}
+\label{ex:stationaryGame}
+\end{example}
 
-The expected $\delta$-discounted average payoff of player $i$ when the initial state is $\theta \in \Theta$ can be written as:
+We now provide characterization of equilibrium in stationary strategies for game with complete state information and the
+$\delta$-discounted average payoff criterion, see Eq.  \eqref{eq:discountedAvgPayoffRep}, recalled below:
+given a sequence of payoffs $r^{[1]}, r^{[2]}, \ldots$ and $0 \leq \delta < 1$, the $\delta$-discounted average of the sequence is
+$(1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1}r^{[j-1]}$.
+
+Observe that this satisfies the following recursion: letting
+$$w(k) = (1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1}r^{[j+k-1]},  $$
+which is the average from time $k$, we have
+\begin{equation}
+ w(1)  =  (1-\delta)r^{[1]} + \delta w(2).
+\label{eq:discaveg}
+\end{equation}
+We are now in position to analyze games. To do so, we first let
+$$ \nu_i(\theta, \tau) $$
+be the \emph{expected $\delta$-discounted average} of player $i$ when beginning from the state $\theta \in \Theta$ when everyone plays according to $\tau$.
+The following holds from \eqref{eq:discaveg}:
+\begin{equation}
+\nu_i(\theta, \tau) = \sum_{d_i \in D_i} \tau_i(d_i | \theta) \sum_{d_{-i} \in D_{-i}} \tau_{-i}(d_{-i} | \theta) \left ( (1-\delta) u_i(d_i, \theta) + \delta \sum_{\theta' \in \Theta}  p(\theta' |d, \theta) \nu_i(\theta', \tau) \right ).
+\label{theNuequation}
+\end{equation}
+The above highlights an interesting term:
+$$Y_i(\tau, d_i, \nu_i, \theta, \delta) =  \sum_{d_{-i} \in D_{-i}} \tau_{-i}(d_{-i} | \theta) \left ( (1-\delta) u_i(d_i, \theta) + \delta \sum_{\theta' \in \Theta}  p(\theta' |d, \theta) \nu_i(\theta', \tau) \right ), $$
+which can be interpreted as the gain of player $i$ if he played the move $d_i$ \emph{once} if at state $\theta$ while everyone else follows $\tau$ (himself included in the future).
+
+We end this chapter with a characterization of stationary equilibria for games with complete state information when considering the discounted average payoff:
+\begin{theorem}
+\label{thm:stateq}
+Given a repeated game with complete state information and bounded payoffs, and given a profile of stationary strategies $\tau$. If there exists a bounded vector
+$$ \nu = (\nu_i(\theta))_{\theta \in \Theta, i \in N} $$
+such that
 \begin{align}
-	\nu_i(\theta) = \sum_{d_i \in D_i} \tau_i(d_i|\theta) \, Y_i(\tau , d_i , \nu_i , \theta , \delta) \hspace{1cm}
-	\label{7.2}
+& \nu_i(\theta) = \sum_{d_i \in D_i} \tau_i(d_i | \theta) Y_i(\tau, d_i, \nu_i, \theta, \delta), \label{thmStufmathc1}\\
+& \nu_i(\theta) = \max_{d_i \in D_i} Y_i(\tau, d_i, \nu_i, \theta, \delta) .\label{thmStufmathc2}
 \end{align}
-where $0 \leq \delta < 1$ is the discount factor and $Y_i(\tau , d_i , \nu_i , \theta , \delta)$ corresponds to what player $i$ would gain by playing the action $d_i$ in state $\theta$ and then the stationary strategy $\tau_i$, and is defined by:
-%\begin{align*}
-%	Y_i(\tau , d_i , \nu_i , \theta , \delta) = \sum_{d_{-i} \in D_{-i}} \Bigg( \prod_{j \in N_{-i}} \tau_j(d_j|\theta) \Bigg)\Bigg( (1-\delta)u_i(d,\theta)+\delta \sum_{\zeta \in \Theta} \sum_{s \in S}p(s, \zeta|d,\theta)\nu_i(\zeta)\Bigg).
-%\end{align*}
-\begin{align*}
-	Y_i(&\tau , d_i , \nu_i , \theta , \delta) = \\ &\sum_{d_{-i} \in D_{-i}} \Bigg( \underbrace{\prod_{j \in N_{-i}} \tau_j(d_j|\theta)}_{\text{what the others do}} \Bigg)\Bigg( \underbrace{(1-\delta)}_{\text{normalization}} \cdot \underbrace{u_i(d,\theta)}_{\begin{minipage}{1.8cm}\scriptsize\text{\begin{tabular}{c} immediate \\ payoff \end{tabular}}\end{minipage}}+ \underbrace{\delta \sum_{\zeta \in \Theta} \sum_{s \in S}p(s, \zeta|d,\theta)\nu_i(\zeta)}_{\text{discounted later payoffs}} \Bigg).
-\end{align*}
+the $\tau$ is an equilibrium of the repeated game. \\
+In this equilibrium, $\nu_i(\theta)$ is the expected $\delta-$discounted average payoff for player $i$ in the repeated game if the initial state is $\theta$.
+\end{theorem}
 
-For a stationary strategy profile $\tau$ to be an equilibrium of a repeated game with complete information, no player should be able to expect to improve its payoff by changing its strategy at any stage or in any state $\theta$. This condition implies:
-\begin{align}
-	\nu_i(\theta)= \max_{d_i \in D_i} Y_i(\tau , d_i , \nu_i , \theta , \delta) \hspace{1cm} \forall \theta \in \Theta.
-	\label{7.3}
-\end{align}
-The strategy $\tau$ is an equilibrium of a repeated game with complete information iff there exists a bounded payoff function $\nu$ satisfying Conditions~\eqref{7.2} and~\eqref{7.3}.
+
+In general the equations of Theorem \ref{thm:stateq} can be quite hard to solve. In the following, we give an example applied to our Prisoner Dilemma game where we analyze the Tit-for-Tat and Grim strategies introduced in Section \ref{sec:InfRep}.
+
+\begin{example}[Example \ref{ex:stationaryGame} continued]
+Our goal is now to find the values $\nu_i(\theta)$ for the prisoner dilemma at Example \ref{ex:stationaryGame}.
+We saw in Example \ref{ch9:ex:trigger} that the Grim strategy was and equilibrium for the game with the $\delta-$discounted payoff when $\delta \geq 0.5$.
+Let us now consider the Tit-for-Tat strategies for both players and we focus on player 1.
+For a given $0 \leq \delta < 1$, applying \eqref{theNuequation} to solve \eqref{thmStufmathc1} (its the same...), we have the following:
+$$
+\begin{aligned}
+& \nu_1([C],[c]) = (1-\delta) \cdot 1 + \delta \cdot \nu_1([C],[c]), \\
+& \nu_1([D],[c]) = (1-\delta) \cdot -1 + \delta \cdot \nu_1([C],[d]), \\
+& \nu_1([C],[d]) = (1-\delta) \cdot 2 + \delta \cdot \nu_1([D],[c]), \\
+& \nu_1([D],[d]) = (1-\delta) \cdot 0 + \delta \cdot \nu_1([D],[d]). \\
+\end{aligned}
+$$
+The solutions are
+$$
+\begin{aligned}
+& \nu_1([C],[c]) =  1 , \\
+& \nu_1([D],[c]) = \frac{2\delta - 1}{1+\delta}, \\
+& \nu_1([C],[d]) = \frac{2- \delta}{1+\delta}, \\
+& \nu_1([D],[d]) = 0. \\
+\end{aligned}
+$$
+Then, for each state, we need to verify \eqref{thmStufmathc2}. In our present case, this boils down to checking, at any state $\theta \in \Theta$, if we would not have an higher payoff by deviating from the prescribed action at this state. Hence, we would be at equilibrium whenever the following inequalities are satisfied.
+$$
+\begin{aligned}
+& \nu_1([C],[c])  \geq (1-\delta) 2 + \delta\nu_1([D],[c]) = \nu_1([C],[d]) , \text{ doing $D$ instead of $C$,}\\
+& \nu_1([D],[c])  \geq (1-\delta) 0 + \delta \nu_1([D],[d]) = 0,  \text{ doing $D$ instead of $C$ , }\\
+& \nu_1([C],[d])  \geq (1-\delta) 1 + \delta \nu_1([C],[c]) = 1, \text{ doing $C$ instead of $D$, } \\
+& \nu_1([D],[d])  \geq (1-\delta) -1 + \delta \nu_1([C],[d])  = \nu_1([D],[c]). \text{ doing $C$ instead of $D$. } \\
+\end{aligned}
+$$
+So we see that, for the equations to hold, we need to have exactly $\delta = 0.5$.
+If it is not the case, then:
+\begin{itemize}
+\item For $\delta < 0.5$, the two first inequalities are invalid, but not the two second. This means that we should always do $D$.
+Hence, we revert to our original behavior when playing the non-repeated Prisoner's Dilemma. This fits the interpretation of a low $\delta$ being associated to the search for an immediate reward.
+\item For $\delta > 0.5$, the two second inequalities are invalid, but not the two first.
+This means that if we know the second player is going for Tit-for-Tat, we should always cooperate when $\delta$ is big enough.
+\end{itemize}
+
+
+
+\end{example}
+
+\section{Learning in repeated games}
+In repeated games, \textit{learning} strategies can be defined as follows.
+
+\begin{definition}[Learning strategy]
+    A learning strategy is a strategy that uses the information collected by a
+    player during the previous rounds to improve its behavior in future rounds.
+\end{definition}
+
+This corresponds to the way we see learning in our everyday life: using
+past inputs to improve itself in the future. 
+In addition, learning strategies are supposed to draw interesting inferences
+or use accumulated experience in an interesting way. This will be illustrated
+with the convergence of ``fictitious play'' below.
+
+There exists a lot of learning strategies. Two will be discussed in this
+section \emph{fictitious play} and \emph{no-regret playing}.
+
+\subsection{Fictitious play}
+Fictitious play is an algorithm introduced by \textsc{Brown} at the RAND
+corporation in 1949. Originally, the objective of this algorithm was to
+provide an explanation for the origin of Nash equilibria as well a heuristic
+to compute Nash equilibria. One can imagine this algorithm as a player
+playing against itself multiple times, trying to devise the best strategy
+(i.e. a Nash equilibrium) for when the time to play against a real opponent
+will come. 
+
+More rigorously, fictitious play is an instance of \textit{model-based}
+learning where learners maintain beliefs about opponent's behaviors. The
+way the opponent's model is build is really simple and relies on a single
+assumption: the opponent is playing a mixed strategy given by the empirical
+distribution of its past moves.
+
+\begin{procedure}[Fictitious play]
+    \emph{Repeat:}
+    \begin{enumerate}
+        \item Play a best response to the assessed strategy of the opponent (if
+        first round, play an arbitrary strategy)
+	    \item Observe the opponent's actual play and update beliefs accordingly
+    \end{enumerate}
+    \label{chap9:fictplayproc}
+\end{procedure}
+
+Note that this algorithm is often given with an additional beliefs initialization
+step. As a consequence, step 1 always consists in playing a best reponse (and
+no longer an arbitrary strategy at the first round). However, this version does
+not correspond to the original algorithm proposed by \textsc{Brown}.
+
+\begin{example}[Fictitious play]
+\label{ex:fictitiousPlay}
+Let's consider the normal form game given in table~\ref{chap9:tab-fic-play-ex} and
+two players using the fictitious play algorithm.
+
+\begin{table}
+    \centering
+    \begin{tabular}{c|cc}
+        & l & r \\
+        \hline
+        U & 3,3 & 0,0 \\
+        D & 4,0 & 1,1 \\
+    \end{tabular}
+    \caption{Normal form game used in the Fictitious play example. The only
+    Nash Equilibrium of this game is (D, r).}
+    \label{chap9:tab-fic-play-ex}
+\end{table}
+
+Let's first define some notations 
+\begin{itemize}
+        \item $\nu_i^t$: belief of player $i$ at turn $t$,
+        \item $\mu_i^t$: expected play of player $i$ by the other players at turn $t$,
+        \item $\sigma_i^t$: strategy of player $i$ at turn $t+1$.
+\end{itemize}
+
+At the first round, each player plays an arbitrary strategy.
+Let's assume then that player 1 plays U and player 2 plays l initially.\\
+
+At the second round the belief vectors of each player are the following:
+$\nu_1^2=(1,0), \nu_2^2=(1,0)$. The expected move of the two players are
+thus the following: player 1 expects player 2 to play $\mu_1^2=l$ and player
+2 expects player 1 to play $\mu_2^2=U$. The best response strategy of each
+player is thus going to be the following: player 1 is going to play
+$\sigma_1^2=D$ and player 2 is going to play $\sigma_2^2=l$.\\
+
+At the third round the belief vectors are $\nu_1^3=(2,0)$ and $\nu_2^3=(1,1)$.
+The expected strategy of each player is thus $\mu_1^3=l$ and
+$\mu_2^3=\frac{1}{2}U+\frac{1}{2}D$. The best response strategy for each
+player is thus $\sigma_1^3=D$ and $\sigma_2^3=l$: in fact for player 2 the
+expected payoff if  he plays $l$ is going to be equal to
+$\frac{1}{2}\cdot3+\frac{1}{2}\cdot0=1.5$ and the payoff for playing right is
+$\frac{1}{2}\cdot0+\frac{1}{2}\cdot1=0.5$, thus playing $l$ is the best response
+against the supposed mixed strategy of the opponent.\\
+
+At the fourth round the belief vectors are $\nu_1^4=(3,0)$ and $\nu_2^4=(1,2)$.
+The expected strategy of each player is thus $\mu_1^4=l$ and
+$\mu_2^4=\frac{1}{3}U+\frac{2}{3}D$. The best response strategy for each
+player is thus $\sigma_1^4=D$ and $\sigma_2^4=l$: the expected payoff for
+player 2 is equal to $\frac{1}{3}\cdot3+\frac{2}{3}\cdot0=1$ if he plays l and
+$\frac{1}{3}\cdot0+\frac{2}{3}\cdot1=\frac{2}{3}$ if he plays right.\\
+
+At the fifth round the belief vectors are $\nu_1^5=(4,0)$ and $\nu_2^5=(1,3)$.
+The expected strategy of each player is thus $\mu_1^5=l$ and
+$\mu_2^5=\frac{1}{4}U+\frac{3}{4}D$. The best response strategy for each
+player is thus $\sigma_1^5=D$ and $\sigma_2^5$ can be either equal to $l$
+or to $r$, in fact, the expected payoffs for player 2 are the same:
+$\frac{1}{4}\cdot3+\frac{3}{4}\cdot0=0.75$ if he plays l and
+$\frac{1}{4}\cdot0+\frac{3}{4}\cdot1=0.75$ if he plays right.\\
+
+Finally at the sixth round, the belief vectors are $\nu_1^6=(5,0)$ and
+$\nu_2^6=(1,4)$. The expected strategy of each player is thus $\mu_1^6=l$
+and $\mu_2^6=\frac{1}{5}U+\frac{4}{5}D$. The best response strategy for
+each player is thus $\sigma_1^4=D$ and $\sigma_2^4=r$: in fact,  the
+expected payoff for player 2 is equal to $\frac{1}{5}\cdot3+\frac{4}{5}\cdot0=0.6$
+if he plays l and $\frac{1}{5}\cdot0+\frac{4}{5}\cdot1=0.8$ if he plays right.
+Since the strategy $(D,l)$ is a Nash equilibirum (and a strongly dominating
+strategy) of the game, the strategy of each player won't change anymore.\\
+\end{example}
+
+This example suggests that fictitious play might converge. In particular,
+in might converge to a Nash's Equilibrium. Two questions remain, however:
+does it always converge? Does it always converge to a Nash's Equilibrium?
+The two following theorems answer these two questions.
+
+\begin{theorem}
+    \label{thm:fpconvergence}
+    If the empirical distribution of each player's strategies converges in
+    fictitious play, then \emph{it converges to a Nash equilibrium}.
+\end{theorem}
+
+\begin{theorem}
+    \label{thm:fpconvergencecond}
+    Each of the following are a sufficient conditions for the empirical
+    frequencies of play to converge in fictitious play\footnote{Additionnal
+    conditions that are out of the scope of this course exist but are not
+    mentionned here.}
+    \begin{itemize}
+        \item the game is zero-sum;
+        \item the game is solvable by iterated elimination of strictly dominated strategies
+    \end{itemize}
+\end{theorem}
+
+\subsection{No-regret playing}
+The second algorithm we are going to study in this section is \emph{no-regret
+playing}. To be able to define the concept of \emph{no-regret playing}, we
+first need to define the concept of \emph{regret}.
+
+\begin{definition}[Regret]
+    Let $\alpha^t$ be the average per-period reward the agent received up to time
+    $t$. Let $\alpha^t(d)$ be the average per-period reward the agent would have
+    received by playing strategy $d$. The regret an agent experiences at
+    time $t$ for not having played $d$ is defined as
+    $$R^t(d) = \alpha^t(d) - \alpha^t.$$
+\end{definition}
+
+Once we have defined the concept of regret, we can define \emph{no-regret playing}:
+
+\begin{definition}[No-regret playing]
+    A learning rule exhibits no regret if it guarantees with high probability that
+    the agent will not experience any positive regret\\ $$P([\liminf R^t(d)]
+    \leq 0) = 1.$$
+\end{definition}
+
+We can see in this case that no-regret playing is a way more general concept
+than fictitious play: in fact in this case it is a whole new category of
+algorithms. One example of a no-regret playing algorithm is \emph{regret
+matching}. 
+
+The procedure for the regret matching algorithm is given below.
+
+\begin{procedure}[Regret matching]
+    \emph{Repeat:\\}
+	\quad At each time step each action is chosen with probability consistent to its regret:\\
+			$$\sigma_i^{t+1}(d)= \frac{R^t(d)}{\sum_{d'\in D_i} R^t(d')}$$
+    \label{chap9:regretmatchproc}
+\end{procedure}
 
 
 
 \ifx \globalmark \undefined %% This is default.
-\bibliographystyle{plain}
+\bibliographystyle{apalike}
 \bibliography{../gametheorybibliography}
 	\end{document}
-\else 
-	
+\else
+
 \fi

@@ -1,7 +1,7 @@
 \ifx \globalmark \undefined %% This is default.
 	\input{../header}
-	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
-\else 	
+	\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).
+\else
 \fi
 
 
@@ -11,16 +11,30 @@
 }
 \label{chap:Cor}
   {\small{\itshape
-Chapter based on pages 244 to 263 of the book  ``Game theory - Analysis of conflict'' by R. Myerson.}\\
+Chapter based on \cite[pages 244 to 263]{MyGTAO}.}\\
 }
 
-
-So far, we have considered situations where the different players of a game made their decision independently of one another. After analysis of the game, each player decides on his (sequence of) rational moves.\\
-Suppose now that the players were allowed to communicate before and during the game. Then whole new possibilities may arise. It seems clear that they should be able to improve their payoffs. In this chapter, we explore how communication can be exploited in some typical situations.
+Communication is a central part of our everyday life. In fact, in many strategic interactions it is common that player are able to communicate with each other.
+The goal of this chapter is to explore the possibilities arising from such communications.
 
 \section{Correlated strategies and mediators}
 
-We consider that players now  make use of some communication mechanisms to agree on the outcome of a game. It is important to distinguish between the actions (strategies) and outcomes (what will actually happen). This is illustrated in the following example: 
+
+We consider that rational and intelligent players will communicate in order to be able to attain a more profitable outcome out of their interaction.
+We are particularly interested by the following question: if we are given a game in strategic form, what are the payoffs achievable when enabling communication between the players?\\
+To answer this question, we first need to define what ``communication'' means. A very broad (and rich) definition suggests that players can talk, send messages to each other, lie about their plans or their private information, etc. These can be refered to as \emph{speech acts}.\\
+This direct definition leads to a very natural view of communication in game theory: we may define, for each player, a set of available \emph{speech acts}, and then we would form a game where a strategy consists of picking both speech acts and moves. Traditional notions of equilibria can then apply. You can however imagine that the above task may be daunting (as we need first to understand what constitute a speech act, and how it may affect the game...).
+
+The good news is that we will be able to analyze games with communication in a general way by relying on a simple concept called a \emph{mediator}.
+\begin{definition}[Mediator (informal)]
+A mediator is a non-player agent whose role is to gather the information and preferences of each player in a game and provide recommendation about which action to take to each player.
+\end{definition}
+The importance of the mediator is revealed through the \emph{revelation principle} \cite[page 257]{MyGTAO}.
+\begin{definition}[The revelation principle (informal)]
+The set of equilibria of a game with communication coincides with the sets of recommandations, made by a mediator, that the players are willing to follow.
+\end{definition}
+
+The next example serves to illustrate how communication can be important in strategic situations as well as the concept of mediator.
 
 \begin{example}[Crossroads (a.k.a. ``chicken'')]
 Two drivers are arriving at high speed at a crossroad (Figure \ref{ch6:fig:crossroads}).
@@ -30,21 +44,21 @@ Two drivers are arriving at high speed at a crossroad (Figure \ref{ch6:fig:cross
 \caption{Who goes first?}
 \label{ch6:fig:crossroads}
 \end{figure}
-The drivers can either wait (w) and stop at the crossroad, or go on (g). 
-We will represent this as a 2 player game, with the following strategic form 
+The drivers can either wait (w) and stop at the crossroad, or go on (g).
+We will represent this as a 2 player game, with the following strategic form
 \begin{center}
 \begin{tabular}{c | c  c}
 & g & w\\
 \hline
 G & -10, -10 & 2, 0  \\
-W & 0, 2 & -1, -1 
+W & 0, 2 & -1, -1
 \end{tabular}
 .
 \end{center}
 
 There are four outcomes for this game: players can have an accident (which matches the choice of strategies ([G],[g])), or player 1 waits ([W],[g]), or player 2 waits ([G],[w]), or both wait ([W],[w]). \\
-The game has 3 Nash Equlibria: ([G],[w]), ([W],[g]), and (0.5[G] + 0.5[W], 0.5[g] + 0.5[w]). We know that, since the players are rational, they are \emph{going to play at a Nash equilibrium}. \\
-What does this mean? It means that for this games, player 1 may pick [G], [W] or 0.5[G] + 0.5[W] depending on what he \emph{believes} player 2 is going to do. The same occurs for player 2. 
+The game has 3 Nash Equlibria: $([G],[w])$, $([W],[g])$, and $(\frac{3}{13}[G] + \frac{10}{13}[W], \frac{3}{13}[g] + \frac{10}{13}[w])$. We know that, since the players are rational, they are \emph{going to play at a Nash equilibrium}. \\
+What does this mean? It means that for this games, player 1 may pick [G], [W] or 0.5[G] + 0.5[W] depending on what he \emph{believes} player 2 is going to do. The same occurs for player 2.
 However, it may very well be the case that player 1 thinks player 2 is going to stop, and the reverse holds for player 2. As a consequence, the players may crash rationally even if neither one played the randomized equilibrium.
 
 Of course, in practice, we know several ways to solve the crossroad problem. In Belgium, the \emph{law} states that we should always let the one arriving from the right go first. If we break the law, we face dire consequences (first, we may have an accident, and second, if we get caught, we can be heavily reprimanded).
@@ -56,16 +70,23 @@ Yet another way to solve this problem would be through communication. We could i
 \label{ch5:example:crossroads1}
 \end{example}
 
-We will be considering games in strategic form $\Gamma(N,C,u)$. The set of possible \emph{outcomes} of the game is simply $\times_{i \in N} C_i$, and the players will try to agree on an outcome in this set, or (as in the example above) on a randomization in $\Delta (\times_{i \in N} C_i)$. We call elements of this last set \emph{correlated strategies}.
+In the following, we will be considering games in strategic form $\Gamma = (N,C,u)$.
+Recall that in this case, the \emph{outcomes of the games} are associated with pure strategies (hence, we can refer to $C$ as the set of outcomes).
+Our players will try to find an agreement about which outcome should occur. As presented in the example, they may agree to randomize on these outcomes.
 
-\begin{definition}
-For a game in strategic form $\Gamma(N,(C_i)_{i \in N}, (u_i)_{i \in N})$, a correlated strategy is a point $\mu \in \Delta (\times_{i \in N} C_i)$. \\
-The payoff of player $i \in N$ for a correlated strategy $\mu$ is given by 
+\begin{definition}[Correlated strategy]
+Given a game in strategic form $\Gamma = (N,C,u)$, the set of \emph{correlated strategies} is
+$$ \Delta(C) = \Delta(\times_{i \in N} C_i). $$
+\end{definition}
+
+As always, our players' decision will be driven by their utility functions.
+\begin{definition}[Expected payoff for correlated strategy]
+Given a game $\Gamma = (N, C, (u_i)_{i \in N})$  the payoff of player $i \in N$ for a correlated strategy $\mu \in \Delta(C)$
 $$U_i(\mu) = \sum_{c \in C} \mu(c) \cdot u_i(c).$$
 \end{definition}
 
-Before moving further, let us give more explanations about \emph{why} do we call these $\mu$ \emph{correlated strategies}? 
-Any given a randomized strategy profile $\sigma \in \times_{i \in N} \Delta(C_i)$ corresponds to a unique correlated strategy $\mu$, where 
+Before moving further, let us give more explanations about \emph{why} do we call these $\mu$ \emph{correlated strategies}?
+Any given a randomized strategy profile $\sigma \in \times_{i \in N} \Delta(C_i)$ corresponds to a unique correlated strategy $\mu$, where
 $$\forall c = (c_i)_{i \in N} \in C, \mu(c) = \prod_{i \in N} \sigma_i(c_i). $$
 However, the reverse does not hold: when choosing their strategies \emph{independently} of one another,  there are some correlated strategy that cannot be reached by the players (this is shown in the next example). Thus the name: in correlated equilibria, the probability distribution of the actions of the different players are allowed to be correlated with each other, which enables much more possibilities than in classical standard games.
 
@@ -76,109 +97,136 @@ Indeed, this requires
 $$ \mu([G], [g]) = \alpha_1 \alpha_2 = 0; \mu([G], [w]) = \alpha_1 (1-\alpha_2) = 0.5, \mu([W], [g]) = (1-\alpha_1) (\alpha_2) = 0.5, $$
 which is impossible.
 \end{example}
-
 We can already conclude that considering correlated strategies opens new horizons to the players, because this allows for outcomes that are impossible to reach when players chose their moves independently of each other.\\
-Now, for the question of  ``how will they implement the strategy'', we will rely on a tool called a \emph{mediator} - which can be seen as a (neutral) third-party, whose role is to guide the players in their choices. The red-light in the crossroad example is a perfect example of a mediator. 
 
-The role of a mediator is to    
+Naturally, one may ask the question ``how are the players able to implement a correlated strategy''?
+This is where the mediator comes in to play. It has a role similar to that of the traffic light in Example \ref{ch5:example:crossroads1}.
+The role of a mediator is to:
 \begin{enumerate}
-\item Describe a correlated strategy to the player, 
-\item privately sample and outcome following the correlated strategy,
-\item secretly tell, to each of the players, what they should play to reach this outcome.
+\item{Describe a correlated strategy to the players. }
+\item{Privately sample an outcome of the game following the correlated strategy. }
+\item{Secretely inform each player of their own strategies (but not of that of the others).}
 \end{enumerate}
 
-It is true, however, that we don't always have access to a third party mediator. Sometimes we can only communicate between players (in a more or less restrictive way). The good news is: this is not a problem, as explained next.
 
-\subsection{Communication, Mediators and the Revelation Principle}
 
-To be able to exploit communication to improve payoffs, one first needs to define what ``communication'' means. A very broad (and rich) definition suggests that players can talk, send messages to each other, lie about their plans or their private information, etc. Thus, in a game with communication, a player must chose what to say to whom, interpret the message he receives, and take his decisions.
 
-Point being: if we wish to study games with communications, we may just build a huge game where at every step, every different communication option is seen as a move. Of course, with such a broad definition, studying how communications may affect the outcome of the game appears to be quite a challenge. However, it turns out that any such communication situation can be modelled with the help of  a \emph{mediator} (a neutral player who chooses a \emph{correlated strategy} for the players). This fact is known as the \emph{revelation principle}.
 
 
 
 
 \section{Correlated equilibria}
 
-We now investigate the notion of \emph{correlated equilibria}. 
-Basically, when a mediator enters the game, he proposes a correlated strategy. We now play a new game, where each player now has a additional move he can play: he can decide to follow the recommendation of the mediator. The correlated strategy will be a \emph{correlated equilibrium} if the situation where all players accept to follow the recommendation is a \emph{Nash equilibrium} of this new game.
+We now investigate the notion of \emph{correlated equilibria}.
+To give a intuitive meaning to the concept and its shadow zones, we consider that the ultimate choice made by a player is up to that player.
+As seen in Figure \ref{figureDrawnByMatt}, this implies that we need to study an augmented game where, on top of their own moves, player have the possibility to follow or not the recommendations of the mediator.
 
-We consider two cases. In the first case, the mediator present the player with a \emph{binding contract} that the players must decide to sign or not. In the second case, a correlated strategy is suggested. The mediator then secretly tells to each player which move to do in order to implement the strategy, but the players will keep the possibility of choosing the actual action they implement in the end. Our goal is then to propose strategies such that no player would cheat the mediator.
+\begin{figure}[!ht]
+\centering
+\includegraphics[scale=0.5]{drawingMatt.PNG}
+\caption{Players must chose rationally if they follow the recommendations of the mediator.}
+\label{figureDrawnByMatt}
+\end{figure}
+
+A correlated equilibrium occurs when it is a Nash equilibrium for players to follow the recommendations.
+It is therefore natural to study what happens when one wishes to not follow recommendations. In this context, we first study the concept of binding contract.
 
 \subsection{Binding contracts}
 \label{ch5:sec:cont}
-We first assume that the players have two options. Either they can sign a contract with the mediator, and they will receive his recommendation, but they have to follow it (binding contract with the mediator). Or, they don't sign the contract, and will be able to play the move of their choice, knowing that perhaps other players will sign.  
-The contract can have a very broad form, and the recommendation of the mediator might vary according to which players did sign the contract. In general, we define a contract as follows:
 
-\begin{definition}
-Given a game $\Gamma(N,C,y)$, a contract $\tau$ is a function
+In this context, we assume that the players have the options to sign a binding contract with the mediator. The recommendations of the mediator will vary according to which players signed the contract.
+The goal of the mediator is to make the contract attractive to everybody.
+
+
+\begin{definition}[Contract]
+Given a game $\Gamma = (N,C,u)$, a contract $\tau$ is a function
 $$ \tau : S \subseteq N \rightarrow \Delta \times_{i \in S}(C_i), $$
-that assigns to each subset of players $S$ the correlated strategy  they will play if they sign all together.
-\end{definition} 
+that assigns to each subset of players $S$ the correlated strategy  they will play if $S$ signs the contract and $N \backslash S$ does not.
+\end{definition}
 
-Notice that in the definition above, $\tau(N)$ is actually a correlated strategy as defined in the previous section. For any other $S \subset N$, $\tau(S)$ is also a correlated strategy, but which is going to be implemented only by the members of the set $S$ that sign the contract. 
+In the definition above, $\tau(N)$ is a correlated strategy as defined in the previous section. For any other $S \subset N$, $\tau(S)$ is also a correlated strategy, but which is going to be implemented only by the members of the set $S$ that sign the contract.
 The players who do not sign the contract are free to choose an action in their action set.
 
-As mentioned above, our goal is to understand when the situations where all players sign the contract are  Nash equilibria. 
-
-\begin{proposition}
-Consider a game $\Gamma(N,C,u)$, and a contract $\tau$ for this game. The correlated strategy $\tau(N)$ is a correlated equilibrium if and only if 
-$$ \max_{c_i \in C_i} \sum_{c_{-i} \in C_{-i}} \tau(N \backslash i, c_{-i})u_i(c_i, c_{-i}) \leq \sum_{c \in C} \tau(N; c) u_{i}(c),$$
-where for $S \subseteq N$, $c \in \times_{i \in S} C_S$, $\tau(S,c)$ is the probability that the players in $S$ having signed the contract play the strategy $c$.
+The following follows directly from the definition of Nash Equilibrium.
+\begin{proposition}[Correlated equilibrium with binding contract]
+Consider a game $\Gamma = (N,C,u)$, and a contract $\tau$ for this game. The correlated strategy $\tau(N)$ is a correlated equilibrium if and only if
+$$ \max_{c_i \in C_i} \sum_{c_{-i} \in C_{-i}} \tau(N \backslash i, c_{-i})u_i(c_i, c_{-i}) \leq \sum_{c \in C} \tau(N, c) u_{i}(c),$$
+where for $S \subseteq N$, $c \in \times_{i \in S} C_i$, $\tau(S,c)$ is the probability that the players in $S$ having signed the contract play the strategy $c$.
 \end{proposition}
+The above simply states that one won't sign a contract if doing so allows him to obtain an higher payoff.
 
-In other words, assuming that the other players will sign the contract, you won't if you can obtain a higher payoff by playing on your own. \\
 Assume now that, as a mediator, you wish to propose a contract where $\tau(N)$ is a correlated equilibrium. A player won't sign the contract unless he has some incentive to do so. One way to do so is by using a threat, by choosing  a $\tau(N \backslash i)$ that would guarantee that $i$ would prefer to sign. In order to do this, we may use its \emph{minimax value}.
 
-\begin{definition}
+\begin{definition}[Minimax]
 The \emph{minimax value} for player $i$ is defined as
 \begin{align*}
 v_i = \min_{\tau_{-i} \in \Delta(C_{-i})} \max_{c_i \in C_i} \sum_{c_{-i} \in C_{-i}} \tau_{-i}(c_{-i}) \cdot u_i(c_{-i}, c_i).
 \end{align*}
 \end{definition}
+\begin{example}
+\label{ch5:ex:minimax}
+Alice and Bob plan to meet in the evening. There are two options available: either to go to the cinema, or to the ballet.
+Alice prefers to go to the ballet, and Bob to the cinema. They find it hard to decide and decide to ask Charles to mediate their dispute by providing them with a binding contract and a correlated equilibrium.
 
+Their payoffs and moves are summarized in the table below (Alice is player 1, Bob is player 2).
+\begin{center}
+\begin{tabular}{c | c  c}
+& c & b\\
+\hline
+C & 2, 3 & -1, -1  \\
+B & 1, 1 & 3, 2
+\end{tabular}
+.
+\end{center}
 
-Certainly, a player should never sign a contract in which he does not receive at least his minimax value (because he can ensure this amount on his own). But he  should sign the contract if the reward he would get is at least his minimax value? The answer is given by the following theorem.
+We begin by computing the minimax value $v_1$. Assume that Bob plays $c$ with probability $\beta$, and $b$ with probability $1-\beta$.
+The payoff of Alice are given by
+$$ u_{1}(C, \beta[c] + 1-\beta[b]) = 3\beta - 1, u_{1}(B, \beta[c] + 1-\beta[b]) = -2\beta + 3.  $$
+The minimax strategy for Bob is to pick $\beta = 4/5$, and the minimax value for Alice is $v_1 = 7/5$.
 
+For $v_2$, we apply the same technique: if Alice plays $C$ with probability $\alpha$, we have
+$$ u_{2}(\alpha [C] + (1-\alpha)[B], c) = 2 \alpha - 1, u_{2}(\alpha [C] + (1-\alpha)[B], b) = -3\alpha + 2.  $$
+The minimax strategy for Alice is to pick $\alpha = 1/5$, and the minimax value for Bob is $v_2 = 7/5$.
+
+In conclusion, Alice and Bob will sign any contract proposed by Charles as long as their expected payoff is at least $7/5$. In particular, Charles could tell them to both go to the cinema, or to both go to the ballet.
+We  discuss in Chapter \ref{chap:Bar} tools allowing Charles to select an appropriate correlated strategies among those agreeable to Alice and Bob (see Example \ref{example:AliceBobCinemaBargain}).
+
+\end{example}
+
+The next result allow us the characterize all the correlated strategies for which there is a contract making them a correlated equilibria.
 \begin{theorem}
-Consider a correlated strategy $\mu$. There exists a contract in which all players signing is an equilibrium if and only if $U_i(\mu) \geq v_i$ for all $i \in N$.
+Consider a correlated strategy $\mu$. There exists a contract $\tau$ with $\tau(N) = \mu$ in which all players signing is an equilibrium if and only if $U_i(\mu) \geq v_i$ for all $i \in N$, where $v_i$ is the minimax value for player $i$.
+\label{thm:minimaxcor}
 \end{theorem}
 
-\noindent To see why this is true, consider a contract specifying the following rules:
-\begin{itemize}
-	\renewcommand{\labelitemi}{$\bullet$}
-	\item if all players sign, then they should play $\mu$ (that is $\tau_N = \mu$);
-	\item if all players but $i$ sign, then the players in $N-i$ should play the minimax value of player $i$.
-\end{itemize}
-In such a situation, it is never in the interest of $i$ to deviate (= not sign) alone from the equilibrium where everybody signs, unless he gets a better payoff with his minimax value than with the contract.
-
+\vspace{1cm}
 
 
 \subsection{Correlated equilibria for games in strategic form}
 \label{ch5:sec:cor}
 
 
-	
+
 Let us assume now that the players do not have to sign any contract, so they are free to follow the plan of the mediator or to deviate from it during the game. To ensure that the latter case does not occur, a correlated equilibrium for such a game in \emph{strategic form} must satisfy the following strategic incentive constraints:
-\begin{definition}
+\begin{definition}[Strategic incentive constraints]
 A correlated strategy $\mu$ satisfies to the \emph{strategic incentive constraints} if
 \begin{align*}
 	U_i(\mu) \geq \sum_{c \in C} \mu(c) \, u_i(c_{-i}, \; \delta(c_i)), \quad \forall i \in N, \ \forall \delta : C_i \rightarrow C_i,
 \end{align*}
-where $c = (c_{-i}, c_i)$, $c_{-i}$ being the strategy of the players other than $i$, and where $\delta(c_i)$ is a cheating function that replaces any strategy $c_i \in C_i$ suggested by the mediator by a strategy $\delta(c_i)$. \\
+where $c = (c_{-i}, c_i)$, $c_{-i}$ being the strategy of the players other than $i$, and where $\delta(c_i)$ is a cheating function that replaces any strategy $c_i \in C_i$ suggested by the mediator by a strategy $\delta(c_i) \in C_i$. \\
 A correlated strategy satisfying the strategic incentive constraints is said to be \emph{incentive compatible.}
 \label{ch6:def:incentive}
 \end{definition}
 
 
 These constraints require that the players cannot improve their payoff by deviating from the correlated strategy $\mu$ suggested by the mediator. Note that cheating would be perfectly rational if it was the case.
-Indeed, when a mediator dictates to a player what he should to to follow the correlated strategy, the player may infer a probability distribution on the other players moves. 
+Indeed, when a mediator dictates to a player what he should do to follow the correlated strategy, the player may infer a probability distribution on the other players moves.
 More precisely, if a mediator implementing $\mu$ tells $i$ to play $c_i$, then the other players are going to play according to
 $$ \sigma_{-i}(c_{-i}) = \frac{\mu(c_{i}, c_{-i})}{ \sum_{e_{-i} \in C_{-i}} \mu_(c_i, e_{-i})}.$$
-Given this knowledge, a rational player would naturally compute his best response to $\sigma_{-i}(c_{-i})$ and, if this brings him a better payoff thnt the one obtained by following the recommendation, he will adopt the best response.
+Given this knowledge, a rational player would naturally compute his best response to $\sigma_{-i}(c_{-i})$ and, if this brings him a better payoff than the one obtained by following the recommendation, he will adopt the best response.
 
 \begin{example}
-For the crossroads example, the correlated strategy $\mu = 0.5([G], [w]) + 0.5 ([W],[g])$ is incentive compatible. 
+For the crossroads example, the correlated strategy $\mu = 0.5([G], [w]) + 0.5 ([W],[g])$ is incentive compatible.
 Indeed, if a player is told to slow down, this player can infer that the other player has been told to keep going. Thus, if the first player decided to cheat and kept moving, an accident would surely happen.\\
 On the other hand, the correlated strategy $\mu = ([W],[w])$ cannot be incentive compatible. Indeed, since the other player is being told to slow down, the best response is just to keep moving.
 \end{example}
@@ -188,41 +236,53 @@ On the other hand, the correlated strategy $\mu = ([W],[w])$ cannot be incentive
 	\sum_{c_{-i} \in C_{-i}} \mu(c) \, \big( u_i(c_{-i}, \; c_i) - u_i(c_{-i}, \; e_i) \big) \geq 0, \quad \forall i \in N, \ \forall c_i \in C_i, \ \forall e_i \in C_i.
 \end{align*}
 
-Finally, note that we may have several possible incentive compatible correlated strategies. The mediator still needs to pick one. 
-One way to do this is by maximizing some objective function. For example, 
-one may try to maximize $U_1(\mu) + U_2(\mu)$ (total amount of utility). The good news is that such objective functions are \emph{linear} in the variables $\mu(c)$, $c \in C$, and thus for instance, \emph{the problem of finding an incentive compatible mechanism that maximizes total payoff is a linear program}. 
+Finally, note that we may have several possible incentive compatible correlated strategies. The mediator still needs to pick one.
+One way to do this is by maximizing some objective function. For example,
+one may try to maximize $U_1(\mu) + U_2(\mu)$ (total amount of utility). The good news is that such objective functions are \emph{linear} in the variables $\mu(c)$, $c \in C$, and thus for instance, \emph{the problem of finding an incentive compatible mechanism that maximizes total payoff is a linear program}.
 
 \section{Correlated equilibria for Bayesian games}
 \label{ch5:sec:bay}
 
-People are able to cheat when it is in their interest, but what about lying?
 
-We now consider \emph{Bayesian games with communication}. Recall that a Bayesian game is defined as $\Gamma(N,C,T,p,u)$, where the $T = (T_i)_{i \in N}$ are the \emph{types} of each players, 
+
+
+People are able to cheat when it is in their interest, but what about lying? In the context of Bayesian games (see Section \ref{ch2:bayesianGames}), players now have access to private information
+able to shape the game. In order to make sound recommendations, the mediator needs access to this information. But maybe giving a false statement may steer the recommendations in your favor...
+
+We now consider \emph{Bayesian games with communication}. Recall that a Bayesian game is defined as $\Gamma = (N,C,T,p,u)$, where the $T = (T_i)_{i \in N}$ are the \emph{types} of each players,
 $p = (p_{i})_{i \in N}$ where $p_i : T_i \rightarrow \Delta(T_{-i})$ and the payoffs are defined as $u = (u_i)_{i \in N}$ with
 $$u _i : T \times C \rightarrow \reels. $$
-That is, the payoffs of the players now depend on their types! 
-This complicates the task of a mediator. He must propose an incentive compatible correlated strategy for every possible combination of types, which can be written as a conditional probability function of the form
-$$ \mu : T \rightarrow \Delta(C).$$ 
-The task of a mediator can now be described as 
+That is, the payoffs of the players now depend on their types!
+
+The mediator now needs to prepare recommendations for any combination of player times.
+\begin{definition}[(Bayesian) correlated strategy]
+Given a bayesian game $\Gamma = (N,C,T,p,u)$, a Bayesian correlated strategy is a function of the form
+$$ \mu : T \rightarrow \Delta(C).$$
+For a correlated strategy $\mu$, the payoff of player $i$ given his type $t_i$, is given by:
+\begin{align*}
+	U_i(\mu \; | \; t_i) = \sum_{t_{-i} \in T_{-i}} \sum_{c \in C} p_i(t_{-i} \; | \; t_i) \, \mu(c \; | \; t) \, u_i(c, \; t),
+\end{align*}
+where $t = (t_{-i}, t_i)$ and $T_{-i}$ are the set of possible combinations of types for the  players other than $i$.
+\end{definition}
+
+The task of a mediator can now be described as
 \begin{enumerate}
-\item Propose to the players a set of correlated strategies $\mu(\cdot | t)$, one per combination of types $t \in T$. 
+\item Propose to the players a set of correlated strategies $\mu(\cdot | t)$, one per combination of types $t \in T$.
 \item Collect the types of the players.
 \item Privately compute the outcome of the correlated strategy.
 \item Secretly communicate his recommendations to each players.
 \end{enumerate}
 
-For a correlated strategy $\mu$, the payoff of player $i$ given his type $t_i$, is given by:
-\begin{align*}
-	U_i(\mu \; | \; t_i) = \sum_{t_{-i} \in T_{-i}} \sum_{c \in C} p_i(t_{-i} \; | \; t_i) \, \mu(c \; | \; t) \, u_i(c, \; t),
-\end{align*}
-where $t = (t_{-i}, t_i)$ and $T_{-i}$ are the set of possible combinations of types for the  players other than $i$.\\
+
+
+
 
 
 The problem is that,  to guarantee a desired outcome, the mediator needs not only propose an incentive compatible strategy for each combination  of types, be he must also be sure that he knows the correct types for the players for doing the recommendations.
 
 \begin{example}
 Back at our crossroads!
-Consider the following situation. You are an engineer working on a \emph{``smart crossroad''} project. 
+Consider the following situation. You are an engineer working on a \emph{``smart crossroad''} project.
 The idea is the following: some drivers (type V for VIP) are more important than others (type R for Regular). For example, those driving an ambulance should have priority on those who are just doing their groceries.\\
 The cars of your city have been equipped with rudimentary devices, that broadcast whether they are VIP drivers or not. We would like to allow the VIP to pass whenever they are in the presence of regular drivers. \\
 Assume the following bayesian model for the game:
@@ -231,30 +291,30 @@ Assume the following bayesian model for the game:
 R vs R & g & w\\
 \hline
 G & -10 / -10 & 2 / 0  \\
-W & 0 / 2 & -1 / -1 
+W & 0 / 2 & -1 / -1
 \end{tabular}
 \begin{tabular}{c | c  c}
 R vs V & g & w\\
-\hline 
+\hline
 G & -30 / -10 & 2 / -1  \\
-W & 1 / 5 & -1 / -5 
+W & 1 / 5 & -1 / -5
 \end{tabular}
 \begin{tabular}{c | c  c}
 V vs R & g & w\\
-\hline 
+\hline
 G & -10 / -30 & 5 / 1  \\
-W & -1 / 2 & -5 / -1 
+W & -1 / 2 & -5 / -1
 \end{tabular}
 \begin{tabular}{c | c  c}
 V vs V & g & w\\
-\hline 
+\hline
 G & -10 / -10 & 2 / 0  \\
-W & 0 / 2 & -1 / -1 
+W & 0 / 2 & -1 / -1
 \end{tabular}
 \end{center}
 Regarding the beliefs functions $p$, we may assume $p(V | R) = p(V | V) =  p(V) = 0.1$, $p(R | R) = p(R | V) = p(R) = 0.9$ as objective probabilities.
 
-The problem is that most resident of the city are talented engineer, and they can hack the broadcast device with ease.
+The problem is that most resident of the city are talented engineers, and they can hack the broadcast device with ease.
 Could you build a policy, using red-lights, that allows VIP drivers to have priority over regular ones, but that would also discourage all drivers to hack their devices?
 
 
@@ -270,7 +330,7 @@ In our case, this yields
 
 Assume now that, as a regular driver, you were aware that the above was the strategy implemented at the crossroads. Would you hack your broadcast device to appear as a VIP?
 
-Assume you broadcast as a regular driver. Your payoff is then going to be 
+Assume you broadcast as a regular driver. Your payoff is then going to be
 $$ U_1(\mu | R) =  p(R) u_1(\mu(\cdot | RR) | RR) + p(V)  u_1(\mu(\cdot | RV) | RV) = 0.9 \cdot 1 + 0.1 \cdot 1 = 1. $$
 Indeed, with probability $p(R)$, the other player is of type $R$, so the recommendations are then given by $\mu(\cdot | RR)$. With probability $p(V)$, the other player is of type $V$, so we receive recommendations according to $\mu(\cdot | RV)$.
 If, instead we decided to broadcast your type as VIP, your payoff would become
@@ -282,19 +342,20 @@ In conclusion, yes, it would be rational to hack the device. The design of the p
 \end{example}
 
 
-\begin{definition}
-A bayesian correlated strategy $\mu : T \rightarrow \Delta C$ is incentive compatible is it satisfies to the constraints
+\begin{definition}[Incentive Compatibility]
+A bayesian correlated strategy $\mu : T \rightarrow \Delta C$ is incentive compatible if it satisfies to the constraints
 \begin{align*}
 	U_i(\mu \; | \; t_i) \geq U_i^*(\mu, \; \delta_i, \; s_i \; | \; t_i), \quad \forall i \in N, \ \forall t_i \in T_i, \ \forall s_i \in T_i, \ \forall \delta_i : C_i \rightarrow C_i,
 \end{align*}
-with 
+with
 \begin{align*}
 	U_i^*(\mu, \; \delta_i, \; s_i \; | \; t_i) = \sum_{t_{-i} \in T_{-i}} \sum_{c \in C} p_i(t_{-i} \; | \; t_i) \, \mu(c \; | \; t_{-i}, s_i) \, u_i\big( \; (c_{-i}, \; \delta_i(c_i)) \;, \; t \big),
 \end{align*}
-where $t_i$ is the type of $i$, $s_i$ is the type that $i$ reveals to the mediator and $\delta_i$ is the function chosen by player $i$ that, for any action $c_i$ that can be suggested by the mediator, chooses an action $\delta_i(c_i)$ to play instead. 
+where $t_i$ is the type of $i$, $s_i$ is the type that $i$ reveals to the mediator and $\delta_i$ is the function chosen by player $i$ that, for any action $c_i$ that can be suggested by the mediator, chooses an action $\delta_i(c_i)$ to play instead.
+\label{incentiveCompatible}
 \end{definition}
 
-These constraints impose that the players neither have interest to lie on their type, nor to deviate from the correlated strategy $\mu$ suggested by the mediator. 
+These constraints impose that the players neither have interest to lie on their type, nor to deviate from the correlated strategy $\mu$ suggested by the mediator.
 
 
 \begin{example}
@@ -312,57 +373,85 @@ One may verify that the following strategy is incentive compatible
 
 
 The approach is quite dangerous: in order to deter a regular player from lying, we tell him that VIPs tend to crash into VIPs. Since crashing into a VIP has a very high cost for a regular driver, he then has no interest into lying.
-
+\label{chap8cleverstuff}
 \end{example}
 
 
 
 \subsection{Collective choice problems}
 \label{ch5:subs:coll}
-Before ending this section, we mention a special type of bayesian games with communications, known as \emph{Collective choices problems}.  Here we assume that the players will follow the recommendations of the mediator, as if they had signed a contract beforehand, but they can still lie about their types. The task of a mediator is the same as before.
+In this section, we mention a special type of Bayesian games with communications, known as \emph{Collective choices problems}.\\
+These problems refer to situations where we seek to make a decision based on the type of players in a population.
+A typical example of this are \emph{voting problems}, where each citizen's type corresponds to preferences in candidates, and the goal
+is to chose which candidate to elect (see e.g. \cite[Chapter 9]{ShLeMSAG}). In this case, we which to establish rules under which it is in each citizen's interest to
+report his preferences truthfully.
 
-In this case, the incentivity constraints are but a special case than the ones before:
-\begin{definition}
-For a collective choice problem, a bayesian correlated strategy $\mu : T \rightarrow \Delta C$ is incentive compatible is it satisfies to the constraints
+With this in mind, we assume that a mediator is going to gather the types of the players and decide on the outcome of a game.
+In order for the player to be incentivized to divulge their true types, the mediator must pick an incentive compatible strategy in the following sense:
+\begin{definition}[(Collective choice) incentive compatibility]
+For a collective choice problem, a Bayesian correlated strategy $\mu : T \rightarrow \Delta C$ is incentive compatible if it satisfies to the constraints
 \begin{align*}
-	U_i(\mu \; | \; t_i) \geq U_i^*(\mu,  \; s_i \; | \; t_i), \quad \forall i \in N, \ \forall t_i \in T_i, \ \forall s_i \in T_i, 
+	U_i(\mu \; | \; t_i) \geq U_i^*(\mu,  \; s_i \; | \; t_i), \quad \forall i \in N, \ \forall t_i \in T_i, \ \forall s_i \in T_i,
 \end{align*}
-with 
+with
 \begin{align*}
 	U_i^*(\mu, \;  s_i \; | \; t_i) = \sum_{t_{-i} \in T_{-i}} \sum_{c \in C} p_i(t_{-i} \; | \; t_i) \, \mu(c \; | \; t_{-i}, s_i) \, u_i\big( \; (c_{-i}, \; c_i )\;, \; t \big),
 \end{align*}
 where $t_i$ is the type of $i$, $s_i$ is the type that $i$ reveals to the mediator.
 \end{definition}
-
+%\begin{example}
+%Elections time are near, and three candidates are available: $a$, $b$ and $c$.
+%The population expresses preferences of the sort $a \succ b \succ c$. For such an agent, if his first choice gets elected, this amounts to a utility payoff of 2, the second choice to a payoff of 1, and the last choice to a payoff of -2 (turns out data show people tend to really dislike their last choice).
+%
+%For the election process, we wish to maximize the utility gained by the voters. Assume three sorts of voters are present, with preferences
+%$$
+%\begin{aligned}
+%& t_1 = \{a \succ b \succ c\},\\
+%& t_2 = \{b \succ c \succ a\},\\
+%& t_3 = \{c \succ a \succ b\}.\\
+%\end{aligned}
+%$$
+%
+%
+%The election is based on \emph{Condorcet conditions}: for each candidate, we count the number of times that candidate is preferred to another one. For example, if somehow states that $a \succ b \succ c$, then $a$ is preferred twice (once over $b$, and once over $c$). The candidate who is the most preferred is then elected.
+%
+%Assume there are 100 participants, where we can find three preferences:
+%
+%
+%
+%\end{example}
+%
 
 
 \section{Moral hazards and adverse selection}
 
-These ideas that players may lie about their types, or not follow recommendations, are very important in the insurance industry.\\
- The first case is referred to as \emph{moral hazard}: people will usually tell their insurer that they plan to drive very safely, even if they really like to drive fast. Fast drivers are even more tempted to do so, since the data indicate they are more prone to having accidents.\\
-  The second case is referred to as \emph{adverse selection}: once covered by a good insurance, some people then prefer to drive fast (even if they were naturally cautious persons).
-  
+The problem faced by mediators having to give incentive for player to be truthful about their types and to follow recommendations is ubiquitous in the insurance industry. The following definition is extracted from \cite[p. 263]{MyGTAO}.
+\begin{definition}[{Moral hazard and adverse selection }]
+\emph{Moral hazard} is the need to give players an incentive to implement recommended actions.
+\emph{Adverse selection} is the need to give players an incentive to report information honestly.
+\end{definition}
+
   Overall, the contents of this chapter can be split into four categories:
-  
+
   \begin{tabular}{c | c | c}
   & With moral hazard & Without moral hazard \\
   \hline
   With adverse selection   & Section \ref{ch5:sec:bay} &  Subsection \ref{ch5:subs:coll} \\
   \hline
   Without adverse selection  & Subsection \ref{ch5:sec:cor}  & Subsection \ref{ch5:sec:cont} \\
-  \end{tabular}  
- 
+  \end{tabular}
 
- 
-  
- 
+
+
+
+
 
 
 
 \ifx \globalmark \undefined %% This is default.
-\bibliographystyle{plain}
+\bibliographystyle{apalike}
 \bibliography{../gametheorybibliography}
 	\end{document}
-\else 
-	
+\else
+
 \fi

@@ -1,10 +1,10 @@
 \ifx \globalmark \undefined %% This is default.
 \input{../header}
-\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
-\else 	
+\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).
+\else
 \fi
 
-% Bleh?
+
 \chapter{Evolutionary Game Theory}
 \label{chap:Evol}
 {\large{\itshape
@@ -16,20 +16,20 @@ This chapter is inspired from \textit{Evolutionary Dynamics - Exploring the equa
 \emph{}
 
 \section{Introduction}
-In the seventies, people like 
-William Hamilton and Robert Trivers proposed to apply ideas from mathematical ecology, 
-or more generally life sciences, to Game Theory.  This has led to an important subfield of Game Theory (and quite disconnected from the rest of it) 
+In the seventies, people like
+William Hamilton and Robert Trivers proposed to apply ideas from mathematical ecology,
+or more generally life sciences, to Game Theory.  This has led to an important subfield of Game Theory (and quite disconnected from the rest of it)
 called Evolutionnary Game Theory. Other main actors of the developments in Evolutionary Game Theory are John Maynard Smith
- \cite{smith1973The} (a geneticist and biologist from the UK) and Karl Sigmund (a mathematician from Vienna). 
+ \cite{SmPrTLOA} (a geneticist and biologist from the UK) and Karl Sigmund (a mathematician from Vienna).
 
-Evolutionary Game Theory analyses special types of games where \emph{a large number of identical agents} are playing. 
-The payoff of a player, here called \emph{fitness}, (which depends on the strategies of the agent, and of the other agents playing, 
-like in classical Game Theory) determines the \emph{reproduction rates} of agents.  
-One is interested in the different proportions of agents playing different strategies asymptotically. 
- These proportions are to be interpreted as an Equilibrium, in the sense of Game Theory. 
+Evolutionary Game Theory analyses special types of games where \emph{a large number of identical agents} are playing.
+The payoff of a player, here called \emph{fitness}, (which depends on the strategies of the agent, and of the other agents playing,
+like in classical Game Theory) determines the \emph{reproduction rates} of agents.
+One is interested in the different proportions of agents playing different strategies asymptotically.
+ These proportions are to be interpreted as an Equilibrium, in the sense of Game Theory.
  Moreover, Evolutionary Game Theory does not assume any rationality of the agents, and these agents interact randomly, reproducing themselves (or disappearing) dependently of their types and the types of their fellow agents.
 
-This idea is directly borrowed from classical concepts in Ecology. Let us see an example: on Figure \ref{frequency} are represented two species; one of which having the ability to move, while the other one is static.  When there are not many agents in the pool, the agent with the ability to move takes a great advantage of it, and its fitness is high.  However, when many agents are present, the agents are bound to be static, whatever their initial capacities are, and the mobile agent looses its comparative advantage.  It thus makes sense to model the fitness (the rate of reproduction) of the agents as depending on the relative `concentrations' of the different agents.  
+This idea is directly borrowed from classical concepts in Ecology. Let us see an example: on Figure \ref{frequency} are represented two species; one of which having the ability to move, while the other one is static.  When there are not many agents in the pool, the agent with the ability to move takes a great advantage of it, and its fitness is high.  However, when many agents are present, the agents are bound to be static, whatever their initial capacities are, and the mobile agent looses its comparative advantage.  It thus makes sense to model the fitness (the rate of reproduction) of the agents as depending on the relative `concentrations' of the different agents.
 
 \begin{figure}[hbtp] \
 \centering
@@ -39,7 +39,7 @@ This idea is directly borrowed from classical concepts in Ecology. Let us see an
 \end{figure}
 Let us put formulas on this model, for two competing strategies $A$ and $B.$ Let  $x_A$ be the frequency of $A$ and $x_B$ be the frequency of $B.$The vector $\overrightarrow{x} = (x_A,x_B)$ defines the state of our dynamical system. In general, let the function $f_A(\overrightarrow{x})$ be the fitness of $A$ and $f_B(\overrightarrow{x})$ the fitness of $B.$ We note $\phi = x_A f_A(\overrightarrow{x})+ x_B f_B(\overrightarrow{x})$ be the average fitness. The laws of dynamics selection then write:
 \begin{equation}
-\begin{cases} 
+\begin{cases}
 \dot{x}_A &= x_A \left[ f_A(\overrightarrow{x})-\phi \right] \\
 \dot{x}_B &= x_B \left[ f_B(\overrightarrow{x})-\phi \right] \
 \end{cases}
@@ -59,16 +59,16 @@ The different equilibria of (\ref{equa}) are
 How can we get inspiration from this biological example in order  to introduce a solution concept for two-player games?  We will consider our game from a new point of view: in evolutionary game theory, there is not a pair of players, playing one against each other, but rather, a large number of identical players, each of which having to pick a strategy in a common finite set.  This choice is their `DNA', and the impact of their choice is reflected in their ´reproduction rate', the probability that they will be able to reproduce themselve, given their DNA, and given the ecological system defined by the other players' choice.  Just like in classical game theory, the choice of other players will impact the `payoff' (here, the reproduction rate), of each player.  Hence, the payoff matrix can only be symmetric, since it does not represent several different players, but the payoff that each of them will receive, when facing one of their fellow agents. As a consequence, in Evolutionary Game Theory, one represents the payoff matrix in the following simplified way:
 \begin{equation}
 \begin{array}{l|cr}
- & A & B\\ 
-\hline 
-A & a & b\\ 
+ & A & B\\
+\hline
+A & a & b\\
 B & c & d\\
 \end{array}
 \Longleftrightarrow
 \begin{array}{l|cr}
- & A & B\\ 
-\hline 
-A & a,a & b,c\\ 
+ & A & B\\
+\hline
+A & a,a & b,c\\
 B & c,b & d,d\\
 \end{array}.
 \label{payoff}
@@ -77,7 +77,7 @@ B & c,b & d,d\\
 The main idea of Evolutionary Game Theory is to consider the payoff as a fitness, in a dynamical system where agents reproduce proportionnally to their fitness.  Knowing $x_A$, the frequency of agent A, and $x_B$, the frequency of agent B, the expected fitness of respectively, agents of type A and agents of type B will be:
 
 \begin{equation}
-\begin{cases} 
+\begin{cases}
 f_A = a x_A + bx_B \\
 f_B = cx_A + dx_B
 \end{cases}.
@@ -97,8 +97,8 @@ In an evolutionary dynamics model derived from a two-player game as in Equation 
 \begin{enumerate}
 \item A dominates B if $a>c$ et $b>d,$ and the whole population will turn into A-individuals.
 \item B dominates A if $a<c$ et $b<d,$ and the whole population will turn into B-individuals.
-\item A et B are bistables if $a>c$ et $b<d:$ depending of the initial proportion of A and B-individuals, the whole population will turn into individuals of the same type. The treshold between these two antagonistic situations is an unstable equilibrium, given by $x^*=(d-b)/(a-d-b+c).$ 
-\item A et B coexist at equilibrium.  This happens if $a<c$ et $b>d.$  In this case there is only one stable equilibrium, given by $x^*=(d-b)/(a-d-b+c).$ 
+\item A et B are bistables if $a>c$ et $b<d:$ depending of the initial proportion of A and B-individuals, the whole population will turn into individuals of the same type. The treshold between these two antagonistic situations is an unstable equilibrium, given by $x^*=(d-b)/(a-d-b+c).$
+\item A et B coexist at equilibrium.  This happens if $a<c$ et $b>d.$  In this case there is only one stable equilibrium, given by $x^*=(d-b)/(a-d-b+c).$
 \item A et B are neutral if $a=c$ et $b=d.$ in this situation the population do not evolve in time, whatever the initial conditions are.
 \end{enumerate}
 \end{theorem}
@@ -108,7 +108,7 @@ Left for exercise.
 
 \section{Evolutionary Stable Strategy (ESS)}
 
-This concept, Introduced by John Maynard Smith, aims at translating to Game Theory the concept of robustness from Systems and Control.  More precisely, we consider now a large population of A-agents, and we will say that strategy A is \emph{Evolutionary Stable} if it is robust against mutation of a small fraction of its population into B-individuals. 
+This concept, Introduced by John Maynard Smith, aims at translating to Game Theory the concept of robustness from Systems and Control.  More precisely, we consider now a large population of A-agents, and we will say that strategy A is \emph{Evolutionary Stable} if it is robust against mutation of a small fraction of its population into B-individuals.
 In this section,, we are only interested in characterizing pure strategies.
 \subsection{Two-Player games}
 
@@ -135,7 +135,7 @@ We can thus conclude:
 
 \begin{proposition} A is an Evolutionary Stable Strategy if one of the following conditions is satisfied:
 \begin{enumerate}
-\item $a>c$ 
+\item $a>c$
 \item $a=c$ et $b>d.$
 \end{enumerate}
 \end{proposition}
@@ -174,7 +174,7 @@ Summarizing, it is easy to see the following implications between our different 
 \end{equation}
 
 \section{Replicator Dynamics}
-Just like in game theory, we would like to mathematically represent the fact that sometimes a `mix' of strategies is a good representation of the actual outcome of the game.  To this purpose, we are going to analyse the System (\ref{syst}) in the whole state space, and not only in situations where the complete population (except an $\epsilon$  proportion) is composed of a single agent. Generalizing to a $n$-Player game, the expected payoff of stragegy $i$ is given by $f_i = \sum\limits_{j=1}^{n}x_j a_{ij}.$  The average payoff among all the strategies is given by $\phi = \sum\limits_{i=1}^{n}x_i f_i.$ Then, we obtain the so-called \emph{Replicator equation} (See Figure \ref{imrepli}): 
+Just like in game theory, we would like to mathematically represent the fact that sometimes a `mix' of strategies is a good representation of the actual outcome of the game.  To this purpose, we are going to analyse the System (\ref{syst}) in the whole state space, and not only in situations where the complete population (except an $\epsilon$  proportion) is composed of a single agent. Generalizing to a $n$-Player game, the expected payoff of stragegy $i$ is given by $f_i = \sum\limits_{j=1}^{n}x_j a_{ij}.$  The average payoff among all the strategies is given by $\phi = \sum\limits_{i=1}^{n}x_i f_i.$ Then, we obtain the so-called \emph{Replicator equation} (See Figure \ref{imrepli}):
 \begin{equation}
 \dot{x}_i = x_i (f_i - \phi)~~~i=1,\dots ,n. \label{replicator}
 \end{equation}
@@ -190,7 +190,7 @@ Let us now study how trajectories can behave.  For low dimensional systems, it i
 %\[
 %\begin{pmatrix}
 %	a_{11} & a_{12} \\
-%	a_{21} & a_{22} 
+%	a_{21} & a_{22}
 %\end{pmatrix}
 %\]
 The 2-Player case has been studied above: one can have fixed points in the interior of the simplex only if $(a_{11}-a_{21})(a_{12}-a_{22})<0.$ In that case, no population dominates the other one. This equilibrium is stable if $a_{11}<a_{12}$ and $a_{21}>a_{22}$. Obviously, in the neutral case ($a_{11}=a_{12}$ and $a_{21}=a_{22}$), all the points in the interval $[0,1]$ are equilibrium points.
@@ -201,7 +201,7 @@ If $n=3$, we have the following payoff matrix:
 \begin{pmatrix}
 	0 & -a_{2} & b_{3} \\
 	b_{1} & 0 & -a_{3} \\
-	-a_{1} & b_2 & 0 
+	-a_{1} & b_2 & 0
 \end{pmatrix}
 \]
 (Note that this matrix was obtained by subtracting from every column the corresponding diagonal element.  This will not change the equilibria, since the Replicator Equation \eqref{replicator} is also conserved.  One has thus the following possible cases:
@@ -230,7 +230,7 @@ In the general case, we have the following interior stable equilibrium.
 Now, if fishing decreases, the concentration of preys increases, which indirectly causes a rise in concentration of sharks.
 
 
-Generalizing these equations to more than two species, one obtains the famous \emph{Lotka-Volterra equations:} 
+Generalizing these equations to more than two species, one obtains the famous \emph{Lotka-Volterra equations:}
 \[\dot{y_i}=y_i(r_i + \sum_{j=1}^n b_{ij}y_j).\]
 It is easy to show that these equations are actually perfectly equivalent to the {\it{replicator equation}} \eqref{replicator}: Evolutionnary Game Theory is nothing more than Mathematical Ecology applied to Game Theory.
 \subsection{An example: Hawk or Dove}
@@ -238,7 +238,7 @@ This paradigmatic game in Game Theory comes from Ecology: scientists wanted to u
 \[
 \begin{pmatrix}
 	\frac{b-c}{2} & b \\
-	0 & \frac{b}{2} 
+	0 & \frac{b}{2}
 \end{pmatrix}
 \]
 If $c>b$, there is no pure-strategy Nash equilibrium.  If every individual choses to play Hawk, playing dove is the best strategy, and vice versa.  Hence, there is a mixed population equilibrium, with a rate of hawks-individuals equal to $b/c.$
@@ -248,8 +248,8 @@ If $c>b$, there is no pure-strategy Nash equilibrium.  If every individual chose
 %\[
 %\begin{pmatrix}
 %	-c & b \\
-%	0 & \frac{b}{2} 
-%\end{pmatrix} \ \ \ \ \ \ \ \ \ \ \ \ 
+%	0 & \frac{b}{2}
+%\end{pmatrix} \ \ \ \ \ \ \ \ \ \ \ \
 %\begin{pmatrix}
 %	b-\frac{c}{2} & b-c \\
 %	b & 0
@@ -258,7 +258,7 @@ If $c>b$, there is no pure-strategy Nash equilibrium.  If every individual chose
 
 
 \section{Finite population}
-It is possible to rewrite all the conditions above, by supposing that the (large number of) identical agents is finite, instead of infinite.  Mathematically, one must then model the birth-death process in a stochastic way (as in so-called \emph{Moran} processes). By making use of similar notions of robustness to mutation-perturbations, one can define new notions of equilibria for a given (symmetric) payoff table.  
+It is possible to rewrite all the conditions above, by supposing that the (large number of) identical agents is finite, instead of infinite.  Mathematically, one must then model the birth-death process in a stochastic way (as in so-called \emph{Moran} processes). By making use of similar notions of robustness to mutation-perturbations, one can define new notions of equilibria for a given (symmetric) payoff table.
 Interestingly, this finite population assumption can lead to significantly different numerical values of equilibria.
 
 
@@ -266,6 +266,6 @@ Interestingly, this finite population assumption can lead to significantly diffe
 \bibliographystyle{plain}
 \bibliography{../gametheorybibliography}
 \end{document}
-\else 
-	
+\else
+
 \fi

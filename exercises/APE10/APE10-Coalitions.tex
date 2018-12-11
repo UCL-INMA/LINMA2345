@@ -1,37 +1,12 @@
-\documentclass[a4paper,notitlepage,11pt]{article}
+\documentclass{../ape}
 
-\usepackage[ansinew]{inputenc}
-%\usepackage[frenchb]{babel}
-\usepackage{graphicx} 
-\usepackage[lmargin=2.0cm, rmargin=2.0cm,bottom=2.55cm,top=2.4cm]{geometry} 
-\usepackage{amsmath}
-\usepackage{amsthm} 
-\usepackage{amssymb}  
-\usepackage{eurosym} 
-\usepackage{enumitem} 
-\usepackage{url}
-%\usepackage{bbold}
-\usepackage{psfrag}
-\usepackage{tikz}
-
-\newcommand{\X}{X}
-\newcommand{\Y}{Y}
+\usepackage{../../linma2345}
 
 \begin{document}
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\session{10}{Coalitions}
 
-\Large
-
-\textbf{Session 11:  Coalitions}
-
-%\section*{Exercices}
-
-
-%\newpage
-
-\paragraph{1. } Alice, Bob and Carol wish to connect to the Internet. The cost of such a connection depends on the total length of cables that it requires. Of course, the players also need to be connected to the provider $\Omega$. The costs of the possible connections are given by the following graph.
+\section{} Alice, Bob and Carol wish to connect to the Internet. The cost of such a connection depends on the total length of cables that it requires. Of course, the players also need to be connected to the provider $\Omega$. The costs of the possible connections are given by the following graph.
 \begin{figure}[!ht]
 	\begin{center}
 		\begin{tikzpicture}[scale=2,looseness=.8,auto]
@@ -58,7 +33,11 @@ Therefore, connecting all the players has a total cost of 26, an amount that the
 	\item[b.] Suppose you were the provider, and that you wanted to impose costs that are as honest as possible. How would you divide the costs?
 \end{enumerate}
 
-\paragraph{2. } An owner wishes to hire staff to grow potatoes in his field. If $k$ people work the land (including the owner), they produce potatoes for a value of $f(k)$. Suppose that the function $f$ is increasing, that $f(0) = 0$ and that the contribution of an additional person strictly decreases (that is to say, $f(k) - f(k-1)$ is strictly decreasing). The aim is for stakeholders to negotiate their wages. Let $n$ be the number of people working the land, and $x_i$ be worker $i$'s salary, with $x_1$ being the salary of the owner. We know that $x_1 + \dots + x_n \leq f(n)$.
+\begin{solution}
+\input{1001}
+\end{solution}
+
+\section{} An owner wishes to hire staff to grow potatoes in his field. If $k$ people work the land (including the owner), they produce potatoes for a value of $f(k)$. Suppose that the function $f$ is increasing, that $f(0) = 0$ and that the contribution of an additional person strictly decreases (that is to say, $f(k) - f(k-1)$ is strictly decreasing). The aim is for stakeholders to negotiate their wages. Let $n$ be the number of people working the land, and $x_i$ be worker $i$'s salary, with $x_1$ being the salary of the owner. We know that $x_1 + \dots + x_n \leq f(n)$.
 \begin{enumerate}
 	\item[a.] Can a worker claim a wage $x_i > f(n) - f(n-1)$? What would happen then? (Hint: describe the core of the game).
 	\item[b.] Now suppose that all workers agree that none of them should engage unless it is as a group. What happens to the core in this case?

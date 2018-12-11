@@ -1,0 +1,302 @@
+\begin{enumerate}[label=\alph*.]
+
+	%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%% a %%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%
+	\item On Figure \ref{fig:stratForm} we can find the strategic form.
+
+	      \input{0201extForm.tex}
+
+
+	      Let us explain some notations. First, the information states
+	      \begin{itemize}
+	      	\item Information state $1.a$: firm 1 knows that the costs are low
+	      	\item Information state $1.b$: firm 1 knows that the costs are high
+	      	\item Information state $2.c$: firm 2 knows that firm 1 has opened a shop but firm 2 does not know if firm 1 has low costs or high costs. Notice that we use this information state two times!
+	      	\item Information state $2.d$: firm 2 knows that firm 1 has not opened a shop but firm 2 does not know if firm 1 has low costs or high costs. Again, notice that we use this information state two times!
+	      \end{itemize}
+
+	      Secondly, let us explain the abbreviations
+	      \begin{itemize}
+	      	\item O: firm 1 opens a shop
+	      	\item \=O: firm 1 does not open a shop
+	      	\item E: firm 2 enters the market
+	      	\item \=E: firm 2 does not the market
+	      \end{itemize}
+
+	      Finally, let us explain why we use capital letters next to small letters. It is important to be able to differentiate the action of a player depending on which information state he is in. Indeed, two actions may look identical, while they actually take place in two different regions of the strategic form! For example, if firm 1 decides to open a shop with low costs, we denote that choice with O; if firm 1 decides to open a shop with high costs, we denote that choice with o. The other conventions are
+	      \begin{itemize}
+	      	\item For firm 1: capital letters when we are in low costs, small letters when we are in high costs
+	      	\item For firm 2: capital letters when firm 1 has opened a shop, small letters when firm 1 has not opened a shop
+	      \end{itemize}
+
+
+
+
+	      %%%%%%%%%%%%%%%%%%%%%%
+	      %%%%%%%%% b %%%%%%%%%%
+	      %%%%%%%%%%%%%%%%%%%%%%
+	\item The normal representation can be found on Table \ref{tab:normRep}.
+
+
+	      	\begin{tabular}[h!]{c|cccc}
+	      		       & Ee             & E\=e           & \=Ee           & \=E\=e       \\ \hline
+	      		Oo     & $-5\, / \, -1$ & $-5\, / \, -1$ & $1\, / \, 0$   & $1\, / \, 0$ \\
+	      		O\=o   & $-3\, / \, -1$ & $0\, / \, -2$  & $0\, / \, 1$   & $3\, / \, 0$ \\
+	      		\=Oo   & $-6\, / \, -1$ & $-3\, / \, 1$  & $-3\, / \, -2$ & $0\, / \, 0$ \\
+	      		\=O\=o & $-4\, / \, -1$ & $2\, / \, 0$   & $-4\, / \, -1$ & $2\, / \, 0$
+	      	\end{tabular}
+            \captionof{table}{Normal representation for Exercise 1b}
+	      	\label{tab:normRep}
+
+
+	      A note on how to find the payoffs: we simply have to compute the expected value of the payoffs. For example, let us consider the payoffs in "position" \=Oo, E\=e. We see that we have $-3\, / \, 1$. We have
+	      \begin{enumerate}
+	      	\item For firm 1, the payoff of $-3$ is obtained by $0.5 \cdot 4 + 0.5 \cdot (- 10) = -3$.
+	      	\item For firm 2, the payoff of $1$ is obtained by $0.5 \cdot 0 + 0.5 \cdot 2 = 1$.
+	      \end{enumerate}
+
+	      The other payoffs are computed similarly.
+
+	      %%%%%%%%%%%%%%%%%%%%%%
+	      %%%%%%%%% c %%%%%%%%%%
+	      %%%%%%%%%%%%%%%%%%%%%%
+	\item Now let us eliminate the weakly dominated strategies. Of course, all the weakly dominated strategies are also strongly dominated.
+
+	      \paragraph{Step 1.} Strategy \=Oo is strongly dominated by the pure strategy O\=o. Here we look at the rows, hence we are looking at player 1, hence we have to consider the payoffs of player 1. The strong domination is clear, since $-6 < -3$, $-3 < 0$, $-3 < 0$ and $0 < 3$.
+	      The table becomes
+
+	      \begin{center}
+	      	\begin{tabular}{c|cccc}
+	      		       & Ee             & E\=e           & \=Ee           & \=E\=e       \\ \hline
+	      		Oo     & $-5\, / \, -1$ & $-5\, / \, -1$ & $1\, / \, 0$   & $1\, / \, 0$ \\
+	      		O\=o   & $-3\, / \, -1$ & $0\, / \, -2$  & $0\, / \, 1$   & $3\, / \, 0$ \\
+	      		\=O\=o & $-4\, / \, -1$ & $2\, / \, 0$   & $-4\, / \, -1$ & $2\, / \, 0$
+	      	\end{tabular}
+	      \end{center}
+
+	      \paragraph{Step 2.} Strategy Ee is strongly dominated by the pure strategy \=E\=e. Here we look at the columns, hence we are looking at player 2, hence we have to consider the payoffs of player 2. The strong domination is clear, since $-1 < 0$, $-1 < 0$ and $-1 < 0$.
+	      The table becomes
+
+	      \begin{center}
+	      	\begin{tabular}{c|ccc}
+	      		       & E\=e           & \=Ee           & \=E\=e       \\ \hline
+	      		Oo     & $-5\, / \, -1$ & $1\, / \, 0$   & $1\, / \, 0$ \\
+	      		O\=o   & $0\, / \, -2$  & $0\, / \, 1$   & $3\, / \, 0$ \\
+	      		\=O\=o & $2\, / \, 0$   & $-4\, / \, -1$ & $2\, / \, 0$
+	      	\end{tabular}
+	      \end{center}
+
+	      \paragraph{Step 3.} Strategy E\=e is weakly dominated by the pure strategy \=E\=e. Here we look at the columns, hence we are looking at player 2, hence we have to consider the payoffs of player 2. The weak domination is clear, since $-1 \leq 0$, $-2 \leq 0$ and $0 \leq 0$.
+	      The table becomes
+
+	      \begin{center}
+	      	\begin{tabular}{c|ccc}
+	      		       & \=Ee           & \=E\=e       \\ \hline
+	      		Oo     & $1\, / \, 0$   & $1\, / \, 0$ \\
+	      		O\=o   & $0\, / \, 1$   & $3\, / \, 0$ \\
+	      		\=O\=o & $-4\, / \, -1$ & $2\, / \, 0$
+	      	\end{tabular}
+	      \end{center}
+
+	      \paragraph{Step 4.} Strategy \=O\=o is strongly dominated by the pure strategy O\=o. Here we look at the rows, hence we are looking at player 1, hence we have to consider the payoffs of player 1. The strong domination is clear, since $-4 < 0$ and $2 < 3$.
+	      The table becomes
+
+	      \begin{center}
+	      	\begin{tabular}{c|ccc}
+	      		     & \=Ee         & \=E\=e       \\ \hline
+	      		Oo   & $1\, / \, 0$ & $1\, / \, 0$ \\
+	      		O\=o & $0\, / \, 1$ & $3\, / \, 0$
+	      	\end{tabular}
+	      \end{center}
+
+	      \paragraph{Step 5.} Strategy \=E\=e is weakly dominated by the pure strategy \=Ee. Here we look at the columns, hence we are looking at player 2, hence we have to consider the payoffs of player 2. The weak domination is clear, since $0 \leq 0$ and $0 \leq 1$.
+	      The table becomes
+
+	      \begin{center}
+	      	\begin{tabular}{c|cc}
+	      		     & \=Ee         \\ \hline
+	      		Oo   & $1\, / \, 0$ \\
+	      		O\=o & $0\, / \, 1$
+	      	\end{tabular}
+	      \end{center}
+
+	      \paragraph{Step 6.} Strategy O\=o is strongly dominated by the pure strategy Oo. Here we look at the rows, hence we are looking at player 1, hence we have to consider the payoffs of player 1. The strong domination is clear, since $0 < 1$.
+	      The table becomes
+
+	      \begin{center}
+	      	\begin{tabular}{c|cc}
+	      		   & \=Ee         \\ \hline
+	      		Oo & $1\, / \, 0$
+	      	\end{tabular}
+	      \end{center}
+
+	      Hence we see that the only possible outcome of this game is the following
+	      \begin{itemize}
+	      	\item firm 1 should always open a shop, if the costs are high or low;
+	      	\item firm 2 should not enter the market if firm 1 opens a shop and, and enter the market if firm 1 does not open a shop.
+	      \end{itemize}
+
+	      %%%%%%%%%%%%%%%%%%%%%%
+	      %%%%%%%%% d %%%%%%%%%%
+	      %%%%%%%%%%%%%%%%%%%%%%
+	\item In order to model games with incomplete information, a generalisation of the strategic form, called a Bayesian game is often preferred to the extensive form. Hence we are looking for a tuple $\Gamma^b = (N,C,T,p,u)$, with
+	      \begin{itemize}
+	      	\item $N = \bracket{\text{firm 1}, \text{firm 2}}$,
+	      	\item $C = C_1 \times C_2$, with $C_1 = \bracket{\text{O, \=o}}$ and $C_2 = \bracket{\text{Ee, E\=e, \=Ee, \=e\=e}}$
+	      	\item $T = T_1 \times T_2$, with $T_1 = \bracket{\text{high, low}}$ and $T_2 = \bracket{\text{f}}$ where f stands for follower
+	      	\item $p = p_1 \times p_2$ are belief functions, with
+	      	      \begin{itemize}
+	      	      	\item $p_1 \parent{t_1 = \text{low} | t_2 = \text{f}} = p_1 \parent{t_1 = \text{high} | t_2 = \text{f}} = 0.5 $
+	      	      	\item $p_2 \parent{ t_2 = \text{f} | t_1 = \text{low}} = p_2 \parent{ t_2 = \text{f} | t_1 = \text{low}} = 1 $
+	      	      \end{itemize}
+	      	\item $u = u_1 \times u_2$ are the payoff functions given in the first table, Table \ref{tab:normRep}.
+
+	      \end{itemize}
+				
+				The payoff function can be represented by these two tables.
+			 
+			 \begin{center}
+				 \begin{tabular}{l|cc}
+					 		high costs & enter & not enter \\
+					 		\hline
+					 		open        & -10/2 & -4/0 \\
+					 		not open    & -6/2  &  0/0 \\
+				 \end{tabular}
+				 $\qquad$
+				 ,
+				 $\qquad$
+				 \begin{tabular}{l|cc}
+					 		low costs & enter & not enter \\
+					 		\hline
+					 		open        & 0/-4  & 6/0 \\
+					 		not open    & -2/-4 & 4/0 \\
+				 \end{tabular}
+				 .
+			 \end{center}
+
+Note that these two tables give exactly the same information as Table \ref{tab:normRep}.
+
+	      %%%%%%%%%%%%%%%%%%%%%%
+	      %%%%%%%%% e %%%%%%%%%%
+	      %%%%%%%%%%%%%%%%%%%%%%
+	\item Finally, let us write the type-agent representation of the Bayesian game obtained above. Given the Bayesian game of the previous question, the type-agent representation is the following strategic form game:
+ \begin{itemize}
+ \item The set of agents is $T^{*} = T_1 + T_2 = \bracket{\text{high, low, f}}$.
+ \item If $t_k \in T_i$, then the pure strategies for $t_k$ are $C_i$.
+ \item The support is $D = \times_{i \in T^{*}} D_{i}$, with $D_{\text{high}} = \bracket{\text{o, \=o}}$, $D_{\text{low}} = \bracket{\text{O, \=O}}$ and $D_{\text{f}} = \bracket{\text{Ee, E\=e, \=Ee, \=E\=e}}$. 
+ \item The payoff function of agent $t_k \in T_i$ is given by
+ \begin{equation*}
+     v_{t_k}(d) = \sum_{t_{-i} \in T_{-i}} p_i \parent{t_{-i}|t_k} \cdot u_{i} \parent{d, (t_k, t_{-i})}
+ \end{equation*}
+ \end{itemize}
+ 
+ The answer is given on Table \ref{tab:typeAgent0201}. These payoffs are to be read like 
+
+\begin{center}
+(Firm 1's payoff with high costs, 
+Firm 1's payoff with low costs,
+Firm 2's payoff)
+\end{center}
+
+We will explain who to compute these payoffs just after the table.
+
+	      \begin{center}
+	      	\begin{tabular}{l|cc}
+	      		  & high: open & high: not open \\
+	      		\begin{tabular}{l}
+	      		\\
+	      		\hline Ee \\
+	      		E\=e \\
+	      		\=Ee \\
+	      	    \=E\=e
+	      	\end{tabular} &
+	      	\begin{tabular}{cc}
+	      		\hline low: open & low: not open \\
+	      		\hline
+	      		-10, 0, -1         & -10, -2, -1  \\
+	      		-10, 0, -1         & -10, 4, 1  \\
+	      		-4, 6, 0           & -4, -2, -2  \\
+	      		-4, 6, 0           & -4, 4, 0
+	      	\end{tabular}&
+	      	\begin{tabular}{cc}
+	      		\hline low: open & low: not open \\
+	      		\hline
+	      		-6, 0, -1           & -6, -2, -1    \\
+	      		0, 0, -2            & 0, 4, 0  \\
+	      		-6, 6, 1            & -6, -2, -1  \\
+	      		0, 6, 0             & 0, 4, 0
+	      	\end{tabular}
+	      	\end{tabular}
+            \captionof{table}{The type-agent representation for Exercise 1e}
+	      	\label{tab:typeAgent0201}
+	      \end{center}
+
+Let us analyse the payoffs in this table, for example the first entries, i.e., the three entries in the first row, first column, corresponding to $d = \parent{\text{o, O, Ee}}$. We find $-10, 0, -1$ because:
+\begin{itemize}
+     \item First, we want to compute $v_{\text{high}} \parent{d}$ hence $t_{k} = \text{high} \in T_1$, and $i = 1$. With the formula, we find
+     
+     \begin{align*}
+         v_{\text{high}} \parent{d}
+        & = \sum_{t_{2} \in T_{2}} p_{1} \parent{t_{2}|\text{high}} \cdot u_{1} \parent{d, (\text{high}, t_{2})} \\
+        & = p_{1} \parent{f|\text{high}} \cdot u_{1} \parent{d, (\text{high}, f)} \\
+        & = 1 \cdot (- 10) = -10.
+     \end{align*}
+     
+     \item Second, we want to compute $v_{\text{low}} \parent{d}$ hence $t_{k} = \text{low} \in T_1$, and $i = 1$. With the formula, we find
+     
+     \begin{align*}
+         v_{\text{low}} \parent{d}
+        & = \sum_{t_{2} \in T_{2}} p_{1} \parent{t_{2}|\text{low}} \cdot u_{1} \parent{d, (\text{low}, t_{2})} \\
+        & = p_{1} \parent{f|\text{low}} \cdot u_{1} \parent{d, (\text{low}, f)} \\
+        & = 1 \cdot 0 = 0.
+     \end{align*}
+     
+     \item Finally, we want to compute $v_{\text{f}} \parent{d}$ hence $t_{k} = \text{f} \in T_2$, and $i = 2$. With the formula, we find
+     
+     \begin{align*}
+         v_{\text{f}} \parent{d}
+        & = \sum_{t_{1} \in T_{1}} p_2 \parent{t_{1}|\text{f}} \cdot u_{2} \parent{d, (\text{f}, t_{1})} \\
+        & = p_2 \parent{\text{high}|\text{f}} \cdot u_{2} \parent{d, (\text{f}, \text{high})}
+        + p_2 \parent{\text{low}|\text{f}} \cdot u_{2} \parent{d, (\text{f}, \text{low})} \\
+        & = 0.5 \cdot 2 + 0.5 \cdot (-4) = -1.
+     \end{align*}
+\end{itemize}
+
+
+
+Now let us look at a second example. We will look at the three entries in the second row, third column, corresponding to $d = \parent{\text{\=o, O, \=Ee}}$. We can also define $d$ more explicitly with $d$ = (high: not open, low: open, follower: not enter when firm 1 has opened a shop, enter when firm 1 has not opened a shop). We find $-6, 6, 1$ because:
+\begin{itemize}
+     \item First, we want to compute $v_{\text{high}} \parent{d}$ hence $t_{k} = \text{high} \in T_1$, and $i = 1$. With the formula, we find
+     
+     \begin{align*}
+         v_{\text{high}} \parent{d}
+        & = \sum_{t_{2} \in T_{2}} p_{1} \parent{t_{2}|\text{high}} \cdot u_{1} \parent{d, (\text{high}, t_{2})} \\
+        & = p_{1} \parent{f|\text{high}} \cdot u_{1} \parent{d, (\text{high}, f)} \\
+        & = 1 \cdot (- 6) = -6.
+     \end{align*}
+     
+     \item Second, we want to compute $v_{\text{low}} \parent{d}$ hence $t_{k} = \text{low} \in T_1$, and $i = 1$. With the formula, we find
+     
+     \begin{align*}
+         v_{\text{low}} \parent{d}
+        & = \sum_{t_{2} \in T_{2}} p_{1} \parent{t_{2}|\text{low}} \cdot u_{1} \parent{d, (\text{low}, t_{2})} \\
+        & = p_{1} \parent{f|\text{low}} \cdot u_{1} \parent{d, (\text{low}, f)} \\
+        & = 1 \cdot 6 = 6.
+     \end{align*}
+     
+     \item Finally, we want to compute $v_{\text{f}} \parent{d}$ hence $t_{k} = \text{f} \in T_2$, and $i = 2$. With the formula, we find
+     
+     \begin{align*}
+         v_{\text{f}} \parent{d}
+        & = \sum_{t_{1} \in T_{1}} p_2 \parent{t_{1}|\text{f}} \cdot u_{2} \parent{d, (\text{f}, t_{1})} \\
+        & = p_2 \parent{\text{high}|\text{f}} \cdot u_{2} \parent{d, (\text{f}, \text{high})}
+        + p_2 \parent{\text{low}|\text{f}} \cdot u_{2} \parent{d, (\text{f}, \text{low})} \\
+        & = 0.5 \cdot 2 + 0.5 \cdot 0 = 1.
+     \end{align*}
+\end{itemize}
+
+The other entries are completed similarly. 
+
+
+\end{enumerate}

@@ -1,0 +1,101 @@
+As a reminder, we have two players, player 1 and player 2, who each have a valuation for an item that is being sold. We know that $v_1$ and $v_2$ are independent and identically distributed from a uniform distribution with parameters $0$ and $1$. We use $b_1$ and $b_2$ to denote the bid of player 1 and 2, respectively. Also, we use $u_1$ and $u_2$ to denote the utility of player 1 and 2, respectively. We have three cases
+\begin{enumerate}
+    \item If $b_1 < b_2$, then $u_1 = 0$ and $u_2 = v_2 - b_2$;
+    \item If $b_1 > b_2$, then $u_1 = v_1 - b_1$ and $u_2 = 0$;
+    \item If $b_1 = b_2$, then $u_1 = \frac{1}{2} \cdot \parent{v_1 - b_1}$ and $u_2 = \frac{1}{2} \cdot \parent{v_2 - b_2}$.
+\end{enumerate}
+
+However, we know that the last case will happen with a probability zero.
+
+\vspace{5mm}
+
+
+First, let us show that $b_1 \parent{v_1} = \frac{1}{2} v_1$ is a best response for player 1 to the strategy of player 2. To be more precise, we need to check that for any fixed type $v_1$ for player 1, $b_1 \parent{v_1} = \frac{1}{2} v_1$ is a best response to the strategy of player 2, knowing that the strategy of player 2 will be $b_2 \parent{v_2} = \frac{1}{2} v_2$.
+We need to compute
+\begin{equation*}
+    b_1^{*}
+    = \text{argmax} \
+    \parent{v_1 - b_1} \cdot \mathbb{P} \squared{b_1 > B_2}
+    + \dfrac{1}{2} \parent{v_1 - b_1} \cdot \mathbb{P} \squared{b_1 = B_2}
+\end{equation*}
+
+where $B_2$ is written with a capital letter, because it denotes a random variable. Indeed, in this part of the proof, we fix $b_2$ such that $b_2 \parent{v_2} = \frac{1}{2} v_2$. Since we know that $V_2 \sim \text{Unif} \parent{0, 1}$, we know that $B_2 \sim \text{Unif} \parent{0, \frac{1}{2}}$. Now let us compute the two probabilities. We have
+\begin{equation*}
+    \mathbb{P} \squared{b_1 = B_2}
+    = 0,
+\end{equation*}
+
+because $B_2$ is a continuous random variable, and
+\begin{equation*}
+    \mathbb{P} \squared{b_1 > B_2}
+    = \mathbb{P} \squared{B_2 \leq b_1}
+    = F_{B_2} \parent{b_1}
+    = \dfrac{b_1 - 0}{\frac{1}{2} - 0}
+    = 2 b_1.
+\end{equation*}
+
+
+where $F_{B_2}$ denotes the cumulative distribution function of $B_{2}$. As a reminder, if $X \sim \text{Unif} \parent{a, b}$, then
+\begin{equation*}
+F_{X} \parent{x} =
+\begin{cases}
+    0                   & {\text{for }} x<a, \\
+    \dfrac{x-a}{b-a}    & {\text{for }} x \in [a,b), \\
+    1                   & {\text{for }} x \geq b.
+\end{cases}
+\end{equation*}
+
+\vspace{5mm}
+
+Now, let us make an important remark. At this point, we have an unknown value for $b_1$, hence it can be negative, it can be equal to 42, and so on. Hence, when we write that $\mathbb{P} \squared{b_1 > B_2} = 2 b_1$, we should be very careful. Indeed, by the axioms of probabilities, we know that $0 \leq \mathbb{P} \squared{b_1 > B_2} \leq 1$. Hence, we should write
+\begin{equation*}
+    \mathbb{P} \squared{b_1 > B_2} = \max \bracket{0, \min \bracket{1, 2 b_1}}
+\end{equation*}
+
+Hence we have
+\begin{equation*}
+    b_1^{*}
+    = \text{argmax} \ \parent{v_1 - b_1} \cdot \max \bracket{0, \min \bracket{1, 2 b_1}}
+    = \text{argmax} \ f \parent{b_1}
+\end{equation*}
+
+where the function $f$ is defined like
+\begin{equation*}
+    f \parent{b_1}
+    =
+    \begin{cases}
+       2 b_1 \parent{v_1 - b_1}  & 0 \leq b_1 \leq \frac{1}{2}, \\
+       0 & b_1 < 0, \\
+       \parent{v_1 - b_1} & b_1 > \frac{1}{2}. \\
+     \end{cases}
+\end{equation*}
+In order to maximize $f$, we compute its derivative with respect to $b_1$. We find
+
+\begin{equation*}
+    f' \parent{b_1}
+    =
+    \begin{cases}
+       2 \parent{v_1 - 2 b_1}  & 0 \leq b_1 \leq \frac{1}{2}, \\
+       0 & b_1 < 0, \\
+       -1 & b_1 > \frac{1}{2}. \\
+     \end{cases}
+\end{equation*}
+
+Hence we find the value of $b_1^{*}$ by cancelling the derivative. We find
+\begin{equation*}
+    f' \parent{b_1^{*}} = 0
+    \Leftrightarrow
+    \begin{cases}
+       \frac{1}{2} v_1 = b_1^{*}  & 0 \leq b_1 \leq \frac{1}{2}, \\
+       0 & b_1 < 0.
+     \end{cases}
+\end{equation*}
+
+We know that $b_1 < 0$ is absurd. Hence we only consider the case $0 \leq b_1 \leq \frac{1}{2}$, and we conclude that $b_1^{*} = b_1 \parent{v_1} = \frac{1}{2} v_1$.
+
+Note that one should still check the values of $f$ at discontinuous points, which is left to the reader.
+
+
+\vspace{5mm}
+
+Now let us show that $b_2 \parent{v_2} = \frac{1}{2} v_2$ is a best response for player 2 to the strategy of player 1. For this, we simply use the symmetry of the problem. This concludes the proof.

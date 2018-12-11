@@ -1,0 +1,156 @@
+\paragraph{Step 1.} Strategy $x_{2}$ is weakly dominated by the pure strategy strategy $z_{2}$. Here we look at the columns, hence we are looking at player 2, hence we have to consider the payoffs of player 2. The weak domination is clear, since $3 \leq 3$, $9 \leq 9$ and $5 \leq 6$. The table becomes
+
+\begin{tabular}[h!]{l|ccccc}
+%		&&&&& \Large{$C_2$} &&& \\
+		&& $y_2$ && $z_2$ \\
+		\hline
+		$x_1$ && 9,4 && 1,3 & \\
+		$y_1$ && 8,1 && 2,9 & \\
+		$z_1$ && 6,6 && 7,6 &
+	\end{tabular} 
+	
+	\paragraph{Step 2.} Strategy $y_{1}$ is weakly dominated by the randomized strategy $\frac{2}{3} x_{1} + \frac{1}{3} z_{1}$. Here we look at the rows, hence we are looking at player 1, hence we have to consider the payoffs of player 1. The weak domination is clear, since $8 \leq \frac{2}{3} \cdot 9 + \frac{1}{3} \cdot 6 = 8$ and $2 \leq \frac{2}{3} \cdot 1 + \frac{1}{3} \cdot 7 = 3$. The table becomes
+
+\begin{tabular}[h!]{l|ccccc}
+%		&&&&& \Large{$C_2$} &&& \\
+		&& $y_2$ && $z_2$ \\
+		\hline
+		$x_1$ && 9,4 && 1,3 & \\
+		$z_1$ && 6,6 && 7,6 &
+	\end{tabular} 
+	
+\paragraph{Step 3.} Strategy $z_{2}$ is weakly dominated by the pure strategy $y_{2}$. Here we look at the columns, hence we are looking at player 2, hence we have to consider the payoffs of player 2. The weak domination is clear, since $3 \leq 4$ and $6 \leq 6$. The table becomes
+
+\begin{tabular}[h!]{l|ccc}
+%		&&&&& \Large{$C_2$} &&& \\
+		&& $y_2$ \\
+		\hline
+		$x_1$ && 9,4 & \\
+		$z_1$ && 6,6 &
+	\end{tabular} 
+
+\paragraph{Step 4.} Strategy $z_{1}$ is strongly dominated by the pure strategy $x_{1}$. Here we look at the rows, hence we are looking at player 1, hence we have to consider the payoffs of player 1. The strong domination is clear, since $6 < 9$. The table becomes
+
+\begin{tabular}[h!]{l|ccc}
+%		&&&&& \Large{$C_2$} &&& \\
+		&& $y_2$ \\
+		\hline
+		$x_1$ && 9,4 &
+	\end{tabular} 
+	
+
+\vspace{10mm}
+
+We end this exercise with a note about randomized strategies. At step 2, we can guess the result with a little bit of mathematical intuition. We guess that $y_1$ is weakly dominated by a combination of $x_{1}$ and $x_{1}$ because $8 < 9$ and $2 < 7$. However, we don't have a robust method to find the coefficients. We can do so by defining the linear program
+
+
+        
+
+\begin{equation*}
+    \begin{aligned}
+    \underset{}{\text{min }} &
+    0 & & \\
+    \text{such that  } &
+        \lambda_{1} + \lambda_{2} = 1 & \\
+        & 8 \leq 9 \lambda_{1} + 6 \lambda_{2} &  \\
+        & 2 \leq \lambda_{1} + 7 \lambda_{2} & \\
+        & \lambda_{1}, \lambda_{2} \geq 0. &
+    \end{aligned}
+\end{equation*}
+   
+
+We can solve this graphically, see Figure \ref{fig:feasProb} on page \pageref{fig:feasProb}. Let us give color-labels to the constraints.
+\begin{enumerate}
+    \item The equality constraint $\lambda_{1} + \lambda_{2} = 1$ is the \textbf{blue} line, and since this is an equality constraint, we have to find a solution $\parent{\lambda_{1}, \lambda_{2}}$ on the blue line.
+    \item The inequality constraint $8 \leq 9 \lambda_{1} + 6 \lambda_{2}$ is the \textbf{green} line, and looking at the sign of the inequality, we have to be above the red line.
+    \item The inequality constraint $2 \leq \lambda_{1} + 7 \lambda_{2}$ is the \textbf{red} line, and looking at the sign of the inequality, we have to be above the green line.
+\end{enumerate}
+
+
+  
+
+
+\begin{center}
+    \input{0301feasProb.tex}
+    \captionof{figure}{The feasible set is not empty}
+    \label{fig:feasProb}
+\end{center}
+
+
+We identify two important points:
+\begin{enumerate}
+    \item point $A$, the intersection of the green and the blue lines. Hence the coordinates of point $A$ satisfy
+    \begin{equation*}
+       \begin{cases}
+        8 = 9 \lambda_{1} + 6 \lambda_{2}  \\
+        \lambda_{1} + \lambda_{2} = 1
+        \end{cases} 
+    \end{equation*}
+    
+    We find $\parent{ \lambda_{1},\lambda_{2} } = \parent{ \dfrac{2}{3},\dfrac{1}{3} } $.
+    
+    \item point $B$, the intersection of the red and the blue lines. Hence the coordinates of point $B$ satisfy
+    \begin{equation*}
+    \begin{cases}
+    2 = \lambda_{1} + 7 \lambda_{2}  \\
+    \lambda_{1} + \lambda_{2} = 1
+    \end{cases}
+    \end{equation*}
+    We find $\parent{ \lambda_{1},\lambda_{2} } = \parent{ \dfrac{5}{6},\dfrac{1}{6} } $.
+\end{enumerate}
+    
+Of course, we could take one of these two combinations of $\lambda_{1},\lambda_{2}$ as the coefficients. We can also take any point between $A$ and $B$, on the blue line. The whole point of the above figure, Figure \ref{fig:feasProb}, was to show that the feasible set is not empty. If the graph was like on Figure \ref{fig:unFeasProb}, then the feasible set would be empty and in that case, it is not possible to find coefficients $\lambda_{1},\lambda_{2}$ such that $y_1$ is weakly dominated by $\lambda_{1} x_{1} + \lambda_{2} z_{1}$.
+
+
+\begin{center}
+    \centering
+    \input{0301unFeasProb.tex}
+    \captionof{figure}{The feasible set is empty}
+    \label{fig:unFeasProb}
+\end{center}
+
+
+Finally, let us analyze the inequalities depending on which point we choose. 
+\begin{enumerate}
+    \item point $A: \parent{ \lambda_{1},\lambda_{2} } = \parent{ \dfrac{2}{3},\dfrac{1}{3} }$.
+    Then we have
+    \begin{equation*}
+    \begin{cases}
+    8 \leq 9 \lambda_{1} + 6 \lambda_{2} = 8  \\
+    2 \leq \lambda_{1} + 7 \lambda_{2} = 3
+    \end{cases}
+    \end{equation*}
+    Since we are on the green line, it was predictable that the first inequality is not strict, i.e., it is \textit{tight} ($8 = 8$) and the second one is strict, i.e., it is \textit{not tight} or \textit{loose} ($2 < 3$). We have a \textit{margin} for the second inequality.
+    
+    \item point $B: \parent{ \lambda_{1},\lambda_{2} } = \parent{ \dfrac{5}{6},\dfrac{1}{6} }$.
+    Then we have
+    \begin{equation*}
+    \begin{cases}
+    8 \leq 9 \lambda_{1} + 6 \lambda_{2} = 8.5  \\
+    2 \leq \lambda_{1} + 7 \lambda_{2} = 2
+    \end{cases}
+    \end{equation*}
+    Since we are on the red line, it was predictable that the first inequality is strict, i.e., it is \textit{not tight} or \textit{loose}($8 < 8.5$) and the second one is not strict, i.e., it is \textit{tight} ($2 = 2$). We have a \textit{margin} for the first inequality.
+    
+    \item between points $A$ and $B$: $\dfrac{2}{3} \leq \lambda_{1} \leq \dfrac{5}{6}$ and $\dfrac{1}{5} \leq \lambda_{2} \leq \dfrac{1}{3}$.
+    Then we have
+    \begin{equation*}
+    \begin{cases}
+    8 \leq 9 \lambda_{1} + 6 \lambda_{2}  \\
+    2 \leq \lambda_{1} + 7 \lambda_{2}
+    \end{cases}
+    \end{equation*}
+    Since we are not on the green line, nor on the red line, it was predictable that both inequalities are strict, i.e., they are both \textit{not tight}, or \textit{loose}. We have a \textit{margin} for both inequalities. In this case we have a strong domination, whereas in the two cases above, we had a weak domination!
+    
+    
+\end{enumerate}
+    
+    
+    
+    
+    
+
+
+
+
+        

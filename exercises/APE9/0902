@@ -1,0 +1,27 @@
+\paragraph{a)}
+A natural way for generalizing is to assume that there exist a unique solution function $\phi(\cdot ,\cdot)$ satisfying the axioms (1) to (5) of the Nash bargaining problem (with appropriate vectors dimension). Moreover, the function should satisfy for every bargaining problem $(F,v)$  : 
+$$ \phi(F,v) \in arg \underset{x \in F, x\geq v}{max} \; \; \prod^n_{i=1} (x_i-v_i) $$
+
+\paragraph{b)}
+The situation where the players don't sign a contract is when they refuse to cooperate and have the payoff : 
+$$v =(0,0,0)$$
+Furthermore, we know, from axiom (1), that the players won't choose a contract where the payoff $v$ is chosen with a non zero probability \textit{(v is dominated by all other possible vectors of players's payoff)}. 
+We are going then, to randomize on the payoffs($\neq v$), such that : 
+$$u(x_1,x_2,x_3)=\alpha, \; \; \; \; \; \; \;  u(x_1,y_2,x_3)=\beta, \; \; \; \; \; \; \;u(x_1,x_2,y_3) = \gamma$$
+
+
+The convex set F is then : 
+$$ F = \{ (5\alpha + 6\beta+4\gamma,\;\;\; 4\alpha + 5\beta + 6\gamma, \;\;\; 6\alpha +4\beta +5\gamma) |\; \alpha + \beta + \gamma = 1,\;\;\;  \alpha,\beta,\gamma \geq0 \}$$
+Geometrically it can be represented by a triangle in $\mathbb{R}^3$
+
+\paragraph{c)} The generalised fifth axiom, tell us that if we have $v_1=v_2= \cdots ,v_n$ and a symmmetric game, i.e, the payoffs for playing a particular strategy depend only on the other strategies employed, not on who is playing them, then : 
+$$\phi_1(F,v)=\phi_2(F,v)=\phi_3(F,v)$$
+And
+$$ u_1(\mu) = u_2(\mu) = \cdots = u_n(\mu)$$
+$$5\alpha + 6\beta+4\gamma=4\alpha + 5\beta + 6\gamma=6\alpha +4\beta +5\gamma$$
+
+Therefore, we obtain easily, $\alpha = \beta =\gamma = \frac{1}{3}$ and $ \phi(F,v) = (5,5,5)$.
+
+\subparagraph{Note} A complementary, word about the symmetry of the game, is that, if we change the index of the players, for example, $P_1$ becomes $P_3$ or any possible permutation, the payoff matrix will always be the same.  
+
+\paragraph{d)}Nevertheless, the situation is not satisfactory ! Indeed, 2 players could cooperate and play such that they obtain 5 and 6. The third player will then be forced to follow and will win only 4 (which is better than 0 but less than 5). However, the player winning only 4 could then suggest to the one earning 5, a cooperation, such that they get both respectively 5 and 6. The situation is actually an infinite loop ! 
