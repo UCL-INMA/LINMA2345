@@ -6,7 +6,7 @@
 \usepackage[ansinew]{inputenc}
 \usepackage[T1]{fontenc}		% Police contenant les caractères français
 \usepackage{lmodern}			% plus beau
-\usepackage[a4paper]{geometry} 
+\usepackage[a4paper]{geometry}
 	\geometry{hscale=0.75,vscale=0.8,centering}
 
 \usepackage[hidelinks]{hyperref} % pas de couleurs ici
@@ -35,14 +35,14 @@
 %> Tikz
 \usepackage{tikz}
 \usepackage{hf-tikz}
-\usetikzlibrary{ 
+\usetikzlibrary{
 	calc,
 	arrows,
 	arrows.meta,
-	automata, 
-	shapes, 
-	snakes, 
-	positioning, 
+	automata,
+	shapes,
+	snakes,
+	positioning,
 	decorations,
 	decorations.text,
 	fit,
@@ -95,7 +95,7 @@
 	{% begin_def
 		\refstepcounter{theo}%
 		\ifstrempty{#2} % looking at the name of the thm
-		{	
+		{
 			\mdfsetup{
 				frametitle={
 					\tikz[baseline=(current bounding box.east),outer sep=0pt]
@@ -123,7 +123,7 @@
 	{% begin_def
 		\refstepcounter{theo}%
 		\ifstrempty{#2} % looking at the name of the thm
-		{	
+		{
 			\mdfsetup{
 				frametitle={
 					\tikz[baseline=(current bounding box.east),outer sep=0pt]
@@ -149,7 +149,7 @@
 	{% begin_def
 		\refstepcounter{theo}%
 		\ifstrempty{#2} % looking at the name of the thm
-		{	
+		{
 			\mdfsetup{
 				frametitle={
 					\tikz[baseline=(current bounding box.east),outer sep=0pt]
