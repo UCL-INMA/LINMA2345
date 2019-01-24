@@ -56,10 +56,10 @@ W & 0, 2 & -1, -1
 .
 \end{center}
 
-There are four outcomes for this game: players can have an accident (which matches the choice of strategies ([G],[g])), or player 1 waits ([W],[g]), or player 2 waits ([G],[w]), or both wait ([W],[w]). \\
+There are four outcomes for this game: players can have an accident (which matches the choice of strategies ([G],[g])), or Player 1 waits ([W],[g]), or Player 2 waits ([G],[w]), or both wait ([W],[w]). \\
 The game has 3 Nash Equlibria: $([G],[w])$, $([W],[g])$, and $(\frac{3}{13}[G] + \frac{10}{13}[W], \frac{3}{13}[g] + \frac{10}{13}[w])$. We know that, since the players are rational, they are \emph{going to play at a Nash equilibrium}. \\
-What does this mean? It means that for this games, player 1 may pick [G], [W] or 0.5[G] + 0.5[W] depending on what he \emph{believes} player 2 is going to do. The same occurs for player 2.
-However, it may very well be the case that player 1 thinks player 2 is going to stop, and the reverse holds for player 2. As a consequence, the players may crash rationally even if neither one played the randomized equilibrium.
+What does this mean? It means that for this games, Player 1 may pick [G], [W] or 0.5[G] + 0.5[W] depending on what he \emph{believes} Player 2 is going to do. The same occurs for Player 2.
+However, it may very well be the case that Player 1 thinks Player 2 is going to stop, and the reverse holds for Player 2. As a consequence, the players may crash rationally even if neither one played the randomized equilibrium.
 
 Of course, in practice, we know several ways to solve the crossroad problem. In Belgium, the \emph{law} states that we should always let the one arriving from the right go first. If we break the law, we face dire consequences (first, we may have an accident, and second, if we get caught, we can be heavily reprimanded).
 
@@ -91,7 +91,7 @@ $$\forall c = (c_i)_{i \in N} \in C, \mu(c) = \prod_{i \in N} \sigma_i(c_i). $$
 However, the reverse does not hold: when choosing their strategies \emph{independently} of one another,  there are some correlated strategy that cannot be reached by the players (this is shown in the next example). Thus the name: in correlated equilibria, the probability distribution of the actions of the different players are allowed to be correlated with each other, which enables much more possibilities than in classical standard games.
 
 \begin{example}
-Assume, in the crossroads example, that the player want to implement the \emph{correlated strategy} $0.5([G], [w]) + 0.5 ([W], [g])$. To do so, player 1 can for example toss a coin, and communicate the result to player 2 (assuming player 1 is truthful).  Alternatively, they can make use of a red-light (if present).\\
+Assume, in the crossroads example, that the player want to implement the \emph{correlated strategy} $0.5([G], [w]) + 0.5 ([W], [g])$. To do so, Player 1 can for example toss a coin, and communicate the result to Player 2 (assuming Player 1 is truthful).  Alternatively, they can make use of a red-light (if present).\\
 Something they can not do, however, is to play according to a randomized strategy - say $\alpha_1[G] + (1-\alpha_1)[W]$ for the first player, and $\alpha_2[g] + (1-\alpha_2)[w]$ for the second.
 Indeed, this requires
 $$ \mu([G], [g]) = \alpha_1 \alpha_2 = 0; \mu([G], [w]) = \alpha_1 (1-\alpha_2) = 0.5, \mu([W], [g]) = (1-\alpha_1) (\alpha_2) = 0.5, $$
@@ -168,7 +168,7 @@ v_i = \min_{\tau_{-i} \in \Delta(C_{-i})} \max_{c_i \in C_i} \sum_{c_{-i} \in C_
 Alice and Bob plan to meet in the evening. There are two options available: either to go to the cinema, or to the ballet.
 Alice prefers to go to the ballet, and Bob to the cinema. They find it hard to decide and decide to ask Charles to mediate their dispute by providing them with a binding contract and a correlated equilibrium.
 
-Their payoffs and moves are summarized in the table below (Alice is player 1, Bob is player 2).
+Their payoffs and moves are summarized in the table below (Alice is Player 1, Bob is Player 2).
 \begin{center}
 \begin{tabular}{c | c  c}
 & c & b\\

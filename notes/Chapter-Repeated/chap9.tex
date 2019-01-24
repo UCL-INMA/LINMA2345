@@ -446,7 +446,7 @@ their lives (which we assume to be infinite for the exercise), they will
 meet either at the cinema or at the ballet.
 Alice prefers to go to the ballet, and Bob to the cinema.
 Their payoffs and moves are summarized in the table below (Alice is player
-1, Bob is player 2).
+1, Bob is Player 2).
 
 \begin{center}
     \begin{tabular}{c | c  c}
@@ -615,7 +615,7 @@ If both players play according to the Tit-for-Tat (stationary here) strategy, th
 		(Dd)	edge[loop right] node {D}	(Dd)
 				edge[dashed] node[right] {C}	(Cd);
 \end{tikzpicture}
-\caption{Prisonner's dilemma when playing Tit-for-Tat. Assuming player 2 plays Tit-for-Tat, the plain arrows correspond to when player 1 plays Tit-for-Tat as well, and the dashed arrows are what would happen should he decide to do the opposite.}
+\caption{Prisonner's dilemma when playing Tit-for-Tat. Assuming Player 2 plays Tit-for-Tat, the plain arrows correspond to when Player 1 plays Tit-for-Tat as well, and the dashed arrows are what would happen should he decide to do the opposite.}
 \label{fig:Tit-for-Tat}
 \end{figure}
 \label{ex:stationaryGame}
@@ -665,7 +665,7 @@ In general the equations of Theorem \ref{thm:stateq} can be quite hard to solve.
 \begin{example}[Example \ref{ex:stationaryGame} continued]
 Our goal is now to find the values $\nu_i(\theta)$ for the prisoner dilemma at Example \ref{ex:stationaryGame}.
 We saw in Example \ref{ch9:ex:trigger} that the Grim strategy was and equilibrium for the game with the $\delta-$discounted payoff when $\delta \geq 0.5$.
-Let us now consider the Tit-for-Tat strategies for both players and we focus on player 1.
+Let us now consider the Tit-for-Tat strategies for both players and we focus on Player 1.
 For a given $0 \leq \delta < 1$, applying \eqref{theNuequation} to solve \eqref{thmStufmathc1} (its the same...), we have the following:
 $$
 \begin{aligned}
@@ -779,19 +779,19 @@ Let's first define some notations
 \end{itemize}
 
 At the first round, each player plays an arbitrary strategy.
-Let's assume then that player 1 plays U and player 2 plays l initially.\\
+Let's assume then that Player 1 plays U and Player 2 plays l initially.\\
 
 At the second round the belief vectors of each player are the following:
 $\nu_1^2=(1,0), \nu_2^2=(1,0)$. The expected move of the two players are
-thus the following: player 1 expects player 2 to play $\mu_1^2=l$ and player
-2 expects player 1 to play $\mu_2^2=U$. The best response strategy of each
-player is thus going to be the following: player 1 is going to play
-$\sigma_1^2=D$ and player 2 is going to play $\sigma_2^2=l$.\\
+thus the following: Player 1 expects Player 2 to play $\mu_1^2=l$ and player
+2 expects Player 1 to play $\mu_2^2=U$. The best response strategy of each
+player is thus going to be the following: Player 1 is going to play
+$\sigma_1^2=D$ and Player 2 is going to play $\sigma_2^2=l$.\\
 
 At the third round the belief vectors are $\nu_1^3=(2,0)$ and $\nu_2^3=(1,1)$.
 The expected strategy of each player is thus $\mu_1^3=l$ and
 $\mu_2^3=\frac{1}{2}U+\frac{1}{2}D$. The best response strategy for each
-player is thus $\sigma_1^3=D$ and $\sigma_2^3=l$: in fact for player 2 the
+player is thus $\sigma_1^3=D$ and $\sigma_2^3=l$: in fact for Player 2 the
 expected payoff if  he plays $l$ is going to be equal to
 $\frac{1}{2}\cdot3+\frac{1}{2}\cdot0=1.5$ and the payoff for playing right is
 $\frac{1}{2}\cdot0+\frac{1}{2}\cdot1=0.5$, thus playing $l$ is the best response
@@ -801,14 +801,14 @@ At the fourth round the belief vectors are $\nu_1^4=(3,0)$ and $\nu_2^4=(1,2)$.
 The expected strategy of each player is thus $\mu_1^4=l$ and
 $\mu_2^4=\frac{1}{3}U+\frac{2}{3}D$. The best response strategy for each
 player is thus $\sigma_1^4=D$ and $\sigma_2^4=l$: the expected payoff for
-player 2 is equal to $\frac{1}{3}\cdot3+\frac{2}{3}\cdot0=1$ if he plays l and
+Player 2 is equal to $\frac{1}{3}\cdot3+\frac{2}{3}\cdot0=1$ if he plays l and
 $\frac{1}{3}\cdot0+\frac{2}{3}\cdot1=\frac{2}{3}$ if he plays right.\\
 
 At the fifth round the belief vectors are $\nu_1^5=(4,0)$ and $\nu_2^5=(1,3)$.
 The expected strategy of each player is thus $\mu_1^5=l$ and
 $\mu_2^5=\frac{1}{4}U+\frac{3}{4}D$. The best response strategy for each
 player is thus $\sigma_1^5=D$ and $\sigma_2^5$ can be either equal to $l$
-or to $r$, in fact, the expected payoffs for player 2 are the same:
+or to $r$, in fact, the expected payoffs for Player 2 are the same:
 $\frac{1}{4}\cdot3+\frac{3}{4}\cdot0=0.75$ if he plays l and
 $\frac{1}{4}\cdot0+\frac{3}{4}\cdot1=0.75$ if he plays right.\\
 
@@ -816,7 +816,7 @@ Finally at the sixth round, the belief vectors are $\nu_1^6=(5,0)$ and
 $\nu_2^6=(1,4)$. The expected strategy of each player is thus $\mu_1^6=l$
 and $\mu_2^6=\frac{1}{5}U+\frac{4}{5}D$. The best response strategy for
 each player is thus $\sigma_1^4=D$ and $\sigma_2^4=r$: in fact,  the
-expected payoff for player 2 is equal to $\frac{1}{5}\cdot3+\frac{4}{5}\cdot0=0.6$
+expected payoff for Player 2 is equal to $\frac{1}{5}\cdot3+\frac{4}{5}\cdot0=0.6$
 if he plays l and $\frac{1}{5}\cdot0+\frac{4}{5}\cdot1=0.8$ if he plays right.
 Since the strategy $(D,l)$ is a Nash equilibirum (and a strongly dominating
 strategy) of the game, the strategy of each player won't change anymore.\\

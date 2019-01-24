@@ -182,11 +182,11 @@ is given in Figure \ref{chap2:example:figtree} as an illustration.
 
 We construct it as follows. We begin by extracting information regarding the players, their actions, and their knowledge of the game.
 \begin{itemize}
-\item First, we let $N = \{1,2\}$ be the set of players for the game. Here, player 1 refers to $\TAone{}$, and player 2 refers to $\TAtwo{}$ in Example \ref{chap2:example:game}.
+\item First, we let $N = \{1,2\}$ be the set of players for the game. Here, Player 1 refers to $\TAone{}$, and Player 2 refers to $\TAtwo{}$ in Example \ref{chap2:example:game}.
 \item Then, we need to define for each player the possible \emph{information states.} Information states correspond to the different scenarios in which players have to make decisions.
-We let $S_1 = \{a,b\}$ be the set of information states that player 1 may encounter, and $S_2 = \{c\}$ the set of the second player.\\
-In the above, the state $a$ corresponds to the scenario where player 1 sees he has a red card, and $b$ to the case where he has a black card.
-Note that player 2 only has a single information state: he only knows when it is his turn to play, he has no information about the state of player 1.
+We let $S_1 = \{a,b\}$ be the set of information states that Player 1 may encounter, and $S_2 = \{c\}$ the set of the second player.\\
+In the above, the state $a$ corresponds to the scenario where Player 1 sees he has a red card, and $b$ to the case where he has a black card.
+Note that Player 2 only has a single information state: he only knows when it is his turn to play, he has no information about the state of Player 1.
 \textbf{It is critical, when modeling a game, to enumerate all relevant information states.}
 \item At each information state $s$, we let $D_s$ be the set of actions that can be taken at this information state.
 \end{itemize}
@@ -195,7 +195,7 @@ Next, we add structure to represent in which sequence the actions can be taken.
 \item We construct a tree on a set of nodes $V$. These represent three concepts: random events, decisions, or termination of the game, and we assume without loss of generality that all the payoffs are collected there. We thus represent these payoffs in the order corresponding to the players.
 \begin{enumerate}
 \item We let $V_0$ be the set of \emph{chance nodes}. In the tree of Figure \ref{chap2:example:figtree}, there is one chance node at the root of the tree with a label $"0"$. It corresponds to drawing a card, which can be either black or red with probability 1/2 each.
-\item For each information state $s$, we let $Y_s$ be the set of \emph{decision nodes} for the state $s$. Note that, in the above, $Y_c$ has two nodes: we use this to represent the fact that when at state $c$, player 2 does not have perfect information about the state of the game.
+\item For each information state $s$, we let $Y_s$ be the set of \emph{decision nodes} for the state $s$. Note that, in the above, $Y_c$ has two nodes: we use this to represent the fact that when at state $c$, Player 2 does not have perfect information about the state of the game.
 \item Finally, we let $X$ be the set of \emph{leafs} in the tree. These correspond to the termination of the game.
 \end{enumerate}
 \item We then describe how we may navigate the tree.
@@ -562,7 +562,7 @@ $y_1$ & 0, 0 & 7, 7
 $\Bigg \},$
 \end{center}
 and we wonder whether they will behave differently in one game or another. We will show that $\Gamma$ and $\hat \Gamma$ are best response equivalent, and therefore the players should behave the same in both game. To do so, we exploit the symmetry of the game.\\*
-We put ourselves in the shoes of player 1, and assume that player 2 plays $x_2$ with probability $\alpha$ and $y_2$ with probability $1-\alpha$.\\*
+We put ourselves in the shoes of Player 1, and assume that Player 2 plays $x_2$ with probability $\alpha$ and $y_2$ with probability $1-\alpha$.\\*
 In the first game, the expected payoffs are
 $$u_1(x_1, \alpha x_2 + (1-\alpha) y_2) = 9 \alpha, \qquad u_1(y_1, \alpha x_2 + (1-\alpha) y_2) =  \alpha + 7. $$
 Therefore, we play $x_1$ if and only if $9\alpha \geq \alpha + 7$, or $\alpha \geq 7/8$ (plain lines in Figure \ref{chap2:breq}).\\*

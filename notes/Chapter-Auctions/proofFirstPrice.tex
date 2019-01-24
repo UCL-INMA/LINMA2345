@@ -1,4 +1,4 @@
-As a reminder, we have two players, player 1 and player 2, who each have a valuation for an item that is being sold. We know that $v_1$ and $v_2$ are independent and identically distributed from a uniform distribution with parameters $0$ and $1$. We use $b_1$ and $b_2$ to denote the bid of player 1 and 2, respectively. Also, we use $u_1$ and $u_2$ to denote the utility of player 1 and 2, respectively. We have three cases
+As a reminder, we have two players, Player 1 and Player 2, who each have a valuation for an item that is being sold. We know that $v_1$ and $v_2$ are independent and identically distributed from a uniform distribution with parameters $0$ and $1$. We use $b_1$ and $b_2$ to denote the bid of Player 1 and 2, respectively. Also, we use $u_1$ and $u_2$ to denote the utility of Player 1 and 2, respectively. We have three cases
 \begin{enumerate}
     \item If $b_1 < b_2$, then $u_1 = 0$ and $u_2 = v_2 - b_2$;
     \item If $b_1 > b_2$, then $u_1 = v_1 - b_1$ and $u_2 = 0$;
@@ -10,7 +10,7 @@ However, we know that the last case will happen with a probability zero.
 \vspace{5mm}
 
 
-First, let us show that $b_1 \parent{v_1} = \frac{1}{2} v_1$ is a best response for player 1 to the strategy of player 2. To be more precise, we need to check that for any fixed type $v_1$ for player 1, $b_1 \parent{v_1} = \frac{1}{2} v_1$ is a best response to the strategy of player 2, knowing that the strategy of player 2 will be $b_2 \parent{v_2} = \frac{1}{2} v_2$.
+First, let us show that $b_1 \parent{v_1} = \frac{1}{2} v_1$ is a best response for Player 1 to the strategy of Player 2. To be more precise, we need to check that for any fixed type $v_1$ for Player 1, $b_1 \parent{v_1} = \frac{1}{2} v_1$ is a best response to the strategy of Player 2, knowing that the strategy of Player 2 will be $b_2 \parent{v_2} = \frac{1}{2} v_2$.
 We need to compute
 \begin{equation*}
     b_1^{*}
@@ -98,4 +98,4 @@ Note that one should still check the values of $f$ at discontinuous points, whic
 
 \vspace{5mm}
 
-Now let us show that $b_2 \parent{v_2} = \frac{1}{2} v_2$ is a best response for player 2 to the strategy of player 1. For this, we simply use the symmetry of the problem. This concludes the proof.
+Now let us show that $b_2 \parent{v_2} = \frac{1}{2} v_2$ is a best response for Player 2 to the strategy of Player 1. For this, we simply use the symmetry of the problem. This concludes the proof.

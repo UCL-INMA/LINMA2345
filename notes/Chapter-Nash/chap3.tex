@@ -242,7 +242,7 @@ $$0 = w_2 < u_2(B,b) = 1. $$
 
 In that case, applying the procedure will not give us more information than what we already have.
 Indeed, the case is \emph{symmetric} with the case studied just above, $B$ vs $c$.
-The current set of strategies do not constitute an equilibrium since player 1 should play $B$ instead of $C$.
+The current set of strategies do not constitute an equilibrium since Player 1 should play $B$ instead of $C$.
 
 \item \textbf{\{B\} $\times$ \{b\}}.
 
@@ -258,7 +258,7 @@ This corresponds to the case when e.g. the first player randomizes between $B$ a
 \begin{itemize}
 \item \textbf{\{B, C\} $\times$ \{b\}}.
 
-Thus, for player 1, the system of eq. \ref{eq:NeEquals} reads
+Thus, for Player 1, the system of eq. \ref{eq:NeEquals} reads
 $u_1(B,b) = u_1(C,b) = w_1, $
 which cannot hold since $u_1(B,b) > u_1(C,b). $
 Thus, the support does not lead to a Nash equilibrium.
@@ -274,7 +274,7 @@ These are  symmetric to the two cases above. No equilibria.
 \end{itemize}
 \item Fully randomized strategy: \textbf{\{B, C\} $\times$ \{b, c\} vs \{B, C\} $\times$ \{b, c\}}.
 
-For player 1, eq. \ref{eq:NeEquals} reads
+For Player 1, eq. \ref{eq:NeEquals} reads
 $$
 \begin{aligned}
  \sigma_2(b)u_1(B,b) + \sigma_2(c)u_1(B,c) & = \sigma_2(b)u_1(C,b) + \sigma_2(c)u_1(C,c)= \\
@@ -319,7 +319,7 @@ There are dominated strategies in the game, and  we should exploit this in order
 More precisely, [Ff] is strongly dominated (see Definition \ref{chap2:defdomibr})  by a randomized strategy in $\Delta$([Rf],[Rr]) (e.g. 0.5[Rf] + 0.5[Rr]).
 Therefore, it is never going to be a best response, and can be removed from the game.
 Thus, we may reduce the game by removing the strongly dominated strategy\footnote{The formal proof of this result is left as an exercise.}.\\
-%Also, ``Fr'' is \emph{weakly dominated} by ``Rr''. We can guarantee that it will never be part of an equilibrium where player 2 plays ``m'' even with a small probability, then ``Fr'' will never be part of a Nash equilibria. \\
+%Also, ``Fr'' is \emph{weakly dominated} by ``Rr''. We can guarantee that it will never be part of an equilibrium where Player 2 plays ``m'' even with a small probability, then ``Fr'' will never be part of a Nash equilibria. \\
 In other words,  we can safely analyze the following reduced game presented in Figure \ref{chap3:tablefromchap2-reduced} without loosing any Nash Equilibria.
 \begin{figure}[!ht]
 \centering
@@ -337,14 +337,14 @@ Fr & 1.5, 2.5 & 3, 1
 It appears that the reduced game still contains a \emph{weakly dominated} strategy, [Fr].
 In general, we can not guarantee that weakly dominated strategies cannot be part of an equilibrium.\footnote{We will investigate the elimination of weakly dominated strategies as part of an exercise.}
 However, in the present case, we will see that [Fr] is indeed not part of an equilibrium.\\
-In order to show this, observe that if player 2 has a
+In order to show this, observe that if Player 2 has a
  non-zero probability of playing [m],
   then player $1$ has no interest in playing [Fr] (as he would rather play [Rr]).
- Thus, let us first consider the \emph{supports} where player 2 only plays  [p].\\
- The best response from player 1 to [p] is to play a randomized strategy in $\Delta$([Rr], [Fr]).
- However, if player 1 plays such a strategy,   the best response of player 2 is to play [m],
+ Thus, let us first consider the \emph{supports} where Player 2 only plays  [p].\\
+ The best response from Player 1 to [p] is to play a randomized strategy in $\Delta$([Rr], [Fr]).
+ However, if Player 1 plays such a strategy,   the best response of Player 2 is to play [m],
   which is outside the support currently under consideration.
-   Thus, there are no equilibria where player 2 plays [m] with zero probability.\\
+   Thus, there are no equilibria where Player 2 plays [m] with zero probability.\\
    As a conclusion, we can further reduce the game by eliminating [Fr], leading us to consider the game of Figure \ref{chap3:tablefromchap2-reduced2}.
 
 
@@ -372,7 +372,7 @@ Applying the procedure, step \ref{chap3:prc2:domi} would reject the existence of
 \item[\textbf{Case 2:}] One of the players randomizes, the other doesn't (4 supports to check).
 
 Here again, there will be no equilibrium, and the reason is exactly the same as before.
-For example, if player 2 played [m], player 1 would have no interest in randomizing, since the best response to [m] is [Rf].
+For example, if Player 2 played [m], Player 1 would have no interest in randomizing, since the best response to [m] is [Rf].
 
 Applying the procedure, step \ref{chap3:prc2:equ} would reject the existence of equilibria.
 
@@ -381,7 +381,7 @@ Applying the procedure, step \ref{chap3:prc2:equ} would reject the existence of 
 This case is more interesting and we may apply both step \ref{chap3:prc2:equ} and step \ref{chap3:prc2:domi} of the procedure. We did not find tricks to avoid doing so.\\
 Remark that we are already certain that this last support carries an equilibrium. This is due to Theorem \ref{chap3:thm:Nash}: there must be an equilibrium in this game, and we are now inspecting the last support remaining.
 
-First, we need to solve the following linear systems (step \ref{chap3:prc2:equ}, for player 1 and 2 respectively)
+First, we need to solve the following linear systems (step \ref{chap3:prc2:equ}, for Player 1 and 2 respectively)
 \begin{equation}
 \begin{aligned}
  2 \sigma_2(m) + 3 \sigma_2(p) & = 2.5 \sigma_2(m) + 2 \sigma_2(p) (= w_1); \\
@@ -441,8 +441,8 @@ As illustrated in the previous section, computing Nash
 \emph{Two-player zero-sum games} are such games.
  These games describe situations in which two individuals are
  in pure opposition to each other, where one's gain is always the
-  other one's loss. More formally, the utility functions $u_1$ and $u_2$ of player 1 and 2 (resp.) are such that $u_1 = - u_2$.\\
-As a consequence, the goal of player 2, in maximizing his own gain, is equivalent to the minimization of the gains of player 1.
+  other one's loss. More formally, the utility functions $u_1$ and $u_2$ of Player 1 and 2 (resp.) are such that $u_1 = - u_2$.\\
+As a consequence, the goal of Player 2, in maximizing his own gain, is equivalent to the minimization of the gains of Player 1.
 
 The Nash equilibria for these games are characterized by the following result:
 \begin{theorem}
@@ -458,7 +458,7 @@ $$u_1(\sigma_1, \sigma_2) = \max_{\tau_1 \in \Delta(C_1)} \min_{\tau_2 \in \Delt
 There are a few interesting observations to extract from the theorem.
 \begin{enumerate}
 \item There might be multiple equilibria $\sigma^1, \sigma^2, \ldots$. However, their payoffs are all equal, i.e. $\forall i \in N$, $u_i(\sigma^k) = u_i(\sigma^1)$, for $k = 2, \ldots$.
-\item When considering games in strategic form, we assume that players play simultaneously. In the present case, this can be relaxed a little. At an equilibrium, player 1 will act as if player 2 plays after him and responds in the worst way for player 1. The result states that the equilibrium strategy of player 1 also maximizes his payoff under this pessimistic assumption.
+\item When considering games in strategic form, we assume that players play simultaneously. In the present case, this can be relaxed a little. At an equilibrium, Player 1 will act as if Player 2 plays after him and responds in the worst way for Player 1. The result states that the equilibrium strategy of Player 1 also maximizes his payoff under this pessimistic assumption.
 \item Theorem \ref{chap3:thm:2P0S} allows to solve two-player zero-sum games (i.e. to compute their Nash Equilibria) efficiently, thanks to, e.g., Linear Programming.
 \end{enumerate}
 \label{chap:NE}
@@ -485,18 +485,18 @@ Rf & 0.5/-0.5 & 0/0
 \end{figure}
 The game we obtain is by construction equivalent (Definition \ref{chap2:def:fullEquivalence}) to the original game.
 
-Now, let $x$ be the probability for player 1 to play [Rr], and let $y$  be the probability for player 2 to play [m].  The payoff of player 1 is given by
+Now, let $x$ be the probability for Player 1 to play [Rr], and let $y$  be the probability for Player 2 to play [m].  The payoff of Player 1 is given by
 $$u_1'(x,y) = x(1-y) + 0.5 (1-x)y. $$
 Following the theorem, we wish to compute the function
 $$ w_1(x) = \min_{y} u_1'(x,y),$$
 and then compute the value of $x$ at the equilibrium by taking $x = \argmax w_1(x)$.
 The derivative of $u_1'$ according to $y$ is $0.5 - 1.5 x$. Therefore,
 \begin{enumerate}
-\item If $0 \leq x < 1/3$, the derivative is positive, so player 2 should play $y = 0$ (pure strategy [p]) to minimize the payoff of player $u_i(\sigma^k)$.
+\item If $0 \leq x < 1/3$, the derivative is positive, so Player 2 should play $y = 0$ (pure strategy [p]) to minimize the payoff of player $u_i(\sigma^k)$.
 In this case, we get $w_1(x) = x$ for $x \in [0, 1/3[$.
-\item If $1/3 < x \leq 1$, the derivative is negative, so player 2 should play $y = 1$ (pure strategy [m]).
+\item If $1/3 < x \leq 1$, the derivative is negative, so Player 2 should play $y = 1$ (pure strategy [m]).
 In this case, we get $w_1(x) = 0.5(1-x)$ for $x \in ]1/3, 1]$.
-\item If $x = 1/3$, then the derivative is 0. From the expression of $u_1'$, player 2 should play $y = 1$. Thus, $w_1(x) = 1/3$ when $x = 1/3$.
+\item If $x = 1/3$, then the derivative is 0. From the expression of $u_1'$, Player 2 should play $y = 1$. Thus, $w_1(x) = 1/3$ when $x = 1/3$.
 \end{enumerate}
 
 Overall, the maximum of $w_1(x)$ is attained at $x = 1/3$ (see Figure \ref{chap3:figP2OS}),  which turns out to be exactly the value of $\sigma_1(\text{[Rr]})$ (probability of playing [Rr]) computed for the Nash equilibrium in Example \ref{chap3:ex:cardgame}.
@@ -506,7 +506,7 @@ Overall, the maximum of $w_1(x)$ is attained at $x = 1/3$ (see Figure \ref{chap3
 \begin{figure}[!ht]
 \centering
 \includegraphics[width = 0.7\textwidth]{figP2OS.eps}
-\caption{The payoff of player 1 as a function of $x$.}
+\caption{The payoff of Player 1 as a function of $x$.}
 \label{chap3:figP2OS}
 \end{figure}
 

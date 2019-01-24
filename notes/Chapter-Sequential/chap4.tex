@@ -111,7 +111,7 @@ Thus, the probability of being at the upper branch of the game and at node $2.c$
 $$ p(2.c |  \text{red}) = \frac{\frac{1}{2}p(R | 1.a)}{p(2.c)} = \frac{3}{4},$$
 where the above is nothing else that an application of \emph{Bayes} formula.\\
 
-In this example, we saw that the move of player 2 would need to depend on the probability that he believes to be either in the upper branch (red card) of the game or the lower branch (black card). In any scenario, a rational move can be computed. The Nash Equilibrium of the game corresponds to a case where player 2 believes there are 3 chances over 4 that player 1 has a red card should he raise.
+In this example, we saw that the move of Player 2 would need to depend on the probability that he believes to be either in the upper branch (red card) of the game or the lower branch (black card). In any scenario, a rational move can be computed. The Nash Equilibrium of the game corresponds to a case where Player 2 believes there are 3 chances over 4 that Player 1 has a red card should he raise.
 
 
 \end{example}
@@ -351,9 +351,9 @@ Mathematically speaking, mixed strategies (\ref{ch4:eq:mixedStrat}) and behaviou
 
 \begin{example}
 Consider the game of Example \ref{ch4:ex:Formalism}.
-We take for the example the following mixed strategy for player 1:
+We take for the example the following mixed strategy for Player 1:
 $$( 0.5[a1,y1] + 0.5 [b1,z1] ). $$
-When implementing its strategy, player 1 is first going to randomize between $a1$ and $b1$. Then, if he did do $b1$, he will have to play again at information state $1.c$, where he should play $z1$.
+When implementing its strategy, Player 1 is first going to randomize between $a1$ and $b1$. Then, if he did do $b1$, he will have to play again at information state $1.c$, where he should play $z1$.
 Thus, the mixed strategy actually corresponds to the following behavioural strategy:
 $$ (0.5 [a1] + 0.5 [b1], [z1]), $$
 where the first part corresponds to the move at informations state $1.a$, and the second to the move at information state $1.b$. \\
@@ -549,9 +549,9 @@ The converse, as shown in the next example, is not true.
 Consider the following variation of the card game of Example \ref{ch4:ex:cardgame}.
 \begin{itemize}
 \item Both players bet 1 EUR.
-\item Player 1 picks a red or a black card. If it is a red card, he raises the bet and puts an additional 1 EUR on the table. If it is a black card, either he raises by 1 EUR, or folds. If he folds, player 2 wins the 1 EUR of player 1, and the game ends.
-\item If player 1 raises, then player 2 privately decides whether he meets the bet or passes by putting 1 EUR in a closed envelope, or not.
-\item Then, player 1 shows his card. If the card is red, then he wins the envelope. If it is black, then he has one additional move to make. Either he surrenders, at which point he takes back 1 EUR and leaves the rest to player 2. Or he attacks, and if player 2 met the raise, then player 2 wins everything and if player 2 passed on the bet, player 1 wins everything.
+\item Player 1 picks a red or a black card. If it is a red card, he raises the bet and puts an additional 1 EUR on the table. If it is a black card, either he raises by 1 EUR, or folds. If he folds, Player 2 wins the 1 EUR of Player 1, and the game ends.
+\item If Player 1 raises, then Player 2 privately decides whether he meets the bet or passes by putting 1 EUR in a closed envelope, or not.
+\item Then, Player 1 shows his card. If the card is red, then he wins the envelope. If it is black, then he has one additional move to make. Either he surrenders, at which point he takes back 1 EUR and leaves the rest to Player 2. Or he attacks, and if Player 2 met the raise, then Player 2 wins everything and if Player 2 passed on the bet, Player 1 wins everything.
 \end{itemize}
 
 After a few simplifications, we can model this game with the following extensive form.
@@ -635,7 +635,7 @@ The multi-agent representation  is given by
 \end{tabular}
 .
 \end{center}
-where the payoffs are written as $(v_{1.a} / v_{1.c} / v_{2.b})$. Observe that the behavioural strategy profile (fold, pass, atck) is a Nash Equilibrium for the multi-agent representation. The equilibrium brings a payoff of 2 to player 1. However, if player 1  chooses the behavioural strategy (raise, surr) instead of (fold, atck), then he would obtain a payoff of 3!. As a conclusion, the mixed representation of   (fold, pass, atck) is not a Nash Equilibrium for the strategic form of the game, even though it is an equilibrium of the multi-agent representation.
+where the payoffs are written as $(v_{1.a} / v_{1.c} / v_{2.b})$. Observe that the behavioural strategy profile (fold, pass, atck) is a Nash Equilibrium for the multi-agent representation. The equilibrium brings a payoff of 2 to Player 1. However, if Player 1  chooses the behavioural strategy (raise, surr) instead of (fold, atck), then he would obtain a payoff of 3!. As a conclusion, the mixed representation of   (fold, pass, atck) is not a Nash Equilibrium for the strategic form of the game, even though it is an equilibrium of the multi-agent representation.
 \end{example}
 
 
@@ -714,7 +714,7 @@ The equilibrium strategy profile $\tau$ is \emph{sequentially rational} at all i
 \label{ch4:th:WeakRatio}
 \end{theorem}
 
-However, the scope of the result remains limited. When applied to Example \ref{ch4:ex:seqRatio} for the strategy $([y_1],[y_2])$, one can verify through the theorem that the equilibrium is rational for player 1. But it does not tell us anything for player 2.\\
+However, the scope of the result remains limited. When applied to Example \ref{ch4:ex:seqRatio} for the strategy $([y_1],[y_2])$, one can verify through the theorem that the equilibrium is rational for Player 1. But it does not tell us anything for Player 2.\\
 In order to tackle information states that occur with probability 0, we need a stronger notion of consistency for belief vectors.
 
 \subsection{Sequential equilibrium: Rationality at all information states}
@@ -759,8 +759,8 @@ For any finite extensive form game, the set of sequential equilibria is non-empt
 \begin{example}[The signalling game]
 \label{ch4:ex:signalling}
 We consider a two-player game. Player 1 is a student seeking to be hired for a job. He has some private information - he is either highly motivated by the job and will be very productive (type $h$ for \emph{high profile candidate}) or maybe he just wants to get the money
-and do the least amount of job possible (type $l$ for \emph{low profile candidate}).\\ Based on the result of an exam, Player 2 needs to decide whether to hire player 1 ($H$) or not ($N$). \\
-Regarding this test, player 1 can decide to study for it ($S$) or decide to relax instead ($R$).\\
+and do the least amount of job possible (type $l$ for \emph{low profile candidate}).\\ Based on the result of an exam, Player 2 needs to decide whether to hire Player 1 ($H$) or not ($N$). \\
+Regarding this test, Player 1 can decide to study for it ($S$) or decide to relax instead ($R$).\\
 The game is represented by the following extensive form.
 \begin{center}
 \begin{tikzpicture}
@@ -878,7 +878,7 @@ $$
 For this behavioural strategy, the information state $2.d$ cannot be reached:
 $$P(X_5 | \tau) + P(X_{12} | \tau) = 0. $$
 By setting for example $\pi_{2.d}(X_5) = \pi_{2.d}(X_{12}) = \frac{1}{2}$, the obtained belief vector is \emph{weakly consistent}. Thus, we know from Theorem \ref{ch4:th:WeakRatio} that the strategy is sequentially rational at information states $1.a, 1.b$ and $2.c$.\\
-Yet the action at information state $2.d$ is very important. Indeed, if it is not rational for player 2 to play the move $n$, then we fall back to a situation alike the one of Example \ref{ch4:ex:badEqu}, where the Nash Equilibrium is not rational.\\
+Yet the action at information state $2.d$ is very important. Indeed, if it is not rational for Player 2 to play the move $n$, then we fall back to a situation alike the one of Example \ref{ch4:ex:badEqu}, where the Nash Equilibrium is not rational.\\
 Thus, assume player $1$ plays $\tau_1^{\alpha, \beta} = (1-\alpha[S] + \alpha [R],1-\beta[s] + \beta [r] )$, and let $\tau = (\tau_{1}^{\alpha, \beta}, \tau_2)$\footnote{Here, $\tau_2 \not \in \times_{s \in S_2} \Delta^0 D_s$. This, however, does not impact the beliefs of the players.}.
 For all $\alpha, \beta \in [0,1]$, we can compute
 $$\pi_{2.d}(X_5) = \frac{P(X_5 | \tau)}{ P(X_5 | \tau) + P(X_{12} | \tau) }  = \frac{\alpha}{\alpha + \beta}.$$
@@ -920,7 +920,7 @@ forms a sequential equilibrium.
 \item The equilibrium $([Rr], [Nh])$.
 \end{enumerate}
 
-We can show that the above corresponds to a sequential equilibria, with a belief vector that reflects that for player 2, in the unlikely scenario that the candidate did study, it is more likely that the candidate has a low profile.
+We can show that the above corresponds to a sequential equilibria, with a belief vector that reflects that for Player 2, in the unlikely scenario that the candidate did study, it is more likely that the candidate has a low profile.
 \end{example}
 \ifx \globalmark \undefined %% This is default.
 \bibliographystyle{plain}
