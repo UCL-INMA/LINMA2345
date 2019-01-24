@@ -167,10 +167,14 @@ the \emph{solution} of the problem.
 \end{notation}
  The axioms in question are the following.
 
-\begin{axiom}[Strong efficiency.] $\phi(F, v)$ is an allocation in $F$ and, for all $x$ in $F$, if $x \geq \phi(F, v)$, then $x = \phi(F, v)$.
-\label{axiSE}
-\end{axiom}
-\begin{axiom}[Weak efficiency.] $\phi(F, v) \, \in \, F$ and there does not exist any $y$ in $F$ such that $y > \phi(F, v)$.
+\begin{axiom}[Efficiency.]
+  \label{axiSE}
+  $ $ % Makes the first line be non-empty to trigger a newline
+
+  \begin{enumerate}
+    \item Strong: $\phi(F, v)$ is an allocation in $F$ and, for all $x$ in $F$, if $x \geq \phi(F, v)$, then $x = \phi(F, v)$.
+    \item Weak: $\phi(F, v) \, \in \, F$ and there does not exist any $y$ in $F$ such that $y > \phi(F, v)$.
+  \end{enumerate}
 \end{axiom}
 \begin{axiom}[Individual rationality.] $\phi(F, v) \in F$ is rational, i.e. $\phi(F, v) \geq v$.
 \end{axiom}
@@ -261,7 +265,7 @@ In \eqref{thm1}, we see that we can focus on the set of all points that are \emp
 
 The solution in \eqref{thm1} is obtained by solving a quadratic program with (linear) constraints.
 To compute it,  in this case, we may rely on our intuition.
-We know for a fact that the solution is Strongly Efficient (Axiom \ref{axiSE}). Hence, it lies on one of the two lines forming the boundary of the domain.
+We know for a fact that the solution is Strongly Efficient (Axiom~\ref{axiSE}). Hence, it lies on one of the two lines forming the boundary of the domain.
 We may just find the maximum along each line, compare these maxima, and pick the best one as our solution.
 
 \begin{itemize}
