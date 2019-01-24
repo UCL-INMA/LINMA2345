@@ -102,7 +102,7 @@ Sadly,
 does not yet have a solution.
 You are encouraged to submit one to the following address
 \begin{center}
-  \url{https://github.com/blegat/LINMA2345}
+  \url{https://github.com/UCL-INMA/LINMA2345}
 \end{center}
 \end{solution}
 }
