@@ -1,7 +1,7 @@
 \ifx \globalmark \undefined %% This is default.
 \input{../header}
-\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).	
-\else 	
+\begin{document} %% Crashes if put after (one of the many mysteries of LaTeX?).
+\else
 \fi
 
 
@@ -15,8 +15,10 @@
 \vfill
 
 \begin{figure}[!ht]
-\centering
-\includegraphics[width = 8cm]{Logo_UCL-EPL.eps}
+  \centering
+  \includegraphics[height = 1cm]{_UCLouvain_Logo_Impression_Positif_CMJN.jpg}
+  \hfill
+  \includegraphics[height = 1cm]{Logo_EPL.jpg}
 \end{figure}
 
 
@@ -39,29 +41,19 @@ Rational decisions among individuals} \\
 \parbox[H][][c]{\textwidth}
 	{
 	\begin{tabular}{rl}
-	\textbf{Professor ---} &  Rapha\"el Jungers \\	 		
-	\textbf{Teaching Assistants 2017 ---} 	 &	Beno\^it Legat \\	
-		     &	Matthew Philippe 	
+	\textbf{Professor ---} &  Rapha\"el Jungers \\
+	\textbf{Teaching Assistants 2019 ---} 	 &	Beno\^it Legat \\
+		     &	Mahsa Farjadnia
 	\end{tabular}
 	}\par
-	
 
 
 
-%
-%\begin{figure}[!ht]
-%\centering
-%\includegraphics[width = 10cm]{cakes.pdf}
-%\end{figure}
-$\,$\\[1cm]
 
-
-Universit\'e catholique de Louvain (U.C.L.)\\
+UCLouvain\\
 Louvain school of Engineering (L.S.E. - E.P.L.)\\
 $\,$\\
-February 2017\\
-$\,$\\
-\tiny{LINMA2345 Notes V.2017 --- \url{https://github.com/UCL-INMA/LINMA2345}}
+\tiny{LINMA2345 Notes --- Published in \monthyeardate\today $\,$ --- sources: \url{https://github.com/UCL-INMA/LINMA2345}}
 \end{center}
 
 \end{titlepage}
@@ -81,7 +73,7 @@ $\,$\\
 % \date{\textbf{October, 2004}}
 %\maketitle
 % \end{titlepage}
-% 
+%
 
 
 
@@ -92,6 +84,6 @@ $\,$\\
 \bibliographystyle{plain}
 \bibliography{../gametheorybibliography}
 	\end{document}
-\else 
-	
+\else
+
 \fi
