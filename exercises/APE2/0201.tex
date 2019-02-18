@@ -153,26 +153,23 @@
 	      	\item $u = u_1 \times u_2$ are the payoff functions given in the first table, Table \ref{tab:normRep}.
 
 	      \end{itemize}
-				
+
 				The payoff function can be represented by these two tables.
-			 
+
 			 \begin{center}
-				 \begin{tabular}{l|cc}
-					 		high costs & enter & not enter \\
+				 \begin{tabular}{l|cccc}
+              high costs & Ee & E\=e & \=Ee & \=E\=e \\
 					 		\hline
-					 		open        & -10/2 & -4/0 \\
-					 		not open    & -6/2  &  0/0 \\
+              open        & 0/$-4$ & 0/$-4$ & 6/0 & 6/0 \\
+              not open    & $-2$/$-4$ & 4/0 & $-2$/$-4$ & 4/0\\
 				 \end{tabular}
-				 $\qquad$
-				 ,
-				 $\qquad$
-				 \begin{tabular}{l|cc}
-					 		low costs & enter & not enter \\
+
+				 \begin{tabular}{l|cccc}
+					 		low costs & Ee & E\=e & \=Ee & \=E\=e \\
 					 		\hline
-					 		open        & 0/-4  & 6/0 \\
-					 		not open    & -2/-4 & 4/0 \\
+					 		open        & $-10$/2 & $-10$/2  & $-4$/0 & $-4$/0 \\
+					 		not open    & $-6$/2 & 0/0 & $-6$/2 & 0/0\\
 				 \end{tabular}
-				 .
 			 \end{center}
 
 Note that these two tables give exactly the same information as Table \ref{tab:normRep}.
@@ -184,17 +181,17 @@ Note that these two tables give exactly the same information as Table \ref{tab:n
  \begin{itemize}
  \item The set of agents is $T^{*} = T_1 + T_2 = \bracket{\text{high, low, f}}$.
  \item If $t_k \in T_i$, then the pure strategies for $t_k$ are $C_i$.
- \item The support is $D = \times_{i \in T^{*}} D_{i}$, with $D_{\text{high}} = \bracket{\text{o, \=o}}$, $D_{\text{low}} = \bracket{\text{O, \=O}}$ and $D_{\text{f}} = \bracket{\text{Ee, E\=e, \=Ee, \=E\=e}}$. 
+ \item The support is $D = \times_{i \in T^{*}} D_{i}$, with $D_{\text{high}} = \bracket{\text{o, \=o}}$, $D_{\text{low}} = \bracket{\text{O, \=O}}$ and $D_{\text{f}} = \bracket{\text{Ee, E\=e, \=Ee, \=E\=e}}$.
  \item The payoff function of agent $t_k \in T_i$ is given by
  \begin{equation*}
      v_{t_k}(d) = \sum_{t_{-i} \in T_{-i}} p_i \parent{t_{-i}|t_k} \cdot u_{i} \parent{d, (t_k, t_{-i})}
  \end{equation*}
  \end{itemize}
- 
- The answer is given on Table \ref{tab:typeAgent0201}. These payoffs are to be read like 
+
+ The answer is given on Table \ref{tab:typeAgent0201}. These payoffs are to be read like
 
 \begin{center}
-(Firm 1's payoff with high costs, 
+(Firm 1's payoff with high costs,
 Firm 1's payoff with low costs,
 Firm 2's payoff)
 \end{center}
@@ -235,25 +232,25 @@ We will explain who to compute these payoffs just after the table.
 Let us analyse the payoffs in this table, for example the first entries, i.e., the three entries in the first row, first column, corresponding to $d = \parent{\text{o, O, Ee}}$. We find $-10, 0, -1$ because:
 \begin{itemize}
      \item First, we want to compute $v_{\text{high}} \parent{d}$ hence $t_{k} = \text{high} \in T_1$, and $i = 1$. With the formula, we find
-     
+
      \begin{align*}
          v_{\text{high}} \parent{d}
         & = \sum_{t_{2} \in T_{2}} p_{1} \parent{t_{2}|\text{high}} \cdot u_{1} \parent{d, (\text{high}, t_{2})} \\
         & = p_{1} \parent{f|\text{high}} \cdot u_{1} \parent{d, (\text{high}, f)} \\
         & = 1 \cdot (- 10) = -10.
      \end{align*}
-     
+
      \item Second, we want to compute $v_{\text{low}} \parent{d}$ hence $t_{k} = \text{low} \in T_1$, and $i = 1$. With the formula, we find
-     
+
      \begin{align*}
          v_{\text{low}} \parent{d}
         & = \sum_{t_{2} \in T_{2}} p_{1} \parent{t_{2}|\text{low}} \cdot u_{1} \parent{d, (\text{low}, t_{2})} \\
         & = p_{1} \parent{f|\text{low}} \cdot u_{1} \parent{d, (\text{low}, f)} \\
         & = 1 \cdot 0 = 0.
      \end{align*}
-     
+
      \item Finally, we want to compute $v_{\text{f}} \parent{d}$ hence $t_{k} = \text{f} \in T_2$, and $i = 2$. With the formula, we find
-     
+
      \begin{align*}
          v_{\text{f}} \parent{d}
         & = \sum_{t_{1} \in T_{1}} p_2 \parent{t_{1}|\text{f}} \cdot u_{2} \parent{d, (\text{f}, t_{1})} \\
@@ -268,25 +265,25 @@ Let us analyse the payoffs in this table, for example the first entries, i.e., t
 Now let us look at a second example. We will look at the three entries in the second row, third column, corresponding to $d = \parent{\text{\=o, O, \=Ee}}$. We can also define $d$ more explicitly with $d$ = (high: not open, low: open, follower: not enter when firm 1 has opened a shop, enter when firm 1 has not opened a shop). We find $-6, 6, 1$ because:
 \begin{itemize}
      \item First, we want to compute $v_{\text{high}} \parent{d}$ hence $t_{k} = \text{high} \in T_1$, and $i = 1$. With the formula, we find
-     
+
      \begin{align*}
          v_{\text{high}} \parent{d}
         & = \sum_{t_{2} \in T_{2}} p_{1} \parent{t_{2}|\text{high}} \cdot u_{1} \parent{d, (\text{high}, t_{2})} \\
         & = p_{1} \parent{f|\text{high}} \cdot u_{1} \parent{d, (\text{high}, f)} \\
         & = 1 \cdot (- 6) = -6.
      \end{align*}
-     
+
      \item Second, we want to compute $v_{\text{low}} \parent{d}$ hence $t_{k} = \text{low} \in T_1$, and $i = 1$. With the formula, we find
-     
+
      \begin{align*}
          v_{\text{low}} \parent{d}
         & = \sum_{t_{2} \in T_{2}} p_{1} \parent{t_{2}|\text{low}} \cdot u_{1} \parent{d, (\text{low}, t_{2})} \\
         & = p_{1} \parent{f|\text{low}} \cdot u_{1} \parent{d, (\text{low}, f)} \\
         & = 1 \cdot 6 = 6.
      \end{align*}
-     
+
      \item Finally, we want to compute $v_{\text{f}} \parent{d}$ hence $t_{k} = \text{f} \in T_2$, and $i = 2$. With the formula, we find
-     
+
      \begin{align*}
          v_{\text{f}} \parent{d}
         & = \sum_{t_{1} \in T_{1}} p_2 \parent{t_{1}|\text{f}} \cdot u_{2} \parent{d, (\text{f}, t_{1})} \\
@@ -296,7 +293,7 @@ Now let us look at a second example. We will look at the three entries in the se
      \end{align*}
 \end{itemize}
 
-The other entries are completed similarly. 
+The other entries are completed similarly.
 
 
 \end{enumerate}
