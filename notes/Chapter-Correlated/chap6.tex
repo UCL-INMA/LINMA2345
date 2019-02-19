@@ -181,11 +181,11 @@ B & 1, 1 & 3, 2
 
 We begin by computing the minimax value $v_1$. Assume that Bob plays $c$ with probability $\beta$, and $b$ with probability $1-\beta$.
 The payoff of Alice are given by
-$$ u_{1}(C, \beta[c] + 1-\beta[b]) = 3\beta - 1, u_{1}(B, \beta[c] + 1-\beta[b]) = -2\beta + 3.  $$
+$$ u_{1}(C, \beta[c] + (1-\beta)[b]) = 3\beta - 1, \qquad u_{1}(B, \beta[c] + (1-\beta)[b]) = -2\beta + 3.  $$
 The minimax strategy for Bob is to pick $\beta = 4/5$, and the minimax value for Alice is $v_1 = 7/5$.
 
 For $v_2$, we apply the same technique: if Alice plays $C$ with probability $\alpha$, we have
-$$ u_{2}(\alpha [C] + (1-\alpha)[B], c) = 2 \alpha - 1, u_{2}(\alpha [C] + (1-\alpha)[B], b) = -3\alpha + 2.  $$
+$$ u_{2}(\alpha [C] + (1-\alpha)[B], c) = 2 \alpha - 1, \qquad u_{2}(\alpha [C] + (1-\alpha)[B], b) = -3\alpha + 2.  $$
 The minimax strategy for Alice is to pick $\alpha = 1/5$, and the minimax value for Bob is $v_2 = 7/5$.
 
 In conclusion, Alice and Bob will sign any contract proposed by Charles as long as their expected payoff is at least $7/5$. In particular, Charles could tell them to both go to the cinema, or to both go to the ballet.
