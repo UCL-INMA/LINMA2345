@@ -664,15 +664,23 @@ In general the equations of Theorem \ref{thm:stateq} can be quite hard to solve.
 
 \begin{example}[Example \ref{ex:stationaryGame} continued]
 Our goal is now to find the values $\nu_i(\theta)$ for the prisoner dilemma at Example \ref{ex:stationaryGame}.
-We saw in Example \ref{ch9:ex:trigger} that the Grim strategy was and equilibrium for the game with the $\delta-$discounted payoff when $\delta \geq 0.5$.
+We saw in Example \ref{ch9:ex:trigger} that the Grim strategy was an equilibrium for the game with the $\delta-$discounted payoff when $\delta \geq 0.5$.
 Let us now consider the Tit-for-Tat strategies for both players and we focus on Player 1.
-For a given $0 \leq \delta < 1$, applying \eqref{theNuequation} to solve \eqref{thmStufmathc1} (its the same...), we have the following:
+For a given $0 \leq \delta < 1$, applying \eqref{theNuequation} to solve \eqref{thmStufmathc1} (it's the same...), we have the following:
 $$
 \begin{aligned}
-& \nu_1([C],[c]) = (1-\delta) \cdot 1 + \delta \cdot \nu_1([C],[c]), \\
-& \nu_1([D],[c]) = (1-\delta) \cdot -1 + \delta \cdot \nu_1([C],[d]), \\
-& \nu_1([C],[d]) = (1-\delta) \cdot 2 + \delta \cdot \nu_1([D],[c]), \\
-& \nu_1([D],[d]) = (1-\delta) \cdot 0 + \delta \cdot \nu_1([D],[d]). \\
+\nu_1([C],[c])
+& = (1-\delta) \cdot u_1([C],[c]) + \delta \cdot \nu_1([C],[c]) \\
+& = (1-\delta) \cdot 1 + \delta \cdot \nu_1([C],[c]), \\
+\nu_1([D],[c])
+& = (1-\delta) \cdot u_1([C],[d]) + \delta \cdot \nu_1([C],[d]) \\ % The students presenting this course in 2019 got confused thinking that -1 is u_2([D], [c]) so explicitly writing u_1([C],[d]) should help
+& = (1-\delta) \cdot (-1) + \delta \cdot \nu_1([C],[d]), \\
+\nu_1([C],[d])
+& = (1-\delta) \cdot u_1([D],[c]) + \delta \cdot \nu_1([D],[c]) \\
+& = (1-\delta) \cdot 2 + \delta \cdot \nu_1([D],[c]), \\
+\nu_1([D],[d])
+& = (1-\delta) \cdot u_1([D],[d]) + \delta \cdot \nu_1([D],[d]) \\
+& = (1-\delta) \cdot 0 + \delta \cdot \nu_1([D],[d]). \\
 \end{aligned}
 $$
 The solutions are
@@ -687,10 +695,10 @@ $$
 Then, for each state, we need to verify \eqref{thmStufmathc2}. In our present case, this boils down to checking, at any state $\theta \in \Theta$, if we would not have an higher payoff by deviating from the prescribed action at this state. Hence, we would be at equilibrium whenever the following inequalities are satisfied.
 $$
 \begin{aligned}
-& \nu_1([C],[c])  \geq (1-\delta) 2 + \delta\nu_1([D],[c]) = \nu_1([C],[d]) , \text{ doing $D$ instead of $C$,}\\
-& \nu_1([D],[c])  \geq (1-\delta) 0 + \delta \nu_1([D],[d]) = 0,  \text{ doing $D$ instead of $C$ , }\\
-& \nu_1([C],[d])  \geq (1-\delta) 1 + \delta \nu_1([C],[c]) = 1, \text{ doing $C$ instead of $D$, } \\
-& \nu_1([D],[d])  \geq (1-\delta) -1 + \delta \nu_1([C],[d])  = \nu_1([D],[c]). \text{ doing $C$ instead of $D$. } \\
+& \nu_1([C],[c])  \geq (1-\delta) \cdot 2 + \delta\nu_1([D],[c]) = \nu_1([C],[d]) , \text{ doing $D$ instead of $C$,}\\
+& \nu_1([D],[c])  \geq (1-\delta) \cdot 0 + \delta \nu_1([D],[d]) = 0,  \text{ doing $D$ instead of $C$ , }\\
+& \nu_1([C],[d])  \geq (1-\delta) \cdot 1 + \delta \nu_1([C],[c]) = 1, \text{ doing $C$ instead of $D$, } \\
+& \nu_1([D],[d])  \geq (1-\delta) \cdot (-1) + \delta \nu_1([C],[d])  = \nu_1([D],[c]). \text{ doing $C$ instead of $D$. } \\
 \end{aligned}
 $$
 So we see that, for the equations to hold, we need to have exactly $\delta = 0.5$.
