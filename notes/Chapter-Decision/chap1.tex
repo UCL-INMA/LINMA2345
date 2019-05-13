@@ -87,7 +87,15 @@ $t = \rho_1 \rho_2 + \pi_1 \pi_2 + \sigma_1 \sigma_2.$
 \end{enumerate}
 We can conclude that to any choice of $p_1$ you make, and given the configuration of the computer $p_2$ the outcome of the game is to be expressed as a probability distribution $z(p_1, p_2) = (w, \ell, t) \in \Delta(\{\text{win, lose, tie}\})$.
 
-We stress that this distribution depends on $p_1$, the action of the player, and $p_2$, which we may refer to as a \emph{state of the world}.
+Now, suppose that you do not know at all how the computer program was implemented.
+Maybe there is no random mechanism for it to decide the action it will make.
+  Maybe it is just hard-coded to play scissors; who knows?
+
+This situation is very different from the previous one, as you have absolutely no clue from the statement of the problem on what the outcome will be.
+We only know that the outcome will be one element from $\{\mbox{r, p, s}\},$ which will only be revealed to you at the very end.
+
+To emphasize this fact, and to represent any such situation where no probability distribution can be a priori postulated,
+  we will call such possible outcomes \emph{possible states of the world.}
 \end{example}
 
 
