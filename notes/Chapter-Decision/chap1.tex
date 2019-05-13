@@ -100,7 +100,12 @@ To emphasize this fact, and to represent any such situation where no probability
 
 
 
-To summarize, the player makes choices, and for every realization of a set of uncertain parameters, theses choices will result into some probability distribution over a set of prizes. This is formalized through the definition of a \emph{lottery},  that describes the probability of receiving some \emph{prize} in a given \emph{state of the world}.
+More generally, one may have a combination of both types of uncertainties.
+Imagine for instance that there are two computer programs with two different probability distributions implemented,
+and someone activated one of them, but you have no clue about which program has been activated.
+In this most general situation, the player makes choices, and for every realization of a set of uncertain parameters,
+theses choices will result into some probability distribution over a set of prizes.
+This is formalized through the definition of a \emph{lottery},  that describes the probability of receiving some \emph{prize} in a given \emph{state of the world}.
 
 \begin{definition}[Lottery]
 \label{ch1:def1:lottery}
@@ -122,10 +127,12 @@ $$ \forall t \in \Omega, \, \forall y \in X, \, [x](y|t) =
 \end{cases} $$
 \end{notation}
 In Example \ref{ch1:ex2}, we had $X = \{\text{win}, \text{lose}, \text{tie} \}$,
-and $\Omega$ is the set of all probability distributions $p_2$ the computer can be programmed\footnote{Note that in the definition above, we assume $\Omega$ to be finite. We can get away with our example by saying that, since we are programming a computer to play, there is  a finite (but huge) number of possible ways the computer can be programmed to play (due to the finite memory of the machine). However, decision theory also extends to infinite sets of event, which is outside the scope of this chapter.} to follow.  If we fix a distribution $p_1$ for the player, we can see that the outcome of the game (distribution on the prizes) depends only on $p_2$. Thus, by making a choice of a distribution $p_1$, the outcome of the game can be expressed as a lottery as in the above definition.
+and $\Omega$ is the set of all probability distributions $p_2$ the computer can be programmed\footnote{Note that in the definition above, we assume $\Omega$ to be finite. We can get away with our example by saying that, since we are programming a computer to play, there is  a finite (but huge) number of possible ways the computer can be programmed to play (due to the finite memory of the machine). However, decision theory also extends to infinite sets of event, which is outside the scope of this chapter.} to follow.  If we fix a distribution $p_1$ for the player, we can see that the outcome of the game (distribution on the prizes) depends only on $p_2$.
+Thus, by modeling $p_2$ as the state of the world, the outcome of the game can be expressed as a lottery as in the above definition.
 
 
-In a decision making process, player choices lead to  \emph{lotteries}: once his decisions are made, the outcome is a probability distribution on a set of prizes that depends on the state of the world.  Next, we discuss how we can put this notion to good use to understand the mechanism directing the choice of the player.
+In a decision making process, player choices lead to  \emph{lotteries}: once his decisions are made, the outcome is a probability distribution on a set of prizes and that distribution depends on the state of the world.
+Next, we discuss how we can put this notion to good use to understand the mechanism directing the choice of the player.
 
 \section{Preferences and the axioms of Decision Theory}
 
@@ -135,10 +142,10 @@ In practice the player might have some prior knowledge on what could or could no
 
 \begin{definition}[$P(\Omega)$, Event]
 Let $P(\Omega)$ be the set containing all \emph{non-empty} subsets of the set of states of the world $\Omega$.
-An event $S \in P(\Omega)$ is a non-empty subset of $ \Omega $ in which we assume that the true state of the world will be.
+An event $S \in P(\Omega)$ is a non-empty subset of $ \Omega $.
 \end{definition}
 
-In what follows, we assume that the player has a subjective knowledge of an event $S$ (maybe $\Omega$ itself), and we develop the notion of preference between lotteries.
+In what follows, we assume that, even though there are no fixed a priori probabilities on the states of the world, yet the player has a subjective knowledge of an event $S$ (maybe $\Omega$ itself), and we develop the notion of preference between lotteries.
 
 \begin{notation}[ $\succsim, \, \sim, \, \succ$]
 Given two lotteries $f$ and $g$ and an event $S \in P(\Omega)$,
@@ -178,7 +185,7 @@ If $e \succsim_S f$ and $g \succsim_S h$ and $ 0 \leq \alpha \leq 1$ then $\alph
 \label{ch1:ax:objsub}
 \end{axiom}
 \begin{axiom}[Strict Objective Substitution]
-If $e \succ_S f$ and $g \succsim_S h$ and $ 0 < \alpha \leq 1$ then $\alpha e + (1-\alpha) g \succsim_S \alpha f + (1-\alpha) h.$
+If $e \succ_S f$ and $g \succsim_S h$ and $ 0 < \alpha \leq 1$ then $\alpha e + (1-\alpha) g \succ_S \alpha f + (1-\alpha) h.$
 \label{ch1:ax:sobjsub}
 \end{axiom}
 \begin{axiom}[Subjective Substitution]
@@ -189,6 +196,9 @@ If $f \succsim_S g$ and $f \succsim_T g$ and $S \cap T = \emptyset$, then $f \su
 If $f \succ_S g$ and $f \succ_T g$ and $S \cap T = \emptyset$, then $f \succ_{S \cup T} g$.
 \label{ch1:ax:ssubsub}
 \end{axiom}
+
+Note that there is some redundance in the axioms.
+
 \begin{axiom}[Interest]
 For every state $t \in \Omega$, there exists $x, y \in X$ such that $[x] \succ_t [y]$.
 \label{ch1axint}
@@ -214,7 +224,7 @@ In terms of lotteries, the player can pick
 The player tells you his preferences:
 $$[x] \succ [y] \text{ and } .5[x]+.5[z] \prec [w] \prec.5[y]+.5[z].$$
 What would be your advice to the player? Should he play choice 1, 2 or 3?\\
-Advising him to pick $[w]$ would be nonsense, since he would clearly prefer to pick $.5[y]+.5[z]$ in this case. Should you advise him to pick $.5[y]+.5[z]$, you would again make a mistake, since he would be prefer $[x]$ to $[y]$, and thus prefer $.5[x]+.5[z]$ to $.5[y]+.5[z]$...\\
+Advising him to pick $[w]$ would be nonsense, since he would clearly prefer to pick $.5[y]+.5[z]$ in this case. Should you advise him to pick $.5[y]+.5[z]$, you would again make a mistake, since he would prefer $[x]$ to $[y]$, and thus prefer $.5[x]+.5[z]$ to $.5[y]+.5[z]$...\\
 It is thus impossible to give a recommendation to the player. Can you find which axiom is not met in this situation?
 \end{example}
 
@@ -222,7 +232,7 @@ It is thus impossible to give a recommendation to the player. Can you find which
 \label{ch1:otherExa}
 This example is taken from a discussion in \cite[Chapter 3]{ShLeMSAG}, dealing with Axiom \ref{ch1:ax:trans}.
 Given three lotteries $f$, $g$ and $h$, what if it were the case that a player expresses the preferences $f \succ g, \, g \succ h$ but $h \succ f$? \\
-For the sake of the discussion, let us assume that these three lotteries are physically manifested under the form of lottery tickets, and that the player initially hold the ticket for the lottery $f$. \\
+For the sake of the discussion, let us assume that these three lotteries are physically manifested under the form of lottery tickets, and that the player initially holds the ticket for the lottery $f$. \\
 Then, clearly, the agent would be willing to exchange a (perhaps small) amount of money to get a ticket $h$ instead of a ticket $f$. He would then be very happy to exchange another (small) amount of money to get $g$ instead of $f$. Finally, we would be again happy to spend some money to obtain $h$ instead of $g$.\\
 Ultimately, this amounts to the agent accepting to give away some utility for free, which is not rational.
 
@@ -230,7 +240,7 @@ Ultimately, this amounts to the agent accepting to give away some utility for fr
 
 \subsection{The utility maximization theorem}
 
-So far we have discussed the concept of lottery (which tell the player what he may get by doing something) and discussed preference relationships between lotteries.
+So far we have discussed the concept of lottery (which tells the player what he may get by doing something) and discussed preference relationships between lotteries.
 
 It seems quite natural that this idea of preference should be related to the benefit that one player gets from receiving a prize. This is reflected through the usage of \emph{utility functions}:
 
@@ -238,21 +248,26 @@ It seems quite natural that this idea of preference should be related to the ben
 A utility function is a function $u : X \times \Omega \rightarrow \reels$, that assigns a value to each prize in each state of the world.
 \end{definition}
 
-Naturally, a player can't make decisions using only utility functions. For example, the reader would probably be very happy winning at the national lottery. The reason he may not invest all his money into lottery tickets is because he assigns a low probability of actually wining the lottery. These probabilities are captured by conditional probability functions.
+Naturally, a player can't make decisions using only utility functions. For example, the reader would probably be very happy winning at the national lottery.
+The reason he may not invest all his money into lottery tickets is because he assigns a low probability of actually wining the lottery.
+Now, as we have seen, there are some events that the player does not control (e.g. in this example, `how many other people will participate to the national lottery?').
+How to describe the preferences of the player if he does not have any idea of what the state of the world will be?
+Let us first describe formally what he would need to make a decision.
+%These probabilities are captured by conditional probability functions.
 
 \begin{definition}[Conditional probability function]
 A conditional probability function on $\Omega$ is a function $p : P(\Omega) \mapsto \Delta(\Omega)$ that specifies for all $S \in P(\Omega)$ a probability distribution on $\Omega$ such that, for all $t \in \Omega$,
 $$ p(t|S) =  0 \text{ if } t \not \in S, \text{ and } \sum_{r \in S} p(r| S) = 1.$$
 \end{definition}
 
-At this point, a player is able to evaluate a decision based on its \emph{expected utility value}.
+If the player had this information, he would indeed be able to easily define his optimal decision, thanks to the concept of \emph{expected utility value:}
 
 \begin{definition}[Expected Utility Value]
 The expected utility value of a lottery $f$ given an event $S$ and a conditional probability function $p$ is given by
 $$ E_p(u(f)|S) = \sum_{t \in S} p(t|S) \sum_{x \in X} u(x,t) f(x,t).$$
 \end{definition}
 
-These definitions lead us the the most important theorem of this chapter. This theorem is fundamental in that it describes how an individual plays.  \emph{To some extent, all results from game theory can be derived as consequences of this axiomatic description of the players behavior.
+These definitions lead us to the most important theorem of this chapter. This theorem is fundamental in that it describes how an individual plays.  \emph{To some extent, all results from game theory can be derived as consequences of this axiomatic description of the players behavior.
 }
 
 
@@ -260,6 +275,7 @@ The theorem states that the behavior of a rational and intelligent decision make
 
 
 \begin{theorem}[The utility maximization theorem]
+Consider a decision problem as described above, and the preference relation for a particular agent, denoted by $\succsim_S.$
 The Axioms \ref{ch1axcompleteness} to \ref{ch1axint}  are satisfied \emph{if and only if} there is a utility function $u$ and a conditional probability function $p : P(\Omega) \rightarrow  \Delta(\Omega)$ such that
 \begin{enumerate}
 \item The utility function satisfies $\max_{x \in X} u(x,t) = 1$ and $\min_{x \in X} u(x,t) =0,$  $\forall t \in \Omega;$
@@ -284,17 +300,17 @@ $u(x,t) = U(x)$ for all $t \in \Omega$.
 
 Let us discuss the meaning of the different points of the theorem:
 \begin{itemize}
-\item Condition \ref{c1} is more of a normative assumption.
-\item Condition \ref{c2} is a formula which establishes how conditional probabilities assessed in one event must be related to conditional probabilities assessed in another. Beware that the function $p(\cdot|\cdot)$, which we called a ``\emph{conditional probability function}'', is  only required to satisfy the properties defined in Definition 4, and not all the laws of probability.  The theorem tells us that, on top of Definition 4, it must satisfy one more law of probability, which is Bayes formula.
+\item Condition \ref{c1} is a simple normative assumption.
+\item Condition \ref{c2} is a formula which establishes how conditional probabilities assessed in one event must be related to conditional probabilities assessed in another. Beware that the function $p(\cdot|\cdot)$, which we called a ``\emph{conditional probability function}'', is  only required to satisfy the properties defined in Definition 4, and not all the laws of probability.  The theorem tells us that, on top of Definition 4, it must only satisfy one more law of probability, which is Bayes formula.
 \item Condition \ref{c3} is the main one, and states that any rational player in fact behaves exactly like if he was optimizing an expected payoff.
 \end{itemize}
 
 \begin{example}[Understanding the theorem]
-Assuming that the decision maker's preferences satisfy Axioms \ref{ch1axcompleteness} through \ref{ch1axint}, there are ways to compute a probability function $p$ and a utility function $u$ satisfying the theorem.
+Assuming that the decision maker's preferences satisfy Axioms \ref{ch1axcompleteness} through \ref{ch1axint}, there is a mechanical way to compute a probability function $p$ and a utility function $u$ satisfying the theorem.
 
 One can build the utility function for a given price. Consider a state $t \in \Omega$. First there must exist two prizes $y_t$ and $z_t$ in $X$ such that, $\forall x \in X$,
 $$ [y_t]\succsim_{\{t\}} [x] \succsim_{\{t\}} [z_t].$$
-One can ask the decision maker provide these two prizes. Since these prices are respectively the maximal and minimal valued, their utility is equal to $u(y,t)=1$ and
+One can ask the decision maker to provide these two prizes. Since these prices are respectively the maximal and minimal valued, their utility is equal to $u(y,t)=1$ and
 $u(z,t)=0$.\\
 Second, for all $x \in X$, one can ask the decision maker for which number $0 \leq \alpha \leq 1 $ does the following hold,
 $$ [x] \sim_{\{t\}} \alpha[y_t] + (1-\alpha) [z_t],$$
@@ -326,14 +342,19 @@ $$ \forall S \subseteq \Omega, \forall t \in S, \forall x \in X: q(t|S) v(x,t) =
 \subsection{Bayesian probability systems}
 
 We now focus on the conditional probability functions involved in Theorem \ref{ch1:utility-maximization}.
+Indeed, recall that these functions are not exactly probability functions as we know them, because we only require that they satisfy Bayes formula.
+Since, by the fundamental theorem above, these are the right tools to encapsulate the behaviour of a rational agent,
+it is important for us to understand precisely their algebraic structure.
+Let us formalize this concept by a definition.
+
 \begin{definition}[Bayesian probability system]
 A conditional probability function $p: P(\Omega) \rightarrow \Delta(\Omega)$ is a \emph{Bayesian Conditional Probability System} on the set $\Omega$ if, $\forall S \subseteq \Omega, \, S \neq \emptyset$, $p(\cdot|S)$ is a probability distribution on $\Omega$ such that $p(S|S) = 1$ and $p(R|T) = p(R|S) p(S|T)$, $\forall R \subseteq S$, $\forall T \supseteq S.$
 \end{definition}
 
 In other words, $p(\cdot|S)$  is a well defined probability function for all $S \in P(\Omega)$ and, on top of that, satisfies Bayes formula. No other constraint links the different probability functions $p(.|S)$.
-In other words,  if we are given a probability distribution $p' \in \Delta(\Omega)$, it is easy to construct a Bayesian probability systems (by Bayes rule). The opposite is not true, and we leave it to the reader to find why\footnote{Take $p \in \Delta(\Omega)$, and assume that for a set $\emptyset \neq S \in \Omega$, $p(S) = 0$. Try to compute $p(t|S)$ for $t \in S$}.
+In other words,  if we are given a probability distribution $p' \in \Delta(\Omega)$, it is easy to construct a Bayesian probability system (by Bayes rule). The opposite is not true, and we leave it to the reader to find why\footnote{Take $p \in \Delta(\Omega)$, and assume that for a set $\emptyset \neq S \in \Omega$, $p(S) = 0$. Try to compute $p(t|S)$ for $t \in S$}.
 
-The fact that a player takes decision using a Bayesian probability system as a reference has an interesting interpretation regarding his planning of events. In particular, even if he known that  an event $S$ \emph{should not happen}, he still needs to define $p(\cdot|S)$.
+The fact that a player takes decision using a Bayesian probability system as a reference has an interesting interpretation regarding his planning of events. In particular, even if he known that  an event $S$ \emph{should not happen} according to the fundamental theorem, he still needs to define $p(\cdot|S)$.
 
 While this may appear as a mathematical artifact of the theory, it turns out
 this behavior is central in our everyday life decisions, in particular when interacting with other players (see Example \ref{ch1:ex:chess}).
@@ -377,7 +398,9 @@ even though the event $S$ itself is considered to be of 0 probability.
 In other words, we know from Theorem \ref{ch1:utility-maximization} that ``an intelligent and rational decision maker always expects the unexpected!''.
 This is the only possible way to mathematically express rationality: we should not make a bad move at chess against a rational decision maker because we know that he is prepared to react (even if he does not suspect us to play badly).
 
-It remains however possible to reconcile Bayesian probability systems with classical probability distributions. In particular, for  probability distributions $p \in \Delta(\Omega)$ assigning non-zero probabilities to all events in $\Omega$ Bayes' formula defines a numerical value for $p(t|S)$ for every choice of $t,S$.  The next theorem provides an algebraic characterization of what can happen in the general case where some events can have zero probability.
+It remains however possible to reconcile Bayesian probability systems with classical probability distributions. In particular, for  probability distributions $p \in \Delta(\Omega)$ assigning non-zero probabilities to all events in $\Omega$, Bayes' formula defines a numerical value for $p(t|S)$ for every choice of $t,S$.
+The next theorem provides an algebraic characterization of bayesian conditional probability functions in the most general case,
+when some events can have zero probability.
 
 \begin{theorem}
 The conditional probability function $p$ is a Bayesian conditional probability system on $\Omega$ if and only if there is a sequence of probability distributions $p^k \in \Delta(\Omega)$, $k = 1, 2, \ldots$, with $p^k(t) > 0$ $\forall t \in \Omega$, such that
