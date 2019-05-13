@@ -350,7 +350,10 @@ of the player's \emph{patience}: the closer to $0$, the more the player
 aims at obtaining immediate payoffs, and the closer to $1$, the more the
 player is willing to wait for future payoffs.\\
 There is another way to interpret the discount factor, which is useful to model situations where the game will actually not be played an infinite number of time, but will end at some moment, \emph{in a probabilistic way}. Indeed, suppose that at every round, the game may terminate with probability $1-\delta$, or go on for at least one more round with probability $\delta$ (see Figure~\ref{fig:infiRepeatedDiscount}). The reader can observe that the equations for the expected payoff are exactly the same than in the discounted setting.  Indeed, if the game may stop at every round with probability $1-\delta$, in order to obtain the payoff $r_i^{(j)}$ the game must be repeated $j-1$ times, which occurs with probability $\delta^{j-1}$. The discounted payoff is then the
-expected payoff of the game under this interpretation.\\
+expected payoff of the game under this interpretation.
+Finally, as the reader has guessed, there is a third interpretation/reason to use the discounted payoff:
+it represents situation where inflation occurs, that is, the actual value of a gain at some time $t$ is preferred to the same gain later in time.
+
 The \emph{discounted average payoff} is a normalized version of the
 discounted payoff, where if $r_i^{[t]} = 1$ for all $t$,
 $$(1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1} 1 = 1.$$
@@ -723,7 +726,7 @@ In repeated games, \textit{learning} strategies can be defined as follows.
 \end{definition}
 
 This corresponds to the way we see learning in our everyday life: using
-past inputs to improve itself in the future. 
+past inputs to improve itself in the future.
 In addition, learning strategies are supposed to draw interesting inferences
 or use accumulated experience in an interesting way. This will be illustrated
 with the convergence of ``fictitious play'' below.
@@ -738,7 +741,7 @@ provide an explanation for the origin of Nash equilibria as well a heuristic
 to compute Nash equilibria. One can imagine this algorithm as a player
 playing against itself multiple times, trying to devise the best strategy
 (i.e. a Nash equilibrium) for when the time to play against a real opponent
-will come. 
+will come.
 
 More rigorously, fictitious play is an instance of \textit{model-based}
 learning where learners maintain beliefs about opponent's behaviors. The
@@ -779,7 +782,7 @@ two players using the fictitious play algorithm.
     \label{chap9:tab-fic-play-ex}
 \end{table}
 
-Let's first define some notations 
+Let's first define some notations
 \begin{itemize}
         \item $\nu_i^t$: belief of player $i$ at turn $t$,
         \item $\mu_i^t$: expected play of player $i$ by the other players at turn $t$,
@@ -877,7 +880,7 @@ Once we have defined the concept of regret, we can define \emph{no-regret playin
 We can see in this case that no-regret playing is a way more general concept
 than fictitious play: in fact in this case it is a whole new category of
 algorithms. One example of a no-regret playing algorithm is \emph{regret
-matching}. 
+matching}.
 
 The procedure for the regret matching algorithm is given below.
 
