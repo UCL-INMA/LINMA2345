@@ -589,7 +589,7 @@ $$\forall k, \forall s \in (S)^{\times k}: \sigma_i^{[k]}(\cdot \mid s) = \tau_i
 
 \begin{example}
 Consider the Prisoner's Dilemma game of Example \ref{ch9:ex:PD1} in a setting where players make this decision based only on the last moves of their adversary.
-Note that this goes against the idea that player are rational and intelligent, since they use only a part of the information at their disposal (bounded rationality).
+Note that this goes against the idea that players are rational and intelligent, since they use only a part of the information at their disposal (bounded rationality).
 Nevertheless, many intuitive strategies can be analyzed in such a setting. It is for example the case for the Tit-for-Tat strategy discussed in Section \ref{sec:InfRep}.\\
 A natural way to model the situation is as a game with complete state information.
 Here, we have 4 states, each one assigned to the way the player moved on the last round:
@@ -624,7 +624,7 @@ If both players play according to the Tit-for-Tat (stationary here) strategy, th
 \label{ex:stationaryGame}
 \end{example}
 
-We now provide characterization of equilibrium in stationary strategies for game with complete state information and the
+We now provide characterization of equilibrium in stationary strategies for games with complete state information and the
 $\delta$-discounted average payoff criterion, see Eq.  \eqref{eq:discountedAvgPayoffRep}, recalled below:
 given a sequence of payoffs $r^{[1]}, r^{[2]}, \ldots$ and $0 \leq \delta < 1$, the $\delta$-discounted average of the sequence is
 $(1-\delta) \sum_{j = 1}^{\infty} \delta^{j-1}r^{[j-1]}$.
@@ -648,7 +648,7 @@ The above highlights an interesting term:
 $$Y_i(\tau, d_i, \nu_i, \theta, \delta) =  \sum_{d_{-i} \in D_{-i}} \tau_{-i}(d_{-i} | \theta) \left ( (1-\delta) u_i(d_i, \theta) + \delta \sum_{\theta' \in \Theta}  p(\theta' |d, \theta) \nu_i(\theta', \tau) \right ), $$
 which can be interpreted as the gain of player $i$ if he played the move $d_i$ \emph{once} if at state $\theta$ while everyone else follows $\tau$ (himself included in the future).
 
-We end this chapter with a characterization of stationary equilibria for games with complete state information when considering the discounted average payoff:
+We end this section with a characterization of stationary equilibria for games with complete state information when considering the discounted average payoff:
 \begin{theorem}
 \label{thm:stateq}
 Given a repeated game with complete state information and bounded payoffs, and given a profile of stationary strategies $\tau$. If there exists a bounded vector
@@ -658,7 +658,7 @@ such that
 & \nu_i(\theta) = \sum_{d_i \in D_i} \tau_i(d_i | \theta) Y_i(\tau, d_i, \nu_i, \theta, \delta), \label{thmStufmathc1}\\
 & \nu_i(\theta) = \max_{d_i \in D_i} Y_i(\tau, d_i, \nu_i, \theta, \delta) .\label{thmStufmathc2}
 \end{align}
-the $\tau$ is an equilibrium of the repeated game. \\
+the strategy profile $\tau$ is an equilibrium of the repeated game. \\
 In this equilibrium, $\nu_i(\theta)$ is the expected $\delta-$discounted average payoff for player $i$ in the repeated game if the initial state is $\theta$.
 \end{theorem}
 
@@ -873,20 +873,23 @@ Once we have defined the concept of regret, we can define \emph{no-regret playin
 
 \begin{definition}[No-regret playing]
     A learning rule exhibits no regret if it guarantees with high probability that
-    the agent will not experience any positive regret\\ $$P([\liminf R^t(d)]
-    \leq 0) = 1.$$
+    the agent will not experience any positive regret asymptotically
+    $$P([\liminf R^t(d)] \leq 0) = 1.$$
 \end{definition}
 
-We can see in this case that no-regret playing is a way more general concept
-than fictitious play: in fact in this case it is a whole new category of
-algorithms. One example of a no-regret playing algorithm is \emph{regret
+Thus, No-regret is an enviable property for any learning strategy.
+But how to achieve it? Is it possible at all?
+%We can see in this case that no-regret playing is a way more general concept
+%than fictitious play: in fact in this case it is a whole new category of
+%algorithms.
+One example of a no-regret playing algorithm is \emph{regret
 matching}.
 
 The procedure for the regret matching algorithm is given below.
 
 \begin{procedure}[Regret matching]
     \emph{Repeat:\\}
-	\quad At each time step each action is chosen with probability consistent to its regret:\\
+	\quad At each time step each action is chosen with probability proportional to its regret:\\
 			$$\sigma_i^{t+1}(d)= \frac{R^t(d)}{\sum_{d'\in D_i} R^t(d')}$$
     \label{chap9:regretmatchproc}
 \end{procedure}
