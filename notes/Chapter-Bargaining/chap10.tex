@@ -272,13 +272,14 @@ We may just find the maximum along each line, compare these maxima, and pick the
 \item Let us first investigate the line segment $[b',c]$. It corresponds by a line with equation
 $$ y = \frac{80 - 60}{60 - 80} x + 80 - \frac{80 - 60}{60 - 80} 60 = - x + 140. $$
 When restricted on this line, our program becomes
-$$ \max_{x \in [60,80]} x (- x + 140). $$
-To solve this, we compute the derivative of $x (- x + 140)$ at $0$, which gives us
-$$  x = 140. $$
-This point is outside the range $[60,80]$, however since our objective function to be maximized is concave, we conclude that the solution here is $x = 80$.
+$$ \max_{x \in [60,80]} (x - 60) (- x + 110). $$
+To solve this, we compute the derivative of the objective $(x - 60) (- x + 110)$ which gives $-2x + 170$ which vanishes at $x = 85$.
+The solution $x = 85$ is outside the range $[60,80]$, however since our objective function to be maximized is concave, we conclude that the solution here is $x = 80$.
 \item Second, we consider the line segment $[c,d]$. It corresponds to a line with equation
-$$ y =  = -1.5 x + 180. $$
-Repeating our procedure, we find a solution $x = 80$ (the point cancelling the derivative is $x = 60$, rounded to 80).
+$$ y = -1.5 x + 180. $$
+Repeating our procedure, we want to solve the quadratic program
+$$ \max_{x \in [80,100]} (x - 60) (- 1.5x + 150). $$
+The derivate of the objective is $-3x + 240$ which vanishes at $x = 80$.
 
 \end{itemize}
 
@@ -383,7 +384,7 @@ Let $(F,v)$ be a regular two-person bargaining problem, and let $0 < p_1, p_2 < 
 The game plays as follows.
 \begin{itemize}
 \item At every odd numbered round, Player 1 makes an \emph{offer} $x \in F$. If Player 2 accepts the offer, the game ends, and the players receive the payoff corresponding to the offer $ x $. If the player rejects the offer, then there are two possibilities. Either the game ends with a disagreement, which occurs with probability $p_1$ where $p_1$ represents the probability that Player 1 gets impatient. In this case the players receive a payoff $(v_1,v_2)$. Otherwise, the next round begins.
-\item  At every even numbered round, Player 2 makes an \emph{offer} $x \in F$. If Player 1 accepts the offer, the games ends. If the player rejects the offer, then there are two possibilities.
+\item  At every even numbered round, Player 2 makes an \emph{offer} $x \in F$. If Player 1 accepts the offer, the game ends. If the player rejects the offer, then there are two possibilities.
 The game  may end with probability $p_2$ and the players have a payoff $(v_1,v_2)$. Otherwise, the next round begins.
 \end{itemize}
 
