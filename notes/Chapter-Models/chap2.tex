@@ -472,6 +472,7 @@ We could even erase $B$ from the game!
 There is an equivalent definition of strong domination, which is often easier to check. With the following, we also define the idea of \emph{weak domination}: in some cases, a player might play a weakly dominated strategy, but there is always another strategy at least as good than the first one, better in some cases.
 
 \begin{theorem}[Strong domination]
+\label{theo:strongdom}
 A pure strategy $d_i$ is strongly dominated if there exists a randomized strategy $\sigma_i \in \Delta(C_i)$ such that, $\forall c_{-i} \in C_{-i}$:
 \begin{equation}
  u_i(d_i, c_{-i}) < \sum_{e_i \in C_i} \sigma_i(e_i) u_i(e_i, c_{-i}).
@@ -489,8 +490,10 @@ A pure strategy $d_i$ is \emph{weakly dominated} if there exists a randomized st
 \end{equation}
 with the inequality being strict for at least one\footnote{naturally, if the inequality is never strict, then the strategies are equivalent.} strategy in $c_{-i}$.
 \label{defdomipayoffs}
- \end{definition}
+\end{definition}
 
+Even though the concept of weak domination also enjoys a dual definition as in Theorem~\ref{theo:strongdom},
+we have to be more careful when discarding a strategy on the grounds that it is weakly dominated, as we will see in the next section.
 
 \section{Equivalent games}
 \label{chap2:subsec:Equivalences}
