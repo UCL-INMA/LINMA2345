@@ -818,9 +818,9 @@ In fact, bayesian games are not essentially different from general standard game
  \end{itemize}
  \end{definition}
   \begin{example}
-  The following table shows the payoffs for the type-agent representation of the game of example \ref{ch2:exbayintro}. We assume that the probabilities that \TAtwo{} has a red or black card are the same.
+  The following table shows the payoffs for the type-agent representation of the game of example~\ref{ch2:exbayintro}. We assume that the probabilities that \TAtwo{} has a red or black card are the same.
   These payoffs are to be read
-  $$ (\text{\TAone{}'s payoff}/\text{red \TAtwo{}'s payoff}/\text{black \TAtwo{}'s payoff}).$$
+  $$ (\text{\TAone{}'s payoff}, \text{red \TAtwo{}'s payoff}, \text{black \TAtwo{}'s payoff}).$$
   \begin{center}
  \begin{tabular}{l|cc}
  & red:Raise & red:Fold \\
@@ -841,7 +841,17 @@ pass
 \end{tabular}
 \end{tabular}
 \end{center}
-
+The entries of the table are computed as follows:
+    \begin{enumerate}
+      \item The first entry of the triple in each cell corresponds to \TAone{}'s payoff. As the probability
+        that \TAtwo{} has a red or black card is $1/2$, the payoff is the average between the payoff in the
+        first table of example~\ref{ch2:exbayintro} an the payoff in the second table.
+        For instance, in the entry (meet, Raise, raise), we compute $4/2 + 0/2 = 2$.
+      \item The second entry of the triple in each cell corresponds to \TAtwo{}'s payoff with a red card,
+        it is simply the payoff in the first table of example~\ref{ch2:exbayintro}.
+      \item Similarly, as the third entry of the triple in each cell corresponds to \TAtwo{}'s payoff with a black card,
+        it is the payoff in the second table of example~\ref{ch2:exbayintro}.
+    \end{enumerate}
  \end{example}
 \ifx \globalmark \undefined %% This is default.
 \bibliographystyle{plain}
