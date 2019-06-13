@@ -212,8 +212,8 @@ A \emph{proper} equilibrium for a game in strategic form $\Gamma(N,C,u)$ is a st
 \end{itemize}
 and in addition,
 \begin{itemize}
-\item $\forall k, \forall i \in N, \forall c_i, e_i \in C_i: \, u_i(\sigma_{-i}^k, [c_i]) < u_i(\sigma_{-i}^k, [e_i]) \Rightarrow \sigma^k_i(c_i) < \epsilon_k \sigma_i(e_i)$ (penalize bad moves),
-\item $\lim_{k \rightarrow \infty} e_k = 0$ (penalty vanishes at equilibrium).
+\item $\forall k, \forall i \in N, \forall c_i, e_i \in C_i: \, u_i(\sigma_{-i}^k, [c_i]) < u_i(\sigma_{-i}^k, [e_i]) \Rightarrow \sigma^k_i(c_i) \le \epsilon_k \sigma_i(e_i)$ (penalize bad moves),
+\item $\lim_{k \rightarrow \infty} \epsilon_k = 0$ (penalty vanishes at equilibrium).
 \end{itemize}
 \label{ch5:def:properEq}
 \end{definition}
