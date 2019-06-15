@@ -524,9 +524,9 @@ where
 \begin{definition}[Strategy]
 Consider a repeated game $\Gamma^r = (N, \Theta, (D_i, S_i, u_i)_{i \in N}, q, p).$
 The set of all \emph{pure strategies} is $C = \times_{i \in N} C_i$,
-$$C_i = \{ c_i = (c^{[k]})_{k = 1}^{\infty} \mid \forall k , c_i^{[k]} : (S_i)^{\times k} \rightarrow D_i\}. $$
+$$C_i = \{ c_i = (c_i^{[k]})_{k = 1}^{\infty} \mid \forall k , c_i^{[k]} : (S_i)^{\times k} \rightarrow D_i\}. $$
 The set of all \emph{behavioral strategies} is $B = \times_{i \in N} B_i$,
-$$B_i = \{ b_i = (b^{[k]})_{k = 1}^{\infty} \mid \forall k , \sigma_i^{[k]} : (S_i)^{\times k} \rightarrow \Delta D_i\}. $$
+$$B_i = \{ \sigma_i = (\sigma_i^{[k]})_{k = 1}^{\infty} \mid \forall k , \sigma_i^{[k]} : (S_i)^{\times k} \rightarrow \Delta D_i\}. $$
 \end{definition}
 In the above, the set $(S_i)^{\times k}$ is the $k$-fold Cartesian product of the set $S_i$.\\
 The next concept will allow us to compute the payoffs of a given set of strategies.
@@ -560,7 +560,7 @@ The behavioral strategy $\sigma$ is an equilibrium for
 \item the $\delta$ - discounted payoff criterion if
 	$$\forall i \in N, \forall \sigma' \in B: \sum_{k = 1}^\infty \delta^{k-1} r_i^{[k]}(\sigma) \geq \sum_{k = 1}^\infty \delta^{k-1} r_i^{[k]}(\sigma');$$
 \item the average payoff criterion if
-	$$\forall i \in N, \forall \sigma' \in B: \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^\infty  r_i^{[j]}(\sigma)}{k} \geq \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^\infty  r_i^{[j]}(\sigma')}{k}.$$
+	$$\forall i \in N, \forall \sigma' \in B: \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^k r_i^{[j]}(\sigma)}{k} \geq \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^k r_i^{[j]}(\sigma')}{k}.$$
 \end{itemize}
 \end{definition}
 
