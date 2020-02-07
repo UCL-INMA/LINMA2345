@@ -2,17 +2,8 @@
 
 \usepackage{../../linma2345}
 
-\begin{document}
-
-\session{1}{Introduction to Game Theory}
-
-\section{}
-It is W. White's turn and he can win for sure. Can you see how?
-
-\begin{center}
-\scalebox{.7}{
-\begin{tikzpicture}
-
+\newcommand{\pawn}[5]{\path (#1.5,#2.5) node {\includegraphics[scale=.7]{images/#3-#4.#5}};}
+\newcommand{\gameone}{
 % draw black squares
 \foreach \x in {0,...,3}
 {
@@ -25,29 +16,83 @@ It is W. White's turn and he can win for sure. Can you see how?
 \draw[line width=1mm,black!80,rounded corners] (0,0) rectangle (8,8);
 
 % add the pawns
-\path (1.5,2.5) node {\includegraphics[scale=.7]{images/W-bishop.png}};
-\path (1.5,3.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
-\path (2.5,2.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
-\path (2.5,4.5) node {\includegraphics[scale=.7]{images/W-bishop.png}};
-\path (3.5,0.5) node {\includegraphics[scale=.7]{images/W-tower.png}};
-\path (4.5,4.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
-\path (5.5,1.5) node {\includegraphics[scale=.7]{images/W-king.png}};
-\path (6.5,2.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
-\path (7.5,3.5) node {\includegraphics[scale=.7]{images/W-tower.png}};
+\pawn{1}{2}{W}{bishop}{png}
+\pawn{1}{3}{W}{pawn}{png}
+\pawn{2}{4}{W}{bishop}{png}
+\pawn{4}{4}{W}{pawn}{png}
+\pawn{5}{1}{W}{king}{png}
+\pawn{6}{2}{W}{pawn}{png}
+\pawn{7}{3}{W}{tower}{png}
 
-\path (0.5,6.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
-\path (0.5,7.5) node {\includegraphics[scale=.7]{images/B-tower.png}};
-\path (1.5,4.5) node {\includegraphics[scale=.7]{images/B-king.jpg}};
-\path (2.5,7.5) node {\includegraphics[scale=.7]{images/B-bishop.jpg}};
-\path (5.5,4.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
-\path (5.5,7.5) node {\includegraphics[scale=.7]{images/B-tower.png}};
-\path (6.5,6.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
-\path (7.5,5.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
+\pawn{0}{6}{B}{pawn}{png}
+\pawn{0}{7}{B}{tower}{png}
+\pawn{1}{4}{B}{king}{jpg}
+\pawn{5}{4}{B}{pawn}{png}
+\pawn{6}{6}{B}{pawn}{png}
+\pawn{7}{5}{B}{pawn}{png}
+}
+
+\begin{document}
+
+\session{1}{Introduction to Game Theory}
+
+\section{}
+It is W. White's turn and he can win for sure. Can you see how?
+
+\begin{center}
+\scalebox{.7}{
+\begin{tikzpicture}
+  \gameone{}
+  \pawn{3}{0}{W}{tower}{png}
+  \pawn{2}{7}{B}{bishop}{jpg}
+  \pawn{2}{2}{W}{pawn}{png}
+  \pawn{5}{7}{B}{tower}{png}
 \end{tikzpicture}
 }
 \end{center}
 
-\nosolution
+\begin{solution}
+  \url{chess.com} reports Mate in 3 (Stockfish.jl | depth 31)
+  \begin{enumerate}
+      \item
+        Rd6 Be6
+\begin{center}
+\scalebox{.5}{
+\begin{tikzpicture}
+  \gameone{}
+  \pawn{3}{5}{W}{tower}{png}
+  \pawn{4}{5}{B}{bishop}{jpg}
+  \pawn{2}{2}{W}{pawn}{png}
+  \pawn{5}{7}{B}{tower}{png}
+\end{tikzpicture}
+}
+\end{center}
+      \item
+        Rxe6 Rf7
+\begin{center}
+\scalebox{.5}{
+\begin{tikzpicture}
+  \gameone{}
+  \pawn{4}{5}{W}{tower}{png}
+  \pawn{2}{2}{W}{pawn}{png}
+  \pawn{5}{6}{B}{tower}{png}
+\end{tikzpicture}
+}
+\end{center}
+      \item
+        c4\#
+\begin{center}
+\scalebox{.5}{
+\begin{tikzpicture}
+  \gameone{}
+  \pawn{4}{5}{W}{tower}{png}
+  \pawn{2}{3}{W}{pawn}{png}
+  \pawn{5}{6}{B}{tower}{png}
+\end{tikzpicture}
+}
+\end{center}
+  \end{enumerate}
+\end{solution}
 
 \section{}
 It is again W. White's turn, and he is again sure to win but he is in a hurry and wants to finish the game as quickly as possible. How should he proceed, depending on whether he is facing his son (who did not really understand how to play with the knight yet) or a grand chess master?
@@ -68,24 +113,40 @@ It is again W. White's turn, and he is again sure to win but he is in a hurry an
 \draw[line width=1mm,black!80,rounded corners] (0,0) rectangle (8,8);
 
 % add the pawns
-\path (1.5,2.5) node {\includegraphics[scale=.7]{images/W-bishop.png}};
-\path (1.5,3.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
-\path (2.5,2.5) node {\includegraphics[scale=.7]{images/W-pawn.png}};
-\path (2.5,4.5) node {\includegraphics[scale=.7]{images/W-bishop.png}};
-\path (3.5,0.5) node {\includegraphics[scale=.7]{images/W-tower.png}};
-\path (4.5,2.5) node {\includegraphics[scale=.7]{images/W-king.png}};
-\path (6.5,3.5) node {\includegraphics[scale=.7]{images/W-tower.png}};
+\pawn{1}{2}{W}{bishop}{png}
+\pawn{1}{3}{W}{pawn}{png}
+\pawn{2}{2}{W}{pawn}{png}
+\pawn{2}{4}{W}{bishop}{png}
+\pawn{3}{0}{W}{tower}{png}
+\pawn{4}{2}{W}{king}{png}
+\pawn{6}{3}{W}{tower}{png}
 
-\path (0.5,6.5) node {\includegraphics[scale=.7]{images/B-pawn.png}};
-\path (0.5,7.5) node {\includegraphics[scale=.7]{images/B-tower.png}};
-\path (1.5,4.5) node {\includegraphics[scale=.7]{images/B-king.jpg}};
-\path (2.5,7.5) node {\includegraphics[scale=.7]{images/B-bishop.jpg}};
-\path (6.5,2.5) node {\includegraphics[scale=.7]{images/B-knight.png}};
+\pawn{0}{6}{B}{pawn}{png}
+\pawn{0}{7}{B}{tower}{png}
+\pawn{1}{4}{B}{king}{jpg}
+\pawn{2}{7}{B}{bishop}{jpg}
+\pawn{6}{2}{B}{knight}{png}
 \end{tikzpicture}
 }
 \end{center}
 
-\nosolution
+\begin{solution}
+  If we use the same strategy than for the previous exercise, starting with Rd6, the Black player can move the knight from g3 to f5.
+  This is a double attack against the rook and the king. By saving the king, we then loose the rook!
+  We can assume that our son won't thing about moving the knight but if we play with a grand chess master, we need 6 moves as shown below.
+
+  \url{chess.com} reports Mate in 6 (Stockfish.jl | depth 75).
+  It went deeper than in the previous exercise for the same time limit (1 min) because less pieces are left.
+
+\begin{enumerate}
+\item Bc4+ Kc6
+\item Rg6+ Kb7
+\item Rg7+ Bd7
+\item Rdxd7+ Kc8
+\item Ba6+ Kb8
+\item Bd6\#
+\end{enumerate}
+\end{solution}
 
 \section{}
 Your pirate crew just stole a purse containing 10 gold pieces. It must now be decided how the gold will be divided between you. Your crew consists of five pirates, in hierarchical order: the Captain, the Ship Master, the Navigator, the Mate and the Cabin Boy. Luckily, to avoid arguments, there exists a longstanding traditional pirate code on how treasure should be divided.
