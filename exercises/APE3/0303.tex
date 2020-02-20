@@ -51,7 +51,14 @@
   %%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%% b %%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%
-  \item The words ``\textit{both players know that}'' can be repeated $k-1$ so that the assertion remains true.
+  \item The words ``\textit{both players know that}'' can be repeated at most $k-1$ times.
+    Indeed, the players receiving $\X$ only knows that $\X \ge k-1$ as he thinks he might have received $\X + 1$.
+    The sample player then thinks that the other player might have received $k - 1$.
+    In which case, he thinks that this other players thinks that he might have received $k - 2$.
+    Continuing this reasoning $k$ times, the player thinks the other player thinks that he thinks that the other player thinks ... that he (or the other player if $k$ is odd) might have received 0.
+    As a player receiving 0 has lost, the reasoning cannot be repeated $k$ times.
+    
+    Even if it is not required in the statement, we also prove below that the sentence can be repeated $k - 1$ times.
   
   We define two operators
   \begin{itemize}
@@ -61,7 +68,7 @@
   
   From exercise (a), we know that if $X \geq 1$, then T is true. We will need the following lemma.
   
-  \paragraph{Lemma.} If $X \geq k$, then K $\parent{X \geq k+1}$ is true.
+  \paragraph{Lemma.} If $X \geq k + 1$, then K $\parent{X \geq k}$ is true.
   
   We need to prove the following theorem.
   
@@ -70,7 +77,12 @@
   Of course, we will prove that by assumption.
   
   \paragraph{Base case, $k=2$.} Trivial.
-  \paragraph{Induction case.} Assume that the statement is true for $k$, i.e., assume that if $X = k > 1$, then $\text{K}^{k-1} \parent{\text{T}}$ is true. We have to show that the statement is also true for $k+1$, i.e., we have to show that if $X = k+1 > 1$, then $\text{K}^{k} \parent{\text{T}}$ is true. This is indeed the case, using the above lemma.
+  \paragraph{Induction case.} Assume that the statement is true for $k$,
+  i.e., assume that if $X = k > 1$, then $\text{K}^{k-1} \parent{\text{T}}$ is true.
+  We have to show that the statement is also true for $k+1$, i.e., we have to show that if $X = k+1 > 1$,
+  then $\text{K}^{k} \parent{\text{T}}$ is true.
+  Using the above lemma, $X = k+1$ implies that $\text(K)(X \ge k)$.
+  By the induction hypothesis, this implies $\text(K)(\text{K}^{k-1} \parent{\text{T}}) = \text{K}^{k} \parent{\text{T}}$.
   
   The proof is complete.
   
