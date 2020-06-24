@@ -542,7 +542,7 @@ be the probability that, at round $k$, the state of the world is $\theta$ and th
 
 These probabilities can be computed as follows. Let
 $$Q^{[k]}(s,\theta \mid \sigma) $$
-be the probability that, at time $k$, the players are in the state $\sigma$ and have received the signal $s \in (S)^{\times k}$.
+be the probability that, at time $k$, the players are in the state $\theta$ and have received the signal $s \in (S)^{\times k}$.
 By definition, we have
 $$ P^{[k]}(d, \theta \mid \sigma) = \sum_{s \in (S)^{\times k}} Q^{[k]}(s, \theta \mid \sigma) \prod_{i \in N} \sigma^{[k]}_i(d_i \mid s). $$
 The probabilities $Q^{[k]}$ can be computed recursively:
@@ -558,12 +558,12 @@ The payoff of a player $i  \in N$ at round $k$ when following the strategies in 
 $$ r_i^{[k]}(\sigma)  = \sum_{d \in D} \sum_{\theta \in \Theta} P^{[k]}(d, \theta|\sigma) u_i(d,\theta).$$
 
 \begin{definition}[Equilibrium]
-The behavioral strategy $\sigma$ is an equilibrium for
+The behavioral strategy $\sigma=(\sigma_i,\sigma_{-i})$ is an equilibrium for
 \begin{itemize}
 \item the $\delta$ - discounted payoff criterion if
-	$$\forall i \in N, \forall \sigma' \in B: \sum_{k = 1}^\infty \delta^{k-1} r_i^{[k]}(\sigma) \geq \sum_{k = 1}^\infty \delta^{k-1} r_i^{[k]}(\sigma');$$
+	$$\forall i \in N, \forall \hat{\sigma}_i \in B_i: \sum_{k = 1}^\infty \delta^{k-1} r_i^{[k]}(\sigma) \geq \sum_{k = 1}^\infty \delta^{k-1} r_i^{[k]}(\hat{\sigma}_i,\sigma_{-i});$$
 \item the average payoff criterion if
-	$$\forall i \in N, \forall \sigma' \in B: \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^k r_i^{[j]}(\sigma)}{k} \geq \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^k r_i^{[j]}(\sigma')}{k}.$$
+	$$\forall i \in N, \forall \hat{\sigma}_i \in B_i: \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^k r_i^{[j]}(\sigma)}{k} \geq \lim_{k \rightarrow \infty}\frac{\sum_{j = 1}^k r_i^{[j]}(\hat{\sigma}_i,\sigma_{-i})}{k}.$$
 \end{itemize}
 \end{definition}
 
@@ -829,7 +829,7 @@ and $\mu_2^6=\frac{1}{5}U+\frac{4}{5}D$. The best response strategy for
 each player is thus $\sigma_1^4=D$ and $\sigma_2^4=r$: in fact,  the
 expected payoff for Player 2 is equal to $\frac{1}{5}\cdot3+\frac{4}{5}\cdot0=0.6$
 if he plays l and $\frac{1}{5}\cdot0+\frac{4}{5}\cdot1=0.8$ if he plays right.
-Since the strategy $(D,r)$ is a Nash equilibirum (and a strongly dominating
+Since the strategy $(D,r)$ is a Nash equilibrium (and a strongly dominating
 strategy) of the game, the strategy of each player won't change anymore.\\
 \end{example}
 
@@ -873,8 +873,8 @@ Once we have defined the concept of regret, we can define \emph{no-regret playin
 
 \begin{definition}[No-regret playing]
     A learning rule exhibits no regret if it guarantees with high probability that
-    the agent will not experience any positive regret asymptotically
-    $$P([\liminf R^t(d)] \leq 0) = 1.$$
+    the agent will not experience any positive regret asymptotically, for all strategy $d$
+    $$P([\liminf_{t\rightarrow \infty} R^t(d)] \leq 0) = 1.$$
 \end{definition}
 
 Thus, No-regret is an enviable property for any learning strategy.
