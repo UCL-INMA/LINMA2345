@@ -342,7 +342,7 @@ A \emph{behavioural strategy} for player $i \in N$ specifies, at each informatio
 \times_{s \in S_i}  \Delta D_s.
 \label{ch4:eq:behav}
 \end{equation}
-For $s \in S_i$, $d \in D_s$ and $\tau_i \in \times_{s \in S_i}  \Delta D_s$, $\tau_i(d)$ is the probability of occurrence of the move $d$ at information state $s$ when implementing $\tau$. \\
+For $s \in S_i$, $d \in D_s$ and $\tau_{i} \in \times_{s \in S_i}  \Delta D_s$, $\tau_{i.s}(d)$ is the probability of occurrence of the move $d$ at information state $s$ when implementing $\tau_i$. \\
 We define the set of all \emph{behavioural strategy profiles} as
 $$ \times_{i \in N} \times_{s \in S_i} \Delta D_s.$$
 \end{definition}
@@ -464,17 +464,17 @@ $$ C_i^{**}(d,s) = \{c_i \in C_i^*(s) : c_i(s) = d\}. $$
 \end{definition}
 
 \begin{definition}[Behavioural representation of mixed strategy]
-For a player $i \in N$, let $\sigma \in \Delta C_i$ be a mixed strategy.
-We say that a behavioural strategy $\tau$ is a \emph{behavioural representation} of $\sigma$ if,
-$$ \forall s \in S_i, d \in D_s, \, \tau_s(d)\cdot\left ( \sum_{e_i \in C_i^*(s)} \sigma_i(e_i) \right ) = \sum_{c_i \in C_i^{**}(d,s)} \sigma_i(c_i). $$
+For a player $i \in N$, let $\sigma_i \in \Delta C_i$ be a mixed strategy.
+We say that a behavioural strategy $\tau_i$ is a \emph{behavioural representation} of $\sigma_i$ if,
+$$ \forall s \in S_i, d \in D_s, \, \tau_{i.s}(d)\cdot\left ( \sum_{e_i \in C_i^*(s)} \sigma_i(e_i) \right ) = \sum_{c_i \in C_i^{**}(d,s)} \sigma_i(c_i). $$
 Conversely, we say that $\sigma$ is a mixed representation of $\tau$ if
 $$\forall c_i \in C_i, \, \sigma_i(c_i) = \prod_{s \in S_i} \tau_s(c_i(s)).$$
 \end{definition}
 
 \begin{definition}[Mixed representation of behavioural strategy]
-For a player $i \in N$, let $\tau \in \times_{s \in S_i} \Delta  D_s$ be a behavioural strategy.
-We say that a mixed strategy $\sigma$ is a \emph{mixed representation} of $\tau$ if,
-$$\forall c_i \in C_i, \, \sigma_i(c_i) = \prod_{s \in S_i} \tau_s(c_i(s)).$$
+For a player $i \in N$, let $\tau_i \in \times_{s \in S_i} \Delta  D_s$ be a behavioural strategy.
+We say that a mixed strategy $\sigma_i$ is a \emph{mixed representation} of $\tau$ if,
+$$\forall c_i \in C_i, \, \sigma_i(c_i) = \prod_{s \in S_i} \tau_{i.s}(c_i(s)).$$
 \end{definition}
 
 \begin{proposition}
@@ -504,7 +504,7 @@ A first approach would be to adapt the concept of Nash equilibrium so that it ap
 Given a game in extensive form $\Gamma^e$ with players $N$, information states $S = \bigcup_{i \in N} S_i$ and moves $D = \times_{s \in S} D_s$ the multi-agent representation is a normal-form game
 $\Gamma(S,(D_s)_{s \in S}, (v_s)_{s \in S})$ where
 \begin{itemize}
-\item The set of players of the multi-agent representation is the set of the types $S$,
+\item The set of players of the multi-agent representation is the set of information states $S$,
 \item The set of pure strategies for type $s \in S$ is the set of moves $D_s$,
 \item For any player $i \in N$, for  any strategy profile $d = (d_s)_{s \in S}$, for any $s \in S_i$,
 the payoff for type $s$ is given by
@@ -704,7 +704,7 @@ $$\forall s \in S, \, \forall y \in Y_s, \, \left (\sum_{x \in Y_s} P(x | \tau, 
 % Faire remarque avec Th de Decision
 
 \begin{theorem}
-Consider a game in extensive form $\Gamma^e$. Let $\tau$ be an equilibrium in behavioural strategy and $\pi$ be a belief vector \emph{weakly consistent} with $\tau$.
+Consider a game in extensive form $\Gamma^e$. Let $\tau$ be an equilibrium in behavioural strategy \footnote{The behavioural strategy profile $\tau$ is an equilibrium in behavioural strategies iff it is an equilibrium of the multi-agent representation such that the mixed representation of $\tau$ is also an equilibrium of the normal representation.} and $\pi$ be a belief vector \emph{weakly consistent} with $\tau$.
 For all player $i \in N$, let
 $$
 S^0_i = \{s \in S_i : \sum_{x \in Y_s} P(x| \tau) > 0\}
@@ -722,7 +722,7 @@ In order to tackle information states that occur with probability 0, we need a s
 As explained above,  all of the difficulties in computing beliefs lies in dealing with information states that arise with zero probability. \\
 But how can we characterize the sequential rationality at nodes of  probability zero?  Bayes' formula is not useful, because the zero denominator prevents us to compute an actual value.  However, this does not imply that any arbitrary value is admissible.  The following definition characterizes the admissible belief vectors, not only at positive probability nodes, but also at zero-probability nodes.
 \begin{definition}
-A belief vector $\pi$ is \emph{fully consistent} with a behavioural strategy profile $\tau$ in the game $\Gamma^e$ if there exists a sequence of profiles $(\tau^k)_{k = 1}^\infty$ such that
+A belief vector $\pi$ is \emph{strongly consistent} with a behavioural strategy profile $\tau$ in the game $\Gamma^e$ if there exists a sequence of profiles $(\tau^k)_{k = 1}^\infty$ such that
 \begin{itemize}
 \item $\tau^k \in \times_{s \in S} \Delta^0 D_s, \forall k = 1,2,\ldots$ \\ (non-zero probabilities on every move),
 \item  $\tau(d) = \lim_{k \rightarrow \infty} \tau^k(d),  \forall i \in N, \forall s \in S_i, \forall d \in D_s $\\

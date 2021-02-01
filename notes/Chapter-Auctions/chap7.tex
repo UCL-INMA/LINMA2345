@@ -136,22 +136,18 @@ In this section, we are going to describe a Bayes-Nash equilibrium for the secon
 
 \begin{quote}
 There are $n$ agents who simultaneously submit a real valued positive bid. The highest bidder wins the good and pays the amount $b_{2}$ of the second highest bid, the other bidders get and pay nothing (in case of a tie, the winner is determined by a flip of a coin).
-%
-The valuations of the agents are uniformly distributed on [0,1]. If agent $i$ wins, her utility is $u_i = v_i - b_{2}$, the utilities of all other agents are zero.
+%The valuations of the agents are uniformly distributed on [0,1].
+If agent $i$ wins, her utility is $u_i = v_i - b_{2}$, the utilities of all other agents are zero.
 \end{quote}
 
  It turns out that the situation is much simpler than for the first-price auctions as there exists a dominant strategy for each player. Interestingly, the dominant strategy for each agent is to tell the truth, i.e. to reveal her private valuation. That is, the second-price auction is a \emph{truthfull} mechanism.
 
 \begin{theorem}
-In a second-price auction where bidders have independent private values, truth telling is a dominant strategy.
+In a second-price auction truth telling is a dominant strategy.
 \end{theorem}
-
-Let us look at a sketch of the proof.
 \begin{proof}
-	\input{proofSecondPrice}
-\end{proof}
-
-Assume that all bidders other than $i$ bid in some arbitrary way, and consider $i$'s best response. First, consider the case where $i$'s valuation is larger
+	%\input{proofSecondPrice}
+	Assume that all bidders other than $i$ bid in some arbitrary way, and consider $i$'s best response. First, consider the case where $i$'s valuation is larger
 than the highest of the other bidders' bids. In this case $i$ would win and would pay the next-highest bid amount. Could $i$ be better off by bidding dishonestly in this case? If she bids higher, she would still win
 and would still pay the same amount.
 If she bids lower, she would either still win and still pay the same amount or lose and pay zero.
@@ -160,6 +156,7 @@ Since $i$ gets nonnegative utility for receiving the good at a price less than o
 Now consider the
 other case, where $i$'s valuation is less than at least one other bidder's bid. In
 this case $i$ would lose and pay zero. If she bids less, she would still lose and pay zero. If she bids more, either she would still lose and pay zero or she would win and pay more than her valuation, achieving negative utility. Thus again, $i$ cannot gain, and would sometimes lose by bidding dishonestly in this case.
+\end{proof}
 
 We can now also identify a strong relationship between the second-price auction and the Japanese
 %and English
@@ -246,14 +243,14 @@ It remains to prove Equation~\eqref{eq:auc:utility}.  We will derive it from the
 \begin{align*}
 u_i(v_i) \geq u_i(\hat{v}_i) + (v_i - \hat{v}_i)P_i(\hat{v}_i)\,.
 \end{align*}
-This inequality must especially hold for $\hat{v}_i$ of the form $\hat{v}_i = v_i + \epsilon v_i$ or $\hat{v}_i = v_i - \epsilon v_i$ for $\epsilon > 0$.
-Moreover, this inequality must also hold if the agent has type $v_i+\epsilon$ (resp. $v_i-\epsilon$) as announcing a type $v_i$ should be unprofitable. This gives us two more equations.  Summarizing, we have the four following equations:
+This inequality must also hold in particular for $\hat{v}_i$ of the form $\hat{v}_i = v_i + \epsilon$ or $\hat{v}_i = v_i - \epsilon$ for $\epsilon > 0$.
+Moreover, this inequality must also hold if the agent has type $v_i+\epsilon$ (or $v_i-\epsilon$) and announce as a type $\hat{v}_i=v_i$. This gives us two more equations.  Summarizing, we have the four following equations:
 
 \begin{align*}
-&u_i(v_i) \geq u_i(v_i + \epsilon v_i) - \epsilon v_i P_i(v_i + \epsilon v_i)\, ,\\
-&u_i(v_i) \geq u_i(v_i - \epsilon v_i) + \epsilon v_i P_i(v_i - \epsilon v_i)\, ,\\
-&u_i(v_i+\epsilon) \geq u_i(\hat{v}_i) + (v_i+\epsilon - \hat{v}_i)P_i(\hat{v}_i)\, ,\\
-&u_i(v_i-\epsilon) \geq u_i(\hat{v}_i) + (v_i-\epsilon - \hat{v}_i)P_i(\hat{v}_i)\,.
+&u_i(v_i) \geq u_i(v_i + \epsilon) - \epsilon P_i(v_i + \epsilon)\, ,\\
+&u_i(v_i) \geq u_i(v_i - \epsilon) + \epsilon P_i(v_i - \epsilon)\, ,\\
+&u_i(v_i+\epsilon) \geq u_i(v_i) + \epsilon P_i(v_i)\, ,\\
+&u_i(v_i-\epsilon) \geq u_i(v_i) -\epsilon P_i(v_i)\,.
 \end{align*}
 
 

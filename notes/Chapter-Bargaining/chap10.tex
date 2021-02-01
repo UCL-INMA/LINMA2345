@@ -398,7 +398,7 @@ The alternative offer game has a \emph{unique} subgame-perfect equilibrium where
 \item Player 2's strategy is to offer a strongly efficient allocation $\bar{y}$,
 \item and the offers satisfy $$\bar{y}_1 = (1-p_2)(\bar{x}_1 - v_1) + v_1, \, \bar{x}_2 = (1-p_1)(\bar{y}_2 - v_2) + v_2. $$
 \end{itemize}
-Furthermore, player $1$ would accept any offer giving him at least $\bar{y}_1$, and player $2$ would accept any offer giving him at least $\bar{y}_2$.
+Furthermore, player $1$ would accept any offer giving him at least $\bar{y}_1$, and player $2$ would accept any offer giving him at least $\bar{x}_2$.
 \end{theorem}
 
 
@@ -450,7 +450,7 @@ $$v(S \cup T) \geq v(S) + v(T) - v(S \cap T). $$
 \end{itemize}
 \end{definition}
 With a super-additive characteristic function, the payoff that all players get together is greater than what they would get if the group was divided into smaller teams. Unless stated otherwise, we make the assumption that super-additivity holds. Note that there are easy techniques in order to obtain an equivalent super-additive characteristic function from an arbitrary characteristic function.  Hence, this assumption is not conservative.\\
-Convexity is weaker than super-additivity when the characteristic function is positive. These games may appear particular, but are not so rare in practice (\cite{ShLeMSAG}). In fact, we call it `convexity' because it is the natural equivalent to the notion of convexity in functional analysis.  Hence, it is not surprising that this property 1) is naturally appearing in many applications, and 2) often enhances our ability to solve problems in an efficient way.
+Convexity is stronger than super-additivity when the characteristic function is positive. These games may appear particular, but are not so rare in practice (\cite{ShLeMSAG}). In fact, we call it `convexity' because it is the natural equivalent to the notion of convexity in functional analysis.  Hence, it is not surprising that this property 1) is naturally appearing in many applications, and 2) often enhances our ability to solve problems in an efficient way.
 \begin{example}(Airport Game,  (\cite{ShLeMSAG}))
 A number $N$ of cities need airport capacity.
 A first solution is for each city to build its own airport. The cost of an airport for city $i$ is $y_i$, that scales with the size of the runway that city needs.
@@ -644,7 +644,7 @@ For any $v$, if $i$ and $j$ are interchangeable, then we have $\phi_i(N,v) = \ph
 In a game $(N,v)$, agent $i$ is a \emph{dummy} if $\forall S \subset N$ where $i \not \in S$, $v(S \cup i) = v(S) + v(\{i\})$.\\
 For any $v$, if $i$ is a dummy player, then $\phi_i(N,v) = v(\{i\}).$
 \end{axiom}
-\begin{axiom}[Additivity]
+\begin{axiom}[Linearity]
 For any two characteristic functions $v_1$ and $v_2$, we have that
 $$ \phi_{i}(N, v_1 + v_2) = \phi_{i}(N,v_1) + \phi_i(N, v_2), $$
 where $(N, v_1+v_2)$ is the game where $(v_1 + v_2)(S) = v_1(S) + v_2(S).$
