@@ -316,15 +316,24 @@ Second, for all $x \in X$, one can ask the decision maker for which number $0 \l
 $$ [x] \sim_{\{t\}} \alpha[y_t] + (1-\alpha) [z_t],$$
 and set $u(x,t) = \alpha.$
 This gives us a way to compute the utility function. \\*
-To build the subjective probabilities $p(t|S)$, the idea is as follows. For any state $t\in \Omega$, define the prizes $y_t$ and $z_t$ as before. Now for all $S \ni t$, build the lottery $b : \Omega \mapsto \Delta(X)$ such that
+To build the subjective probabilities $p(t|S)$, the idea is as follows. For any state $t\in \Omega$, define the prizes $y_t$ and $z_t$ as before. Now build the lottery $b : \Omega \mapsto \Delta(X)$ such that
 $$
 \begin{aligned}
-& b(r) = [y_t] \text{ if $r \in S$}, \\
-& b(r) = [z_t] \text{ if $r \not \in S$}.
+& b(r) = [y_t] \text{ if $r=t$}, \\
+& b(r) = [z_t] \text{ if $r \neq t$}.
 \end{aligned}
 $$
+
 Finally, specify $p(t|S)$ as the number such that, for the decision maker,
 $$ b \sim_S p(t|S) [y_t] + (1-p(t|S)) [z_t].$$
+
+%old version Now for all $S \ni t$, build the lottery $b : \Omega \mapsto \Delta(X)$ such that
+%$$
+%\begin{aligned}
+%& b(r) = [y_t] \text{ if $r \in S$}, \\
+%& b(r) = [z_t] \text{ if $r \not \in S$}.
+%\end{aligned}
+%$$
 \end{example}
 
 
@@ -352,7 +361,8 @@ A conditional probability function $p: P(\Omega) \rightarrow \Delta(\Omega)$ is 
 \end{definition}
 
 In other words, $p(\cdot|S)$  is a well defined probability function for all $S \in P(\Omega)$ and, on top of that, satisfies Bayes formula. No other constraint links the different probability functions $p(.|S)$.
-In other words,  if we are given a probability distribution $p' \in \Delta(\Omega)$, it is easy to construct a Bayesian probability system (by Bayes rule). The opposite is not true, and we leave it to the reader to find why\footnote{Take $p \in \Delta(\Omega)$, and assume that for a set $\emptyset \neq S \in \Omega$, $p(S) = 0$. Try to compute $p(t|S)$ for $t \in S$}.
+
+%TODO In other words,  if we are given a probability distribution $p' \in \Delta(\Omega)$, it is easy to construct a Bayesian probability system (by Bayes rule). The opposite is not true, and we leave it to the reader to find why\footnote{Take $p \in \Delta(\Omega)$, and assume that for a set $\emptyset \neq S \in \Omega$, $p(S) = 0$. Try to compute $p(t|S)$ for $t \in S$}.
 
 The fact that a player takes decision using a Bayesian probability system as a reference has an interesting interpretation regarding his planning of events. In particular, even if he known that  an event $S$ \emph{should not happen} according to the fundamental theorem, he still needs to define $p(\cdot|S)$.
 
