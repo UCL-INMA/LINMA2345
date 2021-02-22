@@ -512,7 +512,7 @@ Overall, the maximum of $w_1(x)$ is attained at $x = 1/3$ (see Figure \ref{chap3
 
 
 \end{example}
-Contrary to general games in standard form, equilibria of 2P0S games can be computed efficiently.  Indeed, remark that Player 1's problem, namely $$ \max{\min{ A \sigma_1}} ,$$ is simply an LP!  (In the above, $\sigma_1$ is the vector of his randomized stragegy profile, and $A$ is the payoff matrix.)
+Contrary to general games in standard form, equilibria of 2P0S games can be computed efficiently.  Indeed, remark that Player 1's problem, namely $$ \max_{\sigma_1}{\min_{\sigma_2}{ \sigma_1^T A \sigma_2}} ,$$ can be shown to be simply an LP!  (In the above, $\sigma_1,\sigma_2$ are the vectors of the randomized stragegies, and $A$ is the payoff matrix of player $1$.) The proof consists in replacing the inner minimization (which is an LP given $\sigma_1$ fixed) by a maximization, this can be done using the dual program by example.
 %\begin{figure}[!ht]
 %\includegraphics[scale=1]{wip.png}
 %\end{figure}

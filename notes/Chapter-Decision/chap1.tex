@@ -301,7 +301,7 @@ $u(x,t) = U(x)$ for all $t \in \Omega$.
 Let us discuss the meaning of the different points of the theorem:
 \begin{itemize}
 \item Condition \ref{c1} is a simple normative assumption.
-\item Condition \ref{c2} is a formula which establishes how conditional probabilities assessed in one event must be related to conditional probabilities assessed in another. Beware that the function $p(\cdot|\cdot)$, which we called a ``\emph{conditional probability function}'', is  only required to satisfy the properties defined in Definition 4, and not all the laws of probability.  The theorem tells us that, on top of Definition 4, it must only satisfy one more law of probability, which is Bayes formula.
+\item Condition \ref{c2} is a formula which establishes how conditional probabilities assessed in one event must be related to conditional probabilities assessed in another. We discuss this in the next section. %Beware that the function $p(\cdot|\cdot)$, which we called a ``\emph{conditional probability function}'', is  only required to satisfy the properties defined in Definition 4, and not all the laws of probability.  The theorem tells us that, on top of Definition 4, it must only satisfy one more law of probability, which is Bayes formula.
 \item Condition \ref{c3} is the main one, and states that any rational player in fact behaves exactly like if he was optimizing an expected payoff.
 \end{itemize}
 
@@ -350,17 +350,18 @@ $$ \forall S \subseteq \Omega, \forall t \in S, \forall x \in X: q(t|S) v(x,t) =
 
 \subsection{Bayesian probability systems}
 
-We now focus on the conditional probability functions involved in Theorem \ref{ch1:utility-maximization}.
-Indeed, recall that these functions are not exactly probability functions as we know them, because we only require that they satisfy Bayes formula.
-Since, by the fundamental theorem above, these are the right tools to encapsulate the behaviour of a rational agent,
-it is important for us to understand precisely their algebraic structure.
-Let us formalize this concept by a definition.
+We now focus on the conditional probability functions involved in Theorem \ref{ch1:utility-maximization} (respecting the second condition of the Theorem). We define the notion of Bayesian probability system to name them.
+
+%Indeed, recall that these functions are not exactly probability functions as we know them, because we only require that they satisfy Bayes formula.
+%Since, by the fundamental theorem above, these are the right tools to encapsulate the behaviour of a rational agent,
+%it is important for us to understand precisely their algebraic structure.
+%Let us formalize this concept by a definition.
 
 \begin{definition}[Bayesian probability system]
 A conditional probability function $p: P(\Omega) \rightarrow \Delta(\Omega)$ is a \emph{Bayesian Conditional Probability System} on the set $\Omega$ if, $\forall S \subseteq \Omega, \, S \neq \emptyset$, $p(\cdot|S)$ is a probability distribution on $\Omega$ such that $p(S|S) = 1$ and $p(R|T) = p(R|S) p(S|T)$, $\forall R \subseteq S$, $\forall T \supseteq S.$
 \end{definition}
 
-In other words, $p(\cdot|S)$  is a well defined probability function for all $S \in P(\Omega)$ and, on top of that, satisfies Bayes formula. No other constraint links the different probability functions $p(.|S)$.
+In other words, $p(\cdot|S)$  is a well defined probability function for all $S \in P(\Omega)$ and, on top of that, satisfies Bayes formula.
 
 %TODO In other words,  if we are given a probability distribution $p' \in \Delta(\Omega)$, it is easy to construct a Bayesian probability system (by Bayes rule). The opposite is not true, and we leave it to the reader to find why\footnote{Take $p \in \Delta(\Omega)$, and assume that for a set $\emptyset \neq S \in \Omega$, $p(S) = 0$. Try to compute $p(t|S)$ for $t \in S$}.
 
