@@ -39,7 +39,7 @@ In order to introduce the models, we begin, in Example \ref{chap2:example:game},
 	\item He reveals the card to $\TAone{}$. If the card is \emph{red}, $\TAtwo{}$ gets all the money on the table, and if \emph{black}, $\TAone{}$ gets all the money. \label{ex3a}
 	\item He chooses not to reveal the card, and raises the bet by putting an additional  $1\EUR$ on the table. In this case, then $\TAone{}$ has to decide to either \label{ex3b}
 	\begin{enumerate}
-		\item Fold, letting $\TAone{}$ win the game, or \label{ex3b1}
+		\item Pass, letting $\TAtwo{}$ win the game, or \label{ex3b1}
 		\item meet the raise, adding $1\EUR$ on the table. In this case, the card is revealed, and $\TAtwo{}$ wins everything if it is \emph{red}, or $\TAone{}$ wins if it is \emph{black}. \label{ex3b2}
 	\end{enumerate}
 	In any case, \textbf{the game ends here}.
@@ -182,7 +182,7 @@ is given in Figure \ref{chap2:example:figtree} as an illustration.
 
 We construct it as follows. We begin by extracting information regarding the players, their actions, and their knowledge of the game.
 \begin{itemize}
-\item First, we let $N = \{1,2\}$ be the set of players for the game. Here, Player 1 refers to $\TAone{}$, and Player 2 refers to $\TAtwo{}$ in Example \ref{chap2:example:game}.
+\item First, we let $N = \{1,2\}$ be the set of players for the game. Here, Player 1 refers to $\TAtwo{}$, and Player 2 refers to $\TAone{}$ in Example \ref{chap2:example:game}.
 \item Then, we need to define for each player the possible \emph{information states.} Information states correspond to the different scenarios in which players have to make decisions.
 We let $S_1 = \{a,b\}$ be the set of information states that Player 1 may encounter, and $S_2 = \{c\}$ the set of the second player.\\
 In the above, the state $a$ corresponds to the scenario where Player 1 sees he has a red card, and $b$ to the case where he has a black card.
@@ -204,7 +204,7 @@ Next, we add structure to represent in which sequence the actions can be taken.
 \item For each state $s \in \bigcup S_i$, for each node $y \in Y_s$ and each action $d \in D_s$ that can be chosen at this state, we let $t_s(y,d) \in V$ be the destination node attained in the tree.
 \end{enumerate}
 Once the tree is defined (of course, the distributions $p_v$ and transition functions $t_s$ much be chosen such that we obtain a tree), it actually provides a sequential representation of the game.
-\item The last element we need is a \emph{utility function} $w : X \rightarrow \reels^N$, that assigns a value to each player in each leaf of the tree. Here, we simply put the amount of money each player has in the end of the game, assuming they each begin with 4 coins in their pockets.
+\item The last element we need is a \emph{utility function} $w : X \rightarrow \reels^N$, that assigns a value to each player in each leaf of the tree. Here, we simply put the amount of money each player has in the end of the game, assuming they each begin with 2 coins in their pockets.
 \end{itemize}
 \end{example}
 
@@ -317,7 +317,7 @@ where
 \item $N$ is the non-empty set of players in the game,
 \item $C = \bigtimes_{i \in N}C_i$ is the set of all \emph{pure strategies} for all players,
 \item and $u = (u_i)_{i \in N} : C \rightarrow \reels^N$ is the payoff function.
-The payoff $u_i : C \rightarrow \reels^N$ of player $i$
+The payoff $u_i : C \rightarrow \reels$ of player $i$
 is the expected payoff of the player.
 \end{itemize}
 When constructing a strategic form game from a game in extensive form, the payoffs are computed as follows:
