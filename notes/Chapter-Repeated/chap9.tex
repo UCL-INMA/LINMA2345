@@ -889,10 +889,15 @@ The procedure for the regret matching algorithm is given below.
 
 \begin{procedure}[Regret matching]
     \emph{Repeat:\\}
-	\quad At each time step each action is chosen with probability proportional to its regret:\\
-			$$\sigma_i^{t+1}(d)= \frac{R^t(d)}{\sum_{d'\in D_i} R^t(d')}$$
+	\quad At each time step each action is chosen with probability proportional to its positive regret:\\
+			$$\sigma_i^{t+1}(d)= \frac{R^{t,+}(d)}{\sum_{d'\in D_i} R^{t,+}(d')}$$
+	where $R^{t,+}(.)=\max(R^t(.),0)$.
     \label{chap9:regretmatchproc}
 \end{procedure}
+
+Similarly to fictitious play it has been shown that in zero-sum games if the two players act with no regrets then the empirical frequency of play converges to a Nash-equilibrium.
+
+Moreover, under a stronger requirement on the asymptotic regret of each player convergence to a correlated equilibria in general games can be guaranteed. 
 
 
 
