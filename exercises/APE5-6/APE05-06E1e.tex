@@ -1,5 +1,29 @@
-Again, unfortunately we don't have any strongly dominated strategies in this game so we have a lot of supports to check.
-However, we will heavily rely on the symmetry of the game.
+\paragraph{Domination in subgames}
+While not mandatory to solve this exercise, it can drastically simplify it to
+note that
+\begin{itemize}
+  \item in the subgame $\{x_1, z_1\} \times \{x_2, y_2, z_2\}$,
+    the strategy $x_2$ is dominated so $x_2$ cannot be in a nash equilibrium
+    for which the support of the first player is a subset of $\{x_1, z_1\}$;
+  \item in the subgame $\{x_1, y_1\} \times \{x_2, y_2, z_2\}$,
+    the strategy $y_2$ is dominated so $y_2$ cannot be in a nash equilibrium
+    for which the support of the first player is a subset of $\{x_1, y_1\}$;
+  \item in the subgame $\{y_1, z_1\} \times \{x_2, y_2, z_2\}$,
+    the strategy $z_2$ is dominated so $z_2$ cannot be in a nash equilibrium
+    for which the support of the first player is a subset of $\{y_1, z_1\}$;
+  \item in the subgame $\{x_1, y_1, z_1\} \times \{x_2, z_2\}$,
+    the strategy $x_1$ is dominated so $x_1$ cannot be in a nash equilibrium
+    for which the support of the first player is a subset of $\{x_2, z_2\}$;
+  \item in the subgame $\{x_1, y_1, z_1\} \times \{x_2, y_2\}$,
+    the strategy $y_1$ is dominated so $y_1$ cannot be in a nash equilibrium
+    for which the support of the first player is a subset of $\{x_2, y_2\}$;
+  \item in the subgame $\{x_1, y_1, z_1\} \times \{y_2, z_2\}$,
+    the strategy $z_1$ is dominated so $z_1$ cannot be in a nash equilibrium
+    for which the support of the first player is a subset of $\{y_2, z_2\}$.
+\end{itemize}
+Therefore, the only support to check is $\{x_1, y_1, z_1\} \times \{x_2, y_2, z_2\}$.
+The solution below also analyzes the other cases and find no equilibrium as we
+have just deduced.
 
 \begin{enumerate} [label=\Alph*. ]
     \item \textbf{Pure strategy VS. Pure strategy.} \\
