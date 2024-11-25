@@ -1,0 +1,19 @@
+\begin{itemize}
+  \item[a.] The decision that we will do during the first turn of the prisoner dilemma depends of the one done during the second turn,
+  that depends of the one of the third turn,etc. As we have a finite number of games, we will check the rationnal decison done at the last turn,
+  the game $N$.
+  In this case, the past has no impact and the players will both defect $(D,d)$. Now that we know that, we can done a decision $(D,d)$
+  for the game $N-1$. Recursively, we can go back to turn 1 and players will both defect $(D,d)$.
+  As we know when the games are over, everything can be planned in advance.
+  \item[b.] We add randomness: a probability $\alpha$ that we will continue to play, and a probability $(1-\alpha)$ that we stop playing.
+  The set of player is $N = \{1,2\}$, the set of state of the wrolds is $\Theta = \{\text{Play},\text{Stop}\}$, the initial condition probability
+  $q$ is $p(\text{Play})= 1$, and the transition between states probabilities $p$ is $p(\text{Play}|\text{Play},d)=\alpha$,
+  $p(\text{Stop}|\text{Play},d)=1-\alpha$ and $p(\text{Stop}|\text{Stop},d)=1$. 
+  (we could possibly add states and signals.)
+  \item[c.] If players plays Confess or Deny randomly with $p=\frac{1}{2}$ each, there are 4 possibilities with each a
+  probability $p=\frac{1}{4}$ that it's happen.
+  By symmetry, the average payoff of each player is then : $\frac{1}{4}(5+1+0+6) = 3$.
+  By taking in account the discount factor for the repeated games, the payoff will be : $3 + 3\delta + 3\delta^2 + 3\delta^3 +... =
+  \frac{3}{1-\delta}$ (Geometric series).
+  (Easier notation: $(1-\delta)(3+3\delta+3\delta^2+...) = (1-\delta)\frac{3}{1-\delta} = 3$) 
+\end{itemize}
