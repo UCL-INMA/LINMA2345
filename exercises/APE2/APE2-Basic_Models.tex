@@ -29,23 +29,23 @@ The two firms are well aware of the situation and want to maximize their own pro
 	\item[e.] Write the \textit{type-agent} representation of the Bayesian game obtained in~d.
 \end{enumerate}
 
-%\paragraph{1. } Le nouveau processus de production de widgets que la firme 1 développe a autant de chance de générer des coûts faibles qu'élevés. En fonction de ce dernier résultat, la firme 1 peut alors décider de construire, ou pas, un nouvel entrepôt.
+%\paragraph{1. } Le nouveau processus de production de widgets que la firme 1 dï¿½veloppe a autant de chance de gï¿½nï¿½rer des coï¿½ts faibles qu'ï¿½levï¿½s. En fonction de ce dernier rï¿½sultat, la firme 1 peut alors dï¿½cider de construire, ou pas, un nouvel entrepï¿½t.
 %
-%La firme 2 aimerait elle aussi entrer sur le marché des widgets. Elle décide d'y entrer, ou pas, sur base de l'observation de ce que fait la firme 1 (construire ou non un nouvel entrepôt). Cependant, elle ne connait pas les coûts que cette dernière a encourus.
+%La firme 2 aimerait elle aussi entrer sur le marchï¿½ des widgets. Elle dï¿½cide d'y entrer, ou pas, sur base de l'observation de ce que fait la firme 1 (construire ou non un nouvel entrepï¿½t). Cependant, elle ne connait pas les coï¿½ts que cette derniï¿½re a encourus.
 %
-%Selon les choix respectifs des deux firmes, des profits sont engendrés selon les règles suivantes :
+%Selon les choix respectifs des deux firmes, des profits sont engendrï¿½s selon les rï¿½gles suivantes :
 %\begin{itemize}
-%	\item La firme 2 fera un profit à long terme de $2M$\euro \ si elle entre sur le marché des widgets et que la firme 1 a encouru des coûts élevés tandis qu'elle perdra $4M$\euro \ si ces coûts étaient faibles.
-%	\item Des coûts faibles engendreraient un profit de $4M$\euro \ en faveur de la firme 1 et la construction d'un nouvel entrepôt y ajouterait encore $2M$\euro. Par contre, la construction d'un nouvel entrepôt par la firme 1 engendrerait un déficit de $4M$\euro \ si les coûts étaient élevés.
-%	\item Dans tous les cas, l'entrée de la firme 2 sur le marché de widgets engendrerait un déficit de $6M$\euro \ pour la firme 1.
+%	\item La firme 2 fera un profit ï¿½ long terme de $2M$\euro \ si elle entre sur le marchï¿½ des widgets et que la firme 1 a encouru des coï¿½ts ï¿½levï¿½s tandis qu'elle perdra $4M$\euro \ si ces coï¿½ts ï¿½taient faibles.
+%	\item Des coï¿½ts faibles engendreraient un profit de $4M$\euro \ en faveur de la firme 1 et la construction d'un nouvel entrepï¿½t y ajouterait encore $2M$\euro. Par contre, la construction d'un nouvel entrepï¿½t par la firme 1 engendrerait un dï¿½ficit de $4M$\euro \ si les coï¿½ts ï¿½taient ï¿½levï¿½s.
+%	\item Dans tous les cas, l'entrï¿½e de la firme 2 sur le marchï¿½ de widgets engendrerait un dï¿½ficit de $6M$\euro \ pour la firme 1.
 %\end{itemize}
 %Les deux firmes sont parfaitement au courant de la situation et souhaitent maximiser leur profit en euros.
 %\begin{enumerate}
-%	\item[a.] Décrivez ce jeu en \textit{forme extensive}.
-%	\item[b.] Construisez la représentation \textit{normale} de ce jeu en forme stratégique.
-%	\item[c.] Analysez cette représentation normale et éliminez itérativement un maximum de stratégies faiblement dominées.
-%	\item[e.] Supposons maintenant que le jeu commence juste après que la firme 1 apprenne si ses coûts sont élevés ou pas (mais avant que la firme 1 ne décide si elle construira un nouvel entrepôt). Écrivez un jeu \textit{Bayésien} avec information incomplète pour décrire ce jeu.
-%	\item[f.] Écrivez la représentation \textit{type-agent} du jeu Bayésien obtenu en e.
+%	\item[a.] Dï¿½crivez ce jeu en \textit{forme extensive}.
+%	\item[b.] Construisez la reprï¿½sentation \textit{normale} de ce jeu en forme stratï¿½gique.
+%	\item[c.] Analysez cette reprï¿½sentation normale et ï¿½liminez itï¿½rativement un maximum de stratï¿½gies faiblement dominï¿½es.
+%	\item[e.] Supposons maintenant que le jeu commence juste aprï¿½s que la firme 1 apprenne si ses coï¿½ts sont ï¿½levï¿½s ou pas (mais avant que la firme 1 ne dï¿½cide si elle construira un nouvel entrepï¿½t). ï¿½crivez un jeu \textit{Bayï¿½sien} avec information incomplï¿½te pour dï¿½crire ce jeu.
+%	\item[f.] ï¿½crivez la reprï¿½sentation \textit{type-agent} du jeu Bayï¿½sien obtenu en e.
 %\end{enumerate}
 
 \begin{solution}
@@ -63,31 +63,32 @@ The two firms are well aware of the situation and want to maximize their own pro
 \begin{solution}
 \input{0202}
 \end{solution}
-%Raphaël et \TAtwo{} jouent au jeu suivant. Tout d'abord, ils misent chacun \SI{1}{\EUR}. Ensuite Raphaël tire une carte dans un jeu complet de 52 cartes sans la montrer à \TAtwo{} et espère que celle-ci sera supérieure ou égale à 10 (donc que ce sera un 10, un valet, une dame, un roi ou un as). Raphaël peut alors décider soit de s'arrêter là (\textit{Fold}) soit de surenchérir de \SI{1}{\EUR} \ (\textit{Raise}). S'il a décidé de s'arrêter, il montre sa carte et gagne l'ensemble des mises (donc les \SI{1}{\EUR} \ de \TAtwo{}) si sa carte était supérieure ou égale à 10. Dans le cas contaire, c'est \TAtwo{} qui empoche tout. S'il surenchérit par contre, \TAtwo{} a alors le choix entre suivre la surenchère (\textit{Meet}) et se coucher (\textit{Pass}). S'il se couche, Raphaël empoche la mise totale (et donc les \SI{1}{\EUR} \ de \TAtwo{}). S'il suit la surenchère par contre, de nouveau Raphaël montre sa carte et empoche l'entièreté de la mise (donc \SI{2}{\EUR} \ cette fois) uniquement si sa carte était au moins un 10. Sinon, c'est \TAtwo{} qui récupère le tout.
+%Raphaï¿½l et \TAtwo{} jouent au jeu suivant. Tout d'abord, ils misent chacun \SI{1}{\EUR}. Ensuite Raphaï¿½l tire une carte dans un jeu complet de 52 cartes sans la montrer ï¿½ \TAtwo{} et espï¿½re que celle-ci sera supï¿½rieure ou ï¿½gale ï¿½ 10 (donc que ce sera un 10, un valet, une dame, un roi ou un as). Raphaï¿½l peut alors dï¿½cider soit de s'arrï¿½ter lï¿½ (\textit{Fold}) soit de surenchï¿½rir de \SI{1}{\EUR} \ (\textit{Raise}). S'il a dï¿½cidï¿½ de s'arrï¿½ter, il montre sa carte et gagne l'ensemble des mises (donc les \SI{1}{\EUR} \ de \TAtwo{}) si sa carte ï¿½tait supï¿½rieure ou ï¿½gale ï¿½ 10. Dans le cas contaire, c'est \TAtwo{} qui empoche tout. S'il surenchï¿½rit par contre, \TAtwo{} a alors le choix entre suivre la surenchï¿½re (\textit{Meet}) et se coucher (\textit{Pass}). S'il se couche, Raphaï¿½l empoche la mise totale (et donc les \SI{1}{\EUR} \ de \TAtwo{}). S'il suit la surenchï¿½re par contre, de nouveau Raphaï¿½l montre sa carte et empoche l'entiï¿½retï¿½ de la mise (donc \SI{2}{\EUR} \ cette fois) uniquement si sa carte ï¿½tait au moins un 10. Sinon, c'est \TAtwo{} qui rï¿½cupï¿½re le tout.
 %\begin{enumerate}
-%	\item[a.] Modélisez ce jeu sous forme extensive et construisez sa représentation normale.
-%	\item[b.] Si vous deviez jouer au jeu, préféreriez-vous intuitivement le rôle de Raphaël ou celui de \TAtwo{}? 
+%	\item[a.] Modï¿½lisez ce jeu sous forme extensive et construisez sa reprï¿½sentation normale.
+%	\item[b.] Si vous deviez jouer au jeu, prï¿½fï¿½reriez-vous intuitivement le rï¿½le de Raphaï¿½l ou celui de \TAtwo{}? 
 %\end{enumerate}
 %
-%\paragraph{3. } Supposons qu'on joue au même jeu qu'à la question 2., mais avec les modifications suivantes :
+%\paragraph{3. } Supposons qu'on joue au mï¿½me jeu qu'ï¿½ la question 2., mais avec les modifications suivantes :
 %\begin{itemize}
-%	\item Raphaël gagne si sa carte est rouge (et plus si elle est supérieure à 10) et perd si elle est noire;
-%	\item Raphaël a maintenant le choix entre s'arrêter (\textit{Fold}), surenchérir de \SI{1}{\EUR} \ (\textit{Raise1}) ou surenchérir de 0,\SI{75}{\EUR} \ (\textit{Raise.75}).
+%	\item Raphaï¿½l gagne si sa carte est rouge (et plus si elle est supï¿½rieure ï¿½ 10) et perd si elle est noire;
+%	\item Raphaï¿½l a maintenant le choix entre s'arrï¿½ter (\textit{Fold}), surenchï¿½rir de \SI{1}{\EUR} \ (\textit{Raise1}) ou surenchï¿½rir de 0,\SI{75}{\EUR} \ (\textit{Raise.75}).
 %\end{itemize}
 %\begin{enumerate}
-%	\item[a.] Modélisez ce jeu sous forme extensive et construisez sa représentation normale.
-%	\item[b.] Identifiez toutes les stratégies qui peuvent être itérativement éliminées par faible domination.
+%	\item[a.] Modï¿½lisez ce jeu sous forme extensive et construisez sa reprï¿½sentation normale.
+%	\item[b.] Identifiez toutes les stratï¿½gies qui peuvent ï¿½tre itï¿½rativement ï¿½liminï¿½es par faible domination.
 %\end{enumerate}
 
 \section{}
 The next object to be sold in the auction is a statue representing \emph{Archangel Rapha\"el}. Starting price: \SI{100}{\EUR}. For obvious reasons, \TAtwo{} and \TAone{} are both very interested by this relic (strangely enough, they seem to be the only ones though). They both know how much the object is worth for themselves and estimate that it must have an (integer) value between 1 and 100 to the other player, each with equal probability. Now, they must make an offer (an integer between 0 and 100) for the statue simultaneously: the player who bids the highest pays \emph{the price announced by its opponent} and returns home with the relic whereas the opponent in question goes home with nothing but its money. (In case of a tie, we flip a coin to decide who gets the statue.)
 
 \begin{enumerate}
-	\item[a.] Model this situation as a Bayesian game.
+	\item[a.] Model this situation as a Bayesian game. 
 	\item[b.] Consider the type-agent formulation of this game. How many players would it count? And how many actions would each player have? (\textbf{Advanced.} Give a full description of the type-agent representation of this game.)
 	\item[c.] The above game is known as a second price sealed bid auction. Can you guess the optimal strategy of the players? And what if the player who bids the highest had to pay its own bid instead of its opponent's (the so-called first price sealed bid auction)? 
 \end{enumerate}
 
-\nosolution{}
-
+\begin{solution}
+	\input{0203}
+\end{solution}
 \end{document}
