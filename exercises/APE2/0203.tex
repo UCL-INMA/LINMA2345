@@ -1,0 +1,82 @@
+\begin{enumerate}[label=\alph*.]
+
+    %%%%%%%%%%%%%%%%%%
+    %%%%%%% a %%%%%%%%
+    %%%%%%%%%%%%%%%%%%
+
+    \item A bayesian game is a tuple $\Gamma^b =(N, C, T, p, u)$. In this situation:
+        \begin{enumerate}
+            \item $N = \{1,2\}$,
+            \item $C = C_1\times C_2$ where $C_i=\{0, \dotsc, 100\}$ for $i=1,2$,
+            \item $T = T_1\times T_2$ where $T_i=\{1, \dotsc, 100\}$ for $i=1,2$,
+            \item $p = (p_1:T_1 \to \Delta(T_2), p_2:T_2\to \Delta(T_1))$. $\forall i\in T_1,j\in T_2$ $p_1(t_2=j\vert t_1=i) = p_2(t_1=i\vert t_2=j)= \frac{1}{100}$,
+            \item $u = (u_1, u_2)$ where $u_i :C\times T\to \R$ for $i=1, 2$. To write the expected payoff function, we make the following observations: 
+            \begin{enumerate}
+                \item The winner pays the opponents bid.
+                \item In case of a draw, a coin is flipped.
+                \item If you lose, the payoff is zero.
+            \end{enumerate}
+            \[
+            u_1\bigl((c_1,c_2),(t_1,t_2)\bigr) =
+            \begin{cases}
+            t_1 - c_2 & \text{if } c_1 > c_2, \\
+            \frac{1}{2}(t_1 - c_2) & \text{if } c_1 = c_2, \\
+            0 & \text{if } c_1 < c_2.
+            \end{cases}
+            \]
+            \[
+            u_2\bigl((c_1,c_2),(t_1,t_2)\bigr) =
+            \begin{cases}
+            t_2 - c_1 & \text{if } c_2 > c_1, \\
+            \frac{1}{2}(t_2 - c_1) & \text{if } c_2 = c_1, \\
+            0 & \text{if } c_2 < c_1.
+            \end{cases}
+            \]
+        \end{enumerate}
+
+    %%%%%%%%%%%%%%%%%%
+    %%%%%%% b %%%%%%%%
+    %%%%%%%%%%%%%%%%%%
+
+    \item For the type-agent formulation, we consider 1 player per type. As there are 100 types per player in the bayesian formulation, there will be 200 players in the type-agent formulation. Each of those players will have 101 actions, the same as in the bayesian formulation.
+    
+    %%%%%%%%%%%%%%%%%%
+    %%%%%%% c %%%%%%%%
+    %%%%%%%%%%%%%%%%%%
+
+    \item In a second-price sealed-bid auction, bidding truthfully $b=t_1$ weakly dominates any other bid $b\neq t_1$. \\
+        To see this, fix a type $t_1$ for Player~1 and consider any bid $b\neq t_1$.  
+        We compare the payoff obtained by bidding $b$ and by bidding $t_1$, for every possible bid $b_2$ of Player~2.
+
+        \medskip
+
+        \noindent\textbf{Case 1: $b<t_1$.}
+
+        \begin{itemize}
+            \item If $b_2<b<t_1$, Player~1 wins under both bids and pays $b_2$, hence the payoff is $t_1-b_2$ in both cases.
+            
+            \item If $b_2=b<t_1$, bidding $b$ leads to a tie and an expected payoff $\frac{1}{2}(t_1-b_2)$, whereas bidding $t_1$ leads to a sure win with payoff $t_1-b_2$. Thus bidding $t_1$ yields a strictly higher payoff.
+            
+            \item If $b<b_2<t_1$, bidding $b$ leads to a loss and payoff $0$, while bidding $t_1$ leads to a win with payoff $t_1-b_2>0$. Hence bidding $t_1$ is strictly better.
+            
+            \item If $b<t_1\le b_2$, Player~1 loses under both bids and obtains payoff $0$ in both cases.
+        \end{itemize}
+
+        In all subcases, bidding $b=t_1$ is at least as good as any $b<t_1$, and strictly better in some cases.
+        \medskip
+
+        \noindent\textbf{Case 2: $b>t_1$.}
+
+        \begin{itemize}
+            \item If $b_2\leq t_1<b$, Player~1 wins under both bids and pays $b_2$, hence the payoff is $t_1-b_2$ in both cases.
+        
+            \item If $t_1<b_2<b$, bidding $b$ leads Player~1 to win and pay $b_2$, yielding payoff $t_1-b_2<0$, whereas bidding $t_1$ leads to a loss and payoff $0$. Thus bidding $t_1$ is strictly better.
+            
+            \item If $t_1<b<b_2$, Player~1 loses under both bids and obtains payoff $0$ in both cases.
+        \end{itemize}
+
+        Again, bidding $b=t_1$ is at least as good as any $b>t_1$, and strictly better in some cases. 
+
+        In a first-price sealed-bid auction, bidding truthfully always lead to a zero payoff. Therefore, it is not the optimal strategy anymore. Finding the optimal bid is not as easy, but it will obviously be less than the type of the player.
+
+\end{enumerate}
